@@ -1,0 +1,27 @@
+.side-wrapper {
+    float: left;
+    height: 100vh;
+    padding: 64px;
+    box-shadow: 1px 10px 10px dimgrey;
+    background-color: #C7988E;
+}
+
+.side-wrapper li {
+    margin-bottom: 15px;
+}
+
+.side-wrapper a:hover {
+    color: white;
+}
+
+.side-wrapper ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.side-wrapper a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}

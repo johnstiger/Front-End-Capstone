@@ -1,0 +1,42 @@
+.first {
+    margin-left: 70px;
+    float: left;
+    padding: 17px;
+    height: 163px;
+    box-shadow: 2px 4px 9px dimgrey;
+    border-radius: 5px;
+    width: 172px;
+}
+
+.table-bar-wrapper {
+    float: left;
+    margin-top: 80px;
+    margin-left: 74px;
+    width: 70vw;
+    height: 33vh;
+    box-shadow: 2px 4px 9px dimgrey;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Create two equal columns that floats next to each other */
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px;
+    /* Should be removed. Only for demonstration */
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
