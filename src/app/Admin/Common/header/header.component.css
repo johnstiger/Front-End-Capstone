@@ -1,3 +1,7 @@
+body{
+  background-color: #eee;
+}
+
 .header {
     padding: 10px;
     background-color: #C7988E;
@@ -35,5 +39,5 @@
 
 .top-navigation li a {
     text-decoration: none;
-    color: black;
+    color: white;
 }

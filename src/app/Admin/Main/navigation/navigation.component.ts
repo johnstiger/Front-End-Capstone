@@ -11,8 +11,8 @@ export class NavigationComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit() {
-    $("#menu-toggle").click(function(e) {
-      $("#wrapper").toggleClass("toggled");
+    $(".burger-menu").click(() => {
+      $(".side-wrapper").toggle("slow");
     });
   }
  logout(){

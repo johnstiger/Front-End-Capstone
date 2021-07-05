@@ -1,42 +1,130 @@
-.first {
-    margin-left: 70px;
-    float: left;
-    padding: 17px;
-    height: 163px;
-    box-shadow: 2px 4px 9px dimgrey;
-    border-radius: 5px;
-    width: 172px;
+/* .container{
+  height: 100vh;
+  overflow: auto;
+} */
+
+.style-label{
+  color:#bebebe;
+  font-size:12px;
+  line-height:20px;
+  font-weight:500;
+  text-transform:uppercase;
 }
 
-.table-bar-wrapper {
-    float: left;
-    margin-top: 80px;
-    margin-left: 74px;
-    width: 70vw;
-    height: 33vh;
-    box-shadow: 2px 4px 9px dimgrey;
+.number-card-number{
+  margin-top:0px;
+  margin-bottom:0px;
+  color:#fff;
+  font-weight:300;
+}
+.tagline{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.tagline.number-card-currency{
+  color:#fff;
+}
+.basic-column{
+  padding-right:5px;
+  padding-left:5px;
+}
+.number-card{
+  padding:22px 30px;
+  border-radius:8px;
+  background-image:-webkit-linear-gradient(270deg, #1991eb, #1991eb);
+  background-image:linear-gradient(180deg, #1991eb, #1991eb);
+  box-shadow: 3px 4px 6px dimgrey;
+
+}
+.number-card.number-card-content3{
+  background-image:-webkit-linear-gradient(270deg, #ed629a, #c850c0);
+  background-image: linear-gradient(
+360deg
+, #ab6454, #e6d1cc);
+}
+.number-card.number-card-content4{
+  background-image:-webkit-linear-gradient(270deg, #ff8308, #fd4f00);
+  background-image: linear-gradient(
+360deg
+, #ab6454, #e6d1cc);
+}
+.number-card.number-card-content2{
+  display:block;
+  background-image:-webkit-linear-gradient(270deg, #17cec4, #17cec4 0%, #08aeea);
+  background-image: linear-gradient(
+360deg
+, #ab6454, #e6d1cc);
+  color:#333;
+}
+.number-card.number-card-content1{
+  background-image:-webkit-linear-gradient(270deg, #7042bf, #3023ae);
+  background-image: linear-gradient(
+    360deg
+    , #ab6454, #e6d1cc);
+}
+.number-card-progress-wrapper{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:justify;
+  -webkit-justify-content:space-between;
+  -ms-flex-pack:justify;
+  justify-content:space-between;
+}
+.number-card-divider{
+  height:1px;
+  margin-top:10px;
+  margin-bottom:14px;
+  background-color:hsla(0, 0%, 100%, .15);
+}
+.number-card-dollars{
+  color:hsla(0, 0%, 100%, .8);
+  font-size:16px;
+  line-height:24px;
+}
+.number-card-progress{
+  color:#fff;
+  text-align:right;
+}
+@media (max-width: 991px){
+   .number-card-number{
+      font-size:30px;
+  }
+   .number-card{
+      padding-top:12px;
+      padding-bottom:16px;
+  }
 }
 
-* {
-    box-sizing: border-box;
+
+
+canvas{
+  background-image:-webkit-linear-gradient(270deg, #7042bf, #3023ae);
+  background-image: linear-gradient(
+    351deg
+    , #ab6454, #e6d1cc);
+  box-shadow: 1px 1px 10px dimgrey;
+  border-radius: 10px;
+  /* width: min-content; */
+}
+
+.table-wrapper {
+  box-shadow: 1px 1px 10px dimgrey;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+}
+table td {
+  padding: 10px;
+}
+h4{
+  font-weight: 300;
+    font-family: inherit;
+    font-size: 17px;
+    font: caption;
 }
 
 
-/* Create two equal columns that floats next to each other */
-
-.column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: 300px;
-    /* Should be removed. Only for demonstration */
-}
-
-
-/* Clear floats after the columns */
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
