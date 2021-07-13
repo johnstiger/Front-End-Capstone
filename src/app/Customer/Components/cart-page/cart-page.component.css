@@ -1,0 +1,29 @@
+.container-fluid {
+    background-color: #C7988E;
+    overflow: hidden;
+    box-sizing: border-box;
+    color: white;
+    position: relative;
+}
+
+.custom-control-label::before, 
+.custom-control-label::after {
+    top: .8rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.rightButtons {
+    float: right;
+    margin-left: 60%;
+}
+
+.container {
+    background-color: rgb(240, 231, 231);
+    overflow: hidden;
+    box-sizing: border-box;
+    color: black;
+    border-radius: 2%;
+    margin-bottom: 5%;
+    justify-self: center;
+}       

@@ -1,0 +1,52 @@
+.productSelect {
+    background-color: #C7988E;
+    overflow: hidden;
+    box-sizing: border-box;
+
+}
+
+.productSelect1 {
+    margin: 5%;
+    padding: 5%;
+    overflow: hidden;
+    background-color:  rgb(240, 231, 231);
+}
+
+.divImage {
+    float: left;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+}
+
+.prodDescription {
+    float: right;
+    margin-top: 5%;
+    margin-right: 32%;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+.button1 {
+    width: 20%;
+    margin-left: 10%;
+    background-color:  #C7988E;
+    
+}
+
+.button2 {
+    width: 20%;
+    margin-top: 8%;
+    margin-left: -20%;
+    background-color: green;
+}
+
+.button3 {
+    justify-self: center;
+    margin-left: 50%;
+    margin-top: -5%;
+    
+}

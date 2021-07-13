@@ -1,0 +1,34 @@
+.shop1 img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.shop2{
+    background-color: springgreen;
+}
+.shop3{
+    background-color: tan;
+}
+.shopbtn{
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 15px;
+    position: absolute;
+    left: 50%;
+    cursor: pointer;
+    border: none;
+}
+.shopbtn1{
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 15px;
+}
+.shopbtn2{
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 15px;
+    
+}

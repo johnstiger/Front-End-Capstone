@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './Admin/Components/dashboard/dashboard.component';
 import { OrdersComponent } from './Admin/Components/orders/orders.component';
 import { NavigationComponent } from './Admin/Main/navigation/navigation.component';
+import { LandingComponent } from './Customer/Components/landing/landing.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
       { path: 'orders', component: OrdersComponent },
     ]
   },
+  {
+    path: 'landing', component: LandingComponent
+  },
+  
+
 ];
 
 @NgModule({

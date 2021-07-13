@@ -1,0 +1,60 @@
+.container {
+    width: 200%;
+    height: 100%;
+    background-color:  #C7988E; 
+    margin: 6%;
+    
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    margin-left: 10%;
+}
+
+.logo {
+    max-width: 30%;
+    max-height: 30%;
+    margin-top: 10%; 
+    margin-left: 5%; 
+}
+
+.form {
+    float: right;
+    margin-top: -40%;
+    background-color: white;
+    width: 40%;
+}
+
+.btn {
+    margin-left: 20%;
+    border-radius: 100px;
+    background-color: white;
+    color: black;
+   
+}
+
+.register {
+    margin: 5%;
+}
+
+
+.submitbtn {
+    background-color:  #C7988E; 
+    margin-left: 40%;
+}
+
+
+@media only screen and (max-width: 360px){
+    .logo img{
+        width: 25%;
+    }
+    .logo{
+        padding-top: 30px;
+    }
+   .left {
+        margin-left: 10%;
+    }
+
+}
