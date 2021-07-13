@@ -12,7 +12,12 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit() {
     $(".burger-menu").click(() => {
-      $(".side-wrapper").toggle("slow");
+       $(".side-wrapper").toggle("slow", function (){
+         $(this).is(":hidden") ? $(".main-content").attr('style','width: calc(100% - 10px) !important')
+         : $(".main-content").attr('style','width: calc(100% - 252px) !important')
+      });
+
+
     });
   }
  logout(){
