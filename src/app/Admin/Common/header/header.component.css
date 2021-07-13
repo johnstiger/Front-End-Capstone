@@ -3,10 +3,13 @@ body{
 }
 
 .header {
-    padding: 10px;
-    background-color: #C7988E;
-    color: white;
-    box-shadow: 1px 2px 10px dimgrey;
+  padding: 58px 10px 10px 10px;
+  background-color: #C7988E;
+  color: white;
+  box-shadow: 1px 2px 10px dimgrey;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .burger-menu {

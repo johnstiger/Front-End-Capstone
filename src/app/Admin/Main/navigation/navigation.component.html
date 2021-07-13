@@ -1,8 +1,17 @@
 <app-header></app-header>
 
-
+<div class="trigger-link-logo">
+  <a routerLink = "#">
+      <img class="burger-menu" src="http://cdn.onlinewebfonts.com/svg/img_264699.png" alt="">
+  </a>
+  <a routerLink = "#">
+      <img class="logo" src="../../../../assets/imgs/logo.jpg" alt="">
+  </a>
+</div>
 <div class="side-wrapper">
+
     <div class="sidebar">
+
         <ul>
             <li>
                 <a class=""  routerLink='/admin/dashboard'>
@@ -43,8 +52,10 @@
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid main-content">
     <br>
     <br>
+    <div class="container w-100">
     <router-outlet></router-outlet>
+  </div>
 </div>
