@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatTableModule} from '@angular/material/table';
 // import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './Admin/Components/table/table.component';
 import { ProductsComponent } from './Admin/Components/products/products.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { ProductsComponent } from './Admin/Components/products/products.componen
     AppRoutingModule,
     ChartsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     // MatTableModule,
     // MatPaginatorModule,
     MatIconModule,

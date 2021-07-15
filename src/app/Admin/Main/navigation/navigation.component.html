@@ -13,13 +13,13 @@
     <div class="sidebar">
 
         <ul>
-            <li>
+            <li [routerLinkActive]="['active']">
                 <a class=""  routerLink='/admin/dashboard'>
                   <i class="fas fa-home"></i>
                   Dashboard</a>
             </li>
             <li>
-                <a class="" routerLink='/admin/products'>
+                <a class="" routerLink='/admin/products' >
                     <i class="fas fa-tshirt"></i> Products</a>
             </li>
             <li>
@@ -40,11 +40,11 @@
       </li>
       <li>
         <a class="" routerLink='/admin/orders'>
-            <i class="fas fa-file-invoice"></i> Product on Sales</a>
+            <i class="fas fa-tags"></i> Product on Sales</a>
     </li>
     <li>
       <a class="" routerLink='/admin/orders'>
-          <i class="fas fa-file-alt"></i> Categories</a>
+          <i class="fas fa-list-alt"></i> Categories</a>
   </li>
         </ul>
 
