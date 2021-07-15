@@ -33,10 +33,10 @@ export class LoginComponent implements OnInit {
       this.error = result.data.message;
       this.router.navigate(['/login']);
     }else if(result.data.data.is_admin){
-      window.localStorage.setItem('admin_token', result.data.access_token);
+      window.localStorage.setItem('admin_token', "Bearer "+result.data.access_token);
       this.router.navigate(['/admin/dashboard']);
     }else{
-      window.localStorage.setItem('customer_token', result.data.access_token);
+      window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
       this.router.navigate(['/landing']);
     }
   }
