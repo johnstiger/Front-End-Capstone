@@ -11,8 +11,13 @@ export class NavigationComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit() {
-    $("#menu-toggle").click(function(e) {
-      $("#wrapper").toggleClass("toggled");
+    $(".burger-menu").click(() => {
+       $(".side-wrapper").toggle("slow", function (){
+         $(this).is(":hidden") ? $(".main-content").attr('style','width: calc(100% - 10px) !important')
+         : $(".main-content").attr('style','width: calc(100% - 252px) !important')
+      });
+
+
     });
   }
  logout(){

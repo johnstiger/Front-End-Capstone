@@ -1,13 +1,26 @@
+body{
+  overflow-x: hidden;
+}
+
+.container{
+  margin-top: 34px;
+}
+
 .side-wrapper {
-    float: left;
-    height: 100vh;
-    padding: 64px;
-    box-shadow: 1px 10px 10px dimgrey;
-    background-color: #C7988E;
+  float: left;
+  height: 145vh;
+  padding: 40px;
+  /* box-shadow: 1px 10px 10px dimgrey; */
+  background-color: #C7988E;
+  margin-right: 25px;
+  overflow: hidden;
+  position: fixed !important;
+  z-index: 2;
 }
 
 .side-wrapper li {
     margin-bottom: 15px;
+    margin-top: 30px;
 }
 
 .side-wrapper a:hover {
@@ -16,7 +29,7 @@
 
 .side-wrapper ul {
     list-style-type: none;
-    margin: 0;
+    margin-top: 70px;
     padding: 0;
 }
 
@@ -24,4 +37,35 @@
     text-decoration: none;
     color: black;
     font-size: 20px;
+    color: white;
+}
+
+.side-wrapper a:hover{
+  color: darkolivegreen;
+}
+
+.logo{
+  width: 132px;
+}
+
+.burger-menu{
+  width: 40px;
+}
+
+.main-content{
+  width: calc(100% - 252px) !important;
+    position: absolute !important;
+    right: 0 !important;
+}
+.trigger-link-logo{
+  position: fixed;
+  top: 3px;
+  z-index: 3;
+    left: 35px;
+}
+
+@media (min-width: 1400px){
+  .container{
+    max-width: 100% !important;
+  }
 }
