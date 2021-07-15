@@ -1,0 +1,58 @@
+.container-fluid {
+    background-color:  #C7988E; 
+    overflow: hidden;   
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    margin-left: 10%;
+}
+
+.logo {
+    max-width: 30%;
+    max-height: 30%;
+    margin-top: 10%; 
+    margin-left: 5%; 
+}
+
+.form {
+    float: right;
+    margin-top: -33%;
+    margin-right: 5%;
+    background-color: white;
+    overflow: hidden;
+    width: 40%;
+}
+
+.btn {
+    margin-left: 20%;
+    border-radius: 100px;
+    background-color: white;
+    color: black;
+   
+}
+
+.form-group {
+    margin: 10%;
+}
+
+.submitbtn {
+    background-color:  #C7988E; 
+    margin-left: 40%;
+}
+
+
+@media only screen and (max-width: 360px){
+    .logo img{
+        width: 25%;
+    }
+    .logo{
+        padding-top: 30px;
+    }
+   .left {
+        margin-left: 10%;
+    }
+
+}

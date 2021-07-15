@@ -4,6 +4,11 @@ import { DashboardComponent } from './Admin/Components/dashboard/dashboard.compo
 import { OrdersComponent } from './Admin/Components/orders/orders.component';
 import { ProductsComponent } from './Admin/Components/products/products.component';
 import { NavigationComponent } from './Admin/Main/navigation/navigation.component';
+import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
+import { LandingComponent } from './Customer/Components/landing/landing.component';
+import { LoginComponent } from './Customer/Components/login/login.component';
+import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
+import { RegisterComponent } from './Customer/Components/register/register.component';
 
 const routes: Routes = [
   {
@@ -14,6 +19,12 @@ const routes: Routes = [
       { path: 'products', component: ProductsComponent },
     ],
   },
+  { path: 'landing', component: LandingComponent },
+  { path: 'login', component:LoginComponent },
+  { path: 'register', component:RegisterComponent },
+  { path: 'cart', component:CartPageComponent },
+  { path: 'product', component:ProductSelectComponent },
+
 ];
 
 @NgModule({

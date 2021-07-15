@@ -1,0 +1,33 @@
+.leftDiv {
+    float: left;
+    position: absolute;
+    background-color: rgb(240, 231, 231);
+    overflow: hidden;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+    margin-top: 5%;
+    width: 16%;
+    text-align: center;
+}
+
+h4 {
+    color: #C7988E;
+}
+
+.rightDiv {
+    float: right;
+    background-color: rgb(240, 231, 231);
+    overflow: hidden;
+    border-radius: 10px;
+    width: 70%;
+    margin-top: 5%;
+    margin-right: 5%;
+    height: 100%;
+}
+
+.left {
+    float: left;
+    margin-left: 3%;
+}
+

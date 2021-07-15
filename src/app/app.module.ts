@@ -12,10 +12,21 @@ import { FooterComponent } from './Admin/Common/footer/footer.component';
 import { DashboardComponent } from './Admin/Components/dashboard/dashboard.component';
 import { OrdersComponent } from './Admin/Components/orders/orders.component';
 import { NavigationComponent } from './Admin/Main/navigation/navigation.component';
+import { AuthHeaderComponent } from './Customer/Common/header/auth-header/auth-header.component';
+import { GuestHeaderComponent } from './Customer/Common/header/guest-header/guest-header.component';
+import { LandingComponent } from './Customer/Components/landing/landing.component';
+import { RegisterComponent } from './Customer/Components/register/register.component';
+import { CusFooterComponent } from './Customer/Common/cus-footer/cus-footer.component';
+import { LoginComponent } from './Customer/Components/login/login.component';
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './Admin/Components/table/table.component';
 import { ProductsComponent } from './Admin/Components/products/products.component';
+import { EditAccountComponent } from './Customer/Components/edit-account/edit-account.component';
+import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
+import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
+import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +35,16 @@ import { ProductsComponent } from './Admin/Components/products/products.componen
     DashboardComponent,
     OrdersComponent,
     NavigationComponent,
+    AuthHeaderComponent,
+    GuestHeaderComponent,
+    LandingComponent,
+    RegisterComponent,
+    CusFooterComponent,
+    LoginComponent,
+    CartPageComponent,
+    ProductSelectComponent,
+    MyOrderPageComponent,
+    EditAccountComponent,
     TableComponent,
     ProductsComponent,
   ],
