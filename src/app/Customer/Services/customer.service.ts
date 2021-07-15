@@ -10,10 +10,11 @@ import * as $ from 'jquery';
 export class CustomerService {
 
   //Server
-  private url = "http://santafe-dagom.herokuapp.com/api/";
+  // private url = "http://santafe-dagom.herokuapp.com/api/";
 
   //Local
-  // private url "http://127.0.0.1:8080/api/";
+  private url = "http://127.0.0.1:8000/api/";
+
 
   constructor(private http : HttpClient) { }
 

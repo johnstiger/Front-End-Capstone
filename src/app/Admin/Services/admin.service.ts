@@ -10,19 +10,19 @@ export class AdminService {
   // private url = "http://santafe-dagom.herokuapp.com/api/";
 
   //Local
-  private url = "http://127.0.0.1:800/api/";
+  private url = "http://127.0.0.1:8000/api/";
 
   constructor() { }
 
-  async products(){
-    const response = await axios.get(this.url+"product/all");
+  async products(token:any){
+    const response = await axios.get(this.url+"product/all", { headers: { Authorization: token }});
     return response;
   }
 
 
   // Search
   async searchProducts(data : any, token : any){
-    const response = await axios.post(this.url+"search/products", data, token);
+    const response = await axios.post(this.url+"search/products", data, {headers:{Authorization: token}});
     return response;
   }
 

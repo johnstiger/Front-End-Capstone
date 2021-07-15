@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { AdminService } from '../../Services/admin.service';
 
@@ -14,25 +15,30 @@ export class ProductsComponent implements OnInit {
       Validators.required
     ])
   });
+  token = localStorage.getItem('admin_token');
 
   products! : Products[];
-  searchResult! : Products[];
 
-  constructor( private service : AdminService ) { }
+  constructor( private service : AdminService, private router : Router ) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
 
   async searchProducts(){
-    const token = localStorage.getItem('admin_token');
-    const result = await this.service.searchProducts(this.form.value, token);
-    this.searchResult = result.data.data;
+    const result = await this.service.searchProducts(this.form.value, this.token);
+    this.products = result.data.data;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/admin/products']);
   }
 
 
   async getProducts(){
-   const result = await this.service.products();
+   const result = await this.service.products(this.token);
    this.products = result.data.data;
+   console.log(this.products);
+
   }
 
 
