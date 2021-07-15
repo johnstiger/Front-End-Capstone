@@ -4,6 +4,7 @@ import { DashboardComponent } from './Admin/Components/dashboard/dashboard.compo
 import { OrdersComponent } from './Admin/Components/orders/orders.component';
 import { ProductsComponent } from './Admin/Components/products/products.component';
 import { NavigationComponent } from './Admin/Main/navigation/navigation.component';
+import { AdminGuard } from './Authorization/admin.guard';
 import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
 import { LandingComponent } from './Customer/Components/landing/landing.component';
 import { LoginComponent } from './Customer/Components/login/login.component';
@@ -12,7 +13,7 @@ import { RegisterComponent } from './Customer/Components/register/register.compo
 
 const routes: Routes = [
   {
-    path: 'admin', component: NavigationComponent ,
+    path: 'admin', component: NavigationComponent , canActivate : [AdminGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'orders', component: OrdersComponent },

@@ -4,7 +4,6 @@ import {MatTableModule} from '@angular/material/table';
 // import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Admin/Common/header/header.component';
@@ -26,6 +25,11 @@ import { EditAccountComponent } from './Customer/Components/edit-account/edit-ac
 import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
 import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sample-header.component';
+
 
 @NgModule({
   declarations: [
@@ -47,12 +51,17 @@ import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-ord
     EditAccountComponent,
     TableComponent,
     ProductsComponent,
+    SpinnerComponent,
+    SampleHeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     // MatTableModule,
     // MatPaginatorModule,
     MatIconModule,
