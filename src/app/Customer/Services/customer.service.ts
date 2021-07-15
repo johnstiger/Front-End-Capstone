@@ -15,8 +15,9 @@ export class CustomerService {
   //Local
   private url = "http://127.0.0.1:8000/api/";
 
+  headers = { headers: { Authorization : localStorage.getItem('admin_token')} }
 
-  constructor(private http : HttpClient) { }
+  constructor() { }
 
   response: any;
 
