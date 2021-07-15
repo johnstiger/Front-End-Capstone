@@ -8,7 +8,7 @@
             <div class="form-group row">
               <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
               <div class="col-sm-10">
-                <input type="text" class="form-control search" placeholder="Search product name.....">
+                <input type="text" class="form-control search" formControlName="data" placeholder="Search product name.....">
               </div>
             </div>
           </form>
@@ -38,7 +38,7 @@
                   <td>{{ product.description }}</td>
                   <td>
                     <button type="button" class="btn btn-danger">Delete</button>
-                    <button type="button" class="btn btn-primary">Update</button>
+                    <a routerLink="#" type="button" class="btn btn-primary">Update</a>
                   </td>
                 </tr>
               </tbody>

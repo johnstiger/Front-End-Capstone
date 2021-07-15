@@ -15,7 +15,6 @@ export class ProductsComponent implements OnInit {
       Validators.required
     ])
   });
-  token = localStorage.getItem('admin_token');
 
   products! : Products[];
 
@@ -25,22 +24,24 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
+  async getDashboard(){
+    const result = await this.service.dashboard();
+    console.log(result.data);
+  }
+
+  async getProducts(){
+   const result = await this.service.products();
+   this.products = result.data.data;
+  }
+
+
+  // Search
   async searchProducts(){
-    const result = await this.service.searchProducts(this.form.value, this.token);
+    const result = await this.service.searchProducts(this.form.value);
     this.products = result.data.data;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/admin/products']);
   }
-
-
-  async getProducts(){
-   const result = await this.service.products(this.token);
-   this.products = result.data.data;
-   console.log(this.products);
-
-  }
-
-
 
 }

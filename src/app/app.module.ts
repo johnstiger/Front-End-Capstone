@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatTableModule} from '@angular/material/table';
-// import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -62,8 +60,6 @@ import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sa
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    // MatTableModule,
-    // MatPaginatorModule,
     MatIconModule,
   ],
   providers: [],

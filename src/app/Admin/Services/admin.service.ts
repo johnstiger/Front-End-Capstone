@@ -14,15 +14,21 @@ export class AdminService {
 
   constructor() { }
 
-  async products(token:any){
-    const response = await axios.get(this.url+"product/all", { headers: { Authorization: token }});
+  headers = { headers: { Authorization : localStorage.getItem('admin_token')} }
+
+  async dashboard(){
+    const response = await axios.get(this.url+"admin/dashboard", this.headers );
     return response;
   }
 
+  async products(){
+    const response = await axios.get(this.url+"product/all", this.headers );
+    return response;
+  }
 
   // Search
-  async searchProducts(data : any, token : any){
-    const response = await axios.post(this.url+"search/products", data, {headers:{ Authorization: token }});
+  async searchProducts(data : any){
+    const response = await axios.post(this.url+"search/products", data, this.headers );
     return response;
   }
 
