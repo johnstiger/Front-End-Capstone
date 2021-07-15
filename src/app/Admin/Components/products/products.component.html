@@ -21,21 +21,21 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">Image</th>
                   <th scope="col">Name</th>
                   <th scope="col">Price</th>
                   <th scope="col">Part</th>
                   <th scope="col">Status</th>
+                  <th scope="col">Description</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let product of products">
-                  <th scope="row"><img src="{{ product.image }}" alt=""></th>
-                  <td>{{ product.name }}</td>
+                  <th scope="row">{{ product.name }}</th>
                   <td>{{ product.price }}</td>
                   <td>{{ product.part }}</td>
                   <td>{{ product.status }}</td>
+                  <td>{{ product.description }}</td>
                   <td>
                     <button type="button" class="btn btn-danger">Delete</button>
                     <button type="button" class="btn btn-primary">Update</button>

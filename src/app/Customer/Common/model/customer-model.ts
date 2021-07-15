@@ -1,17 +1,3 @@
-export interface Products {
-  id : number,
-  name : string,
-  price : string,
-  image : string,
-  part : string,
-  status : boolean,
-  category_id : number
-}
-
-export interface Categories {
-  id : number,
-  name : string
-}
 
 export interface Comments {
   id : number,

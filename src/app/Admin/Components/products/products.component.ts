@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Products } from 'src/app/Customer/Common/model/customer-model';
+import { Products } from '../../Common/model/admin-model';
 import { AdminService } from '../../Services/admin.service';
 
 @Component({

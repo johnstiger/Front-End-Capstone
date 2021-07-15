@@ -22,7 +22,7 @@ export class AdminService {
 
   // Search
   async searchProducts(data : any, token : any){
-    const response = await axios.post(this.url+"search/products", data, {headers:{Authorization: token}});
+    const response = await axios.post(this.url+"search/products", data, {headers:{ Authorization: token }});
     return response;
   }
 
