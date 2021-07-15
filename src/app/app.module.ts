@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatTableModule} from '@angular/material/table';
+// import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatIconModule} from '@angular/material/icon';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,12 +18,14 @@ import { LandingComponent } from './Customer/Components/landing/landing.componen
 import { RegisterComponent } from './Customer/Components/register/register.component';
 import { CusFooterComponent } from './Customer/Common/cus-footer/cus-footer.component';
 import { LoginComponent } from './Customer/Components/login/login.component';
-import { CartPageComponent } from './customer/components/cart-page/cart-page.component';
-import { ProductSelectComponent } from './customer/components/product-select/product-select.component';
-import { MyOrderPageComponent } from './customer/components/my-order-page/my-order-page.component';
-import { EditAccountComponent } from './customer/components/edit-account/edit-account.component';
-
-
+import { ChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableComponent } from './Admin/Components/table/table.component';
+import { ProductsComponent } from './Admin/Components/products/products.component';
+import { EditAccountComponent } from './Customer/Components/edit-account/edit-account.component';
+import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
+import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
+import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +44,18 @@ import { EditAccountComponent } from './customer/components/edit-account/edit-ac
     CartPageComponent,
     ProductSelectComponent,
     MyOrderPageComponent,
-    EditAccountComponent
-    
-  
-
+    EditAccountComponent,
+    TableComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule,
+    BrowserAnimationsModule,
+    // MatTableModule,
+    // MatPaginatorModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
