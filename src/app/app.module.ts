@@ -26,6 +26,9 @@ import { EditAccountComponent } from './Customer/Components/edit-account/edit-ac
 import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
 import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
+import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
+import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-ord
     EditAccountComponent,
     TableComponent,
     ProductsComponent,
+    AllOrdersComponent,
+    CheckOutComponent
+  
   ],
   imports: [
     BrowserModule,
