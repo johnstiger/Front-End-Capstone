@@ -5,15 +5,33 @@
     overflow: hidden;
     height: auto;
     margin-top: 2%;
+    text-align: center;
 }
 
 h4 {
-    text-align: center;
     padding-top: 5%;
+}
+col {
+    margin-left: -20%;
+}
+
+hr {
+    color: #C7988E;
 }
 
 .description {
-    margin-left: 40%;
+    margin-left: 50%;
     margin-top: -40%;
     
+}
+
+.removeButton {
+    float: left;
+}
+
+.payment {
+    float: right;
+    margin-right: 5%;
+    margin-left: 70%;
+    text-align: end;
 }

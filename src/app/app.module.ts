@@ -28,6 +28,8 @@ import { ProductSelectComponent } from './Customer/Components/product-select/pro
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
 import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
+import { ToPayComponent } from './customer/components/to-pay/to-pay.component';
+import { ReceivedComponent } from './customer/components/received/received.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { CheckOutComponent } from './Customer/Components/check-out/check-out.com
     TableComponent,
     ProductsComponent,
     AllOrdersComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    ToPayComponent,
+    ReceivedComponent
   
   ],
   imports: [

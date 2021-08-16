@@ -1,0 +1,38 @@
+.container {
+    background-color: rgb(240, 231, 231);
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+    height: auto;
+    margin-top: 2%;
+    /* text-align: center; */
+}
+
+h4 {
+    padding-top: 5%;
+    text-align: center;
+}
+
+hr {
+    color: #C7988E;
+}
+
+.description {
+    margin-left: 35%;
+    margin-top: -40%;
+}
+
+.prods {
+    margin-left: 5%;
+}
+
+p {
+    margin-top: 30%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn {
+    background-color:  #C7988E;
+}
+
