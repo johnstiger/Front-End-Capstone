@@ -27,9 +27,11 @@ import { ProductSelectComponent } from './Customer/Components/product-select/pro
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
 import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
-import { ToPayComponent } from './customer/components/to-pay/to-pay.component';
-import { ReceivedComponent } from './customer/components/received/received.component';
-
+import { ReceivedComponent } from './Customer/Components/received/received.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
 
 @NgModule({
   declarations: [
@@ -62,11 +64,11 @@ import { ReceivedComponent } from './customer/components/received/received.compo
     AppRoutingModule,
     ChartsModule,
     BrowserAnimationsModule,
-    // HttpClientModule,
-    // FormsModule,
-    // ReactiveFormsModule,
-    // // MatTableModule,
-    // MatPaginatorModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatIconModule,
   ],
   providers: [],
