@@ -25,10 +25,10 @@ import { EditAccountComponent } from './Customer/Components/edit-account/edit-ac
 import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
 import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
-import { HttpClientModule } from '@angular/common/http';
-import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sample-header.component';
+import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
+import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
+import { ToPayComponent } from './customer/components/to-pay/to-pay.component';
+import { ReceivedComponent } from './customer/components/received/received.component';
 
 
 @NgModule({
@@ -51,18 +51,21 @@ import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sa
     EditAccountComponent,
     TableComponent,
     ProductsComponent,
-    SpinnerComponent,
-    SampleHeaderComponent,
+    AllOrdersComponent,
+    CheckOutComponent,
+    ToPayComponent,
+    ReceivedComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    // MatTableModule,
+    // HttpClientModule,
+    // FormsModule,
+    // ReactiveFormsModule,
+    // // MatTableModule,
     // MatPaginatorModule,
     MatIconModule,
   ],

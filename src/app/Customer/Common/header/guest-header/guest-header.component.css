@@ -77,18 +77,23 @@ hr{
 }
 
 
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 600px){
     .logo img{
-        width: 30%;
+        width: 35%;
+        height: auto;
     }
     .logo{
         padding-top: 30px;
     }
-    .nav-text{
+    /* .nav-text{
         margin-top: 4%;
-    }
+    } */
     .nav-text a{
-        font-size: 16px;
+        font-size: 14px;
+    }
+    .nav-element {
+        padding: -10px;
+        height: 50%;
     }
 
 }

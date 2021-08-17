@@ -1,34 +1,87 @@
+.container {
+    margin-top: -50%;
+}
 .shop1 img{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2%;
+    /* position: relative; */
+    /* margin-top: 10% */
 }
-.shop2{
-    background-color: springgreen;
+.shop2 img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    /* position: relative; */
+    /* margin-top: 10% */
 }
-.shop3{
-    background-color: tan;
+.shop3 img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    /* position: relative; */
+    /* margin-top: 10% */
 }
+    /* .shop2{
+        background-color: springgreen;
+    }
+    .shop3{
+        background-color: tan;
+    } */
 .shopbtn{
     box-sizing: border-box;
     border-radius: 20px;
     padding: 8px;
     font-size: 15px;
     position: absolute;
-    left: 50%;
+    left: 45%;
     cursor: pointer;
     border: none;
+    margin-top: 15%;
 }
 .shopbtn1{
     box-sizing: border-box;
     border-radius: 20px;
     padding: 8px;
     font-size: 15px;
+    position: absolute;
+    left: 45%;
+    cursor: pointer;
+    border: none;
+    margin-top: 15%;
 }
 .shopbtn2{
     box-sizing: border-box;
     border-radius: 20px;
     padding: 8px;
     font-size: 15px;
+    position: absolute;
+    left: 45%;
+    cursor: pointer;
+    border: none;
+    margin-top: 15%;
     
+}
+
+@media only screen and (max-width: 600px){
+    .container {
+        margin-top: -176%;
+    }
+    .shopbtn {
+        left: 25%;
+        margin-top: 30%;
+    }
+    .shopbtn1 {
+        left: 25%;
+        margin-top: 30%;
+    }
+    .shopbtn2 {
+        left: 25%;
+        margin-top: 30%;
+    }
+    
+
 }
