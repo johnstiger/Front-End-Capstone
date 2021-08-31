@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
+import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sample-header.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
     AllOrdersComponent,
     CheckOutComponent,
     ToPayComponent,
-    ReceivedComponent
+    ReceivedComponent,
+    SampleHeaderComponent
 
   ],
   imports: [
