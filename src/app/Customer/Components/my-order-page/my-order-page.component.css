@@ -26,3 +26,18 @@ h4 {
     margin-right: 5%;
     height: 100%;
 }
+
+@media only screen and (max-width: 600px){
+    .leftDiv {
+        margin-left: 30%;
+        width: 40%;
+    }
+    .rightDiv {
+        margin-top: 80%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    h4 {
+        font-size: 40px;
+    }
+}

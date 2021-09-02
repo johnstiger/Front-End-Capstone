@@ -1,0 +1,2 @@
+[0824/200255.975:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0902/194516.871:ERROR:registration_protocol_win.cc(102)] CreateFile: The system cannot find the file specified. (0x2)
