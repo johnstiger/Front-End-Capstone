@@ -1,6 +1,10 @@
 .container {
     margin-top: -50%;
 }
+img {
+    max-width: 100%;
+    height: auto;
+}
 .shop1 img{
     display: block;
     margin-left: auto;
