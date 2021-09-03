@@ -4,7 +4,6 @@ import {MatTableModule} from '@angular/material/table';
 // import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Admin/Common/header/header.component';
@@ -28,8 +27,12 @@ import { ProductSelectComponent } from './Customer/Components/product-select/pro
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
 import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
-import { ToPayComponent } from './customer/components/to-pay/to-pay.component';
-import { ReceivedComponent } from './customer/components/received/received.component';
+import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
+import { ReceivedComponent } from './Customer/Components/received/received.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sample-header.component';
 
 
 @NgModule({
@@ -55,15 +58,20 @@ import { ReceivedComponent } from './customer/components/received/received.compo
     AllOrdersComponent,
     CheckOutComponent,
     ToPayComponent,
-    ReceivedComponent
+    ReceivedComponent,
   
+    SpinnerComponent,
+    SampleHeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
     BrowserAnimationsModule,
-    // MatTableModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatTableModule,
     // MatPaginatorModule,
     MatIconModule,
   ],

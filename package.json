@@ -23,7 +23,7 @@
     "angular-bootstrap-md": "^11.1.0",
     "angular-chart.js": "^1.1.1",
     "canvasjs": "^1.8.3",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
