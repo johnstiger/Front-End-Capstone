@@ -19,9 +19,9 @@ hr {
 }
 
 .fa {
-    padding: 0.3em;
-    font-size: 1.3em;
-    width: 1.7em;
+    padding: 7px;
+    font-size: 20px;
+    width: 35px;
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
@@ -40,6 +40,15 @@ hr {
     font-size: 1em;
 }
 
-.txt1 {
-    margin-left: 20%;
+.messenger-icon {
+    margin-left: 15px;
+    color: #3B5998;
+    font-size: 30px;
+}
+
+.facebook-icon {
+    font-size: 30px;
+    color: #3B5998;
+    background-color: #fff;
+    border-radius: 50%;
 }

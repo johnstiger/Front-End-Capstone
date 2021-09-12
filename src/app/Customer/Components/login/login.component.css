@@ -1,61 +1,76 @@
 .container-fluid {
-    background-color:  #C7988E;
-    overflow: hidden;
+    background-color: #C7988E;
+    height: 100%;
+    width: 100%;
 }
 
 .text {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: white;
-    margin-left: 10%;
+    margin-left: 16%;
+    width: 36%;
 }
 
 .logo {
-    max-width: 30%;
+    max-width: 40%;
+    margin-left: 6%;
     max-height: 30%;
     margin-top: 10%;
-    margin-left: 5%;
 }
 
 .form {
     float: right;
-    margin-top: -33%;
-    margin-right: 5%;
+    margin-top: -34%;
     background-color: white;
-    overflow: hidden;
-    width: 40%;
+    width: 30%;
+    border-radius: 2%;
+    margin-right: 12%;
+    padding: 25px;
 }
 
 .btn {
     margin-left: 20%;
+    font-size: 20px;
     border-radius: 100px;
+    width: 20%;
     background-color: white;
     color: black;
-
 }
 
-.form-group {
-    margin: 10%;
+.form-control {
+    margin-bottom: 10%;
+    padding: 10px;
 }
 
 .submitbtn {
-    background-color:  #C7988E;
-    margin-left: 40%;
+    background-color: #C7988E;
+    margin-left: -2%;
+    width: 9em;
+    font-size: 20px;
+    color: white;
 }
 
-.spinner{
-  display: none;
+.loginbottom {
+    display: block;
+    text-align: center;
 }
 
-@media only screen and (max-width: 360px){
-    .logo img{
+.spinner {
+    display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  
+}
+
+@media only screen and (max-width: 360px) {
+    .logo img {
         width: 25%;
     }
-    .logo{
+    .logo {
         padding-top: 30px;
     }
-   .left {
+    .left {
         margin-left: 10%;
     }
-
 }

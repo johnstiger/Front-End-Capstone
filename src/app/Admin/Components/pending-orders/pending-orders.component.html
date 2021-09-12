@@ -1,6 +1,6 @@
 <div class="container">
     <div class="wrapper">
-        <p>Orders</p>
+        <p>Pending-Orders</p>
         <div class="contain">
             <div class="row">
                 <div class="col-9">
@@ -23,7 +23,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Total</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,7 +33,10 @@
                                     <td> product.price </td>
                                     <td> product.part </td>
                                     <td> product.status </td>
-                                    <td> product.status </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">Confirmed</button>
+                                        <button type="button" class="btn btn-danger">Declined</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -33,6 +33,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
 import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sample-header.component';
+import { CustomersComponent } from './Admin/Components/customers/customers.component';
+import { AdminsComponent } from './Admin/Components/admins/admins.component';
+import { PendingOrdersComponent } from './Admin/Components/pending-orders/pending-orders.component';
+import { ProductOnSaleComponent } from './Admin/Components/product-on-sale/product-on-sale.component';
+import { CategoryComponent } from './Admin/Components/category/category.component';
+import { AddAdminComponent } from './Admin/Components/admins/add-admin/add-admin.component';
+import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
+import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +66,15 @@ import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sa
     CheckOutComponent,
     ToPayComponent,
     ReceivedComponent,
-    SampleHeaderComponent
+    SampleHeaderComponent,
+    CustomersComponent,
+    AdminsComponent,
+    PendingOrdersComponent,
+    ProductOnSaleComponent,
+    CategoryComponent,
+    AddAdminComponent,
+    AddProductComponent,
+    AddSaleComponent,
 
   ],
   imports: [

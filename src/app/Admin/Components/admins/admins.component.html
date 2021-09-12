@@ -1,6 +1,6 @@
 <div class="container">
     <div class="wrapper">
-        <p>Orders</p>
+        <p>Admins</p>
         <div class="contain">
             <div class="row">
                 <div class="col-9">
@@ -13,27 +13,29 @@
                         </div>
                     </form>
                 </div>
+                <div class="col-3">
+                    <a class="btn btn-primary add" routerLink="/admin/add-admin">Add</a>
+                </div>
                 <div class="col-12 mt-5">
                     <div class="table-responsive-lg">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Customer Name</th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Contact Number</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Samle</td>
                                     <td> product.name </td>
                                     <td> product.price </td>
                                     <td> product.part </td>
-                                    <td> product.status </td>
-                                    <td> product.status </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-primary">Update</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
