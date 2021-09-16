@@ -10,7 +10,7 @@
 }
 .formcard{
   margin-left: 4%;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 h1{
   font-family: 'Roboto';
@@ -18,6 +18,14 @@ h1{
 }
 .card-body{
   padding: 10px;
+}
+.card-text{
+  font-family: 'Rufina';
+}
+.form-control{
+  border-radius: 10px;
+  font-family: 'Roboto';
+  font-size: 25px;
 }
 /* .container {
     width: 100%;
