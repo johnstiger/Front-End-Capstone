@@ -18,6 +18,7 @@ import { ProductSelectComponent } from './Customer/Components/product-select/pro
 import { RegisterComponent } from './Customer/Components/register/register.component';
 import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
+import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'pending-orders', component: PendingOrdersComponent },
       { path: 'product-on-sale', component: ProductOnSaleComponent },
       { path: 'add-sales', component: AddSaleComponent },
-      { path: 'categories', component:CategoryComponent }
+      { path: 'categories', component:CategoryComponent },
+      { path: 'add-category', component: AddCategoryComponent }
     ],
   },
   { path: 'landing', component: LandingComponent },

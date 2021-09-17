@@ -1,0 +1,34 @@
+.container {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 23px;
+}
+
+#search {
+    width: 320px;
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background: #C7988E!important;
+    border-color: #C7988E!important;
+}
+
+.btn-primary:hover {
+    background-color: darkolivegreen!important;
+    border-color: darkolivegreen!important;
+}
+
+.add {
+    width: 100px;
+}
+
+.search {
+    margin-left: -10px;
+    width: 280px;
+}

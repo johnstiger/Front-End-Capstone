@@ -1,19 +1,35 @@
 <div class="container con">
-    <div class="row">
+    <div class="row content">
         <div class="col-md-4">
             <img class="image" src="https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg" alt="">
-            <button class="btn btn-primary same"> Select Image</button>
-            <input type="file" name="" id="" style="display: none;">
+            <label for="file" class="file-upload">
+              <input type="file" name="" id="file" style="display: none;">
+              Select Image
+            </label>
         </div>
         <div class="col-md-8">
             <input type="text" class="form-control field" name="" id="" placeholder="Name">
-            <input type="text" class="form-control field" name="" id="" placeholder="Category">
+            <select name="category" id="" class="options form-control">
+              <option value="" hidden>Category</option>
+              <option value="">Second Collections</option>
+              <option value="">Brand New Collections</option>
+              <option value="">Upper Collections</option>
+              <option value="">Lower Collections</option>
+            </select>
             <div class="row">
                 <div class="col">
                     <input type="number" class="form-control" name="" id="" placeholder="Price">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="" id="" placeholder="Size">
+                    <select name="size" id="" class="options field">
+                      <option value="" hidden>Size</option>
+                    <option value="">XL</option>
+                    <option value="">L</option>
+                    <option value="">M</option>
+                    <option value="">XXL</option>
+                    <option value="">S</option>
+                  </select>
+                    <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->
                 </div>
                 <div class="col">
                     <input type="number" class="form-control" name="" id="" placeholder="Unit">
