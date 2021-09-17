@@ -1,71 +1,45 @@
-.container {
+/* // Small devices (landscape phones, 576px and up) */
+#card1{
+  background-color: #C7988E;
+}
+#card2{
+  background-color: white;
+}
+
+@media (min-width: 576px) {
+  .card{
+    background-color: skyblue;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 1024px) {
+  .card{
+    margin-top: 30%;
+  }
+  .test{
+    overflow-y: hidden;
+  }
+  #card1{
     width: 100%;
-    height: 100%;
-    background-color: #C7988E;
+  }
 }
 
-.text {
-    font-size: 20px;
-    color: white;
-    margin-left: 5%;
-    width: 36%;
-}
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 
-.logo {
-    max-width: 50%;
-    margin-left: -80px;
-    max-height: 30%;
-    margin-top: 10%;
-}
+ }
 
-.form {
-    float: right;
-    margin-top: -46%;
-    background-color: white;
-    width: 50%;
-    border-radius: 2%;
-}
-
-.form-control {
-    margin-bottom: 22px;
-}
-
-form {
-    margin-top: 10%;
-}
-
-.btn {
-    margin-left: 9%;
-    width: 25%;
-    border-radius: 100px;
-    background-color: white;
-    color: black;
-}
-
-.register {
-    margin: 5%;
-}
-
-.submitbtn {
-    background-color: #C7988E;
-    color: #fff;
-    display: block;
-    margin-left: auto;
-    width: 45% !important;
-    margin-right: auto;
-    margin-top: 8%;
-    padding: 12px;
-    margin-bottom: 8%;
-}
-
-@media only screen and (max-width: 360px) {
-    .logo img {
-        width: 25%;
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    .card{
+      margin-top: 20%;
+      width: 80%;
     }
-    .logo {
-        padding-top: 30px;
-    }
-    .left {
-        margin-left: 10%;
-    }
-}
+ }
+
