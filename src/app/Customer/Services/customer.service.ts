@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as $ from 'jquery';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,11 +24,18 @@ export class CustomerService {
 
   async login(data:any){
     const response = await axios.post(this.url+"login", data);
+    console.log(response)
+    return response;
+  
+  }
+
+  async register(data:any){
+    const response = await axios.post(this.url+"register", data);
     return response;
   }
 
-  async products(){
-    const response = await axios.get(this.url+"home");
+  async orders(data:any){
+    const response = await axios.get(this.url+"home", data);
     return response;
   }
 

@@ -33,12 +33,10 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['/admin/products']);
   }
 
-
   async getProducts(){
    const result = await this.service.products(this.token);
    this.products = result.data.data;
    console.log(this.products);
-
   }
 
 
