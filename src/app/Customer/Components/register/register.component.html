@@ -1,103 +1,105 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <div class="card border-0 text-center d-flex justify-content-center ml-5">
-        <img
-          class="logo ml-5"
-          src="../../../../../assets/imgs/logo1.jpg"
-          alt=""
-        />
-        <div class="card-body d-flex justify-content-center">
-          <div class="w-50 " style="font-size: 27px;">
-            <p class="card-text text-white font-weight-normal text-left ">
-              Dagom is an online thrift shop that offers brand-new and preloved
-              blouses, dresses, trousers, and other clothing needs.
-            </p>
+  <div class="mt-5">
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <div id="card1" class="card border-0 text-center" >
+          <img
+            class="logo"
+            src="../../../../../assets/imgs/logo1.png"
+            alt=""
+          />
+          <div class="card-body">
+              <p class="card-text text-primary text-left">
+                Dagom is an online thrift shop that offers brand-new and preloved
+                blouses, dresses, trousers, and other clothing needs.
+              </p>
           </div>
+          <button type="button" class="btn btn-lg mb-5">About Us</button>
         </div>
-        <button type="button" class="btn btn-lg mb-5">About Us</button>
       </div>
-    </div>
-    <div class="col">
-      <div class="card bg-white w-75 p-5 formcard">
-        <div class="form">
-          <div class="register">
-            <h1 class="text-center mt-3"><b>Register</b></h1>
-            <br>
-            <br>
-            <form>
-              <div class="row">
-                <div class="form-group col-md-6 ">
-                  <div class="input-group justify-content-center">
-                    <input
-                      type="firstname"
-                      class="form-control form-control-lg p-3 mb-3 mr-sm-2 mb-sm-5 "
-                      id="firstName"
-                      aria-describedby="firstName"
-                      placeholder="First Name"
-                    />
+      <div class="col d-flex justify-content-center">
+        <div id="card2" class="card p-5 col-left pb-5" >
+          <div class="form">
+            <div class="register">
+              <h1 class="text-center mt-3"><b>Register</b></h1>
+              <br>
+              <br>
+              <form>
+                <div class="row">
+                  <div class="form-group col-sm-6 ">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control form-control"
+                        id="firstName"
+                        aria-describedby="firstName"
+                        placeholder="First Name"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6 ">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control form-control"
+                        id="firstName"
+                        aria-describedby="lastname"
+                        placeholder="Last Name"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <div class="input-group">
+                      <input
+                        type="contact"
+                        class="form-control form-control"
+                        id="contactNumber"
+                        placeholder="Contact Number"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <div class="input-group">
+                      <input
+                        type="email"
+                        class="form-control form-control"
+                        id="email"
+                        aria-describedby="email"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <div class="input-group">
+                      <input
+                        type="password"
+                        class="form-control form-control"
+                        id="password"
+                        placeholder="Password"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <div class="input-group">
+                      <input
+                        type="password"
+                        class="form-control form-control"
+                        id="confirmPassword"
+                        aria-describedby="confirmPassword"
+                        placeholder="Confirm Password"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <div class="input-group justify-content-center">
-                    <input
-                      type="firstname col-md-6"
-                      class="form-control form-control-lg p-3 mb-3 mr-sm-2 mb-sm-5"
-                      id="firstName"
-                      aria-describedby="lastname"
-                      placeholder="Last Name"
-                    />
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <div class="input-group">
-                    <input
-                      type="contact"
-                      class="form-control form-control-lg p-3 mb-3 mr-sm-2 mb-sm-5"
-                      id="contactNumber"
-                      placeholder="Contact Number"
-                    />
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <div class="input-group">
-                    <input
-                      type="email"
-                      class="form-control form-control-lg p-3 mb-3 mr-sm-2 mb-sm-5"
-                      id="email"
-                      aria-describedby="email"
-                      placeholder="Email"
-                    />
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <div class="input-group">
-                    <input
-                      type="password"
-                      class="form-control form-control-lg p-3 mb-3 mr-sm-2 mb-sm-5"
-                      id="password"
-                      placeholder="Password"
-                    />
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <div class="input-group">
-                    <input
-                      type="contact"
-                      class="form-control form-control-lg p-3 mb-3 mr-sm-2 mb-sm-5"
-                      id="confirmPassword"
-                      aria-describedby="confirmPassword"
-                      placeholder="Confirm Password"
-                    />
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn submitbtn w-25">Submit</button>
-              <p>Do you already have an account? <a href="">Sign in</a></p>
-            </form>
+                <button type="submit" class="btn submitbtn w-25">Submit</button>
+                <p>Do you already have an account? <a href="">Sign in</a></p>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
