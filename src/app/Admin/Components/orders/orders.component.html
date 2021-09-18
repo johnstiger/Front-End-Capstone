@@ -1,1 +1,45 @@
-<p>orders works!</p>
+<div class="container">
+    <div class="wrapper">
+        <p>Orders</p>
+        <div class="contain">
+            <div class="row">
+                <div class="col-9">
+                    <form name="form" (ngSubmit)="searchProducts()">
+                        <div class="form-group row">
+                            <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 mt-5">
+                    <div class="table-responsive-lg">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Samle</td>
+                                    <td> product.name </td>
+                                    <td> product.price </td>
+                                    <td> product.part </td>
+                                    <td> product.status </td>
+                                    <td> product.status </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

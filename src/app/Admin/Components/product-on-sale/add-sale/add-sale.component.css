@@ -1,0 +1,56 @@
+.con {
+    padding: 70px;
+    border-radius: 10px;
+    background: #F6F2EF;
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.field {
+    width: 100%;
+}
+
+.form-control {
+    margin-bottom: 32px;
+    background: #C7988E;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #fff;
+}
+
+.image {
+    width: 90%;
+    border-radius: 10px;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.col {
+    text-align: center;
+}
+
+.btn {
+    margin-bottom: 32px;
+}
+
+.col-md-8 {
+    padding-left: 100px;
+}
+
+.same {
+    background: #C7988E;
+    border: none;
+}
+
+.btn-success {
+    padding: 12px;
+}
+
+.add-product {
+    background: #21C607;
+    border: none;
+}
