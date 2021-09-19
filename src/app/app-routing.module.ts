@@ -11,6 +11,7 @@ import { ProductOnSaleComponent } from './Admin/Components/product-on-sale/produ
 import { ProductsComponent } from './Admin/Components/products/products.component';
 import { NavigationComponent } from './Admin/Main/navigation/navigation.component';
 import { AdminGuard } from './Authorization/admin.guard';
+import { CustomerGuard } from './Authorization/customer.guard';
 import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
 import { LandingComponent } from './Customer/Components/landing/landing.component';
 import { LoginComponent } from './Customer/Components/login/login.component';
@@ -38,11 +39,17 @@ const routes: Routes = [
       { path: 'add-category', component: AddCategoryComponent }
     ],
   },
-  { path: '', component: LandingComponent },
-  { path: 'login', component:LoginComponent },
-  { path: 'register', component:RegisterComponent },
-  { path: 'cart', component:CartPageComponent },
-  { path: 'product', component:ProductSelectComponent },
+  {
+    path: 'customer', component: NavigationComponent , canActivate: [CustomerGuard],
+    children: [
+      { path: 'landing', component: LandingComponent },
+      { path: 'login', component:LoginComponent },
+      { path: 'register', component:RegisterComponent },
+      { path: 'cart', component:CartPageComponent },
+      { path: 'product', component:ProductSelectComponent }
+    ]
+  },
+  
 ];
 
 @NgModule({
