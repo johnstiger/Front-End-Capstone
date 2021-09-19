@@ -34,13 +34,15 @@ export class LoginComponent implements OnInit {
   async login() {
     // const result = await this.service.login(this.form.value);
       // document.getElementById('spinner').style.display = "block";
-      axios.post("http://127.0.0.1:8000/api/user", this.form.value).then(res => {
-        console.log("I am here");        
-        window.localStorage.setItem('customer_token',res.data.access_token);
-        window.localStorage.setItem('customer_id',res.data.client_id);
+      axios.post("http://127.0.0.1:8000/api/login", this.form.value).then(res => {
+        console.log("I am here");
+        console.log(res.data)
+        // window.localStorage.setItem('customer_token',res.data.access_token);
+        // window.localStorage.setItem('customer_id',res.data.client_id);
         // document.getElementById('spinner').style.display = "block";
-        return this.router.navigate(['/landing']);
+        // return this.router.navigate(['/landing']);
       }).catch(err => {
+        console.log(err)
         // Swal.fire('Oppss','Error Login, Please Log In Again','warning');
         // document.getElementById('spinner').style.display ="none";
       })   

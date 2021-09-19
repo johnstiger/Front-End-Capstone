@@ -24,13 +24,14 @@
               <h1 class="text-center mt-3"><b>Register</b></h1>
               <br>
               <br>
-              <form>
+              <form [formGroup]="form" (ngSubmit)="register()">
                 <div class="row">
                   <div class="form-group col-sm-6 ">
                     <div class="input-group">
                       <input
                         type="text"
                         class="form-control form-control"
+                        formControlName="firstname"
                         id="firstName"
                         aria-describedby="firstName"
                         placeholder="First Name"
@@ -42,6 +43,7 @@
                       <input
                         type="text"
                         class="form-control form-control"
+                        formControlName="lastname"
                         id="firstName"
                         aria-describedby="lastname"
                         placeholder="Last Name"
@@ -53,6 +55,7 @@
                       <input
                         type="contact"
                         class="form-control form-control"
+                        formControlName="contact_number"
                         id="contactNumber"
                         placeholder="Contact Number"
                       />
@@ -63,6 +66,7 @@
                       <input
                         type="email"
                         class="form-control form-control"
+                        formControlName="email"
                         id="email"
                         aria-describedby="email"
                         placeholder="Email"
@@ -74,6 +78,7 @@
                       <input
                         type="password"
                         class="form-control form-control"
+                        formControlName="password"
                         id="password"
                         placeholder="Password"
                       />
@@ -84,6 +89,7 @@
                       <input
                         type="password"
                         class="form-control form-control"
+                        formControlName="password_confirmation"
                         id="confirmPassword"
                         aria-describedby="confirmPassword"
                         placeholder="Confirm Password"
