@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="wrapper">
+        <p>Category</p>
+        <div class="contain">
+            <div class="row">
+                <div class="col-9">
+                    <form name="form" (ngSubmit)="searchProducts()">
+                        <div class="form-group row">
+                            <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-primary add" routerLink="/admin/add-category">Add</a>
+                </div>
+                <div class="col-12 mt-5">
+                    <div class="table-responsive-lg">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> product.name </td>
+                                    <td> product.price </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-primary">Update</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div>
     <div class="leftDiv">
-        <img class="rounded-circle mx-5 mt-5" style="width:150px; height:150px;" src="../../../../assets/imgs/image1.jpg"
-            alt="">
+        <img class="rounded-circle leftImage mt-5" style="width:80%; height:auto;"
+            src="../../../../assets/imgs/image1.jpg" alt="">
         <h4 class="mb-5">Customer Name</h4>
         <a href="">
             <h4>Edit Account</h4>
@@ -12,9 +12,32 @@
     </div>
     <div class="rightDiv">
         <div class="left">
-            <img class="rounded-circle mx-5 mt-5" style="width:200px; height:200px;" src="../../../../assets/imgs/image1.jpg"
-            alt="">
-            <button type="button" class="btn selectImage btn-primary">Select Image</button>
+            <img class="rounded-circle ml-5 mt-5" style="width:30%; height: 50%;"
+                src="../../../../assets/imgs/image1.jpg" alt="">
+            <br>
+            <button type="button" class="btn mt-3" style="margin-left:15%; background-color: #C7988E;">Select Image</button>
+        </div>
+        <div class="right">
+            <form>
+                <div class="form-group">
+                    <input type="firstname" class="form-control" id="firstName" placeholder="Firstname">
+                </div>
+                <div class="form-group">
+                    <input type="lastname" class="form-control" id="lastName" placeholder="Lastname">
+                </div>
+                <div class="form-group">
+                    <input type="phonenumber" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                    <input type="emailaddress" class="form-control" id="emailAddress" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input type="address" class="form-control" id="address" placeholder="Address">
+                </div>
+
+                <button type="submit" class="btn btn-success w-25 submit-btn" style="float:right;">Save</button>
+
+            </form>
         </div>
     </div>
 </div>

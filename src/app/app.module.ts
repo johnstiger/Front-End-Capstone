@@ -25,11 +25,23 @@ import { EditAccountComponent } from './Customer/Components/edit-account/edit-ac
 import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
 import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
+import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
+import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
+import { ReceivedComponent } from './Customer/Components/received/received.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
 import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sample-header.component';
-
+import { CustomersComponent } from './Admin/Components/customers/customers.component';
+import { AdminsComponent } from './Admin/Components/admins/admins.component';
+import { PendingOrdersComponent } from './Admin/Components/pending-orders/pending-orders.component';
+import { ProductOnSaleComponent } from './Admin/Components/product-on-sale/product-on-sale.component';
+import { CategoryComponent } from './Admin/Components/category/category.component';
+import { AddAdminComponent } from './Admin/Components/admins/add-admin/add-admin.component';
+import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
+import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
+import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +63,21 @@ import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sa
     EditAccountComponent,
     TableComponent,
     ProductsComponent,
-    SpinnerComponent,
+    AllOrdersComponent,
+    CheckOutComponent,
+    ToPayComponent,
+    ReceivedComponent,
     SampleHeaderComponent,
+    CustomersComponent,
+    AdminsComponent,
+    PendingOrdersComponent,
+    ProductOnSaleComponent,
+    CategoryComponent,
+    AddAdminComponent,
+    AddProductComponent,
+    AddSaleComponent,
+    AddCategoryComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -62,8 +87,8 @@ import { SampleHeaderComponent } from './Customer/Common/header/sample-header/sa
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    // MatTableModule,
-    // MatPaginatorModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatIconModule,
   ],
   providers: [],

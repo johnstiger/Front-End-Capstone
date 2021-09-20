@@ -2,6 +2,7 @@
     float: left;
     position: absolute;
     background-color: rgb(240, 231, 231);
+    box-sizing: border-box;
     overflow: hidden;
     margin-left: 5%;
     margin-right: 5%;
@@ -24,10 +25,65 @@ h4 {
     margin-top: 5%;
     margin-right: 5%;
     height: 100%;
+    position: relative;
 }
 
 .left {
     float: left;
-    margin-left: 3%;
+    /* margin-left: 3%; */
+    
+}
+
+.right {
+    float: right;
+    width: 50%;
+    margin-right: 10%;
+    margin-top: -18%;
+    margin-bottom: 5%;
+}
+
+input {
+    background-color:  #C7988E;
+}
+
+form button {
+    width: 100px;
+}
+ 
+@media only screen and (max-width: 360px){
+    .leftDiv {
+        width: 50%;
+        margin-left: 25%;
+    }
+    .leftDiv img{
+        width: 20%;
+        margin-left: -50%;
+    }
+
+    .rightDiv {
+        margin-top: 110%;
+        margin-right: 15%;
+    }
+
+    .rightDiv img {
+        width: 50%;
+        margin-right: 10%;
+    }
+
+    form {
+        margin-right: 50%;
+        margin-left: -50%;
+    }
+
+    form input {
+        width: 180px;
+    }
+
+    form button {
+        margin-right: -41%;
+        width: 100px;
+    }
+    
+
 }
 

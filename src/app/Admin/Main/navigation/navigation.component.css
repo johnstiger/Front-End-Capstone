@@ -1,21 +1,22 @@
-body{
-  overflow-x: hidden;
+html {
+    overflow-x: hidden;
+    background-color: #fff !important;
 }
 
-.container{
-  margin-top: 34px;
+.container {
+    margin-top: 34px;
 }
 
 .side-wrapper {
-  float: left;
-  height: 145vh;
-  padding: 40px;
-  /* box-shadow: 1px 10px 10px dimgrey; */
-  background-color: #C7988E;
-  margin-right: 25px;
-  overflow: hidden;
-  position: fixed !important;
-  z-index: 2;
+    float: left;
+    height: 145vh;
+    padding: 40px;
+    /* box-shadow: 1px 10px 10px dimgrey; */
+    background-color: #C7988E;
+    margin-right: 25px;
+    overflow: hidden;
+    position: fixed !important;
+    z-index: 2;
 }
 
 .side-wrapper li {
@@ -40,32 +41,33 @@ body{
     color: white;
 }
 
-.side-wrapper a:hover{
-  color: darkolivegreen;
+.side-wrapper a:hover {
+    color: darkolivegreen;
 }
 
-.logo{
-  width: 132px;
+.logo {
+    width: 132px;
 }
 
-.burger-menu{
-  width: 40px;
+.burger-menu {
+    width: 40px;
 }
 
-.main-content{
-  width: calc(100% - 252px) !important;
+.main-content {
+    width: calc(100% - 252px) !important;
     position: absolute !important;
     right: 0 !important;
 }
-.trigger-link-logo{
-  position: fixed;
-  top: 3px;
-  z-index: 3;
+
+.trigger-link-logo {
+    position: fixed;
+    top: 3px;
+    z-index: 3;
     left: 35px;
 }
 
-@media (min-width: 1400px){
-  .container{
-    max-width: 100% !important;
-  }
+@media (min-width: 1400px) {
+    .container {
+        max-width: 100% !important;
+    }
 }
