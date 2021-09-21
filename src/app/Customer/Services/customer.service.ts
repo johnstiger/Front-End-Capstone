@@ -24,9 +24,7 @@ export class CustomerService {
 
   async login(data:any){
     const response = await axios.post(this.url+"login", data);
-    console.log(response)
     return response;
-  
   }
 
   async register(data:any){
@@ -35,7 +33,12 @@ export class CustomerService {
   }
 
   async orders(data:any){
-    const response = await axios.get(this.url+"home", data);
+    const response = await axios.get(this.url+"orders", data);
+    return response;
+  }
+
+  async products(data:any) {
+    const response = await axios.get(this.url+"products", data);
     return response;
   }
 
