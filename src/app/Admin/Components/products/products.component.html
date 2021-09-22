@@ -35,10 +35,16 @@
                                     <td>{{ product.name }}</td>
                                     <td>{{ product.price }}</td>
                                     <td>{{ product.part }}</td>
-                                    <td>{{ product.status }}</td>
+                                    <td *ngIf="product.status == true">
+                                        Available
+                                    </td>
+                                    <td *ngIf="product.status == false">
+                                        Not Available
+                                    </td>
+                                    <!-- <td>{{ product.status }}</td> -->
                                     <td>
                                         <button type="button" class="btn btn-danger">Delete</button>
-                                        <button type="button" class="btn btn-primary">Update</button>
+                                        <button type="button" class="btn btn-primary update">Update</button>
                                     </td>
                                 </tr>
                             </tbody>
