@@ -1,52 +1,140 @@
 .productSelect {
-    background-color: #C7988E;
+    background-color: #F6F2EF;
     overflow: hidden;
     box-sizing: border-box;
+    margin-left: 9%;
+    border-radius: 10px;
 
 }
+#psimg{
+  width: 90%;
+  height: auto;
+  padding-top: 7%;
+  padding-bottom: 7%;
 
-.productSelect1 {
-    margin: 5%;
-    padding: 5%;
-    overflow: hidden;
-    background-color:  rgb(240, 231, 231);
+}
+.imgps{
+  display: flex;
+  justify-content: right;
+}
+.text{
+  padding-top: 7%;
+  padding-bottom: 7%;
+  margin-left: 12%;
+}
+#quantity{
+  font-size: 28px;
+  font-weight: 500;
+  display: inline-block;
+}
+#inputQuantity{
+  margin-left: 1%;
+  box-sizing: border-box;
+  background-color: #C7988E;
+  border: none;
+  padding: 5px;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+  width: 15%;
+}
+#size{
+  font-size: 28px;
+  font-weight: 500;
+  display: inline-block;
 }
 
-.divImage {
-    float: left;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-bottom: 5%;
+.mbtn{
+  border: none;
+  background-color: #C7988E;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+  width: 5%;
+  margin-left: 2%;
+}
+.sbtn{
+  border: none;
+  background-color: #C7988E;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+  width: 5%;
+  margin-left: 2%;
 }
 
-.prodDescription {
-    float: right;
-    margin-top: 5%;
-    margin-right: 32%;
+.addtocartbtn{
+  border: none;
+  background-color: #C7988E;
+  color: white;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-size: 25px;
+  width: 40%;
+  padding: 15px;
+  margin-left: 5%;
+}
+.buyitbtn{
+  border: none;
+  background-color: #C7988E;
+  color: white;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-size: 25px;
+  width: 40%;
+  padding: 15px;
+  margin-left: 5%;
 }
 
-img {
-    width: 300px;
-    height: 300px;
+
+* {
+  box-sizing: border-box;
 }
 
-.button1 {
-    width: 20%;
-    margin-left: 10%;
-    background-color:  #C7988E;
-    
+[class*="col-"] {
+  float: left;
+  padding: 15px;
 }
 
-.button2 {
-    width: 20%;
-    margin-top: 8%;
-    margin-left: -20%;
-    background-color: green;
+html {
+  font-family: "Lucida Sans", sans-serif;
 }
 
-.button3 {
-    justify-self: center;
-    margin-left: 50%;
-    margin-top: -5%;
-    
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+@media only screen and (min-width: 2560px) {
 }
