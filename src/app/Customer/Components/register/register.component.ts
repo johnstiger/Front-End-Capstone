@@ -42,9 +42,12 @@ export class RegisterComponent implements OnInit {
   register() {
     axios.post("http://127.0.0.1:8000/api/register", this.form.value).then(res => {
       console.log(res.data)
+<<<<<<< HEAD
       window.localStorage.setItem('customer_token',res.data.access_token);
       window.localStorage.setItem('customer_id',res.data.customer_id);
       return this.router.navigate(['/landing']);
+=======
+>>>>>>> 7ac3475eafe7acc26e3b0beb2f6c591c983eb8a5
     })
     .catch(err => {
       console.log(err);

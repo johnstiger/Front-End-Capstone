@@ -24,9 +24,17 @@ export class CustomerService {
 
   async login(data:any){
     const response = await axios.post(this.url+"login", data);
+    console.log(response)
+    return response;
+  
+  }
+
+  async register(data:any){
+    const response = await axios.post(this.url+"register", data);
     return response;
   }
 
+<<<<<<< HEAD
   async register(data:any){
     const response = await axios.post(this.url+"register", data);
     return response;
@@ -39,6 +47,10 @@ export class CustomerService {
 
   async products(data:any) {
     const response = await axios.get(this.url+"products", data);
+=======
+  async orders(data:any){
+    const response = await axios.get(this.url+"home", data);
+>>>>>>> 7ac3475eafe7acc26e3b0beb2f6c591c983eb8a5
     return response;
   }
 

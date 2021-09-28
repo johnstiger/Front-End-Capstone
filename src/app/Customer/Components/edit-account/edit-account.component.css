@@ -23,6 +23,7 @@ h4 {
     margin-top: 5%;
     margin-right: 5%;
     margin-left: 25%;
+<<<<<<< HEAD
     margin-bottom: 5%;;
     height: auto;
     position: relative;
@@ -30,6 +31,11 @@ h4 {
 /* form {
     margin-top: -70%;
 } */
+=======
+    height: auto;
+    position: relative;
+}
+>>>>>>> 7ac3475eafe7acc26e3b0beb2f6c591c983eb8a5
 .float-left {
     float: left;
     /* margin-left: 3%; */  
@@ -38,16 +44,24 @@ h4 {
     float: right;
     width: 50%;
     margin-right: 5%;
+<<<<<<< HEAD
     margin-top: -35%;
+=======
+    margin-top: -20%;
+    margin-bottom: 5%;
+>>>>>>> 7ac3475eafe7acc26e3b0beb2f6c591c983eb8a5
 }
 input {
     background-color:  #C7988E;
 }
+<<<<<<< HEAD
 .resetButton {
     background-color:  #C7988E;
     float: right;
     margin-bottom: 5%;
 }
+=======
+>>>>>>> 7ac3475eafe7acc26e3b0beb2f6c591c983eb8a5
 form button {
     width: 100px;
 }
@@ -67,11 +81,37 @@ form button {
         margin-right: 15%;
         margin-left: 15%;
         margin-bottom: 5%;
+<<<<<<< HEAD
+=======
     }
 
     form {
+        margin-top: -20%;
+        margin-left: 5%;
+>>>>>>> 7ac3475eafe7acc26e3b0beb2f6c591c983eb8a5
+    }
+    /* .float-left img {
+        width: 100%;
+        height: 100%;
+        margin-right: 10%;
+    } */
+    form {
+<<<<<<< HEAD
         margin-left: 5%;
     }
+=======
+        margin-top: -5%;
+        margin-left: 20%;
+        margin-top: -50px;
+    }
+    /* .selectImage {
+        width: 25%;
+    } */
+
+    /* form input {
+        width: 180px;
+    } */
+>>>>>>> 7ac3475eafe7acc26e3b0beb2f6c591c983eb8a5
     form button {
         margin-right: -41%;
         width: 100px;
@@ -83,5 +123,23 @@ form button {
     
 
 }
+/* 
+@media (min-width: 360px){
+    .rightDiv {
+        margin-top: 90%;
+    }
+    .float-left {
+        margin-left: 15%;
+    }
+    .selectImage{
+        width: 60%;
+    }
+    form {
+        margin-top: 60%;
+        margin-left: -50%;
+        margin-right: 25%;
+    }
+
+} */
 
 

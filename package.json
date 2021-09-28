@@ -25,7 +25,7 @@
     "angular-chart.js": "^1.1.1",
     "axios": "^0.21.1",
     "canvasjs": "^1.8.3",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "jquery": "^3.6.0",
     "ng-bootstrap": "^1.6.3",
     "ngx-bootstrap": "^7.1.0",
