@@ -1,76 +1,50 @@
-<div class="checkOutContainer">
-    <div>
-        <div class="leftInfo">
-            <h5>First Name Last Name</h5>
-            <h5>Address</h5>
-        </div>
-        <div class="rightInfo">
-            <h5>Contact Number</h5>
-            <h5>Payment Method</h5>
-        </div>
-        <!-- <div class="rightButtons">
-            <button type="submit" class="btn submit-btn">Manage Address</button><br>
-            <button type="submit" class="btn submit-btn">Manage Payment</button>
+<app-sample-header></app-sample-header>
 
-        </div> -->
-
-        <button type="submit" class="btn w-25 submit-btn"
-            style="float: right; margin-top:-5%; margin-right: 5%; background-color: #C7988E;">Manage
-            Address</button>
-        <button type="submit" class="btn w-25 submit-btn"
-            style="float: right; margin-top:-1%; margin-right: 5%; background-color: #C7988E;">Manage
-            Payment</button>
-    </div>
-
-    <hr class="mt-5">
-
+<div class="header">
+    <h2>Your Orders</h2>
+</div>
+<div class="col-11 col-s-11 main ">
     <div class="row">
-        <div class="col-5">
-            <h4>Product</h4>
+        <div class="col-4 col-s-4 text">
+            <h5>Last Name Last Name</h5><br>
+            <h5 class="adresstxt">Adress</h5>
         </div>
-        <div class="col-2">
-            <h4>Price</h4>
+        <div class="col-4 col-s-4 text ">
+            <h5>Contact Number</h5><br>
+            <h5 class="paymenttxt">Payment</h5>
         </div>
-        <div class="col-2">
-            <h4>Quantity</h4>
+        <div class="col-4 col-s-4 mbtn">
+            <button id="buttonA" class="button">Manage Address</button><br><br>
+            <button id="buttonP" class="button ">Manage Payment</button>
         </div>
-        <div class="col-2">
-            <h4>Total</h4>
+        <hr id="checkouthr">
+        <div class="col-3 col-s-3">
+            <h5>Product</h5><br>
+            <img src="../../../../assets/imgs/image1.jpg" alt="">
+        </div>
+        <div class="col-3 col-s-3">
+            <h5>Product Name</h5>
+            <button class="buttonR">Remove</button>
         </div>
     </div>
+</div>
+<div class="col-11 col-s-11 checkoutTablet">
     <div class="row">
-        <div class="col">
-            <div style="margin-left: 5%;">
-                <img class="ml-5 mr-5 mt-5 mb-5" style="width:150px; height:200px;"
-                    src="../../../../assets/imgs/image1.jpg" alt="">
-            </div>
-            <!-- <div class="prodName"> -->
-            <h5 style="margin-left:40%; margin-top:-30%;">Product Name</h5>
-            <!-- </div> -->
+        <div class="col-2 col-s-2">
+            <h6 id="product">Product</h6>
         </div>
-        <div class="col-2" style="margin-top:10%;">
-            <h5>Php 100</h5>
+        <div class="col-8 col-s-8 price"></div>
+        <div class="col-2 col-s-2 price">
+            <h6 id="price">Price</h6>
         </div>
-        <div class="col-2" style="margin-top:10%;">
-            <h5>2</h5>
+        <hr id="hr1">
+        <div class="col-3 col-s-3">
+            <img id="imgtablet" src="../../../../assets/imgs/image1.jpg" alt="">
         </div>
-        <div class="col-2" style="margin-top:10%;">
-            <h5>Php 200</h5>
-        </div>
-    </div>
-    <br><br><br><br>
-    <hr class="mt-5">
-    <div class="payment">
-        <h5>Subtotal: Php 200</h5>
-        <h5>Shipping Fee: Php 70</h5>
-        <h5>Total: Php 270</h5>
 
-        <button type="button" class="btn mt-5 mb-5 mx-2" style="background-color: #C7988E;">Cancel</button>
-        <button type="button" class="btn btn-success  mt-5 mb-5 mx-2">Place Order</button>
+
     </div>
-    <!-- <div class="lowButtons">
-        <button type="button" class="btn btn-primary w-75 mt-5">Primary</button>
-        <button type="button" class="btn btn-secondary w-75 mt-5">Secondary</button>
-    </div> -->
 
 </div>
+
+<app-cus-footer></app-cus-footer>

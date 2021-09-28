@@ -12,4 +12,8 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectImage(){
+console.log(document.getElementById('file')?.click);
+
+  }
 }
