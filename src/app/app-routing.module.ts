@@ -38,11 +38,11 @@ const routes: Routes = [
       { path: 'add-category', component: AddCategoryComponent }
     ],
   },
-  { path: 'landing', component: LandingComponent },
+  { path: '', component: LandingComponent },
   { path: 'login', component:LoginComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'cart', component:CartPageComponent },
-  { path: 'product', component:ProductSelectComponent }
+  { path: 'product', component:ProductSelectComponent },
 ];
 
 @NgModule({
