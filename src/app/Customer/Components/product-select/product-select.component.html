@@ -1,21 +1,27 @@
-<div class="productSelect">
-    <div class="productSelect1">
-        <div class="divImage">
-            <img src="../../../../assets/imgs/image1.jpg" alt="">
-        </div>
+<app-auth-header></app-auth-header>
+<div class=" col-10 col-s-10 productSelect">
+  <div class="row">
+    <div class="col-6 col-s-6 imgps">
+        <img id="psimg" src="../../../../assets/imgs/image1.jpg" alt="">
+    </div>
+    <!-- <div class="col-1 col-s-1 imgps"></div> -->
+    <div class="col-6 col-s-6">
+      <div class="text">
+        <h1>Product Name:</h1>
+        <h3 style="padding-top: 25px;">Php 100.00</h3>
+        <label id="quantity" style="padding-top: 25px;">Quantity </label>
+        <input id="inputQuantity" type="number" min="0"><br>
+        <label id="size" style="padding-top: 25px;">Size: </label>
+        <button type="button" class="mbtn">M</button>
+        <button type="button" class="sbtn">S</button>
+        <h3 style="padding-top: 25px;">Available: 10pcs</h3>
+        <button type="button" class="addtocartbtn">Add to Cart</button><br>
+        <button type="button" class="buyitbtn">Buy It Now</button>
+      </div>
 
-        <div class="prodDescription">
-            <h4>Product Name:</h4>
-            <h6>Php 100</h6>
-            <h6>Quantity: 1</h6>
-            <h6>Available: 10pcs</h6>
-        </div>
-
-        <div class="divButtons">
-            <button type="button" class="btn button1  btn-lg mb-3">Add to Cart</button>
-            <button type="button" class="btn button2  btn-lg">Buy It Now</button>
-        </div>
     </div>
 
     <button type="button" class="btn button3  btn-lg mb-3">Back</button>
+  </div>
 </div>
+<app-cus-footer></app-cus-footer>
