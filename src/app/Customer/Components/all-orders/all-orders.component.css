@@ -1,11 +1,31 @@
 .container {
+    /* float: right; */
     background-color: rgb(240, 231, 231);
     box-sizing: border-box;
     border-radius: 10px;
     overflow: hidden;
     height: auto;
     margin-top: 5%;
+    margin-right: 2%;
     margin-bottom: 5%;
+    width: 75%;
+}
+.leftDiv {
+    /* float: left; */
+    position: absolute;
+    background-color: rgb(240, 231, 231);
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-left: 3%;
+    margin-right: 5%;
+    border-radius: 10px;
+    margin-top: 5%;
+    width: 18%;
+    text-align: center;
+}
+hr {
+    border-top: 3px solid rgb(240, 208, 208);
+    border-bottom: 1px solid #C7988E;
 }
 
 h4 {
@@ -14,14 +34,27 @@ h4 {
 }
 
 .description {
-    margin-left: 40%;
+    margin-left: 50%;
     margin-top: -40%;
     
 }
 
 @media only screen and (max-width: 600px){
+    .container {
+        margin-top: 90%;
+        width: 95%;
+    }
+    .leftDiv {
+        width: 50%;
+        margin-top: 5%;
+        margin-right: 10%;
+        margin-left: 25%;
+    }
     .description {
         margin-top: -10%;
         margin-left: 20%;
+    }
+    h4 {
+        font-size: 80%;
     }
 }

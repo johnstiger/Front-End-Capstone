@@ -39,7 +39,7 @@ img {
 
 .button2 {
     width: 20%;
-    margin-top: 8%;
+    margin-top: 10%;
     margin-left: -20%;
     background-color: green;
 }
@@ -47,6 +47,7 @@ img {
 .button3 {
     justify-self: center;
     margin-left: 50%;
-    margin-top: -5%;
-    
+    margin-top: -3%;
+    /* margin-bottom: 20%; */
+    background-color: white;
 }
