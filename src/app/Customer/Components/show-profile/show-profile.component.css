@@ -23,7 +23,6 @@ h4 {
     margin-top: 5%;
     margin-right: 5%;
     margin-left: 25%;
-    margin-bottom: 5%;;
     height: auto;
     position: relative;
 }
@@ -43,7 +42,7 @@ h4 {
 input {
     background-color:  #C7988E;
 }
-.resetButton {
+.editButton {
     background-color:  #C7988E;
     float: right;
     margin-bottom: 5%;
