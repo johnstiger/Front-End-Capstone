@@ -19,6 +19,25 @@ export class AdminService {
     return response;
   }
 
+  async getProduct(token:any, id:any){
+    const response = await axios.get(this.url+"product/show/"+id, { headers: { Authorization: token }});
+    return response;
+  }
+
+  async addProduct(token:any, data: any){
+    const response = await axios.post(this.url+"product/newProduct", data , {headers: { Authorization: token }});
+    return response;
+  }
+
+  async updateProduct(token:any, id:any){
+    const response = await axios.put(this.url+"product/update/"+id, { headers: { Authorization: token } });
+    return response;
+  }
+
+  async deleteProduct(token:any, id:any){
+    const response = await axios.delete(this.url+"product/delete/"+id, { headers: { Authorization: token } });
+    return response;
+  }
 
   // Search
   async searchProducts(data : any, token : any){

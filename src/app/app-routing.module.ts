@@ -19,6 +19,7 @@ import { RegisterComponent } from './Customer/Components/register/register.compo
 import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
+import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -26,16 +27,25 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'orders', component: OrdersComponent },
+
       { path: 'products', component: ProductsComponent },
       { path: 'add-product', component: AddProductComponent},
+      { path: 'edit-product/:id', component: EditProductComponent },
+
       { path: 'customers', component: CustomersComponent },
+
       { path: 'admins', component: AdminsComponent },
       { path: 'add-admin', component: AddAdminComponent },
+
       { path: 'pending-orders', component: PendingOrdersComponent },
+
       { path: 'product-on-sale', component: ProductOnSaleComponent },
+
       { path: 'add-sales', component: AddSaleComponent },
+
       { path: 'categories', component:CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent }
+
     ],
   },
   { path: '', component: LandingComponent },
