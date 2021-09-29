@@ -6,26 +6,35 @@
     border-radius: 5px;
     position: relative;
 }
-
+td {
+    font-size: 150%;
+}
+p{
+    font-size: 150%;
+    font-weight: bold;
+}
 .leftInfo {
     float: left;
-    margin-left: 5%;
-    
+    margin-left: 5%;  
 }
-
 .rightInfo {
     margin-left: 30%;
     margin-top: 2%;
 }
-
-/* .rightButtons {
-    float: right;
-    margin-top: -4%;
-    margin-right: 5%;
-} */
-
 h4 {
     text-align: center;
+}
+.button1 {
+    float: right; 
+    margin-top:-8%; 
+    margin-right: 5%; 
+    background-color: #C7988E;
+}
+.button2 {
+    float: right; 
+    margin-top:-4%; 
+    margin-right: 5%; 
+    background-color: #C7988E;
 }
 
 /* .prodName {
@@ -40,6 +49,9 @@ h4 {
     margin-left: 70%;
 }
 
-/* h5  {
-    margin-left: 5%;
-} */
+@media only screen and (max-width: 600px){
+    p {
+        font-size: 100%;
+    }
+    
+}
