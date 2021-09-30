@@ -52,8 +52,6 @@ export class AddProductComponent implements OnInit {
 
 
   async submit(){
-
-    console.log(this.AddProductForm.value);
     const result = await this.http.addProduct(this.token, this.AddProductForm.value);
     if(result.data.error){
       this.errors = result.data.message;

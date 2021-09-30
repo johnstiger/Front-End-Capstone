@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { CustomerService } from '../../Services/customer.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     ])
   });
 
-  constructor(private router : Router, private service : CustomerService) { }
+  constructor(private router : Router, private service : CustomerService, private message : AdminService) { }
 
   ngOnInit(): void {
   }
@@ -30,8 +31,8 @@ export class LoginComponent implements OnInit {
   async login(){
     const result =  await this.service.login(this.form.value);
     if(result.data.error){
-      this.error = result.data.message;
       this.router.navigate(['/login']);
+      this.message.ShowErrorMessage(result.data.message);
     }else if(result.data.data.is_admin){
       window.localStorage.setItem('admin_token', "Bearer "+result.data.access_token);
       this.router.navigate(['/admin/dashboard']);
@@ -40,5 +41,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/landing']);
     }
   }
+
+
+
 
 }

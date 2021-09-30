@@ -1,22 +1,14 @@
 <div class="container">
     <div class="wrapper">
         <p>Products</p>
-        <div *ngIf="success">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{ success }}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-            </div>
-        </div>
-        <div *ngIf="error">
+        <!-- <div *ngIf="error">
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>{{ error }}</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
             </div>
-        </div>
+        </div> -->
         <div class="contain">
             <div class="row">
                 <div class="col-9">
@@ -24,7 +16,7 @@
                         <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" formControlName="data" placeholder="Search product name.....">
                             </div>
                         </div>
                     </form>
@@ -33,38 +25,42 @@
                     <a class="btn btn-primary add" routerLink="/admin/add-product">Add</a>
                 </div>
                 <div class="col-12 mt-5">
-                    <div class="table-responsive-lg">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Part</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let product of products">
-                                    <th scope="row"><img src="{{ product.image }}" alt=""></th>
-                                    <td>{{ product.name }}</td>
-                                    <td>{{ product.price }}</td>
-                                    <td>{{ product.part }}</td>
-                                    <td *ngIf="product.status == true">
-                                        Available
-                                    </td>
-                                    <td *ngIf="product.status == false">
-                                        Not Available
-                                    </td>
-                                    <!-- <td>{{ product.status }}</td> -->
-                                    <td>
-                                        <button type="button" (click)="confirmDelete(product.id)" class="btn btn-danger">Delete</button>
-                                        <button type="button" (click)="update(product)" class="btn btn-primary update">Update</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Total Quantity</th>
+                                        <th scope="col">Available No. of Stock</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="products">
+                                    <tr *ngFor="let product of products">
+                                        <th scope="row"><img src="{{ product.image }}" alt=""></th>
+                                        <td>{{ product.name }}</td>
+                                        <td>{{ product.category.name }}</td>
+                                        <td>{{ product.price }}</td>
+                                        <td *ngIf="product.sizes[0]">{{ product.sizes[0].pivot.unit_measure }}</td>
+                                        <td *ngIf="product.sizes[0]">{{ product.sizes[0].pivot.avail_unit_measure }}</td>
+                                        <td *ngIf="!product.sizes[0]">0</td>
+                                        <td *ngIf="!product.sizes[0]">0</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary actionBtn"><i class="fas fa-plus-circle"></i></button>
+                                            <button type="button" (click)="update(product)" class="btn btn-success actionBtn"><i class="fas fa-edit"></i></button>
+                                            <button type="button" (click)="confirmDelete(product)" class="btn btn-danger actionBtn"><i class="far fa-trash-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div *ngIf="!products" class="not-available">
+                                <i class="fas fa-tshirt"></i> No Product Available Here!
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

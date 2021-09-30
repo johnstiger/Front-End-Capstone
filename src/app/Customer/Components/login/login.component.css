@@ -4,6 +4,10 @@
     width: 100%;
 }
 
+.alert {
+    text-align: center;
+}
+
 .text {
     font-size: 20px;
     color: white;

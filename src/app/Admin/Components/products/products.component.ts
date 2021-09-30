@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { AdminService } from '../../Services/admin.service';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+
 
 @Component({
   selector: 'app-products',
@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
       Validators.required
     ])
   });
+
   token = localStorage.getItem('admin_token');
 
   success! : any;
@@ -32,10 +33,12 @@ export class ProductsComponent implements OnInit {
 
   async searchProducts(){
     const result = await this.service.searchProducts(this.form.value, this.token);
-    this.products = result.data.data;
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate(['/admin/products']);
+    if(result.data.found){
+      this.products = result.data.data;
+      console.log(this.products);
+    }else{
+      this.service.ShowErrorMessage(result.data.message);
+    }
   }
 
 
@@ -43,6 +46,7 @@ export class ProductsComponent implements OnInit {
    const result = await this.service.products(this.token);
    this.products = result.data.data;
    console.log(this.products);
+
   }
 
   async deleteProduct(id:any){
@@ -63,32 +67,30 @@ export class ProductsComponent implements OnInit {
   }
 
 
-  async confirmDelete(id:any){
+  async confirmDelete(product:any){
     Swal.fire({
-      title: 'Are you sure you want to delete this one?',
-      text: 'This process is irreversible.',
+      title: 'Are you sure?',
+      text: "You want to DELETE "+product.name+"?",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No'
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!'
     }).then((result)=>{
       if(result.value){
-        this.deleteProduct(id);
-        Swal.fire(
-          'Removed',
-          'Product is Successfully Deleted!',
-          'success'
-        ).then(() => {
+        this.deleteProduct(product.id).then(()=>{
           this.ngOnInit();
-        })
+        });
+        this.service.ShowSuccessMessage("SuccessFully Deleted Product!");
       }else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
-          ' still in our database.)',
+          product.name+' is still in our database.',
           'error'
         )
       }
     })
   }
+
 
 }

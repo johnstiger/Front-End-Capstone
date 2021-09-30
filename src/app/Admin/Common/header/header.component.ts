@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../../Services/admin.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: AdminService) { }
+
+  token = localStorage.getItem('admin_token');
 
   ngOnInit(): void {
   }
 
-  logout(){
 
+  async logout(){
+    const result = this.service.logoutUser(this.token);
+    localStorage.clear();
+    window.location.reload();
   }
+
 }
