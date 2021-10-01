@@ -44,8 +44,13 @@ export class EditProductComponent implements OnInit {
         this.id = params.get('id');
       }
     );
+    this.getProduct()
+  }
 
-    this.product = history.state.data;
+
+  async getProduct(){
+    const result = await this.service.getProduct(this.token, this.id);
+    this.product = result.data.data;
     this.id = this.product.id;
     this.name = this.product.name;
     this.price = this.product.price;
@@ -60,14 +65,6 @@ export class EditProductComponent implements OnInit {
       this.sizes = 0;
       this.unit_measure = 0;
     }
-
-  }
-
-
-  async getProduct(){
-    const result = await this.service.getProduct(this.token, this.id);
-
-
   }
 
 
