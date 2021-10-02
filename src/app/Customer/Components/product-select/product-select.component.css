@@ -64,12 +64,21 @@
 .text320{
   margin-left: 4%;
 }
+.text768{
+  margin-left: 5%;
+}
 #quantity{
   font-size: 28px;
   font-weight: 500;
   display: inline-block;
 }
 #quantity320{
+  font-size: 18px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+#quantity768{
   font-size: 18px;
   font-weight: 500;
   display: inline-block;
@@ -87,7 +96,18 @@
   width: 15%;
 }
 #inputQuantity320{
-  margin-left: 2%;
+  margin-left: 6%;
+  box-sizing: border-box;
+  background-color: #C7988E;
+  border: none;
+  padding: 2px;
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  width: 30%;
+}
+#inputQuantity768{
+  margin-left: 6%;
   box-sizing: border-box;
   background-color: #C7988E;
   border: none;
@@ -103,6 +123,11 @@
   display: inline-block;
 }
 #size320{
+  font-size: 18px;
+  font-weight: 500;
+  display: inline-block;
+}
+#size768{
   font-size: 18px;
   font-weight: 500;
   display: inline-block;
@@ -126,6 +151,15 @@
   width: 15%;
   margin-left: 3%;
 }
+.mbtn768{
+  border: none;
+  background-color: #C7988E;
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  width: 15%;
+  margin-left: 3%;
+}
 .sbtn{
   border: none;
   background-color: #C7988E;
@@ -137,6 +171,15 @@
 }
 
 .sbtn320{
+  border: none;
+  background-color: #C7988E;
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  width: 15%;
+  margin-left: 6%;
+}
+.sbtn768{
   border: none;
   background-color: #C7988E;
   font-size: 15px;
@@ -169,6 +212,17 @@
   padding: 10px;
   margin-left: 1%;
 }
+.addtocartbtn768{
+  border: none;
+  background-color: #C7988E;
+  color: white;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 95%;
+  padding: 8px;
+  margin-left: 1%;
+}
 .buyitbtn{
   border: none;
   background-color: #C7988E;
@@ -192,6 +246,18 @@
   padding: 10px;
   margin-left: 1%;
 }
+.buyitbtn768{
+  border: none;
+  background-color: #C7988E;
+  color: white;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 95%;
+  padding: 8px;
+  margin-left: 1%;
+}
+
 
 
 
@@ -272,9 +338,10 @@ html {
 }
 
 @media only screen and (width: 1024px) {
-  .productSelect{
+  .productSelect, .media320{
     display: none;
   }
+
 }
 
 @media only screen and (width: 768px) {
@@ -283,7 +350,7 @@ html {
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 425px) and (min-width: 320px) {
   .productSelect, .media1024, .media768{
     display: none;
   }
