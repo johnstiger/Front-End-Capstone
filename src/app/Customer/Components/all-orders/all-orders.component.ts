@@ -27,11 +27,9 @@ export class AllOrdersComponent implements OnInit {
   }
 
   async getOrders() {
-    axios.get("http://127.0.0.1:8000/api/orders", ).then(res => {
-      // const result = await this.service.orders(this.token);
-      // this.orders = result.data.data;
-      console.log(this.orders);
-    })
+    const result = await this.service.order(this.token);
+    this.orders = result.data.data;
+    console.log(this.orders);
   }
 
 }

@@ -27,12 +27,10 @@ hr {
     border-top: 3px solid rgb(240, 208, 208);
     border-bottom: 1px solid #C7988E;
 }
-
 h4 {
     text-align: center;
     padding-top: 5%;
 }
-
 .description {
     margin-left: 50%;
     margin-top: -40%;
@@ -55,6 +53,30 @@ h4 {
         margin-left: 20%;
     }
     h4 {
-        font-size: 80%;
+        font-size: 120%;
+    }
+    .order {
+        margin-left: 18%;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width:568px){
+    .container {
+        margin-top: 105%;
+    }
+    .order{
+        margin-left: 10%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .description {
+        margin-left: 24%;
+        margin-top: -12%;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1366px){
+    .description {
+        margin-left: 60%;
+        margin-top: -58%;
+        margin-bottom: 20%;
     }
 }
