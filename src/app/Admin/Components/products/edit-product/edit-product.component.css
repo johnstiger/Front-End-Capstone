@@ -8,6 +8,15 @@
     text-align: center;
 }
 
+.file-upload {
+    display: inline-block;
+    padding: 9px 28px;
+    cursor: pointer;
+    border-radius: 10px;
+    background: #C7988E;
+    color: #fff;
+}
+
 .field {
     width: 100%;
 }
@@ -52,5 +61,18 @@
 
 .add-product {
     background: #21C607;
+    border: none;
+}
+
+.content {
+    margin-bottom: 35px;
+}
+
+.options {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    background: #C7988E;
+    color: white;
     border: none;
 }

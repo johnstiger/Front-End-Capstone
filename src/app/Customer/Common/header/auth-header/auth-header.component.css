@@ -51,6 +51,7 @@ hr {
 
 .search input {
     width: 30%;
+    /* height: 100%; */
     margin-left: 35%;
     box-sizing: border-box;
     border-radius: 4px;

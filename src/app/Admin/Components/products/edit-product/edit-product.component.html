@@ -1,0 +1,75 @@
+<div class="container con">
+
+    <form [formGroup]="UpdateProductForm" (ngSubmit)="submit()">
+        <div class="row content">
+            <div class="col-md-4 form-group">
+                <img class="image" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
+                <div *ngIf="errors && errors.image" class="alert alert-danger">
+                    *{{ errors.image[0] }}
+                </div>
+                <ng-template #default>
+                    <img class="image" src="/assets/imgs/product.jpg" alt="product-image">
+                </ng-template>
+                <label for="file" class="file-upload">
+            <input
+            type="file"
+            formControlName="image"
+            name="image"
+            class="form-control"
+            accept="image/*"
+            id="file"
+            style="display: none;"
+            (change)="onFileChange($event)">
+            Select Image
+          </label>
+
+            </div>
+            <div class="col-md-8 form-group">
+                <div *ngIf="errors && errors.name" class="alert alert-danger">
+                    *{{ errors.name[0] }}
+                </div>
+                <input type="text" class="form-control field" name="" formControlName="name" class="form-control" id="" placeholder="Name">
+                <div *ngIf="errors && errors.category_id" class="alert alert-danger">
+                    *{{ errors.category_id[0] }}
+                </div>
+                <select name="category_id" formControlName="category_id" id="" class="options form-control">
+            <option value="" hidden>Category</option>
+            <option value="1">Second Collections</option>
+            <option value="2">Brand New Collections</option>
+            <option value="3">Upper Collections</option>
+            <option value="4">Lower Collections</option>
+          </select>
+                <div class="row">
+                    <div class="col">
+                        <div *ngIf="errors && errors.price" class="alert alert-danger">
+                            *{{ errors.price[0] }}
+                        </div>
+                        <input type="number" min="0" class="form-control" name="" formControlName="price" id="" placeholder="Price">
+                    </div>
+                    <div class="col form-group">
+                        <div *ngIf="errors && errors.sizes" class="alert alert-danger">
+                            *{{ errors.sizes[0] }}
+                        </div>
+                        <select name="size" id="" class="options field form-control" formControlName="sizes">
+                    <option value="" hidden>Size</option>
+                  <option value="1">M</option>
+                  <option value="2">S</option>
+                  <option value="3">XL</option>
+                  <option value="4">L</option>
+                  <option value="5">XXL</option>
+                </select>
+                        <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->
+                    </div>
+                    <div class="col">
+                        <div *ngIf="errors && errors.unit_measure" class="alert alert-danger">
+                            *{{ errors.unit_measure[0] }}
+                        </div>
+                        <input type="number" min="0" class="form-control" name="" id="" formControlName="unit_measure" placeholder="Unit">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success field add-product">Add Product</button>
+                <a routerLink="/admin/products" class="btn btn-success field same">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

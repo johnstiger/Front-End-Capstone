@@ -42,6 +42,9 @@ import { AddAdminComponent } from './Admin/Components/admins/add-admin/add-admin
 import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
+import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component'
+
+
 
 @NgModule({
   declarations: [
@@ -77,6 +80,10 @@ import { AddCategoryComponent } from './Admin/Components/category/add-category/a
     AddProductComponent,
     AddSaleComponent,
     AddCategoryComponent,
+    ShowProfileComponent
+    
+   
+    
 
   ],
   imports: [

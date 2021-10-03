@@ -72,6 +72,18 @@ html {
     margin-top: 5%;
     text-align: center;
 }
+.button1 {
+    float: right; 
+    margin-top:-8%; 
+    margin-right: 5%; 
+    background-color: #C7988E;
+}
+.button2 {
+    float: right; 
+    margin-top:-4%; 
+    margin-right: 5%; 
+    background-color: #C7988E;
+}
 
 .checkoutTablet {
     background-color: white;
