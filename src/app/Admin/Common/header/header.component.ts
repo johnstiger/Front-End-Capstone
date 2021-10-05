@@ -12,13 +12,19 @@ export class HeaderComponent implements OnInit {
   constructor(private service: AdminService) { }
 
   token = localStorage.getItem('admin_token');
-
+  name! : any;
   ngOnInit(): void {
+    this.getUser();
+  }
+
+  async getUser(){
+    const result = await this.service.getUser();
+    this.name = result.data.firstname;
   }
 
 
   async logout(){
-    const result = this.service.logoutUser(this.token);
+    const result = await this.service.logoutUser();
     localStorage.clear();
     window.location.reload();
   }

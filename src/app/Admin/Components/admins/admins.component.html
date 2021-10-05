@@ -4,11 +4,11 @@
         <div class="contain">
             <div class="row">
                 <div class="col-9">
-                    <form name="form" (ngSubmit)="searchProducts()">
+                    <form [formGroup]="form" (ngSubmit)="searchAdmins()">
                         <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" formControlName="data" class="form-control search" placeholder="Search product name.....">
                             </div>
                         </div>
                     </form>
@@ -23,22 +23,28 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Contact Number</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Email Address</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td> product.name </td>
-                                    <td> product.price </td>
-                                    <td> product.part </td>
+                            <tbody *ngIf="admins">
+                                <tr *ngFor="let admin of admins">
+
+
+                                    <td> {{ admin.firstname }} {{ admin.lastname }} </td>
+                                    <td> {{ admin.contact_number }} </td>
+                                    <td> {{ admin.email }} </td>
                                     <td>
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                        <button type="button" class="btn btn-primary">Update</button>
+                                        <button type="button" (click)="update(admin)" class="btn btn-success actionBtn"><i class="fas fa-edit"></i></button>
+                                        <button type="button" (click)="confirmDelete(admin)" class="btn btn-danger actionBtn"><i class="far fa-trash-alt"></i></button>
                                     </td>
+
                                 </tr>
                             </tbody>
                         </table>
+                        <div *ngIf="!admins" class="not-available">
+                            <i class="fas fa-tshirt"></i> No Admins Available Here!
+                        </div>
                     </div>
                 </div>
             </div>

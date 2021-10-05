@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
-import { Products } from 'src/app/Customer/Common/model/customer-model';
+import { Categories, Products } from 'src/app/Customer/Common/model/customer-model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { isEmptyObject } from 'jquery';
 
@@ -26,7 +26,6 @@ export class EditProductComponent implements OnInit {
   noSize! : number;
 
 
-  token = localStorage.getItem('admin_token');
   errors! : any;
 
   constructor(
@@ -36,6 +35,7 @@ export class EditProductComponent implements OnInit {
     ) { }
 
     id:any;
+    categories! : Categories[];
 
   ngOnInit(): void {
 
@@ -49,7 +49,7 @@ export class EditProductComponent implements OnInit {
 
 
   async getProduct(){
-    const result = await this.service.getProduct(this.token, this.id);
+    const result = await this.service.getProduct(this.id);
     this.product = result.data.data;
     this.id = this.product.id;
     this.name = this.product.name;
@@ -66,8 +66,6 @@ export class EditProductComponent implements OnInit {
       this.unit_measure = 0;
     }
   }
-
-
 
   onFileChange(event:any){
     const reader = new FileReader();
@@ -87,12 +85,17 @@ export class EditProductComponent implements OnInit {
   }
 
   async submit(data : any){
-   const result = await this.service.updateProduct(this.token, data, this.id );
+   const result = await this.service.updateProduct( data, this.id );
    if(result.data.error){
      this.errors = result.data.message;
   }else{
     this.location.back();
   }
+  }
+
+  async getCategory(){
+    const result = await this.service.getCategories();
+    this.categories = result.data.data;
   }
 
 }

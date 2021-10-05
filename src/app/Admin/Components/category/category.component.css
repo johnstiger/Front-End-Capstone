@@ -14,6 +14,10 @@ p {
     border-radius: 10px;
 }
 
+.actionBtn {
+    margin-left: 5px;
+}
+
 .btn-primary {
     background: #C7988E!important;
     border-color: #C7988E!important;

@@ -15,42 +15,120 @@ export class AdminService {
 
   constructor() { }
 
-  async products(token:any){
-    const response = await axios.get(this.url+"product/all", { headers: { Authorization: token }});
+  token = localStorage.getItem('admin_token');
+
+  auth = {headers:{Authorization: this.token}};
+
+  async getUser(){
+    const response = await axios.get(this.url+"user", this.auth);
     return response;
   }
 
-  async getProduct(token:any, id:any){
-    const response = await axios.get(this.url+"product/show/"+id, { headers: { Authorization: token }});
+  async products(){
+    const response = await axios.get(this.url+"product/all", this.auth);
     return response;
   }
 
-  async addProduct(token:any, data: any){
-    const response = await axios.post(this.url+"product/newProduct", data , {headers: { Authorization: token }});
+  async getProduct( id:any){
+    const response = await axios.get(this.url+"product/show/"+id, this.auth);
     return response;
   }
 
-  async updateProduct(token:any, data: any, id:any){
-    const response = await axios.put(this.url+"product/update/"+id, data, { headers: { Authorization: token } });
+  async addProduct( data: any){
+    const response = await axios.post(this.url+"product/newProduct", data , this.auth);
     return response;
   }
 
-  async deleteProduct(token:any, id:any){
-    const response = await axios.delete(this.url+"product/delete/"+id, { headers: { Authorization: token } });
+  async updateProduct( data: any, id:any){
+    const response = await axios.put(this.url+"product/update/"+id, data, this.auth);
     return response;
   }
 
-  // Search
-  async searchProducts(data : any, token : any){
-    const response = await axios.post(this.url+"search/items", data, {headers:{Authorization: token}});
+  async deleteProduct( id:any){
+    const response = await axios.delete(this.url+"product/delete/"+id, this.auth);
+    return response;
+  }
+
+  // Search Product
+  async searchProducts(data : any){
+    const response = await axios.post(this.url+"search/items", data, this.auth);
     return response;
   }
 
   //Logout
-  async logoutUser(token: any){
-    const response = await axios.get(this.url+"logout", {headers: { Authorization: token }});
+  async logoutUser(){
+    const response = await axios.get(this.url+"logout", this.auth);
     return response;
   }
+
+
+  //Admin
+  async addAdmin(data :any){
+    const response = await axios.post(this.url+"admin/register", data, this.auth);
+    return response;
+  }
+
+  //Admins
+  async admins(){
+    const response = await axios.get(this.url+"admin/admins", this.auth);
+    return response;
+  }
+
+  //Search Admins
+  async searchAdmins(data: any){
+    const response = await axios.post(this.url+"search/admin", data, this.auth);
+    return response;
+  }
+
+  //remove admin
+  async deleteAdmin(id : any){
+    const response = await axios.delete(this.url+"admin/delete/"+id, this.auth)
+    return response;
+  }
+
+  //get Admin
+  async getAdmin(id: any){
+    const response = await axios.get(this.url+"admin/show/"+id, this.auth);
+    return response;
+  }
+
+  //update Admin
+  async updateAdmin(id:any, data: any){
+    const response = await axios.put(this.url+"admin/update/"+id, data, this.auth);
+    return response;
+  }
+
+  //categories
+  async getCategories(){
+    const response = await axios.get(this.url+"category/all", this.auth);
+    return response;
+  }
+
+  //get Category
+  async getCategory(id:any){
+    const response = await axios.get(this.url+"category/show/"+id, this.auth);
+    return response;
+  }
+
+  //update Category
+  async updateCategory(id:any, data:any){
+    const response = await axios.put(this.url+"category/update/"+id, data , this.auth);
+    return response;
+  }
+
+  //add Category
+  async addCategory(data:any){
+    const response = await axios.post(this.url+"category/newCategory", data, this.auth);
+    return response;
+  }
+
+  //delete Category
+  async deleteCategory(id : any){
+    const response = await axios.delete(this.url+"category/delete/"+id, this.auth);
+    return response;
+  }
+
+
 
 
   //Message

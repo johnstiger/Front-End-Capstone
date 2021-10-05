@@ -11,6 +11,15 @@ export interface Products {
   category : any
 }
 
+export interface Admins {
+  id : number,
+  email : string,
+  firstname : string,
+  lastname : string,
+  contact_number : number,
+  password : string
+}
+
 export interface Categories {
   id : number,
   name : string

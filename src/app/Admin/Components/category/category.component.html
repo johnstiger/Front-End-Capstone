@@ -21,18 +21,18 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> product.name </td>
-                                    <td> product.price </td>
+                                <tr *ngFor="let category of categories">
+                                    <td> {{category.id}} </td>
+                                    <td> {{category.name}} </td>
                                     <td>
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                        <button type="button" class="btn btn-primary">Update</button>
+                                        <button type="button" (click)="update(category)" class="btn btn-success actionBtn"><i class="fas fa-edit"></i></button>
+                                        <button type="button" (click)="confirmDelete(category)" class="btn btn-danger actionBtn"><i class="far fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                             </tbody>

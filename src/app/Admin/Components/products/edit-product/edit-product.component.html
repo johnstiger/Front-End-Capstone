@@ -31,10 +31,11 @@
                 </div>
                 <select name="category_id" [ngModel]="category_id" id="" class="options form-control">
             <option value="" hidden>Category</option>
-            <option value="1">Second Collections</option>
-            <option value="3">Brand New Collections</option>
-            <option value="2">Upper Collections</option>
-            <option value="4">Lower Collections</option>
+            <option *ngFor="let category of categories"
+    [value]="category.id"
+    [attr.selected]="category_id==category.id ? true : null">
+  {{category.name}}
+</option>
           </select>
                 <div class="row">
                     <div class="col">

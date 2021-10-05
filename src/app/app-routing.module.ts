@@ -20,6 +20,7 @@ import { AddProductComponent } from './Admin/Components/products/add-product/add
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
+import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
 
       { path: 'admins', component: AdminsComponent },
       { path: 'add-admin', component: AddAdminComponent },
+      { path: 'edit-admin/:id', component: EditAdminComponent },
 
       { path: 'pending-orders', component: PendingOrdersComponent },
 

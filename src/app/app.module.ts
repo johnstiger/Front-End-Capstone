@@ -43,6 +43,7 @@ import { AddProductComponent } from './Admin/Components/products/add-product/add
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
+import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { EditProductComponent } from './Admin/Components/products/edit-product/e
     AddSaleComponent,
     AddCategoryComponent,
     EditProductComponent,
+    EditAdminComponent,
 
   ],
   imports: [

@@ -2,6 +2,18 @@
     text-align: center;
 }
 
+.not-available {
+    text-align: center;
+    font-size: 20px;
+    font-family: emoji;
+    font-weight: 300;
+    margin: 10%;
+}
+
+.actionBtn {
+    margin-left: 5px;
+}
+
 p {
     text-align: center;
     font-size: 23px;

@@ -18,8 +18,6 @@ export class ProductsComponent implements OnInit {
     ])
   });
 
-  token = localStorage.getItem('admin_token');
-
   success! : any;
   error! : any;
 
@@ -32,7 +30,7 @@ export class ProductsComponent implements OnInit {
   }
 
   async searchProducts(){
-    const result = await this.service.searchProducts(this.form.value, this.token);
+    const result = await this.service.searchProducts(this.form.value);
     if(result.data.found){
       this.products = result.data.data;
       console.log(this.products);
@@ -43,14 +41,12 @@ export class ProductsComponent implements OnInit {
 
 
   async getProducts(){
-   const result = await this.service.products(this.token);
+   const result = await this.service.products();
    this.products = result.data.data;
-   console.log(this.products);
-
   }
 
   async deleteProduct(id:any){
-    const result = await this.service.deleteProduct(this.token, id);
+    const result = await this.service.deleteProduct(id);
     if(result.data.error){
       this.error = result.data.message;
     }else{
