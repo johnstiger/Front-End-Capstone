@@ -25,6 +25,7 @@ export class EditProductComponent implements OnInit {
   unit_measure! : number;
   noSize! : number;
 
+  token = localStorage.getItem('admin_token');
 
   errors! : any;
 
@@ -49,7 +50,7 @@ export class EditProductComponent implements OnInit {
 
 
   async getProduct(){
-    const result = await this.service.getProduct(this.id);
+    const result = await this.service.getProduct(this.id, this.token);
     this.product = result.data.data;
     this.id = this.product.id;
     this.name = this.product.name;
@@ -65,6 +66,7 @@ export class EditProductComponent implements OnInit {
       this.sizes = 0;
       this.unit_measure = 0;
     }
+    this.getCategory();
   }
 
   onFileChange(event:any){
@@ -85,7 +87,7 @@ export class EditProductComponent implements OnInit {
   }
 
   async submit(data : any){
-   const result = await this.service.updateProduct( data, this.id );
+   const result = await this.service.updateProduct( data, this.id, this.token );
    if(result.data.error){
      this.errors = result.data.message;
   }else{
@@ -94,7 +96,7 @@ export class EditProductComponent implements OnInit {
   }
 
   async getCategory(){
-    const result = await this.service.getCategories();
+    const result = await this.service.getCategories(this.token);
     this.categories = result.data.data;
   }
 

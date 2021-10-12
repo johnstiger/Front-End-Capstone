@@ -21,6 +21,7 @@ import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/ad
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
+import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
 
 const routes: Routes = [
   {
@@ -46,7 +47,8 @@ const routes: Routes = [
       { path: 'add-sales', component: AddSaleComponent },
 
       { path: 'categories', component:CategoryComponent },
-      { path: 'add-category', component: AddCategoryComponent }
+      { path: 'add-category', component: AddCategoryComponent },
+      { path: 'edit-category/:id', component: EditCategoryComponent }
 
     ],
   },

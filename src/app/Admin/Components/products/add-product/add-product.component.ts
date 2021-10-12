@@ -23,6 +23,8 @@ export class AddProductComponent implements OnInit {
     unit_measure: new FormControl('')
   })
 
+  token = localStorage.getItem('admin_token');
+
   constructor(private http : AdminService, private location: Location) { }
 
   ngOnInit(): void {
@@ -52,7 +54,7 @@ export class AddProductComponent implements OnInit {
 
 
   async submit(){
-    const result = await this.http.addProduct(this.AddProductForm.value);
+    const result = await this.http.addProduct(this.AddProductForm.value, this.token);
     if(result.data.error){
       this.errors = result.data.message;
     }else{
@@ -62,7 +64,7 @@ export class AddProductComponent implements OnInit {
   }
 
   async gategories(){
-    const result = await this.http.getCategories();
+    const result = await this.http.getCategories(this.token);
     this.categories = result.data.error ? false : result.data.data;
 
   }

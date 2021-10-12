@@ -18,13 +18,13 @@ export class HeaderComponent implements OnInit {
   }
 
   async getUser(){
-    const result = await this.service.getUser();
+    const result = await this.service.getUser(this.token);
     this.name = result.data.firstname;
   }
 
 
   async logout(){
-    const result = await this.service.logoutUser();
+    const result = await this.service.logoutUser(this.token);
     localStorage.clear();
     window.location.reload();
   }

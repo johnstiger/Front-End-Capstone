@@ -23,6 +23,8 @@ export class AdminsComponent implements OnInit {
   success! : any;
   userEmail! : any;
 
+  token = localStorage.getItem('admin_token');
+
   constructor(private http : AdminService, private router : Router) { }
 
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class AdminsComponent implements OnInit {
   }
 
   async getAdmins(){
-    const result = await this.http.admins();
+    const result = await this.http.admins(this.token);
 
     if(result.data.error){
 
@@ -41,7 +43,7 @@ export class AdminsComponent implements OnInit {
   }
 
   async searchAdmins(){
-    const result = await this.http.searchAdmins(this.form.value);
+    const result = await this.http.searchAdmins(this.form.value, this.token);
     if(result.data.found){
       this.admins = result.data.data;
     }else{
@@ -51,7 +53,7 @@ export class AdminsComponent implements OnInit {
   }
 
   async deleteAdmin(id : any){
-    const result = await this.http.deleteAdmin(id);
+    const result = await this.http.deleteAdmin(id, this.token);
     if(result.data.error){
       this.error = result.data.message;
     }else{

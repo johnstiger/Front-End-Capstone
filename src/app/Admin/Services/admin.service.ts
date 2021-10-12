@@ -15,120 +15,142 @@ export class AdminService {
 
   constructor() { }
 
-  token = localStorage.getItem('admin_token');
+  // token = localStorage.getItem('admin_token');
 
-  auth = {headers:{Authorization: this.token}};
+  // auth = {headers:{Authorization: this.token}};
 
-  async getUser(){
-    const response = await axios.get(this.url+"user", this.auth);
+  //dashboard
+  async dashboard(token:any){
+    const response = await axios.get(this.url+"admin/dashboard",{headers:{Authorization:token}});
     return response;
   }
 
-  async products(){
-    const response = await axios.get(this.url+"product/all", this.auth);
+  async getUser(token:any){
+    const response = await axios.get(this.url+"user", {headers:{Authorization:token}});
     return response;
   }
 
-  async getProduct( id:any){
-    const response = await axios.get(this.url+"product/show/"+id, this.auth);
+  async products(token:any){
+    const response = await axios.get(this.url+"product/all", {headers:{Authorization:token}});
     return response;
   }
 
-  async addProduct( data: any){
-    const response = await axios.post(this.url+"product/newProduct", data , this.auth);
+  async getProduct( id:any, token:any){
+    const response = await axios.get(this.url+"product/show/"+id, {headers:{Authorization:token}});
     return response;
   }
 
-  async updateProduct( data: any, id:any){
-    const response = await axios.put(this.url+"product/update/"+id, data, this.auth);
+  async addProduct( data: any, token:any){
+    const response = await axios.post(this.url+"product/newProduct", data , {headers:{Authorization:token}});
     return response;
   }
 
-  async deleteProduct( id:any){
-    const response = await axios.delete(this.url+"product/delete/"+id, this.auth);
+  async updateProduct( data: any, id:any, token:any){
+    const response = await axios.put(this.url+"product/update/"+id, data, {headers:{Authorization:token}});
+    return response;
+  }
+
+  async deleteProduct( id:any, token:any){
+    const response = await axios.delete(this.url+"product/delete/"+id, {headers:{Authorization:token}});
     return response;
   }
 
   // Search Product
-  async searchProducts(data : any){
-    const response = await axios.post(this.url+"search/items", data, this.auth);
+  async searchProducts(data : any, token:any){
+    const response = await axios.post(this.url+"search/items", data, {headers:{Authorization:token}});
     return response;
   }
 
   //Logout
-  async logoutUser(){
-    const response = await axios.get(this.url+"logout", this.auth);
+  async logoutUser(token:any){
+    const response = await axios.get(this.url+"logout", {headers:{Authorization:token}});
     return response;
   }
 
 
   //Admin
-  async addAdmin(data :any){
-    const response = await axios.post(this.url+"admin/register", data, this.auth);
+  async addAdmin(data :any, token:any){
+    const response = await axios.post(this.url+"admin/register", data, {headers:{Authorization:token}});
     return response;
   }
 
   //Admins
-  async admins(){
-    const response = await axios.get(this.url+"admin/admins", this.auth);
+  async admins(token:any){
+    const response = await axios.get(this.url+"admin/admins", {headers:{Authorization:token}});
     return response;
   }
 
   //Search Admins
-  async searchAdmins(data: any){
-    const response = await axios.post(this.url+"search/admin", data, this.auth);
+  async searchAdmins(data: any, token:any){
+    const response = await axios.post(this.url+"search/admin", data, {headers:{Authorization:token}});
     return response;
   }
 
   //remove admin
-  async deleteAdmin(id : any){
-    const response = await axios.delete(this.url+"admin/delete/"+id, this.auth)
+  async deleteAdmin(id : any, token:any){
+    const response = await axios.delete(this.url+"admin/delete/"+id, {headers:{Authorization:token}})
     return response;
   }
 
   //get Admin
-  async getAdmin(id: any){
-    const response = await axios.get(this.url+"admin/show/"+id, this.auth);
+  async getAdmin(id: any, token:any){
+    const response = await axios.get(this.url+"admin/show/"+id, {headers:{Authorization:token}});
     return response;
   }
 
   //update Admin
-  async updateAdmin(id:any, data: any){
-    const response = await axios.put(this.url+"admin/update/"+id, data, this.auth);
+  async updateAdmin(id:any, data: any, token:any){
+    const response = await axios.put(this.url+"admin/update/"+id, data, {headers:{Authorization:token}});
     return response;
   }
 
   //categories
-  async getCategories(){
-    const response = await axios.get(this.url+"category/all", this.auth);
+  async getCategories(token:any){
+    const response = await axios.get(this.url+"category/all", {headers:{Authorization:token}});
     return response;
   }
 
   //get Category
-  async getCategory(id:any){
-    const response = await axios.get(this.url+"category/show/"+id, this.auth);
+  async getCategory(id:any, token:any){
+    const response = await axios.get(this.url+"category/show/"+id, {headers:{Authorization:token}});
     return response;
   }
 
   //update Category
-  async updateCategory(id:any, data:any){
-    const response = await axios.put(this.url+"category/update/"+id, data , this.auth);
+  async updateCategory(id:any, data:any, token:any){
+    const response = await axios.put(this.url+"category/update/"+id, data , {headers:{Authorization:token}});
     return response;
   }
 
   //add Category
-  async addCategory(data:any){
-    const response = await axios.post(this.url+"category/newCategory", data, this.auth);
+  async addCategory(data:any, token:any){
+    const response = await axios.post(this.url+"category/newCategory", data, {headers:{Authorization:token}});
     return response;
   }
 
   //delete Category
-  async deleteCategory(id : any){
-    const response = await axios.delete(this.url+"category/delete/"+id, this.auth);
+  async deleteCategory(id : any, token:any){
+    const response = await axios.delete(this.url+"category/delete/"+id, {headers:{Authorization:token}});
     return response;
   }
 
+  //search Category
+  async searchCategory(data:any, token:any){
+    const response = await axios.post(this.url+"search/category", data, {headers:{Authorization:token}});
+    return response;
+  }
 
+  //get all Customers
+  async getCustomers(token:any){
+    const response = await axios.get(this.url+"admin/customers",{headers:{Authorization:token}});
+    return response;
+  }
+
+  //search Customers
+  async searchCustomers(data:any, token:any){
+    const response = await axios.post(this.url+"search/customers",data,{headers:{Authorization:token}});
+    return response;
+  }
 
 
   //Message

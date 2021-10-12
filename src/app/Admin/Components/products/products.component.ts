@@ -17,6 +17,8 @@ export class ProductsComponent implements OnInit {
       Validators.required
     ])
   });
+  token = localStorage.getItem('admin_token');
+
 
   success! : any;
   error! : any;
@@ -30,7 +32,7 @@ export class ProductsComponent implements OnInit {
   }
 
   async searchProducts(){
-    const result = await this.service.searchProducts(this.form.value);
+    const result = await this.service.searchProducts(this.form.value, this.token);
     if(result.data.found){
       this.products = result.data.data;
       console.log(this.products);
@@ -41,12 +43,12 @@ export class ProductsComponent implements OnInit {
 
 
   async getProducts(){
-   const result = await this.service.products();
+   const result = await this.service.products(this.token);
    this.products = result.data.data;
   }
 
   async deleteProduct(id:any){
-    const result = await this.service.deleteProduct(id);
+    const result = await this.service.deleteProduct(id, this.token);
     if(result.data.error){
       this.error = result.data.message;
     }else{

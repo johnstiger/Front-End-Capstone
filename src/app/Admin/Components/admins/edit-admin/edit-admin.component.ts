@@ -22,6 +22,9 @@ export class EditAdminComponent implements OnInit {
 
   errors : any;
   success : any;
+
+  token = localStorage.getItem('admin_token');
+
   constructor(
     private service : AdminService,
     private location: Location,
@@ -41,7 +44,7 @@ export class EditAdminComponent implements OnInit {
   }
 
   async getAdmin(){
-    const result = await this.service.getAdmin(this.id);
+    const result = await this.service.getAdmin(this.id, this.token);
     this.admin = result.data.data;
     this.id = this.admin.id;
     this.firstname = this.admin.firstname;
@@ -66,7 +69,7 @@ export class EditAdminComponent implements OnInit {
   }
 
   async submit(data: any){
-    const result = await this.service.updateAdmin(this.id, data);
+    const result = await this.service.updateAdmin(this.id, data, this.token);
     if(result.data.error){
       this.errors = result.data.message;
    }else{

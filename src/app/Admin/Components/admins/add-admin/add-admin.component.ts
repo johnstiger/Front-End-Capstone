@@ -24,13 +24,16 @@ export class AddAdminComponent implements OnInit {
   errors! : any;
   success! : any;
 
+  token = localStorage.getItem('admin_token');
+
+
   constructor(private http : AdminService, private location: Location) { }
 
   ngOnInit(): void {
   }
 
   async submit(){
-    const result = await this.http.addAdmin(this.AddAdminForm.value);
+    const result = await this.http.addAdmin(this.AddAdminForm.value, this.token);
     if(result.data.error){
       this.errors = result.data.message;
     }else{

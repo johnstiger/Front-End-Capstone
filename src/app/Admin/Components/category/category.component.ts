@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Categories } from 'src/app/Customer/Common/model/customer-model';
 import Swal from 'sweetalert2';
 import { AdminService } from '../../Services/admin.service';
@@ -9,8 +11,15 @@ import { AdminService } from '../../Services/admin.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  form = new FormGroup({
+    data : new FormControl('',[
+      Validators.required
+    ])
+  });
 
-  constructor(private http : AdminService) { }
+  token = localStorage.getItem('admin_token');
+
+  constructor(private http : AdminService, private router : Router) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -24,16 +33,30 @@ export class CategoryComponent implements OnInit {
   }
 
   async getCategories(){
-    const result = await this.http.getCategories();
+    const result = await this.http.getCategories(this.token);
     this.categories = result.data.data;
   }
 
-  update(data:any){
+  async searchCategory(){
+    const result = await this.http.searchCategory(this.form.value, this.token);
+    if(result.data.found){
+      this.categories = result.data.data;
+      console.log(this.categories);
+    }else{
+      this.http.ShowErrorMessage(result.data.message);
+    }
+  }
 
+  update(data:any){
+    this.router.navigate(['/admin/edit-category/'+data.id],{
+      state: {
+        data: data
+      }
+    })
   }
 
   async deleteCategory(id :any){
-    const result = await this.http.deleteCategory(id);
+    const result = await this.http.deleteCategory(id, this.token);
     if(result.data.error){
       this.error = result.data.message;
     }else{
