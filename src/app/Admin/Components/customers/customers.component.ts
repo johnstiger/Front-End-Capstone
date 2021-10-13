@@ -22,6 +22,7 @@ export class CustomersComponent implements OnInit {
     this.getCustomers();
   }
 
+  message : any;
   token = localStorage.getItem('admin_token');
 
   async getCustomers(){
@@ -29,8 +30,7 @@ export class CustomersComponent implements OnInit {
     if(result.data.message == "Success"){
       this.customers = result.data.data;
     }else{
-      console.log(result.data.message);
-
+     this.message = result.data.message;
     }
   }
 

@@ -57,9 +57,13 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div *ngIf="!products" class="not-available">
-                                <i class="fas fa-tshirt"></i> No Product Available Here!
+                            <div class="Unathorized" *ngIf="!products">
+                                <img src="../../../../assets/imgs/nodata.jpg" alt="" class="responsive-image">
+                                <div class="message">
+                                    <h5>No Data Available Here!</h5>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
