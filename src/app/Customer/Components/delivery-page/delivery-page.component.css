@@ -50,10 +50,12 @@
   .delivery320{
       margin-top: 4%;
       margin-bottom: 12%;
-
   }
   .div2{
       margin-top: 5%;
+  }
+  .account{
+    background-color: violet;
   }
   
   
@@ -92,26 +94,35 @@
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
   }
+  @media screen and (width: 320px){
+    .media768{display: none;}
+  }
   @media screen and (min-width: 322px){
     .submedia320{
       text-align: center;
     }
+    .media768{
+      display: none;
+    }
   }
 
   @media screen and (min-width: 331px){
-    .submedia320{
-      font-size: 14px;
+    .submedia320{font-size: 14px;}
+    .media768{
+      display: none;
     }
   }
-  @media screen and (min-width: 345px) and (max-width: 355px){
+  @media screen and (min-width: 345px) and (max-width: 374px){
     #quant{
       margin-left: 54%;
     }
   }
-
   @media screen and (min-width: 375px){
     .submedia320{
       font-size: 17px;
+    }
+    .media768{
+      display: none;
     }
     #amount, #total{
       margin-left: 10%;
@@ -127,6 +138,11 @@
     }
     .delivery320 p{
       font-size: 15px;
+    }
+  }
+  @media screen and (width: 768px){
+    .media320, #img320{
+      display: none;
     }
   }
   
