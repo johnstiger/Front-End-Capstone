@@ -1,7 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { timer } from 'rxjs';
 import { Admins } from 'src/app/Customer/Common/model/customer-model';
+import Swal from 'sweetalert2';
 import { AdminService } from '../../Services/admin.service';
 
 @Component({
@@ -16,38 +18,62 @@ export class MyProfileComponent implements OnInit {
   lastname : any;
   email : any;
   contact_number : any;
-  address : any;
   image : any;
   id : any;
   admin! : Admins;
+  password! : any;
 
   token = localStorage.getItem('admin_token');
 
-  constructor(private service : AdminService,
-    private location: Location,
-    private router : ActivatedRoute) { }
+  constructor(private service : AdminService) {
+
+   }
 
   ngOnInit(): void {
     this.getUser();
   }
 
+
+
  async submit(data:any){
-    const result = await this.service.updateAdmin(data.id, data, this.token);
-    console.log(result.data);
-    if(result.data.error){
-    }else{
-      this.ngOnInit();
-    }
+  Swal.fire({
+    title:'Updating Your Information.'
+  });
+  Swal.showLoading();
+    const result = await this.service.updateAdmin(data.id, data, this.token).then((result)=>{
+      if(result.data.error){
+        Swal.fire({title:'Oops! Something is incorrect.'})
+      }else{
+        this.ngOnInit();
+        Swal.close();
+      }
+    });
   }
 
   async getUser(){
-    const result = await this.service.getUser(this.token);
+    Swal.fire({
+      title: 'Sweet!',
+      html: 'I will close in <b></b> milliseconds.',
+      imageUrl: 'https://i.pinimg.com/originals/49/e5/8d/49e58d5922019b8ec4642a2e2b9291c2.png',
+      imageWidth: 400,
+      timer: 2000,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      didOpen: ()=> {
+        Swal.showLoading();
+      }
+    })
+    const result = await this.service.getUser(this.token).then((result)=>{
     this.firstname = result.data.firstname;
     this.lastname = result.data.lastname;
     this.email = result.data.email;
     this.contact_number = result.data.contact_number;
     this.image = result.data.image;
     this.id = result.data.id;
+    Swal.close();
+    });
+
+
   }
 
   onFileChange(event:any){
@@ -66,5 +92,8 @@ export class MyProfileComponent implements OnInit {
       };
     }
   }
+
+
+
 
 }
