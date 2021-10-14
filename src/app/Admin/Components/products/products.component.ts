@@ -64,6 +64,14 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  // addToSales(product:any){
+  //   this.router.navigate(['/admin/edit-product/'+product.id],{
+  //     state: {
+  //       data: product
+  //     }
+  //   })
+  // }
+
 
   async confirmDelete(product:any){
     Swal.fire({

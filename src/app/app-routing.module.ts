@@ -22,12 +22,17 @@ import { AddCategoryComponent } from './Admin/Components/category/add-category/a
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
 import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
+import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
+import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 
 const routes: Routes = [
+
   {
     path: 'admin', component: NavigationComponent , canActivate : [AdminGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'myProfile', component: MyProfileComponent },
+
       { path: 'orders', component: OrdersComponent },
 
       { path: 'products', component: ProductsComponent },
@@ -57,6 +62,10 @@ const routes: Routes = [
   { path: 'register', component:RegisterComponent },
   { path: 'cart', component:CartPageComponent },
   { path: 'product', component:ProductSelectComponent },
+
+  { path: '404', component: NotFoundPageComponent },
+  { path: '**', redirectTo: '/404' },
+
 ];
 
 @NgModule({
