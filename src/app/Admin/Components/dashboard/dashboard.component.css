@@ -3,6 +3,16 @@
   overflow: auto;
 } */
 
+.noData {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.number {
+    float: right;
+}
+
 .style-label {
     color: #bebebe;
     font-size: 12px;

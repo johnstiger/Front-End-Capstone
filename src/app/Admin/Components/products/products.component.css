@@ -1,38 +1,32 @@
 .container {
+    padding: 2rem 0rem;
+}
+
+h4 {
+    margin: 2rem 0rem 1rem;
+}
+
+.responsive-image {
+    width: 100%;
+}
+
+td,
+th {
+    vertical-align: middle;
+}
+
+th {
     text-align: center;
 }
 
-.update {
-    margin-left: 20px;
-}
-
-p {
-    text-align: center;
-    font-size: 23px;
-}
-
-#search {
-    width: 320px;
+.actionBtn {
     margin-left: 5px;
-    padding: 5px;
-    border-radius: 10px;
 }
 
-.btn-primary {
-    background: #C7988E!important;
-    border-color: #C7988E!important;
-}
-
-.btn-primary:hover {
-    background-color: darkolivegreen!important;
-    border-color: darkolivegreen!important;
-}
-
-.add {
-    width: 100px;
-}
-
-.search {
-    margin-left: -10px;
-    width: 280px;
+.not-available {
+    text-align: center;
+    font-size: 20px;
+    font-family: emoji;
+    font-weight: 300;
+    margin: 10%;
 }

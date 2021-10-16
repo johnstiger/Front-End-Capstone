@@ -1,0 +1,7 @@
+<div class="container con">
+    <form name="form" #FormUpdate="ngForm" (ngSubmit)="submit(FormUpdate.value)">
+        <input type="text" class="form-control field" [ngModel]="name" name="name" id="" placeholder="Name">
+        <button class="btn btn-success field add-product" type="submit">Update Category</button>
+        <a routerLink="/admin/categories" class="btn btn-success field same">Cancel</a>
+    </form>
+</div>

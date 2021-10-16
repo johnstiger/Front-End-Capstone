@@ -7,11 +7,19 @@ p {
     font-size: 23px;
 }
 
+.responsive-image {
+    width: 100%;
+}
+
 #search {
     width: 320px;
     margin-left: 5px;
     padding: 5px;
     border-radius: 10px;
+}
+
+.actionBtn {
+    margin-left: 5px;
 }
 
 .btn-primary {
