@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import * as $ from 'jquery';
+// import Swal from 'sweetalert2';
 import Swal from 'sweetalert2';
+
 
 
 
@@ -27,7 +29,7 @@ export class CustomerService {
     const response = await axios.post(this.url+"login", data, { headers: { Authorization: token } });
     console.log(response)
     return response;
-  
+
   }
 
   async register(data:any, token:any){
@@ -86,7 +88,7 @@ export class CustomerService {
     })
   }
 
-  
+
 
 
 

@@ -1,10 +1,10 @@
 <app-sample-header></app-sample-header>
-<div>
-    <div class="leftDiv">
+<div class="container">
+    <div class="row" style="background-color:aqua ;">
         <div class="leftImage">
-          <img class="rounded-circle mt-5" style="width:80%; height:auto;" src="../../../../assets/imgs/image1.jpg" alt="">
+          <img src="../../../../assets/imgs/image1.jpg" alt="">
         </div>
-    
+
         <h4 class="mb-5">Customer Name</h4>
         <a href="">
           <h4>Edit Account</h4>
@@ -12,23 +12,25 @@
         <a href="">
           <h4 class="mb-3">My Orders</h4>
         </a>
+        <div class="rightDiv" style="background-color: aquamarine;">
+          <div class="row">
+              <div class="col-3 mt-2">
+                  <h4>All Orders</h4>
+              </div>
+              <div class="col-3 mt-2">
+                  <h4>To Pay</h4>
+              </div>
+              <div class="col-3 mt-2">
+                  <h4>Delivery Date</h4>
+              </div>
+              <div class="col-3 mt-2">
+                  <h4>Received</h4>
+              </div>
+          </div>
+          <hr>
       </div>
-    <div class="rightDiv">
-        <div class="row">
-            <div class="col-3 mt-2">
-                <h4>All Orders</h4>
-            </div>
-            <div class="col-3 mt-2">
-                <h4>To Pay</h4>
-            </div>
-            <div class="col-3 mt-2">
-                <h4>Delivery Date</h4>
-            </div>
-            <div class="col-3 mt-2">
-                <h4>Received</h4>
-            </div>
-        </div>
-        <hr>
     </div>
+
+
 </div>
-<app-cus-footer></app-cus-footer>
+<app-cus-footer></app-cus-footer> 
