@@ -3,6 +3,10 @@
   overflow: auto;
 } */
 
+.responsive-image {
+    width: 100%;
+}
+
 .noData {
     text-align: center;
     font-size: 20px;

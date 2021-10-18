@@ -18,7 +18,6 @@ export class EditAdminComponent implements OnInit {
   image! : string;
   contact_number! : number;
   email! : string;
-  password! : string;
 
   errors : any;
   success : any;
@@ -51,7 +50,6 @@ export class EditAdminComponent implements OnInit {
     this.lastname = this.admin.lastname;
     this.contact_number = this.admin.contact_number;
     this.email = this.admin.email;
-    this.password = this.admin.password;
   }
 
   onFileChange(event:any){
@@ -69,12 +67,14 @@ export class EditAdminComponent implements OnInit {
   }
 
   async submit(data: any){
-    const result = await this.service.updateAdmin(this.id, data, this.token);
-    if(result.data.error){
-      this.errors = result.data.message;
-   }else{
-     this.location.back();
-   }
+    // const result = await this.service.updateAdmin(this.id, data, this.token);
+    console.log(data);
+
+  //   if(result.data.error){
+  //     this.errors = result.data.message;
+  //  }else{
+  //    this.location.back();
+  //  }
   }
 
 }

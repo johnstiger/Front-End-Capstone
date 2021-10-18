@@ -31,12 +31,17 @@ import { EditProductComponent } from './Admin/Components/products/edit-product/e
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
 import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
 import { ReceivedComponent } from './Customer/Components/received/received.component';
+import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
+import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 
 const routes: Routes = [
+
   {
     path: 'admin', component: NavigationComponent , canActivate : [AdminGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'myProfile', component: MyProfileComponent },
+
       { path: 'orders', component: OrdersComponent },
 
       { path: 'products', component: ProductsComponent },
@@ -64,11 +69,11 @@ const routes: Routes = [
   {
     path: 'customer', component: NavigationComponent , canActivate: [CustomerGuard],
     children: [
-      { path: 'landing', component: LandingComponent },
+      { path: '', component: LandingComponent },
       { path: 'login', component:LoginComponent },
       { path: 'register', component:RegisterComponent },
       { path: 'cart', component:CartPageComponent },
-      { path: 'product', component:ProductSelectComponent },
+      { path: 'product-select', component:ProductSelectComponent },
       { path: 'all-orders', component:AllOrdersComponent },
       { path: 'check-out', component:CheckOutComponent },
       { path: 'delivery-page', component:DeliveryPageComponent },
@@ -77,10 +82,15 @@ const routes: Routes = [
       { path: 'product-select', component:ProductSelectComponent },
       { path: 'received', component:ReceivedComponent },
       { path: 'show-profile', component:ShowProfileComponent },
-      { path: 'to-pay', component:ToPayComponent }
+      { path: '404', component: NotFoundPageComponent },
+      { path: '**', redirectTo: '/404' },
+
     ]
   },
   
+  
+
+ 
 ];
 
 @NgModule({

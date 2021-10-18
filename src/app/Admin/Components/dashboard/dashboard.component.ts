@@ -12,6 +12,7 @@ import { AdminService } from '../../Services/admin.service';
 export class DashboardComponent implements OnInit {
 
   constructor(private http : AdminService) { }
+
   token = localStorage.getItem('admin_token');
 
   countProducts : any;
@@ -120,7 +121,7 @@ export class DashboardComponent implements OnInit {
     console.log(result.data);
     this.categories = result.data.categories;
     this.pendingOrders = result.data.pendingOrders;
-    this.countCustomers = result.data.customers.length;
+    this.countCustomers = result.data.customers;
     this.countOrders = result.data.orders;
     this.countSales = result.data.sales;
     this.countProducts = result.data.products;

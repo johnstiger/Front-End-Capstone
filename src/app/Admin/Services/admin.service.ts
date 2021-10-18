@@ -104,6 +104,12 @@ export class AdminService {
     return response;
   }
 
+  //update Password Admin
+  async resetPassword(id:any, data: any, token:any){
+    const response = await axios.put(this.url+"admin/resetPassword/"+id, data, {headers:{Authorization:token}});
+    return response;
+  }
+
   //categories
   async getCategories(token:any){
     const response = await axios.get(this.url+"category/all", {headers:{Authorization:token}});

@@ -39,11 +39,7 @@
                     *{{ errors.email[0] }}
                 </div>
                 <input type="email" [ngModel]="email" class="form-control field" name="email" placeholder="Email Address">
-                <div *ngIf="errors && errors.password" class="alert alert-danger">
-                    *{{ errors.password[0] }}
-                </div>
-                <input type="password" [ngModel]="password" class="form-control field" name="password" placeholder="Password">
-                <button class="btn btn-success field add-product">Add as Administrator</button>
+                <button class="btn btn-success field add-product">Update as Administrator</button>
                 <a routerLink="/admin/admins" class="btn btn-success field same">Cancel</a>
             </div>
         </div>

@@ -42,8 +42,15 @@ export class ProductsComponent implements OnInit {
   }
 
   async getProducts(){
-   const result = await this.service.products(this.token);
-   this.products = result.data.data;
+    Swal.fire({
+      title:'Finding Data Please Wait.'
+    });
+    Swal.showLoading();
+   const result = await this.service.products(this.token).then((res)=>{
+    this.products = res.data.data;
+    Swal.close();
+   });
+
   }
 
   async deleteProduct(id:any){
@@ -62,6 +69,14 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
+
+  // addToSales(product:any){
+  //   this.router.navigate(['/admin/edit-product/'+product.id],{
+  //     state: {
+  //       data: product
+  //     }
+  //   })
+  // }
 
 
   async confirmDelete(product:any){
