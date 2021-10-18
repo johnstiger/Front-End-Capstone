@@ -16,7 +16,12 @@ import { CartPageComponent } from './Customer/Components/cart-page/cart-page.com
 import { LandingComponent } from './Customer/Components/landing/landing.component';
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
 import { LoginComponent } from './Customer/Components/login/login.component';
+import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component';
 import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
+import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
+import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
+import { EditAccountComponent } from './Customer/Components/edit-account/edit-account.component';
+import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
 import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
 import { RegisterComponent } from './Customer/Components/register/register.component';
 import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
@@ -25,6 +30,7 @@ import { AddCategoryComponent } from './Admin/Components/category/add-category/a
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
 import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
+import { ReceivedComponent } from './Customer/Components/received/received.component';
 
 const routes: Routes = [
   {
@@ -65,8 +71,13 @@ const routes: Routes = [
       { path: 'product', component:ProductSelectComponent },
       { path: 'all-orders', component:AllOrdersComponent },
       { path: 'check-out', component:CheckOutComponent },
-      
-
+      { path: 'delivery-page', component:DeliveryPageComponent },
+      { path: 'my-order-page', component:MyOrderPageComponent },
+      { path: 'edit-account', component:EditAccountComponent },
+      { path: 'product-select', component:ProductSelectComponent },
+      { path: 'received', component:ReceivedComponent },
+      { path: 'show-profile', component:ShowProfileComponent },
+      { path: 'to-pay', component:ToPayComponent }
     ]
   },
   
