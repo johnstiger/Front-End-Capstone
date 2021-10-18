@@ -4,6 +4,10 @@
     width: 100%;
 }
 
+.alert {
+    text-align: center;
+}
+
 .text {
     font-size: 20px;
     color: white;
@@ -20,9 +24,9 @@
 
 .form {
     float: right;
-    margin-top: -34%;
+    margin-top: -28%;
     background-color: white;
-    width: 30%;
+    width: 24%;
     border-radius: 2%;
     margin-right: 12%;
     padding: 25px;
@@ -60,150 +64,155 @@
 }
 
 @media screen and (min-width: 2560px) {
-  .form {
-    margin-top: -26%;
-    width: 30%;
-    margin-right: 9%;
-  }
-  h3{
-    font-size: 50px;
-  }
-  .form-control{
-    margin-bottom: 5%;
-    padding: 36px;
-    font-size: 25px;
-  }
-  .submitbtn{
-    font-size: 35px;
-  }
-  p{
-    font-size: 27px;
-  }
-  .text{
-    font-size: 32px;
-  margin-left: 13%;
-  }
-  .about{
-    font-size: 35px;
-  }
-  .logo{
-    width: 40%;
-    margin-left: 6%;
-    max-height: 30%;
-    margin-top: 5%;
-  }
-  .loginbottom{
-    margin: 10%;
-  }
+    .form {
+        margin-top: -26%;
+        width: 30%;
+        margin-right: 9%;
+    }
+    h3 {
+        font-size: 50px;
+    }
+    .form-control {
+        margin-bottom: 5%;
+        padding: 36px;
+        font-size: 25px;
+    }
+    .submitbtn {
+        font-size: 35px;
+    }
+    p {
+        font-size: 27px;
+    }
+    .text {
+        font-size: 32px;
+        margin-left: 13%;
+    }
+    .about {
+        font-size: 35px;
+    }
+    .logo {
+        width: 40%;
+        margin-left: 6%;
+        max-height: 30%;
+        margin-top: 5%;
+    }
+    .loginbottom {
+        margin: 10%;
+    }
 }
+
 @media screen and (min-width:1440px) and (max-width:2559) {
-  .form{
-    margin-top: -33%;
-    width: 26%;
-    margin-right: 8%;
-  }
+    .form {
+        margin-top: -33%;
+        width: 26%;
+        margin-right: 8%;
+    }
 }
+
+@media screen and (min-width: 1400px) and (max-width:1439px) {
+    .form {
+        margin-top: -35% !important;
+        width: 29% !important;
+        margin-right: 7% !important;
+    }
+}
+
 @media screen and (min-width: 1024px) and (max-width:1300px) {
-  .form{
-    margin-top: -43%;
-    width: 35%;
-    margin-right: 4%;
-  }
+    .form {
+        margin-top: -43%;
+        width: 35%;
+        margin-right: 4%;
+    }
 }
 
-
-@media screen and (min-width:635px) and (max-width:1023px){
-  .form{
-    margin-top: -49%;
-    width: 40%;
-    margin-right: 2%;
-    padding: 10px;
-  }
-  .logo{
-    margin-left: 0px;
-    max-width: 50%;
-  }
-  .text{
-    font-size: 18px;
-    color: white;
-    margin-left: 7%;
-    width: 45%;
-  }
-  a{
-    padding: 10px;
-  }
-  .about{
-    margin-left: 17%;
-    font-size: 15px;
-    width: 22%;
-  }
-  .login{
-    width: 15em;
-    font-size: 16px;
-  }
+@media screen and (min-width:635px) and (max-width:1023px) {
+    .form {
+        margin-top: -49%;
+        width: 40%;
+        margin-right: 2%;
+        padding: 10px;
+    }
+    .logo {
+        margin-left: 0px;
+        max-width: 50%;
+    }
+    .text {
+        font-size: 18px;
+        color: white;
+        margin-left: 7%;
+        width: 45%;
+    }
+    a {
+        padding: 10px;
+    }
+    .about {
+        margin-left: 17%;
+        font-size: 15px;
+        width: 22%;
+    }
+    .login {
+        width: 15em;
+        font-size: 16px;
+    }
 }
 
-@media screen and (min-width:486px) and (max-width:634px){
-  .form{
-    margin-top: -62%;
-    width: 44%;
-    margin-right: 1%;
-    padding: 0px;
-  }
-  .login{
-    width: 12rem;
-  }
-  .logo{
-    margin-left: 0px;
-    max-width: 50%;
-  }
-  .text{
-    font-size: 18px;
-    color: white;
-    margin-left: 7%;
-    width: 45%;
-  }
-  a{
-    padding: 10px;
-  }
-  .about{
-    margin-left: 17%;
-    font-size: 15px;
-    width: 22%;
-  }
+@media screen and (min-width:486px) and (max-width:634px) {
+    .form {
+        margin-top: -62%;
+        width: 44%;
+        margin-right: 1%;
+        padding: 0px;
+    }
+    .login {
+        width: 12rem;
+    }
+    .logo {
+        margin-left: 0px;
+        max-width: 50%;
+    }
+    .text {
+        font-size: 18px;
+        color: white;
+        margin-left: 7%;
+        width: 45%;
+    }
+    a {
+        padding: 10px;
+    }
+    .about {
+        margin-left: 17%;
+        font-size: 15px;
+        width: 22%;
+    }
 }
 
-
-@media screen and (min-width:133px) and (max-width:485px){
-  .logo{
-    margin-left: -22px;
-    max-width: 100%;
-  }
-  .text{
-    font-size: 15px;
-    width: 100%;
-    margin-left: 0%;
-    margin-top: 8px;
-    text-align: center;
-  }
-
-  .btn{
-    margin-right: auto !important;
-    margin-left: auto;
-    width: 100%;
-    font-size: 15px;
-    display: block;
-    margin-right: -17px;
-  }
-
-  .form{
-    width: 100%;
-    float: unset;
-    margin-top: -25px;
-    padding: 7px;
-  }
-
-  a{
-    padding: 14px;
-  }
+@media screen and (min-width:133px) and (max-width:485px) {
+    .logo {
+        margin-left: -22px;
+        max-width: 100%;
+    }
+    .text {
+        font-size: 15px;
+        width: 100%;
+        margin-left: 0%;
+        margin-top: 8px;
+        text-align: center;
+    }
+    .btn {
+        margin-right: auto !important;
+        margin-left: auto;
+        width: 100%;
+        font-size: 15px;
+        display: block;
+        margin-right: -17px;
+    }
+    .form {
+        width: 100%;
+        float: unset;
+        margin-top: -25px;
+        padding: 7px;
+    }
+    a {
+        padding: 14px;
+    }
 }

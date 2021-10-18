@@ -1,9 +1,26 @@
 .container {
+    padding: 2rem 0rem;
+}
+
+h4 {
+    margin: 2rem 0rem 1rem;
+}
+
+.responsive-image {
+    width: 100%;
+}
+
+td,
+th {
+    vertical-align: middle;
+}
+
+th {
     text-align: center;
 }
 
-.update {
-    margin-left: 20px;
+.actionBtn {
+    margin-left: 5px;
 }
 
 p {

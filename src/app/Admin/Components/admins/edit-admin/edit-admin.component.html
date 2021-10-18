@@ -1,0 +1,47 @@
+<div class="container con">
+    <form name="form" #FormUpdate="ngForm" (ngSubmit)="submit(FormUpdate.value)">
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <img class="image" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
+                <div *ngIf="errors && errors.image" class="alert alert-danger">
+                    *{{ errors.image[0] }}
+                </div>
+                <ng-template #default>
+                    <img class="image" src="/assets/imgs/product.jpg" alt="product-image">
+                </ng-template>
+                <label for="file" class="file-upload">
+        <input
+        type="file"
+        formControlName="image"
+        name="image"
+        class="form-control"
+        accept="image/*"
+        id="file"
+        style="display: none;"
+        (change)="onFileChange($event)">
+        Select Image
+      </label>
+            </div>
+            <div class="col-md-8">
+                <div *ngIf="errors && errors.firstname" class="alert alert-danger">
+                    *{{ errors.firstname[0] }}
+                </div>
+                <input type="text" [ngModel]="firstname" class="form-control field" name="firstname" placeholder="First Name">
+                <div *ngIf="errors && errors.lastname" class="alert alert-danger">
+                    *{{ errors.lastname[0] }}
+                </div>
+                <input type="text" [ngModel]="lastname" class="form-control field" name="lastname" placeholder="Last Name">
+                <div *ngIf="errors && errors.contact_number" class="alert alert-danger">
+                    *{{ errors.contact_number[0] }}
+                </div>
+                <input type="text" [ngModel]="contact_number" class="form-control field" name="contact_number" placeholder="Contact Number">
+                <div *ngIf="errors && errors.email" class="alert alert-danger">
+                    *{{ errors.email[0] }}
+                </div>
+                <input type="email" [ngModel]="email" class="form-control field" name="email" placeholder="Email Address">
+                <button class="btn btn-success field add-product">Update as Administrator</button>
+                <a routerLink="/admin/admins" class="btn btn-success field same">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

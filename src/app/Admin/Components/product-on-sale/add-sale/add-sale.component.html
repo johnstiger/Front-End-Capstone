@@ -5,19 +5,28 @@
         </div>
         <div class="col-md-8">
             <input type="text" class="form-control field" name="" id="" placeholder="Name">
-            <input type="text" class="form-control field" name="" id="" placeholder="Category">
+            <textarea name="" id="" class="form-control field" cols="30" rows="10" placeholder="Descriptions"></textarea>
             <div class="row">
                 <div class="col">
                     <input type="number" class="form-control" name="" id="" placeholder="Price">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="" id="" placeholder="Size">
-                </div>
-                <div class="col">
                     <input type="number" class="form-control" name="" id="" placeholder="Unit">
                 </div>
             </div>
-            <button class="btn btn-success field add-product">Add Product</button>
+            <div class="row">
+                <div class="col">
+                    <input type="number" class="form-control" name="" id="" placeholder="Promo">
+                </div>
+                <div class="col">
+                    <select name="promo type" id="" class="form-control">
+                <option value="#" hidden>Promo Type</option>
+                <option value="percent">Percent Off</option>
+                <option value="pesos">Pesos Off</option>
+              </select>
+                </div>
+            </div>
+            <button class="btn btn-success field add-product">Add To On Sales</button>
             <a routerLink="/admin/products" class="btn btn-success field same">Cancel</a>
         </div>
     </div>

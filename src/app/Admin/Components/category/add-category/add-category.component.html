@@ -1,5 +1,7 @@
 <div class="container con">
-    <input type="text" class="form-control field" name="" id="" placeholder="Name">
-    <button class="btn btn-success field add-product">Add Category</button>
-    <a routerLink="/admin/category" class="btn btn-success field same">Cancel</a>
+    <form [formGroup]="AddCategoryForm" (ngSubmit)="submit()">
+        <input type="text" class="form-control field" formControlName="name" name="name" id="" placeholder="Name">
+        <button class="btn btn-success field add-product" type="submit">Add Category</button>
+        <a routerLink="/admin/categories" class="btn btn-success field same">Cancel</a>
+    </form>
 </div>

@@ -5,7 +5,19 @@ export interface Products {
   image : string,
   part : string,
   status : boolean,
-  category_id : number
+  category_id : number,
+  sizes : any,
+  unit_measure : number,
+  category : any
+}
+
+export interface Admins {
+  id : number,
+  email : string,
+  firstname : string,
+  lastname : string,
+  contact_number : number,
+  password : string
 }
 
 export interface Categories {

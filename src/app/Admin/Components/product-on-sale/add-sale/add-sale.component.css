@@ -4,6 +4,10 @@
     background: #F6F2EF;
 }
 
+textarea {
+    height: 100px;
+}
+
 .col-md-4 {
     text-align: center;
 }

@@ -1,18 +1,51 @@
 <div class="container con">
-    <div class="row">
-        <div class="col-md-4">
-            <img class="image" src="https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg" alt="">
-            <label for="file" class="file-upload">
-              <input type="file" name="" id="file" style="display: none;">
-              Select Image
-            </label>
+    <form [formGroup]="AddAdminForm" (ngSubmit)="submit()">
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <img class="image" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
+                <div *ngIf="errors && errors.image" class="alert alert-danger">
+                    *{{ errors.image[0] }}
+                </div>
+                <ng-template #default>
+                    <img class="image" src="/assets/imgs/product.jpg" alt="product-image">
+                </ng-template>
+                <label for="file" class="file-upload">
+          <input
+          type="file"
+          formControlName="image"
+          name="image"
+          class="form-control"
+          accept="image/*"
+          id="file"
+          style="display: none;"
+          (change)="onFileChange($event)">
+          Select Image
+        </label>
+            </div>
+            <div class="col-md-8">
+                <div *ngIf="errors && errors.firstname" class="alert alert-danger">
+                    *{{ errors.firstname[0] }}
+                </div>
+                <input type="text" formControlName="firstname" class="form-control field" name="" id="" placeholder="First Name">
+                <div *ngIf="errors && errors.lastname" class="alert alert-danger">
+                    *{{ errors.lastname[0] }}
+                </div>
+                <input type="text" formControlName="lastname" class="form-control field" name="" id="" placeholder="Last Name">
+                <div *ngIf="errors && errors.contact_number" class="alert alert-danger">
+                    *{{ errors.contact_number[0] }}
+                </div>
+                <input type="text" formControlName="contact_number" class="form-control field" name="" id="" placeholder="Contact Number">
+                <div *ngIf="errors && errors.email" class="alert alert-danger">
+                    *{{ errors.email[0] }}
+                </div>
+                <input type="email" formControlName="email" class="form-control field" name="" id="" placeholder="Email Address">
+                <div *ngIf="errors && errors.password" class="alert alert-danger">
+                    *{{ errors.password[0] }}
+                </div>
+                <input type="password" formControlName="password" class="form-control field" name="" id="" placeholder="Password">
+                <button class="btn btn-success field add-product">Add as Administrator</button>
+                <a routerLink="/admin/admins" class="btn btn-success field same">Cancel</a>
+            </div>
         </div>
-        <div class="col-md-8">
-            <input type="text" class="form-control field" name="" id="" placeholder="Name">
-            <input type="text" class="form-control field" name="" id="" placeholder="Contact Number">
-            <input type="text" class="form-control field" name="" id="" placeholder="Address">
-            <button class="btn btn-success field add-product">Add as Administrator</button>
-            <a routerLink="/admin/admins" class="btn btn-success field same">Cancel</a>
-        </div>
-    </div>
+    </form>
 </div>
