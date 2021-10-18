@@ -52,13 +52,7 @@ export class MyProfileComponent implements OnInit {
 
   async getUser(){
     Swal.fire({
-      title: 'Sweet!',
-      html: 'I will close in <b></b> milliseconds.',
-      imageUrl: 'https://i.pinimg.com/originals/49/e5/8d/49e58d5922019b8ec4642a2e2b9291c2.png',
-      imageWidth: 400,
-      timer: 2000,
-      imageHeight: 200,
-      imageAlt: 'Custom image',
+      title: 'Processing...',
       didOpen: ()=> {
         Swal.showLoading();
       }
@@ -93,7 +87,34 @@ export class MyProfileComponent implements OnInit {
     }
   }
 
+  resetPassword(id:any){
+    Swal.fire({
+      title: 'Reset Password',
+      showCancelButton: true,
+      confirmButtonText: 'Reset Password',
+      showLoaderOnConfirm: true,
+      html: '<input name="current_password" type="password" id="swal-input1" class="swal2-input" placeholder="Current Password" style="width:82%">' +
+      '<input name="password" type="password" id="swal-input2" class="swal2-input" placeholder="New Password" style="width:82%">' +
+      '<input name="password_confirmation" type="password" id="swal-input3" class="swal2-input" placeholder="Confirm Password" style="width:82%">',
+      preConfirm: () => {
+        return new Promise((resolve)=>{
+          resolve(
+            {
+              'current_password': $('#swal-input1').val(),
+              'password' : $('#swal-input2').val(),
+              'password_confirmation' : $('#swal-input3').val(),
+            }
+          )
+        })
+      },
+      didOpen: ()=>{
+        $('#swal-input1').focus()
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((res)=>{
+      console.log(JSON.stringify(res.value));
+    })
 
-
+  }
 
 }
