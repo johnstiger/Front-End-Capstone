@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import axios from 'axios';
 import { timer } from 'rxjs';
 import { Admins } from 'src/app/Customer/Common/model/customer-model';
 import Swal from 'sweetalert2';
@@ -13,6 +14,7 @@ import { AdminService } from '../../Services/admin.service';
 })
 export class MyProfileComponent implements OnInit {
 
+  display ='none';
   imageSrc! : any;
   firstname : any;
   lastname : any;
@@ -22,6 +24,8 @@ export class MyProfileComponent implements OnInit {
   id : any;
   admin! : Admins;
   password! : any;
+
+  error! : any;
 
   token = localStorage.getItem('admin_token');
 
@@ -42,11 +46,15 @@ export class MyProfileComponent implements OnInit {
   Swal.showLoading();
     const result = await this.service.updateAdmin(data.id, data, this.token).then((result)=>{
       if(result.data.error){
-        Swal.fire({title:'Oops! Something is incorrect.'})
+        this.error = result.data.message
+        Swal.close();
+        console.log(this.error);
       }else{
         this.ngOnInit();
         Swal.close();
       }
+    }).catch(()=>{
+      Swal.fire({title:'Something went wrong...Please Try Again!'})
     });
   }
 
@@ -65,9 +73,9 @@ export class MyProfileComponent implements OnInit {
     this.image = result.data.image;
     this.id = result.data.id;
     Swal.close();
+    }).catch(()=>{
+      Swal.fire({title:'Something went wrong...Data cannot be displayed.'})
     });
-
-
   }
 
   onFileChange(event:any){
@@ -87,6 +95,14 @@ export class MyProfileComponent implements OnInit {
     }
   }
 
+  openModal(){
+    this.display='block';
+ }
+
+ onCloseHandled(){
+  this.display='none';
+}
+
   resetPassword(id:any){
     Swal.fire({
       title: 'Reset Password',
@@ -101,7 +117,7 @@ export class MyProfileComponent implements OnInit {
           resolve(
             {
               'current_password': $('#swal-input1').val(),
-              'password' : $('#swal-input2').val(),
+              'new_password' : $('#swal-input2').val(),
               'password_confirmation' : $('#swal-input3').val(),
             }
           )
@@ -112,8 +128,18 @@ export class MyProfileComponent implements OnInit {
       },
       allowOutsideClick: () => !Swal.isLoading()
     }).then((res)=>{
-      console.log(JSON.stringify(res.value));
+      axios.put('http://127.0.0.1:8000/api/admin/resetPassword/'+id, res.value, {headers:{Authorization:this.token}})
+      .then((res)=>{
+        if(res.data.error){
+          Swal.fire({
+            title: res.data.message,
+            text: "Please Try Again",
+            icon: 'warning',
+          })
+        }
+      });
     })
+
 
   }
 
