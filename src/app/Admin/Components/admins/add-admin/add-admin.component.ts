@@ -33,12 +33,15 @@ export class AddAdminComponent implements OnInit {
   }
 
   async submit(){
-    const result = await this.http.addAdmin(this.AddAdminForm.value, this.token);
-    if(result.data.error){
-      this.errors = result.data.message;
-    }else{
-      this.location.back();
-    }
+    this.http.loading();
+    await this.http.addAdmin(this.AddAdminForm.value, this.token).then((result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+      }else{
+        this.location.back();
+      }
+      this.http.closeLoading();
+    });
   }
 
   onFileChange(event:any){
