@@ -23,6 +23,8 @@ export class EditProductComponent implements OnInit {
   unit_measure! : number;
   noSize! : number;
 
+  path = 'http://localhost:8000/img/';
+
   token = localStorage.getItem('admin_token');
 
   errors! : any;

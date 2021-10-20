@@ -45,6 +45,14 @@ export class AdminService {
     return response;
   }
 
+  async AddImage(id : any, data: any, token : any){
+    const response = await axios.post(this.url+"product/saveImage/"+id, data, {headers:{
+      'Content-Type' : 'multipart/form-data',
+      Authorization:token
+    }});
+    return response;
+  }
+
   async updateProduct( data: any, id:any, token:any){
     const response = await axios.put(this.url+"product/update/"+id, data, {headers:{Authorization:token}});
     return response;

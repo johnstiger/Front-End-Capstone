@@ -56,14 +56,17 @@ export class AddProductComponent implements OnInit {
   }
 
 
-  async submit(){
+  submit(){
     this.http.loading();
-   await this.http.addProduct(this.AddProductForm.value, this.token).then((result)=>{
+    var data = new FormData();
+    data.append('image', this.filedata);
+
+    this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
       }else{
-        // this.http.addProduct(myFormData, this.token, headers);
-        // this.location.back();
+        const response = await this.http.AddImage(result.data.data.id, data, this.token);
+        this.location.back();
       }
       this.http.closeLoading();
     }).catch((e)=>{

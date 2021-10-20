@@ -42,7 +42,7 @@
                                 <tbody *ngIf="products">
                                     <tr *ngFor="let product of products">
                                         <div class="thumb">
-                                            <th><img src="{{ product.image }}" alt=""></th>
+                                            <th><img src="{{ path+product.image }}" alt=""></th>
                                         </div>
                                         <td>{{ product.name }}</td>
                                         <td>{{ product.category.name }}</td>

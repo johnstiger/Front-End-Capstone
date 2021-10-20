@@ -23,6 +23,8 @@ export class ProductsComponent implements OnInit {
   success! : any;
   error! : any;
 
+  path = 'http://localhost:8000/img/';
+
   products! : Products[];
 
   constructor( private service : AdminService, private router : Router ) { }
