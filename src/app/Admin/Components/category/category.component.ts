@@ -28,13 +28,12 @@ export class CategoryComponent implements OnInit {
   error : any;
   success : any;
 
-  searchProducts(){
-
-  }
-
   async getCategories(){
-    const result = await this.http.getCategories(this.token);
-    this.categories = result.data.data;
+    this.http.loading();
+    await this.http.getCategories(this.token).then((result)=>{
+      this.categories = result.data.data;
+      this.http.closeLoading();
+    });
   }
 
   async searchCategory(){

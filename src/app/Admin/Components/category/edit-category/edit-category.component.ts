@@ -33,19 +33,24 @@ export class EditCategoryComponent implements OnInit {
 
   async getCategory()
   {
-    const result = await this.http.getCategory(this.id, this.token);
-    this.name = result.data.data.name;
+    this.http.loading();
+    await this.http.getCategory(this.id, this.token).then((result)=>{
+      this.name = result.data.data.name;
+      this.http.closeLoading();
+    });
   }
 
   async submit(data:any){
-    const result = await this.http.updateCategory(this.id, data, this.token);
-    console.log(result.data);
+    this.http.loading();
+    await this.http.updateCategory(this.id, data, this.token).then((result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+     }else{
+       this.location.back();
+     }
+     this.http.closeLoading();
+    });
 
-    if(result.data.error){
-      this.errors = result.data.message;
-   }else{
-     this.location.back();
-   }
   }
 
 }
