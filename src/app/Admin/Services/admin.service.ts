@@ -180,4 +180,17 @@ export class AdminService {
     })
   }
 
+  loading(){
+    Swal.fire({
+      title: 'Loading....',
+      didOpen: ()=>{
+        Swal.showLoading();
+      }
+    })
+  }
+
+  closeLoading(){
+    Swal.close();
+  }
+
 }
