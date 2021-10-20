@@ -41,7 +41,17 @@ export class AdminService {
   }
 
   async addProduct( data: any, token:any){
-    const response = await axios.post(this.url+"product/newProduct", data , {headers:{Authorization:token}});
+    const response = await axios.post(this.url+"product/newProduct", data , {
+      headers:
+      {
+        // 'Content-Type' : 'multipart/form-data; boundary='+token,
+        'Accept'                           : '*/*',
+        'Authorization'                    : token,
+        'Access-Control-Allow-Methods'     : 'POST, GET',
+        'Access-Control-Allow-Headers'     : 'origin, X-Requested-With, content-type, accept',
+        'Access-Control-Allow-Credentials' : 'true'
+      },
+    });
     return response;
   }
 
@@ -178,6 +188,19 @@ export class AdminService {
       showConfirmButton: false,
       timer: 1500
     })
+  }
+
+  loading(){
+    Swal.fire({
+      title: 'Loading....',
+      didOpen : () => {
+        Swal.showLoading()
+      }
+    });
+  }
+
+  closeLoading(){
+    Swal.close();
   }
 
 }

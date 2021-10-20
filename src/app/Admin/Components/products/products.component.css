@@ -12,6 +12,7 @@ h4 {
 
 td,
 th {
+    text-align: center;
     vertical-align: middle;
 }
 
@@ -52,4 +53,10 @@ p {
 .search {
     margin-left: -10px;
     width: 280px;
+}
+
+div.thumb img {
+    width: 5.2em;
+    height: 8.2em;
+    object-fit: cover;
 }

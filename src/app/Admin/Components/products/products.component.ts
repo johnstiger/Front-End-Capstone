@@ -32,35 +32,35 @@ export class ProductsComponent implements OnInit {
   }
 
   async searchProducts(){
-    const result = await this.service.searchProducts(this.form.value, this.token);
-    if(result.data.found){
-      this.products = result.data.data;
-      console.log(this.products);
-    }else{
-      this.service.ShowErrorMessage(result.data.message);
-    }
+    this.service.loading();
+    const result = await this.service.searchProducts(this.form.value, this.token).then((result)=>{
+      if(result.data.found){
+        this.products = result.data.data;
+      }else{
+        this.service.ShowErrorMessage(result.data.message);
+      }
+      this.service.closeLoading();
+    });
   }
 
 
   async getProducts(){
-    Swal.fire({
-      title:'Finding Data Please Wait.'
-    });
-    Swal.showLoading();
-   const result = await this.service.products(this.token).then((res)=>{
-    this.products = res.data.data;
-    Swal.close();
+    this.service.loading();
+    const result = await this.service.products(this.token).then((res)=>{
+      this.products = res.data.data;
+    this.service.closeLoading();
    });
 
   }
 
   async deleteProduct(id:any){
-    const result = await this.service.deleteProduct(id, this.token);
-    if(result.data.error){
-      this.error = result.data.message;
-    }else{
-      this.success = result.data.message;
-    }
+    const result = await this.service.deleteProduct(id, this.token).then((result)=>{
+      if(result.data.error){
+        this.error = result.data.message;
+      }else{
+        this.success = result.data.message;
+      }
+    });
   }
 
   update(product:any){

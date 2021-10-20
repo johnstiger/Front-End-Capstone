@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories, Products } from 'src/app/Customer/Common/model/customer-model';
-import { FormControl, FormGroup } from '@angular/forms';
-import { isEmptyObject } from 'jquery';
 
 @Component({
   selector: 'app-edit-product',
@@ -50,23 +48,26 @@ export class EditProductComponent implements OnInit {
 
 
   async getProduct(){
-    const result = await this.service.getProduct(this.id, this.token);
-    this.product = result.data.data;
-    this.id = this.product.id;
-    this.name = this.product.name;
-    this.price = this.product.price;
-    this.image = this.product.image;
-    this.part = this.product.part;
-    this.status = this.product.status;
-    this.category_id = this.product.category_id;
-    if(this.product.sizes.length > 0){
-      this.sizes = this.product.sizes[0].id;
-      this.unit_measure = this.product.sizes[0].pivot.unit_measure
-    }else{
-      this.sizes = 0;
-      this.unit_measure = 0;
-    }
-    this.getCategory();
+    this.service.loading();
+    await this.service.getProduct(this.id, this.token).then((result)=>{
+      this.product = result.data.data;
+      this.id = this.product.id;
+      this.name = this.product.name;
+      this.price = this.product.price;
+      this.image = this.product.image;
+      this.part = this.product.part;
+      this.status = this.product.status;
+      this.category_id = this.product.category_id;
+      if(this.product.sizes.length > 0){
+        this.sizes = this.product.sizes[0].id;
+        this.unit_measure = this.product.sizes[0].pivot.unit_measure
+      }else{
+        this.sizes = 0;
+        this.unit_measure = 0;
+      }
+      this.getCategory();
+      this.service.closeLoading();
+    });
   }
 
   onFileChange(event:any){
@@ -78,21 +79,20 @@ export class EditProductComponent implements OnInit {
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
-
-        // this.AddProductForm.patchValue({
-        //   fileSource : reader.result
-        // });
       };
     }
   }
 
   async submit(data : any){
-   const result = await this.service.updateProduct( data, this.id, this.token );
-   if(result.data.error){
-     this.errors = result.data.message;
-  }else{
-    this.location.back();
-  }
+    this.service.loading();
+   const result = await this.service.updateProduct( data, this.id, this.token ).then((result)=>{
+     if(result.data.error){
+       this.errors = result.data.message;
+    }else{
+      this.location.back();
+    }
+    this.service.closeLoading();
+   });
   }
 
   async getCategory(){

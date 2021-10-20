@@ -43,13 +43,16 @@ export class EditAdminComponent implements OnInit {
   }
 
   async getAdmin(){
-    const result = await this.service.getAdmin(this.id, this.token);
-    this.admin = result.data.data;
-    this.id = this.admin.id;
-    this.firstname = this.admin.firstname;
-    this.lastname = this.admin.lastname;
-    this.contact_number = this.admin.contact_number;
-    this.email = this.admin.email;
+    this.service.loading();
+    await this.service.getAdmin(this.id, this.token).then((result)=>{
+      this.admin = result.data.data;
+      this.id = this.admin.id;
+      this.firstname = this.admin.firstname;
+      this.lastname = this.admin.lastname;
+      this.contact_number = this.admin.contact_number;
+      this.email = this.admin.email;
+      this.service.closeLoading();
+    });
   }
 
   onFileChange(event:any){
@@ -66,6 +69,7 @@ export class EditAdminComponent implements OnInit {
     }
   }
 
+  // Kani kulang ani kay ang pag update sang password sa admin
   async submit(data: any){
     // const result = await this.service.updateAdmin(this.id, data, this.token);
     console.log(data);

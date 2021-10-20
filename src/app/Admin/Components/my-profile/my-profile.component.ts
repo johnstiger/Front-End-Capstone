@@ -40,41 +40,33 @@ export class MyProfileComponent implements OnInit {
 
 
  async submit(data:any){
-  Swal.fire({
-    title:'Updating Your Information.'
-  });
-  Swal.showLoading();
-    const result = await this.service.updateAdmin(data.id, data, this.token).then((result)=>{
+   this.service.loading();
+    await this.service.updateAdmin(data.id, data, this.token).then((result)=>{
       if(result.data.error){
         this.error = result.data.message
         Swal.close();
         console.log(this.error);
       }else{
         this.ngOnInit();
-        Swal.close();
+        this.service.closeLoading();
       }
-    }).catch(()=>{
-      Swal.fire({title:'Something went wrong...Please Try Again!'})
+    }).catch((e)=>{
+      console.log(e);
     });
   }
 
   async getUser(){
-    Swal.fire({
-      title: 'Processing...',
-      didOpen: ()=> {
-        Swal.showLoading();
-      }
-    })
-    const result = await this.service.getUser(this.token).then((result)=>{
+   this.service.loading();
+    await this.service.getUser(this.token).then((result)=>{
     this.firstname = result.data.firstname;
     this.lastname = result.data.lastname;
     this.email = result.data.email;
     this.contact_number = result.data.contact_number;
     this.image = result.data.image;
     this.id = result.data.id;
-    Swal.close();
-    }).catch(()=>{
-      Swal.fire({title:'Something went wrong...Data cannot be displayed.'})
+    this.service.closeLoading();
+    }).catch((e)=>{
+      console.log(e);
     });
   }
 
@@ -87,10 +79,6 @@ export class MyProfileComponent implements OnInit {
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
-
-        // this.AddProductForm.patchValue({
-        //   fileSource : reader.result
-        // });
       };
     }
   }

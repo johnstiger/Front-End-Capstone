@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories } from 'src/app/Customer/Common/model/customer-model';
 
@@ -25,6 +25,8 @@ export class AddProductComponent implements OnInit {
 
   token = localStorage.getItem('admin_token');
 
+  filedata:any;
+
   constructor(private http : AdminService, private location: Location) { }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class AddProductComponent implements OnInit {
 
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
+      this.filedata = file;
       reader.readAsDataURL(file);
 
       reader.onload = () => {
@@ -54,12 +57,20 @@ export class AddProductComponent implements OnInit {
 
 
   async submit(){
-    const result = await this.http.addProduct(this.AddProductForm.value, this.token);
-    if(result.data.error){
-      this.errors = result.data.message;
-    }else{
-      this.location.back();
-    }
+    this.http.loading();
+   await this.http.addProduct(this.AddProductForm.value, this.token).then((result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+      }else{
+        // this.http.addProduct(myFormData, this.token, headers);
+        // this.location.back();
+      }
+      this.http.closeLoading();
+    }).catch((e)=>{
+
+      // Swal.close();
+    });
+
 
   }
 
