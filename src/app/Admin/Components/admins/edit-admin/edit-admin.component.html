@@ -7,7 +7,7 @@
                     *{{ errors.image[0] }}
                 </div>
                 <ng-template #default>
-                    <img class="image" src="/assets/imgs/product.jpg" alt="product-image">
+                    <img class="image" src="{{ path+image }}" alt="product-image">
                 </ng-template>
                 <label for="file" class="file-upload">
         <input

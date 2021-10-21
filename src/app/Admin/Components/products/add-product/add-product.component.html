@@ -4,7 +4,9 @@
             <div class="col-md-4 form-group">
                 <img class="image" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
                 <div *ngIf="errors && errors.image" class="alert alert-danger">
-                    *{{ errors.image[0] }}
+                    <div class="" *ngFor="let image of errors.image">
+                        *{{ errors.image }}
+                    </div>
                 </div>
                 <ng-template #default>
                     <img class="image" src="/assets/imgs/product.jpg" alt="product-image">

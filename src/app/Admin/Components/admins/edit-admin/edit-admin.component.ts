@@ -24,6 +24,8 @@ export class EditAdminComponent implements OnInit {
 
   token = localStorage.getItem('admin_token');
 
+  path = 'http://localhost:8000/img/'
+
   constructor(
     private service : AdminService,
     private location: Location,
@@ -42,15 +44,16 @@ export class EditAdminComponent implements OnInit {
 
   }
 
-  async getAdmin(){
+   getAdmin(){
     this.service.loading();
-    await this.service.getAdmin(this.id, this.token).then((result)=>{
+     this.service.getAdmin(this.id, this.token).then((result)=>{
       this.admin = result.data.data;
       this.id = this.admin.id;
       this.firstname = this.admin.firstname;
       this.lastname = this.admin.lastname;
       this.contact_number = this.admin.contact_number;
       this.email = this.admin.email;
+      this.image = this.admin.image;
       this.service.closeLoading();
     });
   }
@@ -62,17 +65,15 @@ export class EditAdminComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.imageSrc = reader.result as string;
-        // this.AddProductForm.patchValue({
-        //   fileSource : reader.result
-        // });
       };
     }
   }
 
   // Kani kulang ani kay ang pag update sang password sa admin
-  async submit(data: any){
-    // const result = await this.service.updateAdmin(this.id, data, this.token);
-    console.log(data);
+  submit(data: any){
+    this.service.updateAdmin(this.id, data, this.token).then((result)=>{
+      console.log(result);
+    });
 
   //   if(result.data.error){
   //     this.errors = result.data.message;
