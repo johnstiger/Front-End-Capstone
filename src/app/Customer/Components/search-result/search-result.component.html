@@ -1,0 +1,28 @@
+<app-sample-header (messageEvent)="recieveMessage($event)"></app-sample-header>
+<hr>
+<div class="container">
+    <div class="title">
+        <p>{{ message}} </p>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="card" *ngFor="let data of datas">
+            <img class="card-img-top" src="{{ path+data.image }}" alt="Card image cap" *ngIf="data.image">
+            <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!data.image">
+            <div class="card-body text-center">
+                <h6 class="card-title">{{ data.name }}</h6>
+                <p class="card-text">P {{data.price}}
+                    <i class="fas fa-cart-plus"></i> </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<!-- <app-cus-footer></app-cus-footer> -->

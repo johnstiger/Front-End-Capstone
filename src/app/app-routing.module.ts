@@ -11,6 +11,7 @@ import { ProductOnSaleComponent } from './Admin/Components/product-on-sale/produ
 import { ProductsComponent } from './Admin/Components/products/products.component';
 import { NavigationComponent } from './Admin/Main/navigation/navigation.component';
 import { AdminGuard } from './Authorization/admin.guard';
+import { CustomerGuard } from './Authorization/customer.guard';
 import { CartPageComponent } from './Customer/Components/cart-page/cart-page.component';
 import { LandingComponent } from './Customer/Components/landing/landing.component';
 import { LoginComponent } from './Customer/Components/login/login.component';
@@ -19,6 +20,7 @@ import { RegisterComponent } from './Customer/Components/register/register.compo
 import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
+import { SearchResultComponent } from './Customer/Components/search-result/search-result.component';
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
 import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
@@ -57,12 +59,14 @@ const routes: Routes = [
 
     ],
   },
-  { path: '', component: LandingComponent },
-  { path: 'login', component:LoginComponent },
+  { path: 'landing', component: LandingComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'cart', component:CartPageComponent },
   { path: 'product', component:ProductSelectComponent },
+  { path: 'login', component:LoginComponent },
 
+  { path: 'search-result', component: SearchResultComponent },
+  
   { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '/404' },
 

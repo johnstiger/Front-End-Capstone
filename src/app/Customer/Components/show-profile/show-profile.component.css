@@ -1,0 +1,86 @@
+.leftDiv {
+    float: left;
+    position: absolute;
+    background-color: rgb(240, 231, 231);
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+    margin-top: 5%;
+    width: 16%;
+    text-align: center;
+}
+h4 {
+    color: #C7988E;
+}
+.rightDiv {
+    float: right;
+    background-color: rgb(240, 231, 231);
+    overflow: hidden;
+    border-radius: 10px;
+    width: 70%;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 25%;
+    height: auto;
+    position: relative;
+}
+/* form {
+    margin-top: -70%;
+} */
+.float-left {
+    float: left;
+    /* margin-left: 3%; */  
+}
+.float-right {
+    float: right;
+    width: 50%;
+    margin-right: 5%;
+    margin-top: -35%;
+}
+input {
+    background-color:  #C7988E;
+}
+.editButton {
+    background-color:  #C7988E;
+    float: right;
+    margin-bottom: 5%;
+}
+form button {
+    width: 100px;
+}
+ 
+@media only screen and (max-width: 600px){
+    .leftDiv {
+        width: 50%;
+        margin-left: 25%;   
+    }
+    .leftImage{
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .rightDiv {
+        margin-top: 65%;
+        margin-right: 15%;
+        margin-left: 15%;
+        margin-bottom: 5%;
+    }
+
+    form {
+        margin-left: 5%;
+    }
+    form button {
+        margin-right: -41%;
+        width: 100px;
+    }
+    .submitButton {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    
+
+}
+
+

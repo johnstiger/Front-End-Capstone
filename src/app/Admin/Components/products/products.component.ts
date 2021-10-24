@@ -50,7 +50,6 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-
   async getProducts(){
     this.service.loading();
     const result = await this.service.products(this.token).then((res)=>{

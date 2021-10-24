@@ -55,14 +55,19 @@
 
 .custom-control-label::before,
 .custom-control-label::after {
-    top: .8rem;
-    width: 1.25rem;
-    height: 1.25rem;
+  top: .8rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .rightButtons {
-    float: right;
-    margin-left: 60%;
+  float: right;
+  margin-left: 90%;
+}
+
+hr {
+  border-top: 3px solid rgb(240, 208, 208);
+  border-bottom: 1px solid #C7988E;
 }
 
 .container {
