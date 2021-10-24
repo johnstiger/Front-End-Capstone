@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories } from 'src/app/Customer/Common/model/customer-model';
+import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-add-product',
@@ -26,11 +27,16 @@ export class AddProductComponent implements OnInit {
     unit_measure: new FormControl('')
   })
 
-  token = localStorage.getItem('admin_token');
 
   filedata:any;
 
-  constructor(private http : AdminService, private location: Location) { }
+  constructor(
+    private http : AdminService,
+    private location: Location,
+    private link : UrlService
+    ) { }
+
+    token = this.link.getToken();
 
   ngOnInit(): void {
     this.gategories();

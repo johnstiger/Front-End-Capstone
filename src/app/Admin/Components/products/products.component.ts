@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { AdminService } from '../../Services/admin.service';
 import Swal from 'sweetalert2';
-
+import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-products',
@@ -22,17 +22,18 @@ export class ProductsComponent implements OnInit {
       Validators.required
     ])
   });
-  token = localStorage.getItem('admin_token');
-
 
   success! : any;
   error! : any;
 
-  path = 'http://localhost:8000/img/';
 
   products! : Products[];
 
-  constructor( private service : AdminService, private router : Router ) { }
+  constructor( private service : AdminService, private router : Router, private link : UrlService ) { }
+
+  token = this.link.getToken();
+  path = this.link.setImageUrl();
+
 
   ngOnInit(): void {
     this.getProducts();

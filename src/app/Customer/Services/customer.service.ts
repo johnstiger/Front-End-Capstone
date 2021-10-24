@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
-import * as $ from 'jquery';
+import { UrlService } from 'src/app/Url/url.service';
 // import Swal from 'sweetalert2';
 import Swal from 'sweetalert2';
 
@@ -13,20 +13,13 @@ import Swal from 'sweetalert2';
 })
 export class CustomerService {
 
-  //Server
-  private url = "https://santafe-dagom.herokuapp.com/api/";
-
-  //Local
-  // private url = "http://127.0.0.1:8000/api/";
-
-
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private link : UrlService) { }
 
   response: any;
+  url = this.link.setUrl();
 
-
-  async login(data:any, token:any){
-    const response = await axios.post(this.url+"login", data, { headers: { Authorization: token } });
+  async login(data:any){
+    const response = await axios.post(this.url+"login", data);
     console.log(response)
     return response;
 
@@ -88,8 +81,18 @@ export class CustomerService {
     })
   }
 
+  showLoading(){
+    Swal.fire({
+      title: "Loading....",
+      didOpen : () => {
+        Swal.showLoading();
+      }
+    })
+  }
 
-
+  closeLoading(){
+    Swal.close();
+  }
 
 
 }

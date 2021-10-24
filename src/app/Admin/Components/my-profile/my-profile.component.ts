@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Admins } from 'src/app/Customer/Common/model/customer-model';
+import { UrlService } from 'src/app/Url/url.service';
 import Swal from 'sweetalert2';
 import { AdminService } from '../../Services/admin.service';
 
@@ -35,15 +36,16 @@ export class MyProfileComponent implements OnInit {
   error! : any;
   resetError : any;
 
-  token = localStorage.getItem('admin_token');
-
   filedata : any;
 
-  path = 'http://localhost:8000/img/'
+  constructor(
+    private service : AdminService,
+    private link : UrlService
+    ) {}
 
-  constructor(private service : AdminService) {
+   token = this.link.getToken();
+   path = this.link.setImageUrl();
 
-   }
 
   ngOnInit(): void {
     this.getUser();
@@ -125,13 +127,13 @@ export class MyProfileComponent implements OnInit {
 
   hideShowPassword(input : any, className : any){
     var x = (<HTMLInputElement>document.getElementById(input));
-    var icon = document.getElementById(className)?.className;
+    var icon = document.getElementById(className);
     if(x.type == 'password'){
       x.type = 'text';
-      icon = 'far fa-eye-slash';
+      (<HTMLHtmlElement>icon).className = 'far fa-eye-slash';
     }else{
       x.type = 'password';
-      icon = 'far fa-eye';
+      (<HTMLHtmlElement>icon).className  = 'far fa-eye';
     }
     // x.type = x.type == 'password' ? 'text' : 'password';
     // icon = x.type == 'password' ?  "far fa-eye" : "far fa-eye-slash";
