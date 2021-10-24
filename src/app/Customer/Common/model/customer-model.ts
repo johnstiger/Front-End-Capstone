@@ -17,7 +17,8 @@ export interface Admins {
   firstname : string,
   lastname : string,
   contact_number : number,
-  password : string
+  password : string,
+  image : string
 }
 
 export interface Categories {

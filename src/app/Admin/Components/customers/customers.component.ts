@@ -9,6 +9,10 @@ import { AdminService } from '../../Services/admin.service';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
+
+// Kulang ani kay ang pag kuwa sang active nga address
+// sa customers
+
 export class CustomersComponent implements OnInit {
   form = new FormGroup({
     data : new FormControl('',[
@@ -27,12 +31,15 @@ export class CustomersComponent implements OnInit {
   token = localStorage.getItem('admin_token');
 
   async getCustomers(){
-    const result = await this.http.getCustomers(this.token);
-    if(result.data.message == "Success"){
-      this.customers = result.data.data;
-    }else{
-     this.message = result.data.message;
-    }
+    this.http.loading();
+    await this.http.getCustomers(this.token).then((result)=>{
+      if(result.data.message == "Success"){
+        this.customers = result.data.data;
+      }else{
+       this.message = result.data.message;
+      }
+      this.http.closeLoading();
+    });
   }
 
  async searchCustomers()

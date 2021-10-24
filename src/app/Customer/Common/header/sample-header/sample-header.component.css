@@ -140,6 +140,11 @@ hr {
     background-color: white;
 }
 
+
+button{
+    border: none;
+    background: none;
+}
 .search {
     padding: 10px;
     border-radius: 10px;

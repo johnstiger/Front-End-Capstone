@@ -8,6 +8,9 @@ import { AdminService } from 'src/app/Admin/Services/admin.service';
   templateUrl: './add-category.component.html',
   styleUrls: ['./add-category.component.css']
 })
+
+// Need na pud ni e test sa kani nga feature
+
 export class AddCategoryComponent implements OnInit {
 
   AddCategoryForm = new FormGroup({
@@ -23,12 +26,15 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async submit(){
-    const result = await this.http.addCategory(this.AddCategoryForm.value, this.token);
-    if(result.data.error){
-      this.errors = result.data.message;
-    }else{
-      this.location.back();
-    }
+  submit(){
+    this.http.loading();
+    this.http.addCategory(this.AddCategoryForm.value, this.token).then((result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+      }else{
+        this.location.back();
+      }
+      this.http.closeLoading();
+    });
   }
 }

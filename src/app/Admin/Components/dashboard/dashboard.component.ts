@@ -9,6 +9,10 @@ import { AdminService } from '../../Services/admin.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+// Kulang kay pag retrieve sang value para sa chart
+// back end ani kay wala pa nahuman
+
 export class DashboardComponent implements OnInit {
 
   constructor(private http : AdminService) { }
@@ -117,14 +121,16 @@ export class DashboardComponent implements OnInit {
 
 
   async getDashboard(){
-    const result = await this.http.dashboard(this.token);
-    console.log(result.data);
-    this.categories = result.data.categories;
-    this.pendingOrders = result.data.pendingOrders;
-    this.countCustomers = result.data.customers;
-    this.countOrders = result.data.orders;
-    this.countSales = result.data.sales;
-    this.countProducts = result.data.products;
+    this.http.loading();
+    await this.http.dashboard(this.token).then((result)=>{
+      this.categories = result.data.categories;
+      this.pendingOrders = result.data.pendingOrders;
+      this.countCustomers = result.data.customers;
+      this.countOrders = result.data.orders;
+      this.countSales = result.data.sales;
+      this.countProducts = result.data.products;
+      this.http.closeLoading();
+    });
 
   }
 

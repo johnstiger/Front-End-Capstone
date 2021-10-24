@@ -14,10 +14,10 @@ import Swal from 'sweetalert2';
 export class CustomerService {
 
   //Server
-  // private url = "http://santafe-dagom.herokuapp.com/api/";
+  private url = "https://santafe-dagom.herokuapp.com/api/";
 
   //Local
-  private url = "http://127.0.0.1:8000/api/";
+  // private url = "http://127.0.0.1:8000/api/";
 
 
   constructor(private http : HttpClient) { }
@@ -32,8 +32,8 @@ export class CustomerService {
 
   }
 
-  async register(data:any, token:any){
-    const response = await axios.post(this.url+"register", data, { headers: { Authorization: token} });
+  async register(data:any){
+    const response = await axios.post(this.url+"register", data);
     return response;
   }
 
@@ -62,8 +62,8 @@ export class CustomerService {
     return response;
   }
 
-  async searchProducts(data:any, token:any){
-    const response = await axios.post(this.url+"search/items", data, { headers: { Authorization: token } });
+  async searchProducts(data:any){
+    const response = await axios.post(this.url+"search/products", data );
     return response;
   }
 

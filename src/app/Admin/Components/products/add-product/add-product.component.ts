@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories } from 'src/app/Customer/Common/model/customer-model';
 
@@ -10,6 +10,9 @@ import { Categories } from 'src/app/Customer/Common/model/customer-model';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
+
+// Pwede na ni ipa test sa kani nga feature
+
 export class AddProductComponent implements OnInit {
 
   imageSrc! : string;
@@ -24,6 +27,8 @@ export class AddProductComponent implements OnInit {
   })
 
   token = localStorage.getItem('admin_token');
+
+  filedata:any;
 
   constructor(private http : AdminService, private location: Location) { }
 
@@ -40,6 +45,7 @@ export class AddProductComponent implements OnInit {
 
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
+      this.filedata = file;
       reader.readAsDataURL(file);
 
       reader.onload = () => {
@@ -53,13 +59,33 @@ export class AddProductComponent implements OnInit {
   }
 
 
-  async submit(){
-    const result = await this.http.addProduct(this.AddProductForm.value, this.token);
-    if(result.data.error){
-      this.errors = result.data.message;
-    }else{
-      this.location.back();
-    }
+  submit(){
+    this.http.loading();
+    var data = new FormData();
+    data.append('image', this.filedata);
+
+    this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+        if(this.AddProductForm.value.image == ''){
+          this.errors['image'] = ["This image is required"];
+        }
+      }else{
+        const response = await this.http.AddImage(result.data.data.id, data, this.token);
+        if(response.data.error){
+          this.errors = response.data.message;
+          if(this.AddProductForm.value.image == ''){
+            this.errors['image'] = ["This image is required"];
+          }
+        }else{
+          this.location.back();
+        }
+      }
+      this.http.closeLoading();
+    }).catch((e)=>{
+      console.log(e);
+    });
+
 
   }
 

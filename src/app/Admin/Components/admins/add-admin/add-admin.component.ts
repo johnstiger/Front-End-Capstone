@@ -26,26 +26,20 @@ export class AddAdminComponent implements OnInit {
 
   token = localStorage.getItem('admin_token');
 
+  filedata : any;
 
   constructor(private http : AdminService, private location: Location) { }
 
   ngOnInit(): void {
   }
 
-  async submit(){
-    const result = await this.http.addAdmin(this.AddAdminForm.value, this.token);
-    if(result.data.error){
-      this.errors = result.data.message;
-    }else{
-      this.location.back();
-    }
-  }
 
   onFileChange(event:any){
     const reader = new FileReader();
 
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
+      this.filedata = file;
       reader.readAsDataURL(file);
 
       reader.onload = () => {
@@ -56,6 +50,32 @@ export class AddAdminComponent implements OnInit {
         });
       };
     }
+  }
+
+
+  async submit(){
+    this.http.loading();
+    var imageData = new FormData();
+    imageData.append('image', this.filedata);
+    await this.http.addAdmin(this.AddAdminForm.value, this.token).then(async (result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+        if(this.AddAdminForm.value.image == ''){
+          this.errors['image'] = ["This image is required"];
+        }
+      }else{
+        const response = await this.http.adminImage(result.data.data.id, imageData, this.token);
+        if(response.data.error){
+          this.errors = response.data.message;
+          if(this.AddAdminForm.value.image == ''){
+            this.errors['image'] = ["This image is required"];
+          }
+        }else{
+          this.location.back();
+        }
+      }
+      this.http.closeLoading();
+    });
   }
 
 }

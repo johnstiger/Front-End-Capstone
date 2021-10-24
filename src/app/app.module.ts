@@ -43,7 +43,8 @@ import { AddProductComponent } from './Admin/Components/products/add-product/add
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component';
-import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component'
+import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
+import { SearchResultComponent } from './Customer/Components/search-result/search-result.component'
 
 
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
@@ -88,9 +89,7 @@ import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.com
     AddCategoryComponent,
     ShowProfileComponent,
     DeliveryPageComponent,
-    
-   
-    
+    SearchResultComponent,
     EditProductComponent,
     EditAdminComponent,
     EditCategoryComponent,

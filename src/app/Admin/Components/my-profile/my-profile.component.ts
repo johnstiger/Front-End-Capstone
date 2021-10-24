@@ -1,7 +1,5 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { timer } from 'rxjs';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Admins } from 'src/app/Customer/Common/model/customer-model';
 import Swal from 'sweetalert2';
 import { AdminService } from '../../Services/admin.service';
@@ -11,8 +9,19 @@ import { AdminService } from '../../Services/admin.service';
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.css']
 })
+
+// Kulang kay nig update sa image bisan wala siya ge input
+// kay mag error siya.....
+
 export class MyProfileComponent implements OnInit {
 
+  newPasswordForm = new FormGroup({
+    current_password: new FormControl(''),
+    password: new FormControl(''),
+    password_confirmation : new FormControl(''),
+  })
+
+  display ='none';
   imageSrc! : any;
   firstname : any;
   lastname : any;
@@ -23,7 +32,14 @@ export class MyProfileComponent implements OnInit {
   admin! : Admins;
   password! : any;
 
+  error! : any;
+  resetError : any;
+
   token = localStorage.getItem('admin_token');
+
+  filedata : any;
+
+  path = 'http://localhost:8000/img/'
 
   constructor(private service : AdminService) {
 
@@ -33,88 +49,112 @@ export class MyProfileComponent implements OnInit {
     this.getUser();
   }
 
-
-
- async submit(data:any){
-  Swal.fire({
-    title:'Updating Your Information.'
-  });
-  Swal.showLoading();
-    const result = await this.service.updateAdmin(data.id, data, this.token).then((result)=>{
-      if(result.data.error){
-        Swal.fire({title:'Oops! Something is incorrect.'})
-      }else{
-        this.ngOnInit();
-        Swal.close();
-      }
+  getUser(){
+    this.service.loading();
+    this.service.getUser(this.token).then((result)=>{
+      this.firstname = result.data.firstname;
+      this.lastname = result.data.lastname;
+      this.email = result.data.email;
+      this.contact_number = result.data.contact_number;
+      this.image = result.data.image;
+      this.id = result.data.id;
+      this.service.closeLoading();
+    }).catch((e)=>{
+      console.log(e);
     });
-  }
-
-  async getUser(){
-    Swal.fire({
-      title: 'Processing...',
-      didOpen: ()=> {
-        Swal.showLoading();
-      }
-    })
-    const result = await this.service.getUser(this.token).then((result)=>{
-    this.firstname = result.data.firstname;
-    this.lastname = result.data.lastname;
-    this.email = result.data.email;
-    this.contact_number = result.data.contact_number;
-    this.image = result.data.image;
-    this.id = result.data.id;
-    Swal.close();
-    });
-
-
   }
 
   onFileChange(event:any){
     const reader = new FileReader();
-
     if(event.target.files && event.target.files.length){
-      const [file] = event.target.files;
+      const [file] = event.target.files
+      this.filedata = file;
       reader.readAsDataURL(file);
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
-
-        // this.AddProductForm.patchValue({
-        //   fileSource : reader.result
-        // });
       };
     }
   }
 
-  resetPassword(id:any){
-    Swal.fire({
-      title: 'Reset Password',
-      showCancelButton: true,
-      confirmButtonText: 'Reset Password',
-      showLoaderOnConfirm: true,
-      html: '<input name="current_password" type="password" id="swal-input1" class="swal2-input" placeholder="Current Password" style="width:82%">' +
-      '<input name="password" type="password" id="swal-input2" class="swal2-input" placeholder="New Password" style="width:82%">' +
-      '<input name="password_confirmation" type="password" id="swal-input3" class="swal2-input" placeholder="Confirm Password" style="width:82%">',
-      preConfirm: () => {
-        return new Promise((resolve)=>{
-          resolve(
-            {
-              'current_password': $('#swal-input1').val(),
-              'password' : $('#swal-input2').val(),
-              'password_confirmation' : $('#swal-input3').val(),
-            }
-          )
-        })
-      },
-      didOpen: ()=>{
-        $('#swal-input1').focus()
-      },
-      allowOutsideClick: () => !Swal.isLoading()
-    }).then((res)=>{
-      console.log(JSON.stringify(res.value));
-    })
-
+   submit(data:any){
+    this.service.loading();
+    var imageData = new FormData();
+    imageData.append('image', this.filedata);
+    this.service.updateAdmin(data.id, data, this.token).then(async (result)=>{
+    if(result.data.error){
+      this.error = result.data.message
+      if(data.value.image == ''){
+        this.error['image'] = ["This image is required"];
+      }
+    }else{
+      const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
+      if(response.data.error){
+        this.error = response.data.message;
+        if(data.value.image == ''){
+          this.error['image'] = ["This image is required"];
+        }
+      }else{
+        setTimeout(()=>{
+          window.location.reload();
+        }, 1000);
+      }
+    }
+    this.service.closeLoading();
+    }).catch((e)=>{
+      console.log(e);
+      this.service.closeLoading();
+    });
   }
 
+  resetPassword(id:any){
+    this.service.loading();
+    this.service.resetPassword(id, this.newPasswordForm.value, this.token).then((result)=>{
+      if(result.data.error){
+        this.resetError = result.data.message;
+        this.service.closeLoading();
+      }else{
+        this.display='none';
+        this.service.ShowSuccessMessage(result.data.message);
+        setTimeout(()=>{
+          window.location.reload();
+        }, 1000);
+      }
+    })
+  }
+
+  hideShowPassword(input : any, className : any){
+    var x = (<HTMLInputElement>document.getElementById(input));
+    var icon = document.getElementById(className)?.className;
+    if(x.type == 'password'){
+      x.type = 'text';
+      icon = 'far fa-eye-slash';
+    }else{
+      x.type = 'password';
+      icon = 'far fa-eye';
+    }
+    // x.type = x.type == 'password' ? 'text' : 'password';
+    // icon = x.type == 'password' ?  "far fa-eye" : "far fa-eye-slash";
+    console.log(icon);
+  }
+
+  showCurrentPassword(){
+    this.hideShowPassword('currentPassword', 'cpIcon');
+  }
+
+  showPassword(){
+    this.hideShowPassword('password', 'pIcon');
+  }
+
+  showConfirmedPassword(){
+    this.hideShowPassword('confirmed','cIcon');
+  }
+
+  openModal(){
+    this.display='block';
+ }
+
+onCloseHandled(){
+  this.display='none';
+}
 }

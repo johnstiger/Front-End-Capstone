@@ -27,6 +27,7 @@ import { RegisterComponent } from './Customer/Components/register/register.compo
 import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
+import { SearchResultComponent } from './Customer/Components/search-result/search-result.component';
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
 import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
@@ -41,59 +42,36 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'myProfile', component: MyProfileComponent },
-
       { path: 'orders', component: OrdersComponent },
-
       { path: 'products', component: ProductsComponent },
       { path: 'add-product', component: AddProductComponent},
       { path: 'edit-product/:id', component: EditProductComponent },
-
       { path: 'customers', component: CustomersComponent },
-
       { path: 'admins', component: AdminsComponent },
       { path: 'add-admin', component: AddAdminComponent },
       { path: 'edit-admin/:id', component: EditAdminComponent },
-
       { path: 'pending-orders', component: PendingOrdersComponent },
-
       { path: 'product-on-sale', component: ProductOnSaleComponent },
-
       { path: 'add-sales', component: AddSaleComponent },
-
       { path: 'categories', component:CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'edit-category/:id', component: EditCategoryComponent }
 
     ],
   },
-  {
-    path: 'customer', component: NavigationComponent , canActivate: [CustomerGuard],
-    children: [
-     
-      { path: 'cart', component:CartPageComponent },
-      { path: 'product-select', component:ProductSelectComponent },
-      { path: 'all-orders', component:AllOrdersComponent },
-      { path: 'check-out', component:CheckOutComponent },
-      { path: 'delivery-page', component:DeliveryPageComponent },
-      { path: 'my-order-page', component:MyOrderPageComponent },
-      { path: 'edit-account', component:EditAccountComponent },
-      { path: 'product-select', component:ProductSelectComponent },
-      { path: 'received', component:ReceivedComponent },
-      { path: 'show-profile', component:ShowProfileComponent },
-      { path: 'to-pay', component:ToPayComponent }
-    ]
-  },
 
-  { path: 'login', component:LoginComponent },
+
+  
+  { path: 'cart', component:CartPageComponent },
+  { path: 'product', component:ProductSelectComponent },
+
+  { path: 'landing', component: LandingComponent },
   { path: 'register', component:RegisterComponent },
-  { path: '', component: LandingComponent },
+  { path: 'login', component:LoginComponent },
+  { path: 'search-result', component: SearchResultComponent },
   { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '/404' },
 
-  
-  
-
- 
 ];
 
 @NgModule({
