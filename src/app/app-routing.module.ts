@@ -69,9 +69,7 @@ const routes: Routes = [
   {
     path: 'customer', component: NavigationComponent , canActivate: [CustomerGuard],
     children: [
-      { path: '', component: LandingComponent },
-      { path: 'login', component:LoginComponent },
-      { path: 'register', component:RegisterComponent },
+     
       { path: 'cart', component:CartPageComponent },
       { path: 'product-select', component:ProductSelectComponent },
       { path: 'all-orders', component:AllOrdersComponent },
@@ -82,11 +80,16 @@ const routes: Routes = [
       { path: 'product-select', component:ProductSelectComponent },
       { path: 'received', component:ReceivedComponent },
       { path: 'show-profile', component:ShowProfileComponent },
-      { path: '404', component: NotFoundPageComponent },
-      { path: '**', redirectTo: '/404' },
-
+      { path: 'to-pay', component:ToPayComponent }
     ]
   },
+
+  { path: 'login', component:LoginComponent },
+  { path: 'register', component:RegisterComponent },
+  { path: '', component: LandingComponent },
+  { path: '404', component: NotFoundPageComponent },
+  { path: '**', redirectTo: '/404' },
+
   
   
 

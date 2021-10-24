@@ -29,11 +29,18 @@ export class LandingComponent implements OnInit {
     this.getProducts();
   }
 
-  async getProducts() {
-    const result = await this.service.products(this.token);
-    this.products = result.data.data;
-    console.log(this.products);
+  async getProducts(){
+    // Swal.fire({
+    //   title:'Finding Data Please Wait.'
+    // });
+    // Swal.showLoading();
+   const result = await this.service.products(this.token).then((res)=>{
+    this.products = res.data.data;
+    // Swal.close();
+   });
+
   }
+
 
 
 

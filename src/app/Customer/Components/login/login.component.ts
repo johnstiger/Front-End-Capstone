@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import  axios from 'axios';
 import { Router } from '@angular/router';
 import { CustomerService } from '../../Services/customer.service';
-// import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         return this.router.navigate(['/customer/landing']);
       }).catch(err => {
         console.log(err)
-        // Swal.fire('Oppss','Error Login, Please Log In Again','warning');
+        Swal.fire('Oppss','Error Login, Please Log In Again','warning');
         // document.getElementById('spinner').style.display ="none";
       })   
   

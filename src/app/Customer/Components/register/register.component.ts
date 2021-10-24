@@ -10,7 +10,7 @@ import { CustomerService } from '../../Services/customer.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form = new FormGroup({
+  registerForm = new FormGroup({
     lastname: new FormControl('', [
       Validators.required
     ]),
@@ -40,11 +40,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register() {
-    axios.post("http://127.0.0.1:8000/api/register", this.form.value).then(res => {
+    axios.post("http://127.0.0.1:8000/api/register", this.registerForm.value).then(res => {
       console.log(res.data)
       window.localStorage.setItem('customer_token',res.data.access_token);
       window.localStorage.setItem('customer_id',res.data.customer_id);
-      return this.router.navigate(['/landing']);
+      return this.router.navigate(['']);
     })
     .catch(err => {
       console.log(err);
