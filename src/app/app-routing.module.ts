@@ -20,6 +20,7 @@ import { RegisterComponent } from './Customer/Components/register/register.compo
 import { AddProductComponent } from './Admin/Components/products/add-product/add-product.component';
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
+import { SearchResultComponent } from './Customer/Components/search-result/search-result.component';
 
 const routes: Routes = [
   {
@@ -39,16 +40,13 @@ const routes: Routes = [
       { path: 'add-category', component: AddCategoryComponent }
     ],
   },
-  {
-    path: 'customer', component: NavigationComponent , canActivate: [CustomerGuard],
-    children: [
-      { path: 'landing', component: LandingComponent },
-      { path: 'login', component:LoginComponent },
-      { path: 'register', component:RegisterComponent },
-      { path: 'cart', component:CartPageComponent },
-      { path: 'product', component:ProductSelectComponent }
-    ]
-  },
+  { path: 'landing', component: LandingComponent },
+  { path: 'register', component:RegisterComponent },
+  { path: 'cart', component:CartPageComponent },
+  { path: 'product', component:ProductSelectComponent },
+  { path: 'login', component:LoginComponent },
+
+  { path: 'search-result', component: SearchResultComponent }
   
 ];
 

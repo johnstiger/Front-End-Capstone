@@ -1,0 +1,29 @@
+.title{
+    text-align: center;
+    font-size: 22px;
+    font-family: 'FontAwesome';
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+hr {
+    margin-top: 7px;
+    margin-bottom: -1px;
+    background-color: white;
+}
+
+.card {
+    margin: auto;
+    width: 20em;
+    margin-top: 2em;
+}
+
+.card-img-top {
+    width: unset;
+    height: 19em;
+    object-fit: cover;
+    margin-left: -0.813rem;
+    margin-right: -0.813rem;
+    margin-top: -0.063rem;
+}
+
