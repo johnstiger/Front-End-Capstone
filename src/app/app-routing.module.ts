@@ -21,23 +21,42 @@ import { AddProductComponent } from './Admin/Components/products/add-product/add
 import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/add-sale.component';
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 import { SearchResultComponent } from './Customer/Components/search-result/search-result.component';
+import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
+import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
+import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
+import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
+import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 
 const routes: Routes = [
+
   {
     path: 'admin', component: NavigationComponent , canActivate : [AdminGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'myProfile', component: MyProfileComponent },
+
       { path: 'orders', component: OrdersComponent },
+
       { path: 'products', component: ProductsComponent },
       { path: 'add-product', component: AddProductComponent},
+      { path: 'edit-product/:id', component: EditProductComponent },
+
       { path: 'customers', component: CustomersComponent },
+
       { path: 'admins', component: AdminsComponent },
       { path: 'add-admin', component: AddAdminComponent },
+      { path: 'edit-admin/:id', component: EditAdminComponent },
+
       { path: 'pending-orders', component: PendingOrdersComponent },
+
       { path: 'product-on-sale', component: ProductOnSaleComponent },
+
       { path: 'add-sales', component: AddSaleComponent },
+
       { path: 'categories', component:CategoryComponent },
-      { path: 'add-category', component: AddCategoryComponent }
+      { path: 'add-category', component: AddCategoryComponent },
+      { path: 'edit-category/:id', component: EditCategoryComponent }
+
     ],
   },
   { path: 'landing', component: LandingComponent },
@@ -46,8 +65,11 @@ const routes: Routes = [
   { path: 'product', component:ProductSelectComponent },
   { path: 'login', component:LoginComponent },
 
-  { path: 'search-result', component: SearchResultComponent }
+  { path: 'search-result', component: SearchResultComponent },
   
+  { path: '404', component: NotFoundPageComponent },
+  { path: '**', redirectTo: '/404' },
+
 ];
 
 @NgModule({

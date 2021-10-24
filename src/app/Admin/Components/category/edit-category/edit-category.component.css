@@ -2,10 +2,7 @@
     padding: 70px;
     border-radius: 10px;
     background: #F6F2EF;
-}
-
-textarea {
-    height: 100px;
+    width: 50%;
 }
 
 .col-md-4 {
@@ -20,6 +17,7 @@ textarea {
     margin-bottom: 32px;
     background: #C7988E;
     color: #fff;
+    padding: 15px;
 }
 
 .form-control::placeholder {

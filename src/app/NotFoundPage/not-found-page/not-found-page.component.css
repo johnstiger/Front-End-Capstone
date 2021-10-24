@@ -1,0 +1,54 @@
+/*======================
+    404 page
+=======================*/
+
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: 'Arvo', serif;
+}
+
+h3,
+p {
+    font-family: Ink Free;
+}
+
+a {
+    text-decoration: none;
+    font-family: Ink Free;
+}
+
+.page_404 img {
+    width: 100%;
+}
+
+.four_zero_four_bg {
+    background-image: url(https://c.tenor.com/_CfrURaStEoAAAAM/monster-clothes.gif);
+    height: 400px;
+    background-position: center;
+    font-family: Ink Free;
+    background-repeat: no-repeat;
+}
+
+.four_zero_four_bg h1 {
+    font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+    font-size: 80px;
+}
+
+.link_404 {
+    color: #fff!important;
+    padding: 10px 20px;
+    background: #C7988E;
+    margin: 20px 0;
+    border-radius: 10px;
+    display: inline-block;
+    width: 150px;
+    font-family: Ink Free;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
+}

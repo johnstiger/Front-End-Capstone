@@ -47,6 +47,11 @@ import { DeliveryPageComponent } from './Customer/Components/delivery-page/deliv
 import { SearchResultComponent } from './Customer/Components/search-result/search-result.component'
 
 
+import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
+import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
+import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
+import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
+import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -84,10 +89,12 @@ import { SearchResultComponent } from './Customer/Components/search-result/searc
     AddCategoryComponent,
     ShowProfileComponent,
     DeliveryPageComponent,
-    SearchResultComponent
-    
-   
-    
+    SearchResultComponent,
+    EditProductComponent,
+    EditAdminComponent,
+    EditCategoryComponent,
+    NotFoundPageComponent,
+    MyProfileComponent,
 
   ],
   imports: [

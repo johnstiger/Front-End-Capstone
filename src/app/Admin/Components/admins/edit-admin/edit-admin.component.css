@@ -4,16 +4,21 @@
     background: #F6F2EF;
 }
 
-textarea {
-    height: 100px;
-}
-
 .col-md-4 {
     text-align: center;
 }
 
 .field {
     width: 100%;
+}
+
+.file-upload {
+    display: inline-block;
+    padding: 9px 28px;
+    cursor: pointer;
+    border-radius: 10px;
+    background: #C7988E;
+    color: #fff;
 }
 
 .form-control {

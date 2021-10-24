@@ -1,4 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AdminService } from 'src/app/Admin/Services/admin.service';
 
 @Component({
   selector: 'app-add-category',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCategoryComponent implements OnInit {
 
-  constructor() { }
+  AddCategoryForm = new FormGroup({
+    name: new FormControl('')
+  });
+
+  errors! : any;
+
+  token = localStorage.getItem('admin_token');
+
+  constructor(private http : AdminService, private location : Location) { }
 
   ngOnInit(): void {
   }
 
+  async submit(){
+    this.http.loading();
+    await this.http.addCategory(this.AddCategoryForm.value, this.token).then((result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+      }else{
+        this.location.back();
+      }
+      this.http.closeLoading();
+    });
+  }
 }

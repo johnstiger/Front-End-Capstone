@@ -1,182 +1,159 @@
-  <div class="row">
+<div class="row">
     <div class="col-sm">
-      <div class="tag-wrapper">
-        <div class="number-card number-card-content1">
-            <h1 class="number-card-number">
-              <span><i class="fas fa-luggage-cart"></i></span>
-              0
-              </h1>
-            <div class="number-card-divider"></div>
-            <div class="number-card-progress-wrapper">
-                <div class="tagline number-card-currency">Orders</div>
-                <div class="number-card-progress">0%</div>
+        <div class="tag-wrapper">
+            <div class="number-card number-card-content1">
+                <h1 class="number-card-number">
+                    <span class="number">{{ countOrders }}</span>
+                    <i class="fas fa-luggage-cart"></i>
+                </h1>
+                <div class="number-card-divider"></div>
+                <div class="number-card-progress-wrapper">
+                    <div class="tagline number-card-currency">Orders</div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
     <div class="col-sm">
-      <div class="number-card number-card-content2">
-        <h1 class="number-card-number">
-          <span><i class="fas fa-users"></i></span>
-          0
-        </h1>
-        <div class="number-card-divider"></div>
-        <div class="number-card-progress-wrapper">
-            <div class="tagline number-card-currency">Customers</div>
-            <div class="number-card-progress">0%</div>
+        <div class="number-card number-card-content2">
+            <h1 class="number-card-number">
+                <span class="number"> {{ countCustomers }}</span>
+                <i class="fas fa-users"></i>
+            </h1>
+            <div class="number-card-divider"></div>
+            <div class="number-card-progress-wrapper">
+                <div class="tagline number-card-currency">Customers</div>
+            </div>
         </div>
     </div>
-    </div>
     <div class="col-sm">
-      <div class="number-card number-card-content3">
-        <h1 class="number-card-number">
-          <span><i class="fas fa-tshirt"></i></span>
-          0
-        </h1>
-        <div class="number-card-divider"></div>
-        <div class="number-card-progress-wrapper">
-            <div class="tagline number-card-currency">Products</div>
-            <div class="number-card-progress">0%</div>
+        <div class="number-card number-card-content3">
+            <h1 class="number-card-number">
+                <span class="number">{{ countProducts }}</span> <i class="fas fa-tshirt"></i>
+            </h1>
+            <div class="number-card-divider"></div>
+            <div class="number-card-progress-wrapper">
+                <div class="tagline number-card-currency">Products</div>
+            </div>
         </div>
     </div>
-    </div>
     <div class="col-sm">
-      <div class="number-card number-card-content4">
-        <h1 class="number-card-number">
-          <span><i class="fas fa-sort-amount-up"></i></span>
-          0
-        </h1>
-        <div class="number-card-divider"></div>
-        <div class="number-card-progress-wrapper">
-            <div class="tagline number-card-currency">Total Sales</div>
-            <div class="number-card-progress">0%</div>
+        <div class="number-card number-card-content4">
+            <h1 class="number-card-number">
+                <span class="number">{{ countSales }}</span> <i class="fas fa-sort-amount-up"></i>
+            </h1>
+            <div class="number-card-divider"></div>
+            <div class="number-card-progress-wrapper">
+                <div class="tagline number-card-currency">Total Sales</div>
+            </div>
         </div>
     </div>
-    </div>
-  </div>
-  <div class="row mt-5">
-      <div class="col-sm">
-        <canvas baseChart
-          [datasets]="lineChartData"
-          [labels]="lineChartLabels"
-          [options]="ChartOptions"
-          [colors]="lineChartColors"
-          [legend]="lineChartLegend"
-          [chartType]="lineChartType"
-          [plugins]="lineChartPlugins">
+</div>
+<div class="row mt-5">
+    <div class="col-sm">
+        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="ChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
       </canvas>
     </div>
-  </div>
-  <div class="row mt-5">
+</div>
+<div class="row mt-5">
     <div class="table-wrapper col-sm">
-      <h4>Pending Orders</h4>
-    <table class="table table-striped table-hover">
-      <thead class="table-primary">
-        <tr>
-          <th>Name</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Size</th>
-          <th>Price</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John Doe</td>
-          <td>Long Dress</td>
-          <td>2</td>
-          <td>M</td>
-          <td>Php 100.00</td>
-          <td>Php 200.00</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  </div>
-  <!-- Product Categories  -->
-  <div class="row">
-    <div class="table-wrapper col-sm" >
-      <h4>Product Categories</h4>
-    <table class="table table-striped table-hover">
-      <thead class="table-primary">
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>New Arrivals</td>
-          <td>Active</td>
-        </tr>
-        <tr>
-          <td>New Arrivals</td>
-          <td>Active</td>
-        </tr>
-        <tr>
-          <td>New Arrivals</td>
-          <td>Active</td>
-        </tr>
-        <tr>
-          <td>New Arrivals</td>
-          <td>Active</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- Sales Products  -->
-  <div class="table-wrapper col-sm">
-    <h4>On Sales Products</h4>
-    <table class="table table-striped table-hover">
-      <thead class="table-primary">
-        <tr>
-          <th>Name</th>
-          <th>Promo</th>
-          <th>Quantity</th>
-          <th>Size</th>
-          <th>Price</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John Doe</td>
-          <td>20% off</td>
-          <td>2</td>
-          <td>M</td>
-          <td>Php 100.00</td>
-          <td>Php 200.00</td>
-        </tr>
-        <tr>
-          <td>John Doe</td>
-          <td>20% off</td>
-          <td>2</td>
-          <td>M</td>
-          <td>Php 100.00</td>
-          <td>Php 200.00</td>
-        </tr>
-        <tr>
-          <td>John Doe</td>
-          <td>20% off</td>
-          <td>2</td>
-          <td>M</td>
-          <td>Php 100.00</td>
-          <td>Php 200.00</td>
-        </tr>
-        <tr>
-          <td>John Doe</td>
-          <td>20% off</td>
-          <td>2</td>
-          <td>M</td>
-          <td>Php 100.00</td>
-          <td>Php 200.00</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  </div>
-
-
-
-
+        <h4>Pending Orders</h4>
+        <table class="table table-striped table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th>Name</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="pendingOrders">
+                <tr *ngFor="let pending of pendingOrders">
+                    <td>{{ pending.total }}</td>
+                    <td>{{ pending.status }}</td>
+                    <td>{{ pending.payment_method }}</td>
+                    <td>M</td>
+                    <td>Php 100.00</td>
+                    <td>Php 200.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="!pendingOrders || pendingOrders?.length == 0" class="noData">
+            <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+        </div>
+    </div>
+</div>
+<!-- Product Categories  -->
+<div class="row">
+    <div class="table-wrapper col-sm">
+        <h4>Product Categories</h4>
+        <table class="table table-striped table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="categories">
+                <tr *ngFor="let category of categories">
+                    <td>{{ category.name }}</td>
+                    <td>Active</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="!categories || categories?.length == 0" class="noData">
+            <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+        </div>
+    </div>
+    <!-- Sales Products  -->
+    <div class="table-wrapper col-sm">
+        <h4>On Sales Products</h4>
+        <table class="table table-striped table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th>Name</th>
+                    <th>Promo</th>
+                    <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>20% off</td>
+                    <td>2</td>
+                    <td>M</td>
+                    <td>Php 100.00</td>
+                    <td>Php 200.00</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>20% off</td>
+                    <td>2</td>
+                    <td>M</td>
+                    <td>Php 100.00</td>
+                    <td>Php 200.00</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>20% off</td>
+                    <td>2</td>
+                    <td>M</td>
+                    <td>Php 100.00</td>
+                    <td>Php 200.00</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>20% off</td>
+                    <td>2</td>
+                    <td>M</td>
+                    <td>Php 100.00</td>
+                    <td>Php 200.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
