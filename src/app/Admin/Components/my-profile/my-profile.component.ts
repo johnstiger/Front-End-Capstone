@@ -125,13 +125,13 @@ export class MyProfileComponent implements OnInit {
 
   hideShowPassword(input : any, className : any){
     var x = (<HTMLInputElement>document.getElementById(input));
-    var icon = document.getElementById(className)?.className;
+    var icon = document.getElementById(className);
     if(x.type == 'password'){
       x.type = 'text';
-      icon = 'far fa-eye-slash';
+      (<HTMLHtmlElement>icon).className = 'far fa-eye-slash';
     }else{
       x.type = 'password';
-      icon = 'far fa-eye';
+      (<HTMLHtmlElement>icon).className  = 'far fa-eye';
     }
     // x.type = x.type == 'password' ? 'text' : 'password';
     // icon = x.type == 'password' ?  "far fa-eye" : "far fa-eye-slash";
