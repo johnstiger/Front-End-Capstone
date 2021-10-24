@@ -8,10 +8,10 @@ import Swal from 'sweetalert2';
 export class AdminService {
 
   //Server
-  // private url = "http://santafe-dagom.herokuapp.com/api/";
+  private url = "http://santafe-dagom.herokuapp.com/api/";
 
   //Local
-  private url = "http://127.0.0.1:8000/api/";
+  // private url = "http://127.0.0.1:8000/api/";
 
   constructor() { }
 

@@ -5,7 +5,6 @@ import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { AdminService } from '../../Services/admin.service';
 import Swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -28,7 +27,8 @@ export class ProductsComponent implements OnInit {
   success! : any;
   error! : any;
 
-  path = 'http://localhost:8000/img/';
+  // path = 'http://localhost:8000/img/';
+  path = 'http://santafe-dagom.herokuapp.com/img/';
 
   products! : Products[];
 

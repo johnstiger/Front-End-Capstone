@@ -28,7 +28,9 @@ export class EditProductComponent implements OnInit {
 
   filedata : any;
 
-  path = 'http://localhost:8000/img/';
+  // path = 'http://localhost:8000/img/';
+  path = 'http://santafe-dagom.herokuapp.com/img/';
+
 
   token = localStorage.getItem('admin_token');
 
