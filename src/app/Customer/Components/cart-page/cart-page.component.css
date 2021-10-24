@@ -40,6 +40,10 @@
     color: white;
 }
 
+.checked {
+    cursor: pointer;
+}
+
 
 /* .container-fluid {
     background-color: #C7988E;
