@@ -9,6 +9,10 @@ import { AdminService } from '../../Services/admin.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+// Kulang kay pag retrieve sang value para sa chart
+// back end ani kay wala pa nahuman
+
 export class DashboardComponent implements OnInit {
 
   constructor(private http : AdminService) { }

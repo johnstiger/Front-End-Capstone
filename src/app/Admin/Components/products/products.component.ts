@@ -11,6 +11,11 @@ import Swal from 'sweetalert2';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+
+// Kulang kay ang pag add sa on sale product
+// Gikan sa kani nga component
+// Hint kay gamiton ang id sa product
+
 export class ProductsComponent implements OnInit {
   form = new FormGroup({
     data : new FormControl('',[

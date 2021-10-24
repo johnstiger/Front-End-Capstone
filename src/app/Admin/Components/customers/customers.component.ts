@@ -9,6 +9,10 @@ import { AdminService } from '../../Services/admin.service';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
+
+// Kulang ani kay ang pag kuwa sang active nga address
+// sa customers
+
 export class CustomersComponent implements OnInit {
   form = new FormGroup({
     data : new FormControl('',[

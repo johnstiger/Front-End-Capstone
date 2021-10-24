@@ -9,6 +9,9 @@ import { Categories } from 'src/app/Customer/Common/model/customer-model';
   templateUrl: './edit-category.component.html',
   styleUrls: ['./edit-category.component.css']
 })
+
+// Need pud ni e test sa kani nga feature
+
 export class EditCategoryComponent implements OnInit {
 
   constructor(private http : AdminService, private location : Location, private router: ActivatedRoute) { }
@@ -31,18 +34,18 @@ export class EditCategoryComponent implements OnInit {
     this.getCategory();
   }
 
-  async getCategory()
+  getCategory()
   {
     this.http.loading();
-    await this.http.getCategory(this.id, this.token).then((result)=>{
+    this.http.getCategory(this.id, this.token).then((result)=>{
       this.name = result.data.data.name;
       this.http.closeLoading();
     });
   }
 
-  async submit(data:any){
+   submit(data:any){
     this.http.loading();
-    await this.http.updateCategory(this.id, data, this.token).then((result)=>{
+    this.http.updateCategory(this.id, data, this.token).then((result)=>{
       if(result.data.error){
         this.errors = result.data.message;
      }else{
