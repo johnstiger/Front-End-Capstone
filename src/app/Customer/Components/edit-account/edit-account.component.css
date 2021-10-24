@@ -11,11 +11,9 @@
     width: 16%;
     text-align: center;
 }
-
 h4 {
     color: #C7988E;
 }
-
 .rightDiv {
     float: right;
     background-color: rgb(240, 231, 231);
@@ -24,66 +22,102 @@ h4 {
     width: 70%;
     margin-top: 5%;
     margin-right: 5%;
-    height: 100%;
+    margin-left: 25%;
+    margin-bottom: 5%;;
+    height: auto;
     position: relative;
 }
-
-.left {
+.float-left {
     float: left;
-    /* margin-left: 3%; */
-    
+    /* margin-left: 3%; */  
 }
-
-.right {
+.float-right {
     float: right;
     width: 50%;
-    margin-right: 10%;
-    margin-top: -18%;
+    margin-right: 5%;
+    margin-top: -37%;
     margin-bottom: 5%;
 }
-
+.floatLeftImage {
+    width: 30%;
+    height: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+hr {
+    border-top: 3px solid rgb(240, 208, 208);
+    border-bottom: 1px solid #C7988E;
+}
 input {
     background-color:  #C7988E;
 }
-
+.selectImage {
+    margin-left:10%; 
+    background-color: #C7988E;
+    margin-left: 10%;
+    margin-right: 3%;
+    margin-top: 3%;
+}
+.resetButton {
+    background-color: 0B5CFA;
+    margin-right: 5%;
+    margin-left: 70%; 
+}
 form button {
     width: 100px;
 }
+.actionButtons {
+    margin-left: 50%;
+}
+.cancelButton {
+    width: 30%;
+    margin-right: 5%;
+    background-color: #C7988E;
+}
+.saveButton {
+    width: 30%;
+    background-color:#C7988E;
+}
  
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 600px){
     .leftDiv {
         width: 50%;
-        margin-left: 25%;
+        margin-left: 25%;   
     }
-    .leftDiv img{
-        width: 20%;
-        margin-left: -50%;
-    }
-
-    .rightDiv {
-        margin-top: 110%;
+    .leftImage{
+        width: 70%;
+        margin-left: 15%;
         margin-right: 15%;
     }
-
-    .rightDiv img {
-        width: 50%;
-        margin-right: 10%;
+    .rightDiv {
+        margin-top: 80%;
+        margin-right: 15%;
+        margin-left: 15%;
+        margin-bottom: 5%;
     }
-
-    form {
-        margin-right: 50%;
-        margin-left: -50%;
+    .floatLeftImage {
+        width: 45%;
+        height: 20%;
+        margin-left: 28%;
     }
-
-    form input {
-        width: 180px;
+    .selectImage {
+        margin-left: 30%;
     }
-
-    form button {
-        margin-right: -41%;
-        width: 100px;
+    .float-right {
+        margin-top: 20%;
+        margin-right: 22%;
     }
-    
-
+    .resetButton {
+        margin-left: 10%;
+    }
+    .actionButtons {
+        margin-left: 16%;
+        margin-top: -30%;
+    }
+    .cancelButton {
+        margin-bottom: 5%;
+    }
 }
+
 

@@ -69,12 +69,14 @@
     <hr>
     <div class="grid">
         <div class="search">
-            <input type="text" name="data" placeholder="Search Products...">
-            <a href="#"><i class="fa fa-search fa-2x" ></i></a>
+            <form action="" [formGroup]="form" (ngSubmit)="searchProducts()">
+                <input type="text" class="searchField" formControlName="data" name="data" placeholder="Search Products">
+                <button type="submit"><i class="fa fa-search fa-2x" ></i></button>
+            </form>
         </div>
-        <div class="icons">
+        <!-- <div class="icons">
             <a href="#" class="cart"><i class="fa fa-search fa-2x"></i></a>
             <a href="#" class="user"><i class="fa fa-search  fa-2x" ></i></a>
-        </div>
+        </div> -->
     </div>
 </div>

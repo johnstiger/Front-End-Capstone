@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import  axios from 'axios';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { CustomerService } from '../../Services/customer.service';
+// import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-login',
@@ -12,12 +15,13 @@ import { CustomerService } from '../../Services/customer.service';
 export class LoginComponent implements OnInit {
 
   form = new FormGroup({
-    email : new FormControl('',[
+    email: new FormControl('', [
       Validators.required,
       Validators.email
     ]),
-    password : new FormControl('', [
-      Validators.required
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8)
     ])
   });
 

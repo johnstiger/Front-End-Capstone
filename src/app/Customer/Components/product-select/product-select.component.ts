@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-product-select',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductSelectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private service: CustomerService) { }
 
   ngOnInit(): void {
   }
+
+  
 
 }

@@ -1,8 +1,9 @@
 .header{
     box-sizing: border-box;
-    height: 100%;
+    height: 0;
     background-color: #C7988E;
     overflow: hidden;
+    margin-bottom: 0;
 }
 .logo{
     display: flex;

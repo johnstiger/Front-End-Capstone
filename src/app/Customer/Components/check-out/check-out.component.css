@@ -1,45 +1,275 @@
-.checkOutContainer {
-    background-color: rgb(240, 231, 231);
+* {
     box-sizing: border-box;
-    overflow: hidden;
-    margin: 2%;
-    border-radius: 5px;
-    position: relative;
 }
 
-.leftInfo {
-    float: left;
-    margin-left: 5%;
-    
+.main {
+    background-color: white;
+    margin: 5%;
+    border-radius: 10px;
 }
 
-.rightInfo {
-    margin-left: 30%;
-    margin-top: 2%;
-}
-
-/* .rightButtons {
-    float: right;
-    margin-top: -4%;
-    margin-right: 5%;
-} */
-
-h4 {
+.text {
+    color: #C7988E;
     text-align: center;
 }
 
-/* .prodName {
-    margin-left: 40%; 
-    margin-top: -30%;
-   
-} */
-
-.payment {
-    float: right;
-    margin-right: 5%;
-    margin-left: 70%;
+.button {
+    background-color: #C7988E;
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: auto;
 }
 
-/* h5  {
-    margin-left: 5%;
+.buttonR {
+    background-color: #C7988E;
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#checkouthr {
+    border-top: 1px solid #C7988E;
+    border-bottom: 1px solid #C7988E;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.mbtn {
+    float: right;
+}
+
+.pr {
+    display: flex;
+    justify-content: center;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+    color: white;
+    padding: 15px;
+    margin-top: 5%;
+    text-align: center;
+}
+.button1 {
+    float: right; 
+    margin-top:-8%; 
+    margin-right: 5%; 
+    background-color: #C7988E;
+}
+.button2 {
+    float: right; 
+    margin-top:-4%; 
+    margin-right: 5%; 
+    background-color: #C7988E;
+}
+
+.checkoutTablet {
+    background-color: white;
+    margin: 4%;
+    border-radius: 10px;
+}
+
+#product {
+    text-align: center;
+}
+
+#hr1 {
+    border-top: 1px solid #C7988E;
+    border-bottom: 1px solid #C7988E;
+}
+
+.imgtablet {
+    width: 100%;
+    height: auto;
+}
+
+
+/* #price {
+    text-align: right;
 } */
+
+
+/* For mobile phones: */
+
+[class*="col-"] {
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 765px) {
+    /* For tablets: */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+    .button {
+        float: right;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .adresstxt {
+        margin-right: 48%;
+    }
+    .paymenttxt {
+        margin-right: 24%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .main {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 586px) {
+    /* .text {
+        text-align: center;
+    }
+    .adresstxt {
+        margin-right: 0%;
+    }
+    .paymenttxt {
+        margin-right: 0%;
+    }
+    .button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    } */
+}
+
+@media only screen and (max-width: 425px) {
+    .text {
+        text-align: center;
+    }
+    .button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .text {
+        text-align: center;
+    }
+    .button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .text {
+        text-align: center;
+    }
+    .button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .text {
+        display: none;
+    }
+    .mbtn {
+        display: none;
+    }
+    #checkouthr {
+        display: none;
+    }
+}

@@ -10,6 +10,9 @@ import { AdminService } from '../../Services/admin.service';
   templateUrl: './admins.component.html',
   styleUrls: ['./admins.component.css']
 })
+
+// Need na pud ni e test sa kani nga feature
+
 export class AdminsComponent implements OnInit {
 
   form = new FormGroup({
@@ -31,9 +34,9 @@ export class AdminsComponent implements OnInit {
     this.getAdmins();
   }
 
-  async getAdmins(){
+   getAdmins(){
     this.http.loading();
-    const result = await this.http.admins(this.token).then((result)=>{
+    this.http.admins(this.token).then((result)=>{
       if(result.data.error){
         console.log(result.data.message);
       }else{
@@ -45,9 +48,9 @@ export class AdminsComponent implements OnInit {
 
   }
 
-  async searchAdmins(){
+   searchAdmins(){
     this.http.loading();
-    const result = await this.http.searchAdmins(this.form.value, this.token).then((result)=>{
+    this.http.searchAdmins(this.form.value, this.token).then((result)=>{
       if(result.data.found){
         this.admins = result.data.data;
       }else{

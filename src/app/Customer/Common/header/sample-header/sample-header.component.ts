@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { CustomerService } from 'src/app/Customer/Services/customer.service';
 
 @Component({
   selector: 'app-sample-header',
@@ -8,12 +11,27 @@ import * as $ from 'jquery';
 })
 export class SampleHeaderComponent implements OnInit {
 
-  constructor() { }
+  form = new FormGroup({
+    data : new FormControl('')
+  })
 
   change = false;
 
+  data : string = "test";
+
+  @Output() messageEvent  = new EventEmitter<string>();
+
+  constructor(private router: Router, private service : CustomerService) { }
+
   ngOnInit(): void {
   }
+
+  searchProducts(){
+    this.service.searchProducts(this.form.value).then((result)=>{
+      this.messageEvent.emit(result.data);
+    })
+  }
+
 
   openNav() {
     $('#mySidenav').css('width','100%');

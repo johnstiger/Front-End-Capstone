@@ -5,6 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pending-orders.component.html',
   styleUrls: ['./pending-orders.component.css']
 })
+
+// Kani wa pa gyapon na trabaho
+// Paabuton nalang mahuman ang back end ani
+
 export class PendingOrdersComponent implements OnInit {
 
   constructor() { }

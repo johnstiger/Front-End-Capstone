@@ -10,6 +10,9 @@ import { AdminService } from '../../Services/admin.service';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
+
+// Need na pud ni e test sa kani nga feature
+
 export class CategoryComponent implements OnInit {
   form = new FormGroup({
     data : new FormControl('',[
@@ -28,9 +31,9 @@ export class CategoryComponent implements OnInit {
   error : any;
   success : any;
 
-  async getCategories(){
+ getCategories(){
     this.http.loading();
-    await this.http.getCategories(this.token).then((result)=>{
+    this.http.getCategories(this.token).then((result)=>{
       this.categories = result.data.data;
       this.http.closeLoading();
     });
