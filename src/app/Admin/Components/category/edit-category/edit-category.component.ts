@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories } from 'src/app/Customer/Common/model/customer-model';
+import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -14,7 +15,14 @@ import { Categories } from 'src/app/Customer/Common/model/customer-model';
 
 export class EditCategoryComponent implements OnInit {
 
-  constructor(private http : AdminService, private location : Location, private router: ActivatedRoute) { }
+  constructor(
+    private http : AdminService,
+    private location : Location,
+    private router: ActivatedRoute,
+    private link : UrlService
+    ) { }
+
+  token = this.link.getToken();
 
   errors! : any;
   success! : any;
@@ -22,8 +30,6 @@ export class EditCategoryComponent implements OnInit {
   name! : any;
 
   id : any;
-
-  token = localStorage.getItem('admin_token');
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(

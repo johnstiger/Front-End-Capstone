@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Admins } from 'src/app/Customer/Common/model/customer-model';
+import { UrlService } from 'src/app/Url/url.service';
 import Swal from 'sweetalert2';
 import { AdminService } from '../../Services/admin.service';
 
@@ -26,9 +27,13 @@ export class AdminsComponent implements OnInit {
   success! : any;
   userEmail! : any;
 
-  token = localStorage.getItem('admin_token');
+  constructor(
+    private http : AdminService,
+    private router : Router,
+    private link : UrlService
+    ) { }
 
-  constructor(private http : AdminService, private router : Router) { }
+  token = this.link.getToken();
 
   ngOnInit(): void {
     this.getAdmins();

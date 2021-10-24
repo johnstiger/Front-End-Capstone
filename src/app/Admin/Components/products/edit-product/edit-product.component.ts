@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories, Products } from 'src/app/Customer/Common/model/customer-model';
+import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -28,20 +29,17 @@ export class EditProductComponent implements OnInit {
 
   filedata : any;
 
-  // path = 'http://localhost:8000/img/';
-  path = 'http://santafe-dagom.herokuapp.com/img/';
-
-
-  token = localStorage.getItem('admin_token');
-
   errors! : any;
 
   constructor(
     private service : AdminService,
     private location: Location,
-    private router : ActivatedRoute
+    private router : ActivatedRoute,
+    private link : UrlService
     ) { }
 
+    path = this.link.setImageUrl();
+    token = this.link.getToken();
     id:any;
     categories! : Categories[];
 
