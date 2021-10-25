@@ -71,32 +71,31 @@
                 </div>
                 <div class="modal-body">
                     <label for="currentPassword">Current Password:</label>
+                    <div *ngIf="resetError && resetError.current_password" class="alert alert-danger">
+                        *{{ resetError.current_password[0] }}
+                    </div>
                     <div class="input-group mb-3">
-                        <div *ngIf="resetError && resetError.current_password" class="alert alert-danger">
-                            *{{ resetError.current_password[0] }}
-                        </div>
                         <input type="password" id="currentPassword" class="form-control passwordField" formControlName="current_password" name="current_password" placeholder="********" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary eye" type="button" (click)="showCurrentPassword()"><i id="cpIcon" class="far fa-eye"></i></button>
                         </div>
                     </div>
                     <label for="newPassword">New Password:</label>
+                    <div *ngIf="resetError && resetError.password" class="alert alert-danger">
+                        *{{ resetError.password[0] }}
+                    </div>
                     <div class="input-group mb-3">
-                        <div *ngIf="resetError && resetError.password" class="alert alert-danger">
-                            *{{ resetError.password[0] }}
-                        </div>
                         <input type="password" class="form-control passwordField" id="password" formControlName="password" name="password" placeholder="********" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary eye" type="button" (click)="showPassword()"><i id="pIcon" class="far fa-eye"></i></button>
                         </div>
                     </div>
                     <p class="info">Password must contain of 8 characters.</p>
-
                     <label for="confirmPassword">Confirmed Password:</label>
+                    <div *ngIf="resetError && resetError.password_confirmation" class="alert alert-danger">
+                        *{{ resetError.password_confirmation[0] }}
+                    </div>
                     <div class="input-group mb-3">
-                        <div *ngIf="resetError && resetError.password_confirmation" class="alert alert-danger">
-                            *{{ resetError.password_confirmation[0] }}
-                        </div>
                         <input type="password" class="form-control passwordField" id="confirmed" formControlName="password_confirmation" name="password_confirmation" placeholder="********" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary eye" type="button" (click)="showConfirmedPassword()"><i id="cIcon" class="far fa-eye"></i></button>
