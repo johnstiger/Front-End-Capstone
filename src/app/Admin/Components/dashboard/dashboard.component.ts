@@ -1,17 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
+import { Categories, Orders } from 'src/app/Customer/Common/model/customer-model';
+import { AdminService } from '../../Services/admin.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+// Kulang kay pag retrieve sang value para sa chart
+// back end ani kay wala pa nahuman
+
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http : AdminService) { }
+
+  token = localStorage.getItem('admin_token');
+
+  countProducts : any;
+  countSales : any;
+  categories! : Categories[];
+  pendingOrders! : Orders[];
+  countOrders : any;
+  countCustomers : any;
 
   ngOnInit(): void {
+    this.getDashboard();
   }
 
 
@@ -101,6 +117,23 @@ export class DashboardComponent implements OnInit {
   lineChartLegend = true;
   lineChartPlugins = [];
   lineChartType: ChartType = 'line';
+
+
+
+  async getDashboard(){
+    this.http.loading();
+    await this.http.dashboard(this.token).then((result)=>{
+      this.categories = result.data.categories;
+      this.pendingOrders = result.data.pendingOrders;
+      this.countCustomers = result.data.customers;
+      this.countOrders = result.data.orders;
+      this.countSales = result.data.sales;
+      this.countProducts = result.data.products;
+      this.http.closeLoading();
+    });
+
+  }
+
 
 
 }

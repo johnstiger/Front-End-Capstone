@@ -1,5 +1,5 @@
 
-.media320{
+.media320, .media768{
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #F6F2EF;
@@ -50,12 +50,30 @@
   .delivery320{
       margin-top: 4%;
       margin-bottom: 12%;
+      margin-left: 5%;
   }
   .div2{
       margin-top: 5%;
   }
   .account{
-    background-color: violet;
+    background-color: #F6F2EF;
+    border-radius: 5px;
+    align-content: center;
+  }
+  .deliverypanel{
+    background-color: #F6F2EF;
+    margin-left: 7%;
+    border-radius: 5px;
+  }
+  .profileimg{
+    width: 60%;
+    height: 28%;
+    border-radius: 50%;
+    margin-left: 20%;
+    margin-top: 20%;
+  }
+  .text{
+    margin-bottom: 15%;
   }
 
 
@@ -94,23 +112,20 @@
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
   }
-  @media screen and (width: 320px){
+  @media screen and (min-width: 320px) and (max-width: 767px){
     .media768{display: none;}
   }
   @media screen and (min-width: 322px){
     .submedia320{
       text-align: center;
     }
-    .media768{
-      display: none;
-    }
   }
 
   @media screen and (min-width: 331px){
     .submedia320{font-size: 14px;}
-    .media768{
+    /* .media768{
       display: none;
-    }
+    } */
   }
   @media screen and (min-width: 345px) and (max-width: 374px){
     #quant{
@@ -121,9 +136,9 @@
     .submedia320{
       font-size: 17px;
     }
-    .media768{
+    /* .media768{
       display: none;
-    }
+    } */
     #amount, #total{
       margin-left: 10%;
     }
@@ -140,15 +155,27 @@
       font-size: 15px;
     }
   }
-  @media screen and (min-width: 430px) {
+
+  @media screen and (min-width: 433px){
     a{
       font-size: 18px;
-      padding: 7px;
     }
-
+    #prodname{
+      font-size: 19px;
+    }
+    #amount, #total{
+      margin-left: 22%;
+    }
+    #quant{
+      margin-left: 65%;
+    }
   }
   @media screen and (width: 768px){
     .media320, #img320{
       display: none;
+    }
+    .media768{
+      background-color: transparent;
+      margin-top: 5%;
     }
   }

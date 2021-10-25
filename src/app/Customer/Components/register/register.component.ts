@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import  axios from 'axios';
 import { Router } from '@angular/router';
 import { CustomerService } from '../../Services/customer.service';
 
@@ -40,13 +39,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register() {
-    axios.post("http://127.0.0.1:8000/api/register", this.form.value).then(res => {
+    this.service.register(this.form.value).then((res)=>{
       console.log(res.data)
       window.localStorage.setItem('customer_token',res.data.access_token);
       window.localStorage.setItem('customer_id',res.data.customer_id);
       return this.router.navigate(['/landing']);
-    })
-    .catch(err => {
+    }).catch(err => {
       console.log(err);
     })
   }

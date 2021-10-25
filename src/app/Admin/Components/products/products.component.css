@@ -1,9 +1,27 @@
 .container {
+    padding: 2rem 0rem;
+}
+
+h4 {
+    margin: 2rem 0rem 1rem;
+}
+
+.responsive-image {
+    width: 100%;
+}
+
+td,
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
     text-align: center;
 }
 
-.update {
-    margin-left: 20px;
+.actionBtn {
+    margin-left: 5px;
 }
 
 p {
@@ -35,4 +53,10 @@ p {
 .search {
     margin-left: -10px;
     width: 280px;
+}
+
+div.thumb img {
+    width: 5.2em;
+    height: 8.2em;
+    object-fit: cover;
 }

@@ -1,0 +1,116 @@
+<div class="container con">
+    <form name="form" #FormUpdate="ngForm" (ngSubmit)="submit(FormUpdate.value)">
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <img class="image" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
+                <div *ngIf="error && error.image" class="alert alert-danger">
+                    <div class="" *ngFor="let image of error.image">
+                        *{{ error.image }}
+                    </div>
+                </div>
+                <ng-template #default>
+                    <img class="image" src="{{ path+image }}" alt="product-image">
+                </ng-template>
+                <label for="file" class="file-upload">
+      <input
+      type="file"
+      [ngModel]="image"
+      name="image"
+      class="form-control"
+      accept="image/*"
+      id="file"
+      style="display: none;"
+      (change)="onFileChange($event)">
+      Select Image
+    </label>
+
+            </div>
+            <div class="col-md-8">
+                <input type="hidden" name="id" [ngModel]="id">
+                <div *ngIf="error && error.firstname" class="alert alert-danger">
+                    *{{ error.firstname[0] }}
+                </div>
+                <input type="text" class="form-control field" [ngModel]="firstname" name="firstname" placeholder="First Name">
+                <div *ngIf="error && error.lastname" class="alert alert-danger">
+                    *{{ error.lastname[0] }}
+                </div>
+                <input type="text" class="form-control field" [ngModel]="lastname" name="lastname" placeholder="Last Name">
+                <div *ngIf="error && error.contact_number" class="alert alert-danger">
+                    *{{ error.contact_number[0] }}
+                </div>
+                <input type="text" class="form-control field" [ngModel]="contact_number" name="contact_number" placeholder="Phone Number">
+                <div *ngIf="error && error.email" class="alert alert-danger">
+                    *{{ error.email[0] }}
+                </div>
+                <input type="text" class="form-control field" [ngModel]="email" name="email" placeholder="Email Address">
+                <div class="row">
+                    <div class="col-md-8">
+                        <button type="button" (click)="openModal()" class="btn btn-success add-product">Change Password</button>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-success add-product">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Reset Password Modal -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Reset Your Password</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form [formGroup]="newPasswordForm" (ngSubmit)="resetPassword(id)">
+                <div *ngIf="resetError && !resetError.current_password && !resetError.password && !resetError.password_confirmation" class="alert alert-danger">
+                    *{{ resetError }}
+                </div>
+                <div class="modal-body">
+                    <label for="currentPassword">Current Password:</label>
+                    <div class="input-group mb-3">
+                        <div *ngIf="resetError && resetError.current_password" class="alert alert-danger">
+                            *{{ resetError.current_password[0] }}
+                        </div>
+                        <input type="password" id="currentPassword" class="form-control passwordField" formControlName="current_password" name="current_password" placeholder="********" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary eye" type="button" (click)="showCurrentPassword()"><i id="cpIcon" class="far fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <label for="newPassword">New Password:</label>
+                    <div class="input-group mb-3">
+                        <div *ngIf="resetError && resetError.password" class="alert alert-danger">
+                            *{{ resetError.password[0] }}
+                        </div>
+                        <input type="password" class="form-control passwordField" id="password" formControlName="password" name="password" placeholder="********" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary eye" type="button" (click)="showPassword()"><i id="pIcon" class="far fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <p class="info">Password must contain of 8 characters.</p>
+
+                    <label for="confirmPassword">Confirmed Password:</label>
+                    <div class="input-group mb-3">
+                        <div *ngIf="resetError && resetError.password_confirmation" class="alert alert-danger">
+                            *{{ resetError.password_confirmation[0] }}
+                        </div>
+                        <input type="password" class="form-control passwordField" id="confirmed" formControlName="password_confirmation" name="password_confirmation" placeholder="********" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary eye" type="button" (click)="showConfirmedPassword()"><i id="cIcon" class="far fa-eye"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Reset Password</button>
+                    <button type="button" class="btn btn-secondary" (click)="onCloseHandled()">Close</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal !-->

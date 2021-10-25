@@ -4,11 +4,11 @@
         <div class="contain">
             <div class="row">
                 <div class="col-9">
-                    <form name="form" (ngSubmit)="searchProducts()">
+                    <form name="form" [formGroup]="form" (ngSubmit)="searchCustomers()">
                         <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" formControlName="data" placeholder="Search product name.....">
                             </div>
                         </div>
                     </form>
@@ -25,14 +25,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Samle</td>
-                                    <td> product.name </td>
-                                    <td> product.price </td>
-                                    <td> product.part </td>
+                                <tr *ngFor="let customer of customers">
+                                    <td>{{ customer.firstname }} {{ customer.lastname }} </td>
+                                    <td> {{ customer.contact_number }}</td>
+                                    <td> {{ customer.email }} </td>
+                                    <td> {{ customer.addresses }} </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="Unathorized" *ngIf="!customers">
+                            <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+                        </div>
                     </div>
                 </div>
             </div>

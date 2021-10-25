@@ -5,6 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
+
+// Wala pay back end url ani
+
 export class OrdersComponent implements OnInit {
 
   constructor() { }

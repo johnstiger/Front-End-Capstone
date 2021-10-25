@@ -1,0 +1,106 @@
+.con {
+    padding: 70px;
+    border-radius: 10px;
+    background: #F6F2EF;
+}
+
+textarea {
+    height: 100px;
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.field {
+    width: 100%;
+}
+
+.form-control {
+    margin-bottom: 32px;
+    background: #C7988E;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #fff;
+}
+
+.image {
+    width: 90%;
+    border-radius: 10px;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.col {
+    text-align: center;
+}
+
+.btn {
+    margin-bottom: 32px;
+}
+
+.col-md-8 {
+    padding-left: 100px;
+}
+
+.same {
+    background: #C7988E;
+    border: none;
+}
+
+.btn-success {
+    padding: 12px;
+}
+
+.file-upload {
+    display: inline-block;
+    padding: 9px 28px;
+    cursor: pointer;
+    border-radius: 10px;
+    background: #C7988E;
+    color: #fff;
+}
+
+.add-product {
+    background: #C7988E;
+    border: none;
+    display: block;
+    margin-left: auto;
+    width: 150px;
+}
+
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.passwordField {
+    background: unset !important;
+    margin-bottom: 0 !important;
+    color: black;
+}
+
+.passwordField::placeholder {
+    color: rgb(155, 148, 148);
+}
+
+.info {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: green;
+    margin-top: -27px;
+}
+
+.mb-3 {
+    margin-bottom: 0rem!important;
+}
+
+.eye {
+    height: 38px;
+}
