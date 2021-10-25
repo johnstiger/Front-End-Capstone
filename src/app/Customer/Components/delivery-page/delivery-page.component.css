@@ -26,7 +26,7 @@
     text-decoration: none;
     padding: 3px;
   }
-  
+
   html {
     font-family: "Lucida Sans", sans-serif;
   }
@@ -57,13 +57,13 @@
   .account{
     background-color: violet;
   }
-  
-  
+
+
   /* For mobile phones: */
   /* [class*="col-"] {
     width: 100%;
   } */
-  
+
   @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {width: 8.33%;}
@@ -140,9 +140,15 @@
       font-size: 15px;
     }
   }
+  @media screen and (min-width: 430px) {
+    a{
+      font-size: 18px;
+      padding: 7px;
+    }
+
+  }
   @media screen and (width: 768px){
     .media320, #img320{
       display: none;
     }
   }
-  
