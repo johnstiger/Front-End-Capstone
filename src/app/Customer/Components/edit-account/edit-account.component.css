@@ -1,3 +1,92 @@
+
+.media320 {
+  background-color: #F6F2EF;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-left: 4%;
+  font-family: 'Roboto';
+
+}
+.profile{
+  text-align: center;
+  margin-top: 8%;
+}
+
+.proimg{
+  width: 65%;
+  height: 25%;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.btn{
+  background-color: #C7988E;
+  border: none;
+  margin-top: 7%;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #F6F2EF;
+  width: 60%;
+}
+input{
+  border: none;
+  margin-top: 7%;
+  padding: 5px;
+  color: #F6F2EF;
+  width: 90%;
+  border-radius: 8px;
+  padding-left: 8px;
+  height: 38px;
+  font-size: 15px
+}
+input::placeholder{color: #F6F2EF;}
+#edit{
+  margin-bottom: 15%;
+}
+
+
+
+
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%; }
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+
+
+
+
+
+
+
+
 .leftDiv {
     float: left;
     position: absolute;
@@ -29,7 +118,7 @@ h4 {
 }
 .float-left {
     float: left;
-    /* margin-left: 3%; */  
+    /* margin-left: 3%; */
 }
 .float-right {
     float: right;
@@ -53,7 +142,7 @@ input {
     background-color:  #C7988E;
 }
 .selectImage {
-    margin-left:10%; 
+    margin-left:10%;
     background-color: #C7988E;
     margin-left: 10%;
     margin-right: 3%;
@@ -62,7 +151,7 @@ input {
 .resetButton {
     background-color: 0B5CFA;
     margin-right: 5%;
-    margin-left: 70%; 
+    margin-left: 70%;
 }
 form button {
     width: 100px;
@@ -79,11 +168,11 @@ form button {
     width: 30%;
     background-color:#C7988E;
 }
- 
+
 @media only screen and (max-width: 600px){
     .leftDiv {
         width: 50%;
-        margin-left: 25%;   
+        margin-left: 25%;
     }
     .leftImage{
         width: 70%;
