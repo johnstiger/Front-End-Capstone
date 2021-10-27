@@ -5,6 +5,7 @@
     background-color: #F6F2EF;
     margin-left: 4%;
     margin-bottom: 10%;
+    font-family: 'Roboto';
   }
   .submedia320{
     font-size: 14px;
@@ -27,9 +28,6 @@
     padding: 3px;
   }
 
-  html {
-    font-family: "Lucida Sans", sans-serif;
-  }
   p{
     color:  #C7988E;
     margin-bottom: 0rem;
