@@ -5,6 +5,7 @@
     background-color: #F6F2EF;
     margin-left: 4%;
     margin-bottom: 10%;
+    font-family: 'Roboto';
   }
   .submedia320{
     font-size: 14px;
@@ -26,10 +27,7 @@
     text-decoration: none;
     padding: 3px;
   }
-  
-  html {
-    font-family: "Lucida Sans", sans-serif;
-  }
+
   p{
     color:  #C7988E;
     margin-bottom: 0rem;
@@ -75,12 +73,13 @@
   .text{
     margin-bottom: 15%;
   }
-  
+
+
   /* For mobile phones: */
   /* [class*="col-"] {
     width: 100%;
   } */
-  
+
   @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {width: 8.33%;}
@@ -178,4 +177,3 @@
       margin-top: 5%;
     }
   }
-  

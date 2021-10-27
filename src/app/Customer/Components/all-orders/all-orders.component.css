@@ -1,5 +1,235 @@
-.container {
-    /* float: right; */
+.media320, .media768{
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #F6F2EF;
+  margin-left: 4%;
+  margin-bottom: 10%;
+  color: #C7988E;
+  font-family: 'Roboto';
+}
+.headers{
+  font-size: 14px;
+  margin-top: 7%;
+}
+a{
+  color: #C7988E;
+  text-decoration: none;
+  padding: 4px;
+}
+#img320{
+  width: 100%;
+  height: 100%;
+}
+.col-6{margin-bottom: 10%;}
+#prodname{
+  font-weight: bold;
+  margin-top: 3%;
+}
+.right{text-align: center;}
+#hr1{margin-top: -14px;}
+#headerhr{
+  margin-left: -11px;
+  margin-top: 3%;
+}
+.profileimg{
+  width: 60%;
+  height: 28%;
+  border-radius: 50%;
+  margin-left: 20%;
+  margin-top: 20%;
+}
+.text{
+  margin-bottom: 15%;
+  text-align: center;
+}
+.account{
+  background-color:#F6F2EF;
+  border-radius: 5px;
+  align-content: center;
+}
+.deliverypanel{
+  background-color: #F6F2EF;
+  margin-left: 4%;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%; }
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+@media screen and (min-width: 320px) {
+  p{
+    font-size: 13px;
+  }
+  #quant{
+    margin-left: 50%;
+  }
+  #allorders{
+    margin-left: -9.1px;
+    padding-left: 4px;
+  }
+}
+@media screen and (min-width: 323px){
+  #allorders{ padding-left: 6px;}
+}
+@media screen and (min-width: 330px) {
+  #allorders{margin-left: -9.9px;}
+  a{padding: 5px;}
+  .headers{text-align: center;}
+}
+@media screen and (min-width: 350px) {
+  .headers{font-size: 15px;}
+  p{font-size: 14px;}
+}
+@media screen and (min-width: 350px) {
+  a{padding: 5px;}
+  #quant{margin-left: 45%;}
+  #allorders{padding-left: 8px}
+}
+@media screen and (min-width: 375px){
+  .headers{
+    font-size: 16px;
+    text-align: center;
+  }
+  p{font-size: 15px;}
+}
+@media screen and (min-width: 385px){
+  a{padding: 7px;}
+}
+@media screen and (min-width: 400px){
+  .headers{font-size: 17px;}
+  p{font-size: 16px;}
+  #allorders{padding-left: 5px;}
+}
+@media screen and (min-width: 420px){
+  .headers{font-size: 18px;}
+  p{font-size: 17px;}
+  #allorders{padding-left: 10px;}
+  a{padding: 6px;}
+}
+@media screen and (min-width: 450px) {
+  a{padding: 9px;}
+}
+@media screen and (min-width: 460px) {
+  .headers{font-size: 19px;}
+  p{font-size: 18px;}
+  #allorders{padding-left: 12px;}
+}
+@media screen and (min-width: 480px) {
+  a{padding: 11px;}
+}
+@media screen and (min-width: 500px) {
+  a{padding: 14px;}
+  #allorders {padding-left: 14px;}
+  #quant{margin-left: 42%;}
+}
+@media screen and (min-width: 520px){
+  #allorders {padding-left: 15px;}
+  .headers{font-size: 20px;}
+  p{font-size: 19px;}
+}
+@media screen and (min-width: 530px){
+  a{padding: 15px;}
+  #allorders {padding-left: 17px;}
+}
+@media screen and (min-width: 540px) {
+  .headers{font-size: 20px;}
+  p{font-size: 19px;}
+  a{padding: 16px;}
+  #quant{margin-left: 39%;}
+}
+@media screen and (min-width: 564px){
+  a{padding: 19px;}
+  #allorders {padding-left: 20px;}
+}
+@media screen and (min-width: 580px){
+  a{padding: 21px;}
+  #quant{margin-left: 35%;}
+}
+@media screen and (min-width: 600px){
+  a{padding: 25px;}
+  #allorders {padding-left: 11px;}
+}
+@media screen and (min-width: 630px){
+  .headers{font-size: 21px;}
+  p{font-size: 20px;}
+  a{padding: 25px;}
+  #allorders {padding-left: 20px;}
+}
+@media screen and (min-width: 650px){
+  .headers{font-size: 22px;}
+  p{font-size: 21px;}
+  #allorders {padding-left: 22px;}
+}
+@media screen and (min-width: 680px){
+  a{padding: 26px;}
+  #allorders {padding-left: 25px;}
+}
+@media screen and (min-width: 706px){
+  .headers{font-size: 23px;}
+  p{font-size: 22px;}
+}
+@media screen and (min-width: 726px){
+  a{padding: 32px;}
+}
+@media screen and (min-width: 740px){
+  a{padding: 34px;}
+}
+@media screen and (min-width: 765px){
+  a{padding: 37px;}
+
+}
+@media screen and (min-width: 768px) {
+  .media320{display: none;}
+  .media768{
+    background-color: transparent;
+    margin-left: 2%;
+  }
+  .text{
+    font-size: 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .container {
     background-color: rgb(240, 231, 231);
     box-sizing: border-box;
     border-radius: 10px;
@@ -11,7 +241,6 @@
     width: 75%;
 }
 .leftDiv {
-    /* float: left; */
     position: absolute;
     background-color: rgb(240, 231, 231);
     box-sizing: border-box;
@@ -34,7 +263,7 @@ h4 {
 .description {
     margin-left: 50%;
     margin-top: -40%;
-    
+
 }
 
 @media only screen and (max-width: 600px){
@@ -79,4 +308,4 @@ h4 {
         margin-top: -58%;
         margin-bottom: 20%;
     }
-}
+} */
