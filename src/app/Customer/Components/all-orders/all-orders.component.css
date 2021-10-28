@@ -11,16 +11,17 @@
   font-size: 14px;
   margin-top: 7%;
 }
-a{
+.media320 a{
   color: #C7988E;
   text-decoration: none;
   padding: 4px;
 }
-#img320{
+#img320, #img768{
   width: 100%;
   height: 100%;
 }
-.col-6{margin-bottom: 10%;}
+.media320 .col-6{margin-bottom: 10%;}
+.media768 .col-6{margin-bottom: 5%;}
 #prodname{
   font-weight: bold;
   margin-top: 3%;
@@ -32,8 +33,8 @@ a{
   margin-top: 3%;
 }
 .profileimg{
-  width: 60%;
-  height: 28%;
+  width: 65%;
+  height: 30%;
   border-radius: 50%;
   margin-left: 20%;
   margin-top: 20%;
@@ -46,6 +47,7 @@ a{
   background-color:#F6F2EF;
   border-radius: 5px;
   align-content: center;
+  margin-bottom: 28%;
 }
 .deliverypanel{
   background-color: #F6F2EF;
@@ -205,15 +207,35 @@ a{
   a{padding: 37px;}
 
 }
+@media screen and (max-width: 767px){
+  .media768{display: none;}
+}
 @media screen and (min-width: 768px) {
   .media320{display: none;}
   .media768{
     background-color: transparent;
     margin-left: 2%;
   }
-  .text{
-    font-size: 16px;
+  .text, .deliverypanel p{
+    font-size: 15px;
   }
+  .deliverypanel a{
+    padding: 28px;
+    margin-top: 5%;
+    color: #C7988E;
+    text-decoration: none;
+    padding-left: 28px;
+  }
+  .header768{
+    margin-top: 5%;
+  }
+  #hr768{
+    width: 106%;
+    margin-left: -3%;
+  }
+  .right768{text-align: center;}
+  .allorder768{margin-left: -15px;}
+  #img768{margin-left: 8%;}
 }
 
 
