@@ -25,8 +25,8 @@ export class CustomerService {
   response: any;
 
 
-  async login(data:any, token:any){
-    const response = await axios.post(this.url+"login", data, { headers: { Authorization: token } });
+  async login(data:any){
+    const response = await axios.post(this.url+"login", data);
     console.log(response)
     return response;
 

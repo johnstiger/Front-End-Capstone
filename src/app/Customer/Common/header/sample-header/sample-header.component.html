@@ -59,15 +59,19 @@
             </div>
         </div>
     </div>
+
     <ul class="titles">
-        <li><a routerLink="#"> Summer Collection</a></li>
+        <li><a routerLink="#">Summer Collection</a></li>
         <li><a routerLink="#">First Collection</a></li>
         <li><a routerLink="#">Second Collection</a></li>
         <li><a routerLink="#">Hot Sales</a></li>
         <li><a routerLink="#">About Us</a></li>
-        <li><a routerLink="login">Log In</a></li>
-        <li><a routerLink="register">Register</a></li>
+        <div style="margin-left:65%; margin-top:-2%;" *ngIf="unAuthorized">
+            <li><a routerLink="login">Log In</a></li>
+            <li><a routerLink="register">Register</a></li>
+        </div>  
     </ul>
+
     <hr>
     <div class="grid">
         <div class="search">
@@ -76,6 +80,7 @@
                 <button type="submit"><i class="fa fa-search fa-2x" ></i></button>
             </form>
         </div>
+        
         <!-- <div class="icons">
             <a href="#" class="cart"><i class="fa fa-search fa-2x"></i></a>
             <a href="#" class="user"><i class="fa fa-search  fa-2x" ></i></a>

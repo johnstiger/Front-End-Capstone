@@ -60,12 +60,21 @@ const routes: Routes = [
     ],
   },
 
-
   
-  { path: 'cart', component:CartPageComponent },
-  { path: 'product', component:ProductSelectComponent },
+  { path: 'all-orders', component:AllOrdersComponent, canActivate: [CustomerGuard] },
+  { path: 'cart', component:CartPageComponent, canActivate: [CustomerGuard] },
+  { path: 'check-out', component:CheckOutComponent, canActivate: [CustomerGuard] },
+  { path: 'delivery-page', component:DeliveryPageComponent, canActivate: [CustomerGuard] },
+  { path: 'edit-account', component:EditAccountComponent, canActivate: [CustomerGuard] },
+  { path: 'order-page', component:MyOrderPageComponent, canActivate: [CustomerGuard] },
+  { path: 'product-select', component:ProductSelectComponent, canActivate: [CustomerGuard] },
+  { path: 'received', component:ReceivedComponent, canActivate: [CustomerGuard]},
+  { path: 'search-result', component:SearchResultComponent, canActivate: [CustomerGuard] },
+  { path: 'show-profile', component:ShowProfileComponent, canActivate: [CustomerGuard] },
+  { path: 'product', component:ProductSelectComponent, canActivate: [CustomerGuard] },
+  { path: 'pay', component:ToPayComponent, canActivate: [CustomerGuard] },
 
-  { path: 'landing', component: LandingComponent },
+  { path: '', component: LandingComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'login', component:LoginComponent },
   { path: 'search-result', component: SearchResultComponent },

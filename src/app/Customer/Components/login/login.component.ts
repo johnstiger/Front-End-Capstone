@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private router : Router, private service : CustomerService, private message : AdminService) { }
 
   ngOnInit(): void {
+    
   }
 
   error : any;
@@ -36,9 +37,9 @@ export class LoginComponent implements OnInit {
     }else if(result.data.data.is_admin){
       window.localStorage.setItem('admin_token', "Bearer "+result.data.access_token);
       this.router.navigate(['/admin/dashboard']);
-    }else{
+    }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
-      this.router.navigate(['/landing']);
+      this.router.navigate(['']);
     }
   }
 

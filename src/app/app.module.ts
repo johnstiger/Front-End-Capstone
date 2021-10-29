@@ -95,7 +95,6 @@ import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.com
     EditCategoryComponent,
     NotFoundPageComponent,
     MyProfileComponent,
-
   ],
   imports: [
     BrowserModule,

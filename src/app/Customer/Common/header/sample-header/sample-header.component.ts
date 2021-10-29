@@ -15,6 +15,8 @@ export class SampleHeaderComponent implements OnInit {
     data : new FormControl('')
   })
 
+  unAuthorized = true;
+
   change = false;
 
   data : string = "test";
@@ -24,6 +26,12 @@ export class SampleHeaderComponent implements OnInit {
   constructor(private router: Router, private service : CustomerService) { }
 
   ngOnInit(): void {
+    if (window.localStorage.getItem('customer_token')) {
+      this.unAuthorized = false;
+    }else {
+      this.unAuthorized = true;
+    }
+
   }
 
   searchProducts(){
