@@ -30,7 +30,10 @@
             <p id="total">Total: Php 200.00</p>
         </div>
         <div class="col-12 col-s-12 box">
-            <input class="checkinput" type="checkbox" checked="checked">
+          <label class="container768 ">
+            <input type="checkbox" checked="checked">
+            <span class="checkmark subselect"></span>
+          </label>
         </div>
         <div class="col-12 col-s-12">
           <hr class="hr2">
@@ -49,8 +52,10 @@
     <div class="col-12 col-s-12 headers768">
       <div class="row">
         <div class="col-2 col-s-2">
-          <input class="checkinput" type="checkbox" checked="checked">
-          <label for="selectall"> Select All</label>
+          <label class="container768">Select All
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
         </div>
         <div class="col-2 col-s-2"><p>Product</p></div>
         <div class="col-2 col-s-2S"></div>
@@ -61,15 +66,20 @@
       </div>
     </div>
     <div class="col-12 col-s-12">
-      <hr>
+      <hr class="hr768">
     </div>
     <div class="col-12 col-s-12">
       <div class="row">
-        <div class="col-2"><input class="checkinput" type="checkbox" checked="checked"></div>
-        <div class="col-2"><img class="img768" src="../../../../assets/imgs/dag.jpg" alt=""></div>
-        <div class="col-2">
-          <p>Product Name</p>
-          <button>Remove</button>
+        <div class="col-2 col-s-2">
+          <label class="container768 ">
+            <input type="checkbox" checked="checked">
+            <span class="checkmark subselect"></span>
+          </label>
+        </div>
+        <div class="col-2 col-s-2"><img class="img768" src="../../../../assets/imgs/dag.jpg" alt=""></div>
+        <div class="col-2 col-s-2">
+          <p class="productname">Product Name</p>
+          <button class="btn rmvbtn">Remove</button>
         </div>
         <div class="col-1 col-s-1"><p>S</p></div>
         <div class="col-2 col-s-2"><p>Php 100.00</p></div>
@@ -77,6 +87,22 @@
         <div class="col-2 col-s-2"><p>Php 200.00</p></div>
     </div>
   </div>
+  <div class="col-12 col-s-12">
+    <hr class="hr768" style="margin-top: 2%;">
+  </div>
+  <div class="col-12 col-s-12">
+    <div class="row">
+      <div class="col-9 col-s-9"></div>
+      <div class="col-1 col-s-1"><p>Subtotal</p></div>
+      <div class="col-2 col-s-2" style="text-align: center;"><p>Php 200.00</p></div>
+    </div>
+  </div>
+  <div class="col-12 col-s-12 buttons">
+    <button class="btn cntshopping">Continue Shopping</button>
+    <button class="btn updatebtn">Update</button>
+    <button class="btn checkoutbtn">Check Out</button>
+  </div>
+ </div>
 </div>
 
 <app-cus-footer></app-cus-footer>
