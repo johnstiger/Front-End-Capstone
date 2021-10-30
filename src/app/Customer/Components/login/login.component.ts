@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   error : any;
 
   async login(){
+    this.service.showLoading();
     const result =  await this.service.login(this.form.value);
     if(result.data.error){
       this.router.navigate(['/login']);

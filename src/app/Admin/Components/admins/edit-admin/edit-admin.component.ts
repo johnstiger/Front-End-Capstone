@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Admins } from 'src/app/Customer/Common/model/customer-model';
+import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-edit-admin',
@@ -22,15 +23,15 @@ export class EditAdminComponent implements OnInit {
   errors : any;
   success : any;
 
-  token = localStorage.getItem('admin_token');
-
-  path = 'http://localhost:8000/img/'
-
   constructor(
     private service : AdminService,
     private location: Location,
-    private router : ActivatedRoute
+    private router : ActivatedRoute,
+    private link : UrlService
     ) { }
+
+    path = this.link.setImageUrl();
+    token = this.link.getToken();
 
     id: any;
   ngOnInit(): void {

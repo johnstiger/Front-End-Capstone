@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { UrlService } from 'src/app/Url/url.service';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -7,15 +8,12 @@ import Swal from 'sweetalert2';
 })
 export class AdminService {
 
-  //Server
-  // private url = "http://santafe-dagom.herokuapp.com/api/";
 
-  //Local
-  private url = "http://127.0.0.1:8000/api/";
-
-  constructor() { }
+  constructor(private link : UrlService) { }
 
   // token = localStorage.getItem('admin_token');
+
+  url = this.link.setUrl();
 
   // auth = {headers:{Authorization: this.token}};
 

@@ -1,106 +1,108 @@
 <app-sample-header></app-sample-header>
-<div class="container-fluid">
-  <h3 class="text-center"><b>Your Cart</b></h3>
-  <div class="container">
+<p class="headertitle">Your Cart</p>
+<div class="col-11 col-s-11 media320">
     <div class="row">
-      <table class="table">
-        <thead>
-          <tr class="justify-content-center">
-            <th scope="col"><h4>Select All</h4></th>
-            <th scope="col"><h4>Product</h4></th>
-            <th scope="col"></th>
-            <th scope="col"><h4>Size</h4></th>
-            <th scope="col"><h4>Price</h4></th>
-            <th scope="col"><h4>Quantity</h4></th>
-            <th scope="col"><h4>Total</h4></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>
-              <img style="width:150px; height:150px;" src="../../../../assets/imgs/image1.jpg" alt="">
-            </td>
-            <td>
-              <h5>Product Name</h5>
-              <button type="button" class="btn btn-primary">Remove</button>
-            </td>
-            <td>
-              <h5>S</h5>
-            </td>
-            <td>
-              <h5>Php 100</h5>
-            </td>
-            <td>
-              <h5>3</h5>
-            </td>
-            <td>
-              <h5>Php 300</h5>
-            </td>
-          </tr>
-          <tr>
-           <th scope="row">1</th>
-            <td>
-              <img style="width:150px; height:150px;" src="../../../../assets/imgs/image1.jpg" alt="">
-            </td>
-            <td>
-              <h5>Product Name</h5>
-              <button type="button" class="btn btn-primary">Remove</button>
-            </td>
-            <td>
-              <h5>S</h5>
-            </td>
-            <td>
-              <h5>Php 100</h5>
-            </td>
-            <td>
-              <h5>3</h5>
-            </td>
-            <td>
-              <h5>Php 300</h5>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>
-              <img style="width:150px; height:150px;" src="../../../../assets/imgs/image1.jpg" alt="">
-            </td>
-            <td>
-              <h5>Product Name</h5>
-              <button type="button" class="btn btn-primary">Remove</button>
-            </td>
-            <td>
-              <h5>S</h5>
-            </td>
-            <td>
-              <h5>Php 100</h5>
-            </td>
-            <td>
-              <!-- <button class="btn" style="background-color:transparent;">
-                <i class="fa fa-minus"></i> 
-             </button> -->
-             <h5>3</h5>
-             <!-- <button class="btn" style="background-color:transparent;">
-              <i class="fa fa-plus"></i> 
-           </button> -->
-            </td>
-            <td>
-              <h5>Php 300</h5>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div> 
-    <hr>
-    <div style="float: right;">
-      <h5>Subtotal: Php 600</h5>
+        <div class="col-12 col-s-12 pageheader">
+            <div class="row">
+                <div class="col-6 col-s-6">
+                    <p id="product">Product</p>
+                </div>
+                <div class="col-6 col-s-6">
+                    <p id="price">Price</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-s-12">
+          <hr id="headerId">
+        </div>
+        <div class="col-4 col-s-4">
+            <img class="cartimg" src="../../../../assets/imgs/dag.jpg" alt="">
+
+        </div>
+        <div class="col-4 col-s-4">
+            <p class="productname">Product Name</p>
+            <button class="removebtn">Remove</button>
+        </div>
+        <div class="col-4 col-s-4" style="text-align: right;">
+            <p style="margin-bottom: 0px;">Php 100.00</p>
+            <label class="quantity">Quantity</label>
+            <input class="input" type="number" min="0" value="0">
+            <p id="total">Total: Php 200.00</p>
+        </div>
+        <div class="col-12 col-s-12 box">
+          <label class="container768 ">
+            <input type="checkbox" checked="checked">
+            <span class="checkmark subselect"></span>
+          </label>
+        </div>
+        <div class="col-12 col-s-12">
+          <hr class="hr2">
+        </div>
+        <div class="col-12 col-s-12 buttons">
+          <p>Subtotal  Php 200.00</p>
+          <button class="btn">Continue Shopping</button><br>
+          <button class="btn">Update</button><br>
+          <button class="btn">Check Out</button>
+        </div>
     </div>
-    <div class="rightButtons d-flex">
-      <button type="button" class="btn btn-primary m-3">Continue Shopping</button>
-      <button type="button" class="btn btn-primary m-3">Update</button>
-      <button type="button" class="btn btn-success m-3">Checkout</button>
+</div>
+
+<div class="col-11 col-s-11 media768">
+  <div class="row">
+    <div class="col-12 col-s-12 headers768">
+      <div class="row">
+        <div class="col-2 col-s-2">
+          <label class="container768">Select All
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="col-2 col-s-2"><p>Product</p></div>
+        <div class="col-2 col-s-2S"></div>
+        <div class="col-1 col-s-1"><p>Size</p></div>
+        <div class="col-2 col-s-2"><p>Price</p></div>
+        <div class="col-1 col-s-1"> <p>Quantity</p></div>
+        <div class="col-2 col-s-2"> <p>Total</p></div>
+      </div>
+    </div>
+    <div class="col-12 col-s-12">
+      <hr class="hr768">
+    </div>
+    <div class="col-12 col-s-12">
+      <div class="row">
+        <div class="col-2 col-s-2">
+          <label class="container768 ">
+            <input type="checkbox" checked="checked">
+            <span class="checkmark subselect"></span>
+          </label>
+        </div>
+        <div class="col-2 col-s-2"><img class="img768" src="../../../../assets/imgs/dag.jpg" alt=""></div>
+        <div class="col-2 col-s-2">
+          <p class="productname">Product Name</p>
+          <button class="btn rmvbtn">Remove</button>
+        </div>
+        <div class="col-1 col-s-1"><p>S</p></div>
+        <div class="col-2 col-s-2"><p>Php 100.00</p></div>
+        <div class="col-1"><input class="input" type="text" name="" id="" value="2"></div>
+        <div class="col-2 col-s-2"><p>Php 200.00</p></div>
     </div>
   </div>
+  <div class="col-12 col-s-12">
+    <hr class="hr768" style="margin-top: 2%;">
+  </div>
+  <div class="col-12 col-s-12">
+    <div class="row">
+      <div class="col-9 col-s-9"></div>
+      <div class="col-1 col-s-1"><p>Subtotal</p></div>
+      <div class="col-2 col-s-2" style="text-align: center;"><p>Php 200.00</p></div>
+    </div>
+  </div>
+  <div class="col-12 col-s-12 buttons">
+    <button class="btn cntshopping">Continue Shopping</button>
+    <button class="btn updatebtn">Update</button>
+    <button class="btn checkoutbtn">Check Out</button>
+  </div>
+ </div>
 </div>
 
 <app-cus-footer></app-cus-footer>

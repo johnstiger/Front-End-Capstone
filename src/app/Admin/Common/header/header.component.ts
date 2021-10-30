@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { UrlService } from 'src/app/Url/url.service';
 import { AdminService } from '../../Services/admin.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { AdminService } from '../../Services/admin.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private service: AdminService) { }
+  constructor(
+    private service: AdminService,
+    private link :  UrlService
+    ) { }
 
-  token = localStorage.getItem('admin_token');
+  token = this.link.getToken();
   name! : any;
   ngOnInit(): void {
     this.getUser();
@@ -24,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
 
   async logout(){
+    this.service.loading();
     const result = await this.service.logoutUser(this.token);
     localStorage.clear();
     window.location.reload();

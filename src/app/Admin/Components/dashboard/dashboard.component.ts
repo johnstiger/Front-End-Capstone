@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { Categories, Orders } from 'src/app/Customer/Common/model/customer-model';
+import { UrlService } from 'src/app/Url/url.service';
 import { AdminService } from '../../Services/admin.service';
 
 @Component({
@@ -15,9 +16,12 @@ import { AdminService } from '../../Services/admin.service';
 
 export class DashboardComponent implements OnInit {
 
-  constructor(private http : AdminService) { }
+  constructor(
+    private http : AdminService,
+    private link : UrlService
+    ) { }
 
-  token = localStorage.getItem('admin_token');
+  token = this.link.getToken();
 
   countProducts : any;
   countSales : any;

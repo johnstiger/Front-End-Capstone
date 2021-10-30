@@ -5,6 +5,7 @@
     background-color: #F6F2EF;
     margin-left: 4%;
     margin-bottom: 10%;
+    font-family: 'Roboto';
   }
   .submedia320{
     font-size: 14px;
@@ -17,7 +18,7 @@
     background-color: #C7988E;
     margin-top: 3%;
   }
-  #img320{
+  #img320, #img768{
     width: 100%;
     height: 100%;
   }
@@ -26,10 +27,7 @@
     text-decoration: none;
     padding: 3px;
   }
-  
-  html {
-    font-family: "Lucida Sans", sans-serif;
-  }
+
   p{
     color:  #C7988E;
     margin-bottom: 0rem;
@@ -62,12 +60,12 @@
   }
   .deliverypanel{
     background-color: #F6F2EF;
-    margin-left: 7%;
+    margin-left: 3%;
     border-radius: 5px;
   }
   .profileimg{
-    width: 60%;
-    height: 28%;
+    width: 65%;
+    height: 30%;
     border-radius: 50%;
     margin-left: 20%;
     margin-top: 20%;
@@ -75,12 +73,7 @@
   .text{
     margin-bottom: 15%;
   }
-  
-  /* For mobile phones: */
-  /* [class*="col-"] {
-    width: 100%;
-  } */
-  
+
   @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {width: 8.33%;}
@@ -169,13 +162,49 @@
       margin-left: 65%;
     }
   }
-  @media screen and (width: 768px){
+  @media screen and (max-width: 767px){
+    .media768{display: none;}
+  }
+  @media screen and (min-width: 768px){
     .media320, #img320{
       display: none;
     }
     .media768{
       background-color: transparent;
       margin-top: 5%;
+      margin-left: 3%;
     }
+    .text, .deliverypanel p, #prodname{
+      font-size: 15px;
+    }
+    .deliverypanel a{
+      padding: 23px;
+      margin-top: 5%;
+      color: #C7988E;
+      text-decoration: none;
+      padding-left: 28px;
+      font-size: 15px;
+
+    }
+    .header768{
+      margin-top: 5%;
+    }
+    #hr768{
+      width: 106%;
+      margin-left: -3%;
+    }
+    .right768{text-align: center;}
+    .allorder768{margin-left: -15px;}
+    #img768{margin-left: 8%;}
+    .headertxt768{
+      font-weight: bold;
+      margin-bottom: 4%;
+    }
+    .prodheader{
+      float: left;
+      margin-left: 1%;
+    }
+    .delheader{float: right;}
+    .amountheader{text-align: center;}
+
   }
-  
