@@ -1,11 +1,12 @@
 
-.media320 {
+.media320, .media768 {
     background-color: #F6F2EF;
     box-sizing: border-box;
     border-radius: 5px;
     /* margin-top: 5%; */
     margin-left: 4%;
     font-family: 'Roboto';
+    margin-bottom: 5%;
 }
 
 .pageheader {
@@ -14,7 +15,7 @@
     color: #C7988E;
     margin-bottom: -3%;
 }
-.cartimg {
+.cartimg, .img768 {
     height: 100%;
     width: 100%;
 }
@@ -29,17 +30,20 @@
     color: #F6F2EF;
 }
 
-.input {
+.input{
     font-size: 11px;
     box-sizing: border-box;
     border: none;
-    width: 30%;
+    width: 35%;
     margin-left: 6%;
     height: 15%;
     background-color: #C7988E;
     border-radius: 3px;
     color: #F6F2EF;
     font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 5px;
 }
 
 .checkinput{
@@ -72,6 +76,57 @@ p, .quantity{
     margin-left: -6%;
     border: 1px solid #9b5748;
     background-color:#9b5748;
+}
+.container768{
+  display: block;
+  position: relative;
+  padding-left: 31%;
+  /* margin-bottom: 12px; */
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #C7988E;
+  font-weight: bold;
+}
+.container768 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #C7988E;
+}
+.container768 input:checked ~ .checkmark {
+  background-color: #C7988E;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container768 input:checked ~ .checkmark:after {
+  display: block;
+}
+.container768 .checkmark:after {
+  left: 9px;
+  top: 1px;
+  width: 8px;
+  height: 21px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 
@@ -131,6 +186,24 @@ p, .quantity{
     #total {
         margin-left: -21%;
     }
+    .headertitle{
+      font-size: 16px;
+      font-weight: bold;
+      color: #F6F2EF;
+      text-align: center;
+    }
+    .box{margin-top: 5%;}
+    .checkmark{
+      margin-left: 10%;
+      height: 20px;
+      width: 20px;
+    }
+    .container768 .checkmark:after{
+      height: 15px;
+      width: 7px;
+      left: 7px;
+    }
+
 }
 @media screen and (min-width: 340px){
   #headerId,.hr2{
@@ -143,6 +216,8 @@ p, .quantity{
   p, .quantity, .input, .productname, .removebtn {
     font-size: 12px;
   }
+  #price, #product{font-size: 13px;}
+  .headertitle{font-size: 17px;}
   #headerId,.hr2{
     width: 109%;
   }
@@ -156,8 +231,58 @@ p, .quantity{
   p, .quantity, .input, #productname, .btn, .productname, .removebtn {
     font-size: 13px;
   }
-
   #price, #product{
     font-size: 14px;
+  }
+  .headertitle{font-size: 18px;}
+}
+@media screen and (max-width: 767px) {
+  .media768{display: none;}
+}
+
+@media screen and (min-width: 768px){
+  .media320{display: none;}
+  .headertitle{
+    font-size: 31px;
+    font-weight: 500;
+    font-family: 'Philosopher';}
+  .headers768{
+    text-align: center;
+    margin-top: 5%;
+  }
+  .hr768{
+    margin-left: -2%;
+    width: 104%;
+    margin-top: 0%;
+  }
+  .subselect{
+    margin-left: 40%;
+    margin-top: 35%;
+  }
+  .rmvbtn{
+    width: 85%;
+    padding: 4px;
+    font-size: 13px;
+  }
+  .productname{
+    margin-top: 18%;
+  }
+  .col-2, .col-1{text-align: center;}
+  .cntshopping{
+    width: 21%;
+    font-size: 13px;
+    margin-left: 38%;
+  }
+  .updatebtn, .checkoutbtn{
+    width: 18%;
+    margin-left: 2%;
+    float: right;
+    font-size: 13px;
+  }
+  .input{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    width: 100%;
   }
 }
