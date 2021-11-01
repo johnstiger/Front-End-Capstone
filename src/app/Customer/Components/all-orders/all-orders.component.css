@@ -33,7 +33,7 @@
   margin-top: 3%;
 }
 .profileimg{
-  width: 65%;
+  width: 60%;
   height: 30%;
   border-radius: 50%;
   margin-left: 20%;
@@ -236,7 +236,15 @@
   .right768{text-align: center;}
   .allorder768{margin-left: -15px;}
   #img768{margin-left: 8%;}
-
+  .account p{
+    font-size: 15px;
+    /* margin-bottom: 0%; */
+  }
+  .account a{
+    text-decoration: none;
+    color: #C7988E;
+    text-align: center;
+  }
 
 }
 
