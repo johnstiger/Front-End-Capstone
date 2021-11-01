@@ -48,7 +48,7 @@ hr{
   background-color: #C7988E;
   margin-top: 3%;
 }
-#img320{
+#img320, #img768{
   width: 100%;
   height: 100%;
 }
@@ -105,6 +105,24 @@ p{
 .text{
   margin-bottom: 15%;
 }
+.btn{
+  box-sizing: border-box;
+  border: none;
+  background-color: #C7988E;
+  color: #F6F2EF;
+  font-size: 15px;
+  padding: 7px;
+  margin-left: 3%;
+  width: 98%;
+  padding: 3px;
+  border-radius: 7px;
+
+}
+#recievedate{
+  margin-left: -30%;
+}
+#totalamount{margin-left: -8%;}
+
 
 
 /* For mobile phones: */
@@ -170,64 +188,67 @@ p{
     margin-left: 65%;
   }
 }
-
-
-
-
-
-/*
-.leftDiv {
-  float: left;
-  position: absolute;
-  background-color: rgb(240, 231, 231);
-  box-sizing: border-box;
-  overflow: hidden;
-  margin-left: 5%;
-  margin-right: 5%;
-  border-radius: 10px;
-  margin-top: 2%;
-  width: 16%;
-  text-align: center;
+@media screen and (max-width: 767px){
+  .media768{display: none;}
 }
-
-.container {
-  float: right;
-  width: 75%;
-  background-color: rgb(240, 231, 231);
-  box-sizing: border-box;
-  border-radius: 10px;
-  overflow: hidden;
-  height: auto;
-  margin-top: 2%;
-  margin-right: 2%;
-  margin-bottom: 5%;
-  /* text-align: center;
+@media screen and (min-width:768px){
+  .media320{display: none;}
+  .media768{
+    background-color: transparent;
+    margin-left: 2%;
+  }
+  .deliverypanel{
+    margin-left: 3%;
+  }
+  .text, .deliverypanel p{
+    font-size: 15px;
+  }
+  .deliverypanel a{
+    padding: 28px;
+    margin-top: 5%;
+    color: #C7988E;
+    text-decoration: none;
+    padding-left: 32px;
+  }
+  .header768{
+    margin-top: 5%;
+    font-size: 15px;
+  }
+  #hr768{
+    width: 106%;
+    margin-left: -3%;
+  }
+  .right768{text-align: center;}
+  .allorder768{margin-left: -15px;}
+  #img768{margin-left: 8%;}
+  .header768 a{
+    font-size: 15px;
+  }
+  .prt{
+    font-weight: bold;
+  }
+  #prodname{font-size: 15px;}
+  #img768{margin-left: 8%;}
+  #recievedate{
+    margin-left: -30%;
+  }
+  #totalamount{margin-left: -8%;}
+  .totalvalue{
+    margin-left: 20%;
+    margin-top: 25%;
+  }
+  .date{
+    margin-top: 10%;
+  }
+  .account{
+    margin-bottom: 10%;
+  }
+  .account p{
+    font-size: 15px;
+  }
+  .account a{
+    text-decoration: none;
+    color: #C7988E;
+    text-align: center;
+  }
 }
-
-h4 {
-  padding-top: 5%;
-  text-align: center;
-}
-
-hr {
-  color: #C7988E;
-}
-
-.description {
-  margin-left: 35%;
-  margin-top: -40%;
-}
-
-/* .prods {
-  margin-left: 5%;
-}
-
-p {
-  margin-top: 30%;
-  font-size: 20px;
-  text-align: center;
-}
-
-.btn {
-  background-color: #C7988E;
-}*/

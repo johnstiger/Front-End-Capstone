@@ -64,7 +64,7 @@
     border-radius: 5px;
   }
   .profileimg{
-    width: 65%;
+    width: 60%;
     height: 30%;
     border-radius: 50%;
     margin-left: 20%;
@@ -175,15 +175,15 @@
       margin-left: 3%;
     }
     .text, .deliverypanel p, #prodname{
-      font-size: 15px;
+      font-size: 13px;
     }
     .deliverypanel a{
-      padding: 23px;
+      padding: 36px;
       margin-top: 5%;
       color: #C7988E;
       text-decoration: none;
-      padding-left: 28px;
-      font-size: 15px;
+      padding-left: 32px;
+      font-size: 13px;
 
     }
     .header768{
@@ -193,18 +193,40 @@
       width: 106%;
       margin-left: -3%;
     }
-    .right768{text-align: center;}
+    .right768 p{text-align: center;}
     .allorder768{margin-left: -15px;}
-    #img768{margin-left: 8%;}
+    #img768{margin-left: 27%;}
     .headertxt768{
       font-weight: bold;
       margin-bottom: 4%;
+      font-size: 14px;
     }
     .prodheader{
       float: left;
-      margin-left: 1%;
+      margin-left: 11%;
     }
-    .delheader{float: right;}
-    .amountheader{text-align: center;}
-
+    .delheader{
+      text-align: center;
+      margin-left: -8%;
+    }
+    .amountheader{
+      text-align: center;
+      margin-left: -26%;
+    }
+    #amount, #total{margin-left: 0;}
+    #quant{margin-left: 53%;}
+    .total{
+      margin-left: -24%;
+      margin-top: 17%;
+    }
+    .content{margin-bottom: 5%;}
+    .account{margin-bottom: 19%;}
+    .account p{
+      font-size: 15px;
+    }
+    .account a{
+      text-decoration: none;
+      color: #C7988E;
+      text-align: center;
+    }
   }
