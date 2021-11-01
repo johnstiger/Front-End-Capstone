@@ -1,62 +1,96 @@
 .footer {
     background-color: #C7988E;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Rufina';
     color: white;
+ }
+ p, a, h4{
+    color: #E5E5E5
 }
 
-.footer a {
-    text-decoration: none;
-    color: white;
+.dagom {
+    margin-left: 2%;
 }
-
-.footer a:hover {
-    color: rgb(155, 211, 236);
-}
-
-hr {
-    border-top: 3px solid rgb(240, 208, 208);
-    border-bottom: 1px solid #C7988E;
-}
-
-.fa {
-    padding: 7px;
-    font-size: 20px;
-    width: 35px;
+.categories {
     text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
+}
+.fa-facebook, .fa-facebook-messenger{
+    color: #3b5998;
+}
+.fa-instagram{
+    color: #517fa4;
+}
+.fab {
+    font-size: 20px;
+}
+.socialMedia{
+    margin-left: 20%; 
+    margin-top: -2.5%;
+}
+.allRightsReserved {
+    margin-top: -1%;
+    
+}
+@media only screen and (min-width: 768px){
+    .container320 {
+        display: none;
+    }
+    .socialMedia{
+        margin-left: 225px;
+        margin-top: -30px;
+    }
+    .allRightsReserved {
+        margin-top: -5%;
+        margin-left: 70%;
+    }
 }
 
-/* .socialMedia {
-    margin-left: 80%;
-    margin-top: -2%;
-   
-} */
-
-.fa-facebook {
-    background: #3B5998;
-    color: white;
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .media768{
+        display:none;
+    }
+    .row {
+        text-align: center;
+    }
+    h5{
+        margin-left: -15px;
+    }
+    .socialMedia {
+        margin-top: -15%;
+        margin-left: 42%;
+    }
 }
 
-.fa:hover {
-    opacity: 0.7;
+@media only screen and (min-width: 1024px){
 }
 
-.footertxt {
-    font-size: 1em;
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
 }
-
-.messenger-icon {
-    margin-left: 15px;
-    color: #3B5998;
-    font-size: 30px;
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
 }
-
-.facebook-icon {
-    font-size: 30px;
-    color: #3B5998;
-    background-color: #fff;
-    border-radius: 50%;
-}
-
 

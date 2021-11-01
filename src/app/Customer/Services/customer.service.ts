@@ -90,6 +90,15 @@ export class CustomerService {
   //   })
   // }
 
+  // showLoading(){
+  //   Swal.fire({
+  //     title: "Loading...";
+  //     didOpen(): () => {
+  //       Swal.showLoading();
+  //     }
+  //   })
+  // }
+
   closeLoading(){
     Swal.close();
   }
