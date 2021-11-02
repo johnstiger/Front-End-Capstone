@@ -219,6 +219,7 @@
   .text, .deliverypanel p{
     font-size: 15px;
   }
+  .deliverypanel{margin-bottom: 5%;}
   .deliverypanel a{
     padding: 28px;
     margin-top: 5%;
@@ -229,9 +230,13 @@
   .header768{
     margin-top: 5%;
   }
+
   #hr768{
     width: 106%;
     margin-left: -3%;
+  }
+  .hrdiv{
+    padding-bottom: 35px;
   }
   .right768{text-align: center;}
   .allorder768{margin-left: -15px;}
@@ -244,6 +249,9 @@
     text-decoration: none;
     color: #C7988E;
     text-align: center;
+  }
+  .account{
+    margin-bottom: 19%;
   }
 
 }
