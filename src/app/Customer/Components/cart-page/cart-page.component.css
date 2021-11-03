@@ -286,3 +286,11 @@ p, .quantity{
     width: 100%;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .container768, p,.productname, .btn{
+    font-size: 16px;
+  }
+  .size{margin-top: 100%;}
+  .amount768{margin-top: 40%;}
+}

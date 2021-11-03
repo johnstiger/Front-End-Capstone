@@ -86,34 +86,35 @@
   .col-12 {width: 100%;}
 }
 @media screen and (min-width: 320px) {
-  p{
-    font-size: 13px;
-  }
-  #quant{
-    margin-left: 50%;
-  }
+  p{font-size: 13px;}
+  #quant{margin-left: 50%;}
   #allorders{
     margin-left: -9.1px;
     padding-left: 4px;
   }
 }
+
 @media screen and (min-width: 323px){
   #allorders{ padding-left: 6px;}
 }
+
 @media screen and (min-width: 330px) {
   #allorders{margin-left: -9.9px;}
   a{padding: 5px;}
   .headers{text-align: center;}
 }
+
 @media screen and (min-width: 350px) {
   .headers{font-size: 15px;}
   p{font-size: 14px;}
 }
+
 @media screen and (min-width: 350px) {
   a{padding: 5px;}
   #quant{margin-left: 45%;}
   #allorders{padding-left: 8px}
 }
+
 @media screen and (min-width: 375px){
   .headers{
     font-size: 16px;
@@ -121,95 +122,116 @@
   }
   p{font-size: 15px;}
 }
+
 @media screen and (min-width: 385px){
   a{padding: 7px;}
 }
+
 @media screen and (min-width: 400px){
   .headers{font-size: 17px;}
   p{font-size: 16px;}
   #allorders{padding-left: 5px;}
 }
+
 @media screen and (min-width: 420px){
   .headers{font-size: 18px;}
   p{font-size: 17px;}
   #allorders{padding-left: 10px;}
   a{padding: 6px;}
 }
+
 @media screen and (min-width: 450px) {
   a{padding: 9px;}
 }
+
 @media screen and (min-width: 460px) {
   .headers{font-size: 19px;}
   p{font-size: 18px;}
   #allorders{padding-left: 12px;}
 }
+
 @media screen and (min-width: 480px) {
   a{padding: 11px;}
 }
+
 @media screen and (min-width: 500px) {
   a{padding: 14px;}
   #allorders {padding-left: 14px;}
   #quant{margin-left: 42%;}
 }
+
 @media screen and (min-width: 520px){
   #allorders {padding-left: 15px;}
   .headers{font-size: 20px;}
   p{font-size: 19px;}
 }
+
 @media screen and (min-width: 530px){
   a{padding: 15px;}
   #allorders {padding-left: 17px;}
 }
+
 @media screen and (min-width: 540px) {
   .headers{font-size: 20px;}
   p{font-size: 19px;}
   a{padding: 16px;}
   #quant{margin-left: 39%;}
 }
+
 @media screen and (min-width: 564px){
   a{padding: 19px;}
   #allorders {padding-left: 20px;}
 }
+
 @media screen and (min-width: 580px){
   a{padding: 21px;}
   #quant{margin-left: 35%;}
 }
+
 @media screen and (min-width: 600px){
   a{padding: 25px;}
   #allorders {padding-left: 11px;}
 }
+
 @media screen and (min-width: 630px){
   .headers{font-size: 21px;}
   p{font-size: 20px;}
   a{padding: 25px;}
   #allorders {padding-left: 20px;}
 }
+
 @media screen and (min-width: 650px){
   .headers{font-size: 22px;}
   p{font-size: 21px;}
   #allorders {padding-left: 22px;}
 }
+
 @media screen and (min-width: 680px){
   a{padding: 26px;}
   #allorders {padding-left: 25px;}
 }
+
 @media screen and (min-width: 706px){
   .headers{font-size: 23px;}
   p{font-size: 22px;}
 }
+
 @media screen and (min-width: 726px){
   a{padding: 32px;}
 }
+
 @media screen and (min-width: 740px){
   a{padding: 34px;}
 }
+
 @media screen and (min-width: 765px){
   a{padding: 37px;}
-
 }
+
 @media screen and (max-width: 767px){
   .media768{display: none;}
 }
+
 @media screen and (min-width: 768px) {
   .media320{display: none;}
   .media768{
@@ -254,6 +276,30 @@
     margin-bottom: 19%;
   }
 
+}
+
+@media screen and (min-width:1024px) {
+  .deliverypanel a{
+    font-size: 18px;
+    padding: 60px;
+    padding-left: 30px;
+  }
+  .deliverypanel{margin-left: 3%;}
+  .account{margin-left: 1%;}
+  .header768{
+    text-align: center;
+    margin-left: 2%;
+  }
+  #img768{
+    width: 90%;
+    margin-left: 25%;
+  }
+  .right768 p{
+    font-size: 17px;
+  }
+  .account p{
+    font-size: 18px;
+  }
 }
 
 
