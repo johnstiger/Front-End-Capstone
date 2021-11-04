@@ -39,7 +39,8 @@ export class EditProductComponent implements OnInit {
     ) { }
 
     path = this.link.setImageUrl();
-    token = this.link.getToken();
+    // token = this.link.getToken();
+    token = localStorage.getItem('admin_token');
     id:any;
     categories! : Categories[];
 
