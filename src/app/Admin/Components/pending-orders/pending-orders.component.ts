@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Data, Orders } from '../../Common/model/admin-model';
+import { AdminService } from '../../Services/admin.service';
 
 @Component({
   selector: 'app-pending-orders',
@@ -11,13 +13,51 @@ import { Component, OnInit } from '@angular/core';
 
 export class PendingOrdersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http : AdminService) { }
+
+  token = localStorage.getItem('admin_token');
+  orders! : Orders [];
+  data : Data[] = [];
 
   ngOnInit(): void {
+    this.getPendingOrders();
   }
 
   searchProducts(){
 
+  }
+
+  getPendingOrders(){
+
+    this.http.loading();
+    this.http.pendingOrders(this.token).then((result) =>{
+      if(result.data.error){
+        this.http.ShowErrorMessage(result.data.message)
+      }else{
+        this.orders = result.data.data;
+      }
+    })
+    this.http.closeLoading();
+  }
+
+
+  confirm(orderId : any, customerId : any){
+    this.data = [{
+      id : orderId
+    }]
+    this.http.loading();
+    this.http.confirmOrder(customerId, this.data, this.token).then((result)=>{
+      console.log(result.data);
+      this.http.closeLoading();
+    });
+  }
+
+  declined(orderId : any, customerId : any){
+    this.http.loading();
+    this.http.declineOrder(orderId, customerId, this.token).then((result)=>{
+      console.log(result.data);
+      this.http.closeLoading();
+    });
   }
 
 }

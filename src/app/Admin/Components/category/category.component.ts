@@ -28,7 +28,9 @@ export class CategoryComponent implements OnInit {
     private link : UrlService
     ) { }
 
-  token = this.link.getToken();
+  // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
 
   ngOnInit(): void {
     this.getCategories();

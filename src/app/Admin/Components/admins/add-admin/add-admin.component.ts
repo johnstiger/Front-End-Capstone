@@ -33,7 +33,9 @@ export class AddAdminComponent implements OnInit {
     private link : UrlService
     ) { }
 
-  token = this.link.getToken();
+  // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
 
   ngOnInit(): void {
   }
@@ -64,16 +66,10 @@ export class AddAdminComponent implements OnInit {
     await this.http.addAdmin(this.AddAdminForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
-        if(this.AddAdminForm.value.image == ''){
-          this.errors['image'] = ["This image is required"];
-        }
       }else{
         const response = await this.http.adminImage(result.data.data.id, imageData, this.token);
         if(response.data.error){
           this.errors = response.data.message;
-          if(this.AddAdminForm.value.image == ''){
-            this.errors['image'] = ["This image is required"];
-          }
         }else{
           this.location.back();
         }
