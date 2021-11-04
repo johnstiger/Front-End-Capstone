@@ -64,7 +64,7 @@
   background-color: #C7988E;
   color: #F6F2EF;
   font-size: 11px;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 50%;
 }
 
@@ -81,7 +81,6 @@ p, .quantity{
   display: block;
   position: relative;
   padding-left: 31%;
-  /* margin-bottom: 12px; */
   cursor: pointer;
   font-size: 13px;
   -webkit-user-select: none;
@@ -263,6 +262,7 @@ p, .quantity{
     width: 85%;
     padding: 4px;
     font-size: 13px;
+    border-radius: 8px;
   }
   .productname{
     margin-top: 18%;
@@ -285,6 +285,14 @@ p, .quantity{
     padding-left: 8px;
     width: 100%;
   }
+  .select{margin-top: 4%;}
+  .size{margin-top: 110%;}
+  .amount768{
+    margin-top: 40%;
+  }
+  .input{margin-top: 95%;}
+  .total768{margin-top: 38%;}
+  .size, .amount768, .total768, .subtotal, .subtotalamount{font-weight: 400;}
 }
 
 @media screen and (min-width: 1024px) {
@@ -293,5 +301,26 @@ p, .quantity{
   }
   .size{margin-top: 100%;}
   .amount768{margin-top: 40%;}
+  .input{margin-top: 95%;}
+  .checkmark{
+    height: 22px;
+    width: 25px;
+  }
+  .container768 .checkmark:after{
+    border-width: 0 4px 4px 0;
+    height: 20px;
+    width: 10px;
+    left: 8px;
+    top: -1px;
+
+  }
+  .total768{margin-top: 39%;}
+  .cntshopping, .updatebtn, .checkoutbtn{
+    width: 18%;
+  }
+  .headers768{margin-top: 4%;}
+  .select{
+    margin-left: 15%;
+  }
 }
 

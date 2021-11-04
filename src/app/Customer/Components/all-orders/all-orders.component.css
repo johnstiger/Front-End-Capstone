@@ -262,7 +262,7 @@
   }
   .right768{text-align: center;}
   .allorder768{margin-left: -15px;}
-  #img768{margin-left: 8%;}
+  #img768{margin-left: 6%;}
   .account p{
     font-size: 15px;
     /* margin-bottom: 0%; */
@@ -275,6 +275,10 @@
   .account{
     margin-bottom: 19%;
   }
+  #quant{margin-left: 68%;}
+  .right768{text-align: left;}
+  #prodname{margin-left: -11%;}
+  #hr1{width: 80%;}
 
 }
 
@@ -300,6 +304,10 @@
   .account p{
     font-size: 18px;
   }
+  #prodname{margin-left: 5%;}
+  #amount, #total{margin-left: 14%;}
+  #quant{margin-left: 67%;}
+
 }
 
 
