@@ -26,18 +26,45 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Samle</td>
-                                    <td> product.name </td>
-                                    <td> product.price </td>
-                                    <td> product.part </td>
-                                    <td> product.status </td>
+                            <tbody *ngFor="let order of orders">
+                                <tr *ngIf="order.products.length > 0 ">
+                                    <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary">Confirmed</button>
-                                        <button type="button" class="btn btn-danger">Declined</button>
+                                      <ul>
+                                        <li *ngFor="let product of order.products">{{ product.name }}</li>
+                                      </ul>
+                                    </td>
+                                    <td>
+                                       <ul>
+                                        <li *ngFor="let product of order.products">{{ product.price }} </li>
+                                      </ul>
+                                    </td>
+                                    <td>
+                                      <ul>
+                                        <li *ngFor="let product of order.products">{{ product.pivot.quantity }} </li>
+                                      </ul>
+                                      </td>
+                                    <td>
+                                      <ul>
+                                        <li *ngFor="let product of order.products">{{product.pivot.subtotal}} </li>
+                                      </ul>
+                                      </td>
+                                    <td>
+                                        <button type="button" (click)="confirm(order.id, order.customer.id)" class="btn btn-primary tableBtn">Confirmed</button>
+                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn">Declined</button>
                                     </td>
                                 </tr>
+                                <tr *ngIf="order.products.length == 0 ">
+                                  <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
+                                  <td > Not set </td>
+                                  <td > Not set </td>
+                                  <td > Not set </td>
+                                  <td > Not set </td>
+                                  <td>
+                                      <button type="button" (click)="confirm(order.id, order.customer.id)" class="btn btn-primary tableBtn">Confirmed</button>
+                                      <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn">Declined</button>
+                                  </td>
+                              </tr>
                             </tbody>
                         </table>
                     </div>

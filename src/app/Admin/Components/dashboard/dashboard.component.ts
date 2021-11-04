@@ -21,7 +21,9 @@ export class DashboardComponent implements OnInit {
     private link : UrlService
     ) { }
 
-  token = this.link.getToken();
+  // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
 
   countProducts : any;
   countSales : any;

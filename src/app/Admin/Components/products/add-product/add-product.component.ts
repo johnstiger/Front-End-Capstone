@@ -37,7 +37,7 @@ export class AddProductComponent implements OnInit {
     ) { }
 
     // token = this.link.getToken();
-  token = localStorage.getItem('admin_token')
+    token = localStorage.getItem('admin_token')
 
 
   ngOnInit(): void {

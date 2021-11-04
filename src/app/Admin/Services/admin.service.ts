@@ -186,6 +186,29 @@ export class AdminService {
     const response = await axios.post(this.url+"salesItem/"+id, data, {headers:{Authorization:token}});
     return response;
   }
+  //get all pending orders
+  async pendingOrders(token : any){
+    const response = await axios.get(this.url+"order/pending", {headers: {Authorization:token}});
+    return response;
+  }
+
+  // get all orders
+  async getAllOrders(token:any){
+     const response = await axios.get(this.url+"order/",{headers:{Authorization:token}});
+     return response;
+  }
+
+  //confirm orders
+  async confirmOrder(userId : any, data:any, token : any){
+    const response = await axios.put(this.url+"order/confirmed/"+userId, data, {headers:{Authorization:token}});
+    return response;
+  }
+
+  // declin orders
+  async declineOrder(orderId:any, userId:any, token:any){
+    const response = await axios.put(this.url+"order/declined/"+orderId+"/"+userId, {headers:{Authorization:token}});
+    return response;
+  }
 
 
   //Message

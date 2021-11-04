@@ -31,7 +31,9 @@ export class EditAdminComponent implements OnInit {
     ) { }
 
     path = this.link.setImageUrl();
-    token = this.link.getToken();
+    // token = this.link.getToken();
+    token = localStorage.getItem('admin_token')
+    filedata : any;
 
     id: any;
   ngOnInit(): void {
@@ -63,6 +65,7 @@ export class EditAdminComponent implements OnInit {
     const reader = new FileReader();
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
+      this.filedata = file;
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.imageSrc = reader.result as string;
@@ -72,8 +75,21 @@ export class EditAdminComponent implements OnInit {
 
   // Kani kulang ani kay ang pag update sang password sa admin
   submit(data: any){
-    this.service.updateAdmin(this.id, data, this.token).then((result)=>{
-      console.log(result);
+    this.service.loading();
+    var imageData = new FormData();
+    imageData.append('image', this.filedata);
+    this.service.updateAdmin(this.id, data, this.token).then( async (result)=>{
+      if(result.data.error){
+        this.errors = result.data.message;
+      }else{
+        const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
+        if(response.data.error){
+          this.errors = response.data.message;
+        }else{
+          this.location.back();
+        }
+      }
+      this.service.closeLoading();
     });
 
   //   if(result.data.error){

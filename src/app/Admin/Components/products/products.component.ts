@@ -32,8 +32,7 @@ export class ProductsComponent implements OnInit {
   constructor( private service : AdminService, private router : Router, private link : UrlService ) { }
 
   // token = this.link.getToken();
-  token = localStorage.getItem('admin_token')
-
+  token = localStorage.getItem('admin_token');
   path = this.link.setImageUrl();
 
 
