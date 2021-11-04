@@ -33,6 +33,11 @@ export class AdminService {
     return response;
   }
 
+  async getSizes(token:any){
+    const response = await axios.get(this.url+"product/sizes",{headers: {Authorization:token}});
+    return response;
+  }
+
   async getProduct( id:any, token:any){
     const response = await axios.get(this.url+"product/show/"+id, {headers:{Authorization:token}});
     return response;
@@ -169,6 +174,16 @@ export class AdminService {
   //search Customers
   async searchCustomers(data:any, token:any){
     const response = await axios.post(this.url+"search/customers",data,{headers:{Authorization:token}});
+    return response;
+  }
+
+  async salesProduct(token : any){
+    const response = await axios.get(this.url+"salesItem",{headers:{Authorization:token}});
+    return response;
+  }
+
+  async getSalesProduct(id : any, data : any, token : any){
+    const response = await axios.post(this.url+"salesItem/"+id, data, {headers:{Authorization:token}});
     return response;
   }
 

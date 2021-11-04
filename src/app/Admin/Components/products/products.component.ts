@@ -31,7 +31,9 @@ export class ProductsComponent implements OnInit {
 
   constructor( private service : AdminService, private router : Router, private link : UrlService ) { }
 
-  token = this.link.getToken();
+  // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
   path = this.link.setImageUrl();
 
 
@@ -39,9 +41,9 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  async searchProducts(){
+  searchProducts(){
     this.service.loading();
-    const result = await this.service.searchProducts(this.form.value, this.token).then((result)=>{
+    this.service.searchProducts(this.form.value, this.token).then((result)=>{
       if(result.data.found){
         this.products = result.data.data;
       }else{
@@ -78,13 +80,13 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  // addToSales(product:any){
-  //   this.router.navigate(['/admin/edit-product/'+product.id],{
-  //     state: {
-  //       data: product
-  //     }
-  //   })
-  // }
+  addToSale(product : any){
+    this.router.navigate(['/admin/add-sales/'+product.id],{
+          state: {
+            data: product
+          }
+        })
+  }
 
 
   async confirmDelete(product:any){

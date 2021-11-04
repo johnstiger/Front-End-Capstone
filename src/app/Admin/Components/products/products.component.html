@@ -16,7 +16,7 @@
                         <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" formControlName="data" name="data" placeholder="Search product name.....">
                             </div>
                         </div>
                     </form>
@@ -52,7 +52,7 @@
                                         <td *ngIf="!product.sizes[0]">0</td>
                                         <td *ngIf="!product.sizes[0]">0</td>
                                         <td>
-                                            <button type="button" class="btn btn-primary actionBtn"><i class="fas fa-plus-circle"></i></button>
+                                            <button type="button" (click)="addToSale(product)" class="btn btn-primary actionBtn"><i class="fas fa-plus-circle"></i></button>
                                             <button type="button" (click)="update(product)" class="btn btn-success actionBtn"><i class="fas fa-edit"></i></button>
                                             <button type="button" (click)="confirmDelete(product)" class="btn btn-danger actionBtn"><i class="far fa-trash-alt"></i></button>
                                         </td>

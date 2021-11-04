@@ -6,6 +6,7 @@ export interface Products {
   part : string,
   status : boolean,
   category_id : number,
+  description : any,
   sizes : any,
   unit_measure : number,
   category : any
@@ -24,6 +25,11 @@ export interface Admins {
 export interface Categories {
   id : number,
   name : string
+}
+
+export interface Sizes {
+  id : number,
+  size : string
 }
 
 export interface Comments {

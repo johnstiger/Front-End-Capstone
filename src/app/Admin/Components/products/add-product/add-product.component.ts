@@ -3,7 +3,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
-import { Categories } from 'src/app/Customer/Common/model/customer-model';
+import { Categories, Sizes } from 'src/app/Customer/Common/model/customer-model';
 import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
@@ -36,15 +36,19 @@ export class AddProductComponent implements OnInit {
     private link : UrlService
     ) { }
 
-    token = this.link.getToken();
+    // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
 
   ngOnInit(): void {
     this.gategories();
+    this.sizes();
   }
 
   errors! : any;
   success! : any;
   categories! : Categories[];
+  allSize! : Sizes[];
 
   onFileChange(event:any){
     const reader = new FileReader();
@@ -98,8 +102,11 @@ export class AddProductComponent implements OnInit {
   async gategories(){
     const result = await this.http.getCategories(this.token);
     this.categories = result.data.error ? false : result.data.data;
-
   }
 
+  async sizes(){
+    const result = await this.http.getSizes(this.token);
+    this.allSize = result.data.error ? false : result.data.data;
+  }
 
 }

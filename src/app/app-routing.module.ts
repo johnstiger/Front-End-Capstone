@@ -52,6 +52,7 @@ const routes: Routes = [
       { path: 'product-on-sale', component: ProductOnSaleComponent },
 
       { path: 'add-sales', component: AddSaleComponent },
+      { path: 'add-sales/:id', component: AddSaleComponent },
 
       { path: 'categories', component:CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
@@ -66,7 +67,7 @@ const routes: Routes = [
   { path: 'login', component:LoginComponent },
 
   { path: 'search-result', component: SearchResultComponent },
-  
+
   { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '/404' },
 
