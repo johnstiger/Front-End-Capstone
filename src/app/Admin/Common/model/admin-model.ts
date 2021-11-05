@@ -15,5 +15,21 @@ export interface Customers {
   lastname : string,
   contact_number : number,
   password : string,
-  addresses : any;
+  addresses : any,
+}
+
+
+export interface Orders {
+  id : number,
+  total : any,
+  status : any,
+  payment_method : any,
+  user_id : any,
+  customer : any,
+  products : any,
+}
+
+
+export interface Data {
+  id : number
 }

@@ -28,7 +28,7 @@ import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-p
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 
 const routes: Routes = [
-
+  { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
   {
     path: 'admin', component: NavigationComponent , canActivate : [AdminGuard],
     children: [
@@ -59,6 +59,7 @@ const routes: Routes = [
 
     ],
   },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'landing', component: LandingComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'cart', component:CartPageComponent },
@@ -66,7 +67,7 @@ const routes: Routes = [
   { path: 'login', component:LoginComponent },
 
   { path: 'search-result', component: SearchResultComponent },
-  
+
   { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '/404' },
 
