@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { UrlService } from 'src/app/Url/url.service';
 import Swal from 'sweetalert2';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +30,11 @@ export class AdminService {
 
   async products(token:any){
     const response = await axios.get(this.url+"product/all", {headers:{Authorization:token}});
+    return response;
+  }
+
+  async getSizes(token:any){
+    const response = await axios.get(this.url+"product/sizes",{headers: {Authorization:token}});
     return response;
   }
 
@@ -169,6 +174,56 @@ export class AdminService {
   //search Customers
   async searchCustomers(data:any, token:any){
     const response = await axios.post(this.url+"search/customers",data,{headers:{Authorization:token}});
+    return response;
+  }
+
+  // update sales item
+  async updateSalesItem(id:any, data:any, token:any){
+    const response = await axios.put(this.url+"salesItem/update/"+id, data, {headers:{Authorization:token}});
+    return response;
+  }
+
+  async salesProduct(token : any){
+    const response = await axios.get(this.url+"salesItem",{headers:{Authorization:token}});
+    return response;
+  }
+
+  async removeSalesProduct(id:any, token:any){
+    const response = await axios.delete(this.url+"salesItem/remove/"+id, {headers:{Authorization:token}});
+    return response;
+  }
+
+  async getSalesItem(id:any, token:any){
+    const response = await axios.get(this.url+"salesItem/"+id, {headers:{Authorization:token}});
+    return response;
+  }
+
+  async getSalesProduct(id : any, data : any, token : any){
+    const response = await axios.post(this.url+"salesItem/"+id, data, {headers:{Authorization:token}});
+    return response;
+  }
+
+  //get all pending orders
+  async pendingOrders(token : any){
+    const response = await axios.get(this.url+"order/pending", {headers: {Authorization:token}});
+    return response;
+  }
+
+  // get all orders
+  async getAllOrders(token:any){
+     const response = await axios.get(this.url+"order/",{headers:{Authorization:token}});
+     return response;
+  }
+
+  //confirm orders
+  async confirmOrder(userId : any, data:any, token : any){
+    const response = await axios.put(this.url+"order/confirmed/"+userId, data, {headers:{Authorization:token}});
+    return response;
+  }
+
+  // declin orders
+  async declineOrder(userId:any, data : any, token:any){
+    const response = await axios.put(this.url+"order/declined/"+userId, data, {headers:{Authorization:token}});
     return response;
   }
 

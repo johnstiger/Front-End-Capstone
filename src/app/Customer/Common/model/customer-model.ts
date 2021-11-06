@@ -6,9 +6,11 @@ export interface Products {
   part : string,
   status : boolean,
   category_id : number,
+  description : any,
   sizes : any,
   unit_measure : number,
-  category : any
+  category : any,
+  percent_off : any,
 }
 
 export interface Admins {
@@ -26,6 +28,11 @@ export interface Categories {
   name : string
 }
 
+export interface Sizes {
+  id : number,
+  size : string
+}
+
 export interface Comments {
   id : number,
   user_id : number,
@@ -38,7 +45,10 @@ export interface Orders {
   user_id : number,
   total : number,
   status : boolean,
-  payment_method : string
+  payment_method : string,
+  customer : any,
+  products : any,
+  price : any,
 }
 
 export interface Address {

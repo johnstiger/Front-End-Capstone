@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Orders } from '../../Common/model/admin-model';
+import { AdminService } from '../../Services/admin.service';
 
 @Component({
   selector: 'app-orders',
@@ -10,13 +12,44 @@ import { Component, OnInit } from '@angular/core';
 
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  token = localStorage.getItem('admin_token');
+  constructor(private http : AdminService) { }
+
+  errors : any;
+  orders! : Orders[];
+  message : any;
 
   ngOnInit(): void {
+    this.getAllOrders();
+    $('#myInput').on('keyup',function(){
+      var test = $(this).val()?.toString().toLowerCase();
+      // $('#myTable tr').filter(function(){
+
+      // })
+    })
   }
 
   searchProducts(){
 
   }
+
+  getAllOrders(){
+    this.http.loading();
+    this.http.getAllOrders(this.token).then((result) => {
+      console.log(result.data);
+      if(result.data.error){
+        this.errors = result.data.message
+      }else if(result.data.message == 'No data yet!'){
+        this.message = result.data.message
+      }else{
+        this.orders = result.data.data;
+      }
+      this.http.closeLoading();
+    });
+  }
+
+
+
+
 
 }

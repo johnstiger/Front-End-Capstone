@@ -34,9 +34,10 @@ import { EditCategoryComponent } from './Admin/Components/category/edit-category
 import { ReceivedComponent } from './Customer/Components/received/received.component';
 import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
+import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
 
 const routes: Routes = [
-
+  { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
   {
     path: 'admin', component: NavigationComponent , canActivate : [AdminGuard],
     children: [
@@ -53,6 +54,9 @@ const routes: Routes = [
       { path: 'pending-orders', component: PendingOrdersComponent },
       { path: 'product-on-sale', component: ProductOnSaleComponent },
       { path: 'add-sales', component: AddSaleComponent },
+      { path: 'add-sales/:id', component: AddSaleComponent },
+      { path: 'edit-sales/:id', component: EditSaleComponent },
+
       { path: 'categories', component:CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'edit-category/:id', component: EditCategoryComponent }
@@ -74,7 +78,9 @@ const routes: Routes = [
   { path: 'product', component:ProductSelectComponent, canActivate: [CustomerGuard] },
   { path: 'pay', component:ToPayComponent, canActivate: [CustomerGuard] },
 
-  { path: '', component: LandingComponent },
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: LandingComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'login', component:LoginComponent },
   { path: 'search-result', component: SearchResultComponent },

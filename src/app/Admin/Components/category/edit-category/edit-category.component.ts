@@ -22,7 +22,9 @@ export class EditCategoryComponent implements OnInit {
     private link : UrlService
     ) { }
 
-  token = this.link.getToken();
+  // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
 
   errors! : any;
   success! : any;

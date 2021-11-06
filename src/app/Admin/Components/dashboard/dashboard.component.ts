@@ -3,6 +3,7 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { Categories, Orders } from 'src/app/Customer/Common/model/customer-model';
 import { UrlService } from 'src/app/Url/url.service';
+import { SalesProduct } from '../../Common/model/admin-model';
 import { AdminService } from '../../Services/admin.service';
 
 @Component({
@@ -21,19 +22,21 @@ export class DashboardComponent implements OnInit {
     private link : UrlService
     ) { }
 
-  token = this.link.getToken();
+  // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
 
   countProducts : any;
   countSales : any;
   categories! : Categories[];
   pendingOrders! : Orders[];
+  onSales! : SalesProduct[];
   countOrders : any;
   countCustomers : any;
 
   ngOnInit(): void {
     this.getDashboard();
   }
-
 
 
   //Chart JS
@@ -124,18 +127,18 @@ export class DashboardComponent implements OnInit {
 
 
 
-  async getDashboard(){
+   getDashboard(){
     this.http.loading();
-    await this.http.dashboard(this.token).then((result)=>{
+     this.http.dashboard(this.token).then((result)=>{
       this.categories = result.data.categories;
       this.pendingOrders = result.data.pendingOrders;
       this.countCustomers = result.data.customers;
+      this.onSales = result.data.productSales;
       this.countOrders = result.data.orders;
       this.countSales = result.data.sales;
       this.countProducts = result.data.products;
       this.http.closeLoading();
     });
-
   }
 
 

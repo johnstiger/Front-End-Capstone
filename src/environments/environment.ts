@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   projectName : "Dagom local",
-  url : "http://127.0.0.1:8000/api/"
+  url : "http://santafe-dagom.herokuapp.com/api/"
 };
 
 /*

@@ -1,4 +1,4 @@
-.media320{
+.media320, .media768{
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #F6F2EF;
@@ -55,6 +55,7 @@ a{
 }
 .buttons{
   text-align: center;
+  font-weight: bold;
 }
 .hr2{
   width: 111%;
@@ -142,6 +143,9 @@ a{
     margin-left: -9.1px;
     padding-left: 4px;
   }
+  #subtotal, #shippingfee, #alltotal{
+    font-weight: bold;
+  }
 }
 @media screen and (min-width: 323px){
   #allorders{ padding-left: 6px;}
@@ -221,19 +225,15 @@ a{
   }
   .right768{text-align: center;}
   .allorder768{margin-left: -15px;}
-  #img768{margin-left: 8%;}
+  #img768{margin-left: 12%;}
   .header768 a{
     font-size: 15px;
   }
-  .prt{
-    font-weight: bold;
+  #prodname{
+    font-size: 15px;
+    margin-top: 18%;
   }
-  #prodname{font-size: 15px;}
-  #img768{margin-left: 8%;}
-  #recievedate{
-    margin-left: -30%;
-  }
-  #totalamount{margin-left: -8%;}
+  #amount, #prodname, #hr1{margin-bottom: 5px;}
   .totalvalue{
     margin-left: 20%;
     margin-top: 25%;
@@ -242,10 +242,59 @@ a{
     margin-top: 10%;
   }
   .account{
-    margin-bottom: 10%;
+    margin-bottom: 20%;
   }
   .account p{
     font-size: 15px;
     margin-bottom: 0%;
+  }
+  #confirmed{
+    text-align: right;
+    margin-left: -4%;
+    margin-top: -4%;}
+  #rmvbtn{
+    font-size: 15px;
+    padding-bottom: 3px;
+    margin-left: 9%;
+    width: 100%;
+    margin-left: 9%;
+    padding-top: 3px;
+    margin-top: -13%;
+  }
+  #pending{
+    float: right;
+    margin-right: 12%;
+    margin-top: -12%;
+  }
+  .details p{text-align: center;}
+  .hr2{
+    width: 105%;
+    margin-left: -12px;
+    margin-top: -8%;
+  }
+  .buttons{
+    text-align: right;
+    margin-top: -3%;
+  }
+  .buttons p{padding-right: 2%;}
+  #subtotal, #shippingfee{
+    margin-bottom: 2%;
+  }
+  #shippingfee{margin-right: 2%;}
+}
+@media screen and (max-width:1024px){
+  .account p{
+    font-size: 18px;
+    padding-top: 3%;
+  }
+  .account{
+    width: 20%;
+    margin-left: 3%;
+  }
+  .profileimg{
+    width: 50%;
+    height: 25%;
+    margin-left: 0%;
+    margin-top: 20%;
   }
 }

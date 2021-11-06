@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
     private link :  UrlService
     ) { }
 
-  token = this.link.getToken();
+  // token = this.link.getToken();
+  token = localStorage.getItem('admin_token')
+
   name! : any;
   ngOnInit(): void {
     this.getUser();

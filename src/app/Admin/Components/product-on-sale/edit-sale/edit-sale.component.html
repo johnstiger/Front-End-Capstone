@@ -8,56 +8,50 @@
                 </ng-template>
             </div>
             <div class="col-md-8 nameSelect">
-                <div *ngIf="error && error.name" class="alert alert-danger">
+                <!-- <div *ngIf="error && error.name" class="alert alert-danger">
                     *{{ error.name[0] }}
-                </div>
+                </div> -->
                 <label for="">Product Name</label>
-                <select name="name" (change)="onChange($event)" id="selected" class="options field form-control" formControlName="name">
-            <option value="0" hidden>Product Name</option>
-            <option *ngFor="let product of products" [value]="product.id" id="{{ product.id }}">{{product.name}}</option>
-            </select>
-                <div *ngIf="error && error.description" class="alert alert-danger">
+                <input type="text" name="name" id="selected" class="options field form-control" [ngModel]="name" disabled>
+                <!-- <div *ngIf="error && error.description" class="alert alert-danger">
                     *{{ error.description[0] }}
-                </div>
+                </div> -->
                 <label for="">Description</label>
                 <textarea name="description" class="form-control field" cols="30" [ngModel]="description" rows="10" placeholder="Descriptions"></textarea>
                 <div class="row">
                     <div class="col">
-                        <div *ngIf="error && error.price" class="alert alert-danger">
+                        <!-- <div *ngIf="error && error.price" class="alert alert-danger">
                             *{{ error.price[0] }}
-                        </div>
+                        </div> -->
                         <label for="">Price</label>
                         <input type="number" class="form-control" name="price" [ngModel]="price" id="" min="0" placeholder="Price" disabled>
                     </div>
                     <div class="col">
-                        <div *ngIf="error && error.unit_measure" class="alert alert-danger">
-                            *{{ error.unit_measure[0] }}
+                        <div *ngIf="errors && errors.unit_measure" class="alert alert-danger">
+                            *{{ errors.unit_measure[0] }}
                         </div>
                         <label for="">Available Unit</label>
                         <input type="number" class="form-control" [ngModel]="unit_measure" name="unit_measure" min="0" max="{{ unit_measure }}" id="" placeholder="Unit">
                     </div>
                     <div class="col">
-                        <div *ngIf="error && error.size" class="alert alert-danger">
+                        <!-- <div *ngIf="error && error.size" class="alert alert-danger">
                             *{{ error.size[0] }}
-                        </div>
+                        </div> -->
                         <label for="">Size</label>
-                        <select name="size" id="" class="options field form-control" [ngModel]="size">
-                  <option value="0" hidden>Size</option>
-                  <option *ngFor="let size of allSize" [value]="size.id">{{ size.size }}</option>
-                </select>
+                        <input type="text" name="size" [ngModel]="size" class="form-control" id="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div *ngIf="error && error.percent_off" class="alert alert-danger">
-                            *{{ error.percent_off[0] }}
+                        <div *ngIf="errors && errors.percent_off" class="alert alert-danger">
+                            *{{ errors.percent_off[0] }}
                         </div>
                         <label for="">Promo</label>
                         <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" placeholder="Promo">
                     </div>
                     <div class="col">
-                        <div *ngIf="error && error.promo_type" class="alert alert-danger">
-                            *{{ error.promo_type[0] }}
+                        <div *ngIf="errors && errors.promo_type" class="alert alert-danger">
+                            *{{ errors.promo_type[0] }}
                         </div>
                         <label for="">Promo Type</label>
                         <select name="promo_type" id="" [ngModel]="promo_type" class="form-control">
@@ -67,7 +61,7 @@
               </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success field add-product">Add To On Sales</button>
+                <button type="submit" class="btn btn-success field add-product">Update Sales Item</button>
                 <a routerLink="/admin/product-on-sale" class="btn btn-success field same">Cancel</a>
             </div>
         </div>
