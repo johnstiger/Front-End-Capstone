@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { CustomerService } from '../../Services/customer.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-landing',
@@ -30,15 +31,15 @@ export class LandingComponent implements OnInit {
   }
 
   async getProducts(){
-    // Swal.fire({
-    //   title:'Finding Data Please Wait.'
-    // });
-    // Swal.showLoading();
-   const result = await this.service.products(this.token).then((res)=>{
+    Swal.fire({
+      title:'Finding Data Please Wait.'
+    });
+    Swal.showLoading();
+    const result = await this.service.products(this.token).then((res)=>{
     this.products = res.data.data;
-    // Swal.close();
+    console.log(this.products)
+    Swal.close();
    });
-
   }
 
 

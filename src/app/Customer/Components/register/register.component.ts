@@ -34,16 +34,21 @@ export class RegisterComponent implements OnInit {
     ])
   });
 
+
+  error : any;
   constructor(private router: Router, private service: CustomerService) { }
 
   ngOnInit(): void {
   }
   register() {
     this.service.register(this.registerForm.value).then((res)=>{
+      if(res.data.error){
+        this.error = res.data.message;
+      }
       console.log(res.data)
       window.localStorage.setItem('customer_token',res.data.access_token);
       window.localStorage.setItem('customer_id',res.data.customer_id);
-      return this.router.navigate(['/landing']);
+      return this.router.navigate(['/']);
     }).catch(err => {
       console.log(err);
     })

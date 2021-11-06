@@ -16,6 +16,7 @@ export class SampleHeaderComponent implements OnInit {
   })
 
   unAuthorized = true;
+  authorized = false;
 
   change = false;
 
@@ -28,10 +29,11 @@ export class SampleHeaderComponent implements OnInit {
   ngOnInit(): void {
     if (window.localStorage.getItem('customer_token')) {
       this.unAuthorized = false;
+      this.authorized = true;
     }else {
       this.unAuthorized = true;
+      this.authorized = false;
     }
-
   }
 
   searchProducts(){
@@ -54,4 +56,10 @@ export class SampleHeaderComponent implements OnInit {
     this.change == true ? value.css('display','block') : value.css('display','none');
   }
 
+  // async logout(){
+  //   this.service.loading();
+  //   const result = await this.service.logoutUser(this.token);
+  //   localStorage.clear();
+  //   window.location.reload();
+  // }
 }

@@ -46,7 +46,7 @@ export class CustomerService {
   }
 
   async products(token:any){
-    const response = await axios.get(this.url+"products/all/", { headers: { Authorization: token} });
+    const response = await axios.get(this.url+"home", { headers: { Authorization: token} });
     return response;
   }
 
@@ -81,27 +81,28 @@ export class CustomerService {
     })
   }
 
-  // showLoading(){
-  //   Swal.fire({
-  //     title: "Loading....",
-  //     didOpen : () => {
-  //       Swal.showLoading();
-  //     }
-  //   })
-  // }
+  showLoading(){
+    Swal.fire({
+      title: "Loading....",
+      didOpen : () => {
+        Swal.showLoading();
+      }
+    })
+  }
 
-  // showLoading(){
-  //   Swal.fire({
-  //     title: "Loading...";
-  //     didOpen(): () => {
-  //       Swal.showLoading();
-  //     }
-  //   })
-  // }
+  loading(){
+    Swal.fire({
+      title: 'Loading....',
+      didOpen: ()=>{
+        Swal.showLoading();
+      }
+    })
+  }
 
   closeLoading(){
     Swal.close();
   }
-
-
 }
+
+
+
