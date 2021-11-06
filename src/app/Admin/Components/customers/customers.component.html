@@ -8,7 +8,7 @@
                         <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" formControlName="data" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" formControlName="data" placeholder="Search...">
                             </div>
                         </div>
                     </form>
@@ -18,7 +18,8 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col"> Name</th>
+                                    <th scope="col"> First Name</th>
+                                    <th scope="col"> Last Name</th>
                                     <th scope="col">Contact Number</th>
                                     <th scope="col">Email Address</th>
                                     <th scope="col">Address</th>
@@ -26,7 +27,8 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let customer of customers">
-                                    <td>{{ customer.firstname }} {{ customer.lastname }} </td>
+                                    <td>{{ customer.firstname }} </td>
+                                    <td>{{ customer.lastname }} </td>
                                     <td> {{ customer.contact_number }}</td>
                                     <td> {{ customer.email }} </td>
                                     <td> {{ customer.addresses }} </td>

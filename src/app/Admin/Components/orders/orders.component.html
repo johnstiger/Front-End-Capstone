@@ -8,14 +8,14 @@
                         <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" id="myInput" placeholder="Search.....">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="col-12 mt-5">
                     <div class="table-responsive-lg">
-                        <table class="table">
+                        <table class="table" id="table_data">
                             <thead>
                                 <tr>
                                     <th scope="col">Customer Name</th>
@@ -26,60 +26,60 @@
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of orders">
-                              <tr *ngIf="order.products.length > 0 ">
-                                <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                                <td>
-                                  <ul>
-                                    <li *ngFor="let product of order.products">{{ product.name }}</li>
-                                  </ul>
-                                </td>
-                                <td>
-                                   <ul>
-                                    <li *ngFor="let product of order.products">{{ product.price }} </li>
-                                  </ul>
-                                </td>
-                                <td>
-                                  <ul>
-                                    <li *ngFor="let product of order.products">{{ product.pivot.quantity }} </li>
-                                  </ul>
-                                  </td>
-                                <td>
-                                  <ul>
-                                    <li *ngFor="let product of order.products">{{product.pivot.subtotal}} </li>
-                                  </ul>
-                                </td>
-                                <td *ngIf="order.status == 1" class="done" >
-                                  Confirmed
-                                </td>
-                                <td *ngIf="order.status == 0" class="pending" >
-                                  Pending
-                                </td>
-                                <td *ngIf="order.status == 2" class="declined">
-                                  Declined
-                                </td>
-                            </tr>
-                            <tr *ngIf="order.products.length == 0 ">
-                              <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                              <td > Not set </td>
-                              <td > Not set </td>
-                              <td > Not set </td>
-                              <td > Not set </td>
-                              <td *ngIf="order.status == 1" class="done">
-                                Confirmed
-                              </td>
-                              <td *ngIf="order.status == 0" class="pending">
-                                Pending
-                              </td>
-                              <td *ngIf="order.status == 2" class="declined">
-                                Declined
-                              </td>
-                          </tr>
+                            <tbody *ngFor="let order of orders" id="myTable">
+                                <tr *ngIf="order.products.length > 0 ">
+                                    <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
+                                    <td>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{ product.name }}</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{ product.price }} </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{ product.pivot.quantity }} </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{product.pivot.subtotal}} </li>
+                                        </ul>
+                                    </td>
+                                    <td *ngIf="order.status == 1" class="done">
+                                        Confirmed
+                                    </td>
+                                    <td *ngIf="order.status == 0" class="pending">
+                                        Pending
+                                    </td>
+                                    <td *ngIf="order.status == 2" class="declined">
+                                        Declined
+                                    </td>
+                                </tr>
+                                <tr *ngIf="order.products.length == 0 ">
+                                    <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
+                                    <td> N/A </td>
+                                    <td> N/A </td>
+                                    <td> N/A </td>
+                                    <td> N/A </td>
+                                    <td *ngIf="order.status == 1" class="done">
+                                        Confirmed
+                                    </td>
+                                    <td *ngIf="order.status == 0" class="pending">
+                                        Pending
+                                    </td>
+                                    <td *ngIf="order.status == 2" class="declined">
+                                        Declined
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="Unathorized" *ngIf="!orders">
-                          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
-                      </div>
+                            <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+                        </div>
                     </div>
                 </div>
             </div>

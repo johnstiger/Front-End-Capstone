@@ -88,16 +88,10 @@ export class MyProfileComponent implements OnInit {
     this.service.updateAdmin(data.id, data, this.token).then(async (result)=>{
     if(result.data.error){
       this.error = result.data.message
-      if(data.value.image == ''){
-        this.error['image'] = ["This image is required"];
-      }
     }else{
       const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
       if(response.data.error){
         this.error = response.data.message;
-        if(data.value.image == ''){
-          this.error['image'] = ["This image is required"];
-        }
       }else{
         setTimeout(()=>{
           window.location.reload();

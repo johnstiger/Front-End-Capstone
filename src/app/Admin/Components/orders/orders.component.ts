@@ -18,14 +18,20 @@ export class OrdersComponent implements OnInit {
   errors : any;
   orders! : Orders[];
   message : any;
+
   ngOnInit(): void {
     this.getAllOrders();
+    $('#myInput').on('keyup',function(){
+      var test = $(this).val()?.toString().toLowerCase();
+      // $('#myTable tr').filter(function(){
+
+      // })
+    })
   }
 
   searchProducts(){
 
   }
-
 
   getAllOrders(){
     this.http.loading();
@@ -41,5 +47,9 @@ export class OrdersComponent implements OnInit {
       this.http.closeLoading();
     });
   }
+
+
+
+
 
 }
