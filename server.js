@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express();
 
-app.use(express.static('./dist/Santafe-Dagom'));
+app.use(express.static('./dist/FrontEnd'));
 app.get('/*', (req, res) => {
-    res.sendFile('index.html', { root: './dist/Santafe-Dagom/' })
+    res.sendFile('index.html', { root: './dist/FrontEnd/' })
 });
 
 
