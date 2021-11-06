@@ -26,6 +26,7 @@ import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-ad
 import { EditCategoryComponent } from './Admin/Components/category/edit-category/edit-category.component';
 import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
+import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
@@ -53,6 +54,7 @@ const routes: Routes = [
 
       { path: 'add-sales', component: AddSaleComponent },
       { path: 'add-sales/:id', component: AddSaleComponent },
+      { path: 'edit-sales/:id', component: EditSaleComponent },
 
       { path: 'categories', component:CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
@@ -60,8 +62,8 @@ const routes: Routes = [
 
     ],
   },
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
-  { path: 'landing', component: LandingComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: LandingComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'cart', component:CartPageComponent },
   { path: 'product', component:ProductSelectComponent },

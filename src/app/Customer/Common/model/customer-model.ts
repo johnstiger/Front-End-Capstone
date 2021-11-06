@@ -9,7 +9,8 @@ export interface Products {
   description : any,
   sizes : any,
   unit_measure : number,
-  category : any
+  category : any,
+  percent_off : any,
 }
 
 export interface Admins {
@@ -44,7 +45,10 @@ export interface Orders {
   user_id : number,
   total : number,
   status : boolean,
-  payment_method : string
+  payment_method : string,
+  customer : any,
+  products : any,
+  price : any,
 }
 
 export interface Address {

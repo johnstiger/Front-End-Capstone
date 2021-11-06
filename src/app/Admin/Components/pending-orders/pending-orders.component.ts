@@ -28,7 +28,6 @@ export class PendingOrdersComponent implements OnInit {
   }
 
   getPendingOrders(){
-
     this.http.loading();
     this.http.pendingOrders(this.token).then((result) =>{
       if(result.data.error){
@@ -48,15 +47,34 @@ export class PendingOrdersComponent implements OnInit {
     this.http.loading();
     this.http.confirmOrder(customerId, this.data, this.token).then((result)=>{
       console.log(result.data);
-      this.http.closeLoading();
+      if(result.data.error){
+          this.http.ShowErrorMessage(result.data.message);
+      }else{
+          this.http.ShowSuccessMessage(result.data.message);
+          setTimeout(()=>{
+            this.ngOnInit();
+          }, 2000);
+      }
+      // this.http.closeLoading();
     });
   }
 
   declined(orderId : any, customerId : any){
+    this.data = [{
+      id : orderId
+    }]
     this.http.loading();
-    this.http.declineOrder(orderId, customerId, this.token).then((result)=>{
+    this.http.declineOrder(customerId, this.data, this.token).then((result)=>{
       console.log(result.data);
-      this.http.closeLoading();
+      if(result.data.error){
+        this.http.ShowErrorMessage(result.data.message);
+      }else{
+        this.http.ShowSuccessMessage(result.data.message);
+        setTimeout(()=>{
+          this.ngOnInit();
+        }, 2000);
+      }
+      // this.http.closeLoading();
     });
   }
 

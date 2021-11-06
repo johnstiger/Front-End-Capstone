@@ -59,10 +59,10 @@ export class AdminsComponent implements OnInit {
     this.http.searchAdmins(this.form.value, this.token).then((result)=>{
       if(result.data.found){
         this.admins = result.data.data;
+        this.http.closeLoading();
       }else{
         this.http.ShowErrorMessage(result.data.message);
       }
-      this.http.closeLoading();
     });
 
   }

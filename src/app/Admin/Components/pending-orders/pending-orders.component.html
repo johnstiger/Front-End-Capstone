@@ -30,43 +30,46 @@
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td>
-                                      <ul>
-                                        <li *ngFor="let product of order.products">{{ product.name }}</li>
-                                      </ul>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{ product.name }}</li>
+                                        </ul>
                                     </td>
                                     <td>
-                                       <ul>
-                                        <li *ngFor="let product of order.products">{{ product.price }} </li>
-                                      </ul>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{ product.price }} </li>
+                                        </ul>
                                     </td>
                                     <td>
-                                      <ul>
-                                        <li *ngFor="let product of order.products">{{ product.pivot.quantity }} </li>
-                                      </ul>
-                                      </td>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{ product.pivot.quantity }} </li>
+                                        </ul>
+                                    </td>
                                     <td>
-                                      <ul>
-                                        <li *ngFor="let product of order.products">{{product.pivot.subtotal}} </li>
-                                      </ul>
-                                      </td>
+                                        <ul>
+                                            <li *ngFor="let product of order.products">{{product.pivot.subtotal}} </li>
+                                        </ul>
+                                    </td>
                                     <td>
                                         <button type="button" (click)="confirm(order.id, order.customer.id)" class="btn btn-primary tableBtn">Confirmed</button>
                                         <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn">Declined</button>
                                     </td>
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">
-                                  <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                                  <td > Not set </td>
-                                  <td > Not set </td>
-                                  <td > Not set </td>
-                                  <td > Not set </td>
-                                  <td>
-                                      <button type="button" (click)="confirm(order.id, order.customer.id)" class="btn btn-primary tableBtn">Confirmed</button>
-                                      <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn">Declined</button>
-                                  </td>
-                              </tr>
+                                    <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
+                                    <td> Not set </td>
+                                    <td> Not set </td>
+                                    <td> Not set </td>
+                                    <td> Not set </td>
+                                    <td>
+                                        <button type="button" (click)="confirm(order.id, order.customer.id)" class="btn btn-primary tableBtn">Confirmed</button>
+                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn">Declined</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
+                        <div class="Unathorized" *ngIf="!orders">
+                            <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+                        </div>
                     </div>
                 </div>
             </div>

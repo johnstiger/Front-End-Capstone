@@ -52,6 +52,7 @@ body {
 
 .burger-menu {
     width: 40px;
+    cursor: pointer;
 }
 
 .main-content {

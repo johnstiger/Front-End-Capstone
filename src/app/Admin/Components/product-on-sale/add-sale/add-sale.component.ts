@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/Admin/Common/model/admin-model';
@@ -17,6 +18,7 @@ export class AddSaleComponent implements OnInit {
     private url : UrlService,
     private service : AdminService,
     private router : ActivatedRoute,
+    private location : Location
     ) { }
 
   token = localStorage.getItem('admin_token');
@@ -107,7 +109,7 @@ submit(data : any){
     if(result.data.error){
       this.error = result.data.message;
     }else{
-      console.log(result.data);
+      this.location.back();
     }
     this.service.closeLoading();
   }).catch(err => {

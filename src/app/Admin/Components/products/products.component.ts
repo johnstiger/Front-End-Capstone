@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
 
   success! : any;
   error! : any;
-
+  page : Number = 1;
 
   products! : Products[];
 
@@ -45,10 +45,10 @@ export class ProductsComponent implements OnInit {
     this.service.searchProducts(this.form.value, this.token).then((result)=>{
       if(result.data.found){
         this.products = result.data.data;
+        this.service.closeLoading();
       }else{
         this.service.ShowErrorMessage(result.data.message);
       }
-      this.service.closeLoading();
     });
   }
 
@@ -113,5 +113,8 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  pageChange(page: Event) {
+    page = page;
+  }
 
 }

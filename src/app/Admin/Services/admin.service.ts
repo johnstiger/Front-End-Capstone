@@ -177,8 +177,24 @@ export class AdminService {
     return response;
   }
 
+  // update sales item
+  async updateSalesItem(id:any, data:any, token:any){
+    const response = await axios.put(this.url+"salesItem/update/"+id, data, {headers:{Authorization:token}});
+    return response;
+  }
+
   async salesProduct(token : any){
     const response = await axios.get(this.url+"salesItem",{headers:{Authorization:token}});
+    return response;
+  }
+
+  async removeSalesProduct(id:any, token:any){
+    const response = await axios.delete(this.url+"salesItem/remove/"+id, {headers:{Authorization:token}});
+    return response;
+  }
+
+  async getSalesItem(id:any, token:any){
+    const response = await axios.get(this.url+"salesItem/"+id, {headers:{Authorization:token}});
     return response;
   }
 
@@ -186,6 +202,7 @@ export class AdminService {
     const response = await axios.post(this.url+"salesItem/"+id, data, {headers:{Authorization:token}});
     return response;
   }
+
   //get all pending orders
   async pendingOrders(token : any){
     const response = await axios.get(this.url+"order/pending", {headers: {Authorization:token}});
@@ -205,8 +222,8 @@ export class AdminService {
   }
 
   // declin orders
-  async declineOrder(orderId:any, userId:any, token:any){
-    const response = await axios.put(this.url+"order/declined/"+orderId+"/"+userId, {headers:{Authorization:token}});
+  async declineOrder(userId:any, data : any, token:any){
+    const response = await axios.put(this.url+"order/declined/"+userId, data, {headers:{Authorization:token}});
     return response;
   }
 

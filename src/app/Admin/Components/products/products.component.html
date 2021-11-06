@@ -40,6 +40,10 @@
                                     </tr>
                                 </thead>
                                 <tbody *ngIf="products">
+                                    <!-- <tr *ngFor="let product of products |paginate : {
+                                      itemsPerPage : 10,
+                                      currentPage : page
+                                    }"> -->
                                     <tr *ngFor="let product of products">
                                         <div class="thumb">
                                             <th><img src="{{ path+product.image }}" alt=""></th>
@@ -59,13 +63,16 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="Unathorized" *ngIf="!products">
-                                <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
-                            </div>
+                        </div>
+                        <div class="Unathorized" *ngIf="!products">
+                            <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- <div class="d-flex justify-content-end">
+            <pagination-controls maxSixe="5" (pageChange)="page = $event"></pagination-controls>
+        </div> -->
     </div>
 </div>
