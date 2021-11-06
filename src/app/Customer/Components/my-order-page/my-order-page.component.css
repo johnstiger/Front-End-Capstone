@@ -1,3 +1,88 @@
+.media320, .media768 {
+    background-color: #F6F2EF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-left: 4%;
+    font-family: 'Roboto';
+}
+.headertxt{
+  color: #F6F2EF;
+  text-align: center;
+  font-size: 18px;
+}
+
+.pageheader {
+    display: inline-block;
+    margin-top: 5%;
+    color: #C7988E;
+    margin-bottom: -3%;
+}
+.cartimg {
+    height: 100%;
+    width: 100%;
+}
+
+.removebtn {
+    box-sizing: border-box;
+    font-size: 11px;
+    border: none;
+    cursor: pointer;
+    background-color: #C7988E;
+    border-radius: 8px;
+    color: #F6F2EF;
+    height: 24%;
+    width: 83%;
+}
+
+.input {
+    font-size: 11px;
+    box-sizing: border-box;
+    border: none;
+    width: 30%;
+    margin-left: 6%;
+    height: 15%;
+    background-color: #C7988E;
+    border-radius: 3px;
+    color: #F6F2EF;
+    font-weight: bold;
+}
+
+.checkinput{
+  height: 30px;
+  width: 15px;
+  margin-left: 10%;
+}
+.buttons{
+  text-align: right;
+}
+.buttons button{
+  margin-bottom: 5%;
+}.quantity{
+  margin-top: -8px;
+}
+
+.btn{
+  box-sizing: border-box;
+  border: none;
+  background-color: #C7988E;
+  color: #F6F2EF;
+  font-size: 11px;
+  border-radius: 8px;
+  width: 50%;
+}
+
+p, .quantity{
+  color: #C7988E;
+  padding-top: 5px;
+}
+.hr2{
+  width: 111%;
+    margin-left: -6%;
+    border: 1px solid #9b5748;
+}
+
+
+
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   .col-s-1 {width: 8.33%;}
@@ -28,3 +113,133 @@
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
+
+@media screen and (min-width:320px) {
+  #price {
+      text-align: right;
+      font-size: 12px;
+  }
+  #product{font-size: 12px;}
+  p, .quantity, .productname  {
+      font-size: 11px;
+      font-weight: bold;
+  }
+  #headerId {
+      width: 111%;
+      border: 1px solid #C7988E;
+      margin-left: -6%;
+      margin-top: -2%;
+  }
+  .productname {
+      margin-bottom: 5%;
+  }
+  #total {
+      margin-left: -21%;
+  }
+  .col-4{
+    margin-bottom: 5%;
+  }
+}
+@media screen and (min-width: 340px){
+#headerId,.hr2{
+  width: 110%;
+  margin-left: -15px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+p, .quantity, .input, .productname, .removebtn {
+  font-size: 12px;
+}
+#headerId,.hr2{
+  width: 109%;
+  margin-top: 1%;
+}
+}
+@media screen and (min-width: 400px){
+#headerId,.hr2{
+  width: 108%;
+}
+}
+@media screen and (min-width: 425px){
+p, .quantity, .input, #productname, .btn, .productname, .removebtn {
+  font-size: 13px;
+}
+#price, #product{
+  font-size: 14px;
+}
+}
+@media screen and (max-width: 767px){
+  .media768{display: none;}
+}
+@media screen and (min-width:768px){
+  .media320{display: none;}
+  .headertxt{
+    font-size: 31px;
+    font-weight: 500;
+    font-family: 'Philosopher';
+  }
+  #headerId{
+    width: 104%;
+    margin-top: -4%;
+  }
+  .head{
+    margin-top: 5%;
+    margin-bottom: 0%;
+  }
+  .head p, .headp p{
+    font-weight: normal;
+  }
+  .mngadress, .mngpattern{
+    width: 60%;
+    float: right;
+    margin-right: 8%;
+  }
+  .side{
+    margin-left: 10%;
+  }
+  p{
+    font-size: 14px;
+  }
+  .cartimg{margin-left: 15%;}
+  .product{
+    margin-left: 15%;
+  }
+  .input{
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: normal;
+  }
+  .prodside{
+    margin-top: 3%;
+  }
+  #total{
+    font-weight: normal;
+  }
+  .hr2{
+    margin-left: -29px;
+    width: 109%;
+    margin-top: 3%;
+  }
+  #cancel, #placeorder{
+    width: 100%;
+  }
+  .bottomdiv{
+    margin-bottom: 5%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  p, .btn, .productname, .removebtn, .input{
+    font-size: 17px;
+  }
+  .productname, .removebtn{margin-left: 15%;}
+  .input{margin-top: 5%;}
+  #headerId{width: 103%;}
+  .hr2{
+    margin-left: -31px;
+    width: 107%;
+  }
+  .buttons{margin-left: -2%;}
+}
+

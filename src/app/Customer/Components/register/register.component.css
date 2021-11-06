@@ -85,3 +85,9 @@
  @media screen and (min-width:486)  and (max-width:768px){
 
  }
+
+ @media screen and (min-width: 320px) {
+  .aboutbtn{
+    width: 50%;
+  }
+ }
