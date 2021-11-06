@@ -2,7 +2,6 @@
   background-color: #F6F2EF;
   box-sizing: border-box;
   border-radius: 8px;
-  margin-left: 4%;
   font-family: 'Roboto';
   margin-bottom: 10%;
 
@@ -56,10 +55,10 @@ input::placeholder{color: #F6F2EF;}
   margin-bottom: 19%;
 }
 .profileimg{
-  width: 60%;
+  width: 55%;
   height: 30%;
   border-radius: 50%;
-  margin-left: 20%;
+  margin-left: 23%;
   margin-top: 20%;
 }
 p{
@@ -114,13 +113,20 @@ p{
   .col-12 {width: 100%;}
 }
 @media screen and (min-width:320px){
+  .media320{margin-left: 15px;}
   .btn{
     text-align: center;
     width: 50%;
   }
 }
+@media screen and (min-width:375px){
+  .media320{
+    margin-left: 14px;
+  }
+}
 
 @media screen and (min-width: 425px) {
+  /* .media320{margin-left: 4%;} */
   .proimg{
     width: 60%;
   }
@@ -135,9 +141,10 @@ p{
     margin-left: 2%;
   }
   input{
-    width: 100%;
+    width: 95%;
     height: 34px;
     font-size: 15px;
+    margin-left: 3%;
   }
   #cancel, #save{
     width: 100%;
@@ -148,7 +155,7 @@ p{
     width: 52%;
   }
   .editpanel{
-    margin-bottom: 11%;
+    margin-bottom: 15%;
   }
   .account{
     margin-bottom: 25%;
@@ -156,16 +163,104 @@ p{
   #fname{margin-top: 1%;}
   .account p{
     font-size: 15px;
+    margin-top: 5%;
     /* margin-bottom: 0%; */
   }
   .account a{
     text-decoration: none;
     color: #C7988E;
     text-align: center;
+
   }
   .btn{
     float: right;
     width: 30%;
+  }
+  #edit{
+    margin-bottom: 0px;
+    margin-left: 71%;
+    margin-top: 5%;
+    border-radius: 7px;
+    width: 25%;
+  }
+
+}
+@media screen and (min-width:1024px){
+  .account p{
+    font-size: 18px;
+    padding-top: 3%;
+  }
+  .account{
+    width: 20%;
+    margin-left: 3%;}
+  input{
+    font-size: 18px;
+    width: 90%;
+    margin-left: 7%;
+  }
+  .editpanel{margin-bottom: 16%;}
+  .editprofileimg{
+    width: 90%;
+    margin-left: 5%;
+  }
+  .profileimg{
+    width: 50%;
+    height: 25%;
+    margin-left: 24%;
+    margin-top: 20%;
+
+  }
+  #edit{
+    font-size: 18px;
+    width: 22%;
+    margin-left: 74%;
+    margin-top: 0%;
+  }
+
+}
+@media screen and (min-width:1440px){
+  .account p{
+    font-size: 22px;
+    padding-top: 5%;
+  }
+  .editprofileimg{
+    width: 80%;
+    height: 95%;
+    margin-left: 10%;
+    margin-top: 4%;
+  }
+  .profileimg{
+    width: 55%;
+    margin-left: 23%;
+  }
+  .inputs{
+    margin-top: 1%;
+  }
+  input{
+    font-size: 22px;
+    margin-left: 4%;
+    height: 11%;
+  }
+  #edit{
+    font-size: 22px;
+    width: 18%;
+    margin-left: 77%;
+  }
+  .editpanel{margin-bottom: 20%;}
+}
+@media screen and (min-width: 2560px){
+  .account p{
+    font-size: 35px;
+  }
+  input{
+    font-size: 34px;
+    padding-left: 20px;
+  }
+  #edit{
+    font-size: 34px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 78%;
   }
 }
 
