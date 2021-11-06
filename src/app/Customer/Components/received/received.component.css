@@ -220,7 +220,7 @@ p{
   }
   .right768{text-align: center;}
   .allorder768{margin-left: -15px;}
-  #img768{margin-left: 8%;}
+  #img768{margin-left: 8%; width: 85%;}
   .header768 a{
     font-size: 15px;
   }
@@ -228,7 +228,7 @@ p{
     font-weight: bold;
   }
   #prodname{font-size: 15px;}
-  #img768{margin-left: 8%;}
+  #img768{margin-left: 8%; width: 85%;}
   #recievedate{
     margin-left: -30%;
   }
@@ -251,4 +251,31 @@ p{
     color: #C7988E;
     text-align: center;
   }
+  .btn{margin-top: 5%;}
+  #amount, #total{margin-left: -1%;}
+}
+@media screen and (min-width:1024px) {
+  .account p{
+    font-size: 18px;
+  }
+  .deliverypanel a{
+    font-size: 18px;
+    padding: 55px;
+    padding-left: 35px;
+  }
+  #img768{
+    width: 85%;
+    margin-left: 15%;
+  }
+  .right768 p{font-size: 16px;}
+  #prodname{font-size: 16px; margin-left: -15%;}
+  #amount, #total{margin-left: -25px;}
+  #quant{margin-left: 33%;}
+  .btn{
+    width: 75%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10%;
+  }
+  .totalvalue{margin-top: 10%;}
 }

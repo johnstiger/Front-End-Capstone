@@ -229,4 +229,17 @@ p, .quantity, .input, #productname, .btn, .productname, .removebtn {
     margin-bottom: 5%;
   }
 }
+@media screen and (min-width: 1024px) {
+  p, .btn, .productname, .removebtn, .input{
+    font-size: 17px;
+  }
+  .productname, .removebtn{margin-left: 15%;}
+  .input{margin-top: 5%;}
+  #headerId{width: 103%;}
+  .hr2{
+    margin-left: -31px;
+    width: 107%;
+  }
+  .buttons{margin-left: -2%;}
+}
 

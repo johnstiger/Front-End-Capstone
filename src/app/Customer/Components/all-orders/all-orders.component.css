@@ -310,6 +310,36 @@
 
 }
 
+@media screen and (min-width:1440px) {
+  .deliverypanel a{
+    font-size: 25px;
+    padding: 90px;
+    padding-left: 39px;
+  }
+  .account p{font-size: 20px;}
+  .right768 p{font-size: 20px;}
+  #prodname{margin-left: 8%;}
+  #amount, #total{margin-left: 15%;}
+  #quant{margin-left: 58%;}
+  #hr1{margin-left: 8%; width: 65%;}
+  #img768{width: 85%;}
+}
+
+@media screen and (min-width:2560px) {
+  .deliverypanel a{
+    font-size: 35px;
+    padding: 185px;
+    padding-left: 88px;
+  }
+  .right768 p{font-size: 30px;}
+  .account p{font-size: 30px;}
+  #img768{width: 75%; margin-left: 30%;}
+  #prodname{margin-left: 10%;}
+  #amount, #total{margin-left: 15%;}
+  #quant{margin-left: 5%;}
+  #hr1{margin-left: 6%; width: 55%;}
+}
+
 
 
 

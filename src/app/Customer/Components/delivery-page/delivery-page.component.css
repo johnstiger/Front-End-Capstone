@@ -230,3 +230,21 @@
       text-align: center;
     }
   }
+   @media screen and (min-width:1024px){
+    .deliverypanel a{
+      font-size: 18px;
+      padding: 55px;
+      padding-left: 35px;
+    }
+    .account p{
+      font-size: 18px;
+    }
+    #img768{
+      width: 95%;
+      margin-left: 25%;
+    }
+    .text, .deliverypanel p, #prodname{
+      font-size: 17px;
+    }
+    #hr1{width: 80%; margin-left: 10%;}
+   }
