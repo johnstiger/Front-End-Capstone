@@ -2,7 +2,6 @@
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #F6F2EF;
-  margin-left: 4%;
   margin-bottom: 10%;
   color: #C7988E;
   font-family: 'Roboto';
@@ -86,16 +85,13 @@
   .col-12 {width: 100%;}
 }
 @media screen and (min-width: 320px) {
+  .media320{margin-left: 17px;}
   p{font-size: 13px;}
   #quant{margin-left: 50%;}
   #allorders{
     margin-left: -9.1px;
     padding-left: 4px;
   }
-}
-
-@media screen and (min-width: 323px){
-  #allorders{ padding-left: 6px;}
 }
 
 @media screen and (min-width: 330px) {
@@ -116,6 +112,7 @@
 }
 
 @media screen and (min-width: 375px){
+  .media320{margin-left: 12px;}
   .headers{
     font-size: 16px;
     text-align: center;
@@ -134,6 +131,7 @@
 }
 
 @media screen and (min-width: 420px){
+  .media320{margin-left: 14px;}
   .headers{font-size: 18px;}
   p{font-size: 17px;}
   #allorders{padding-left: 10px;}
@@ -339,97 +337,3 @@
   #quant{margin-left: 5%;}
   #hr1{margin-left: 6%; width: 55%;}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .container {
-    background-color: rgb(240, 231, 231);
-    box-sizing: border-box;
-    border-radius: 10px;
-    overflow: hidden;
-    height: auto;
-    margin-top: 5%;
-    margin-right: 2%;
-    margin-bottom: 5%;
-    width: 75%;
-}
-.leftDiv {
-    position: absolute;
-    background-color: rgb(240, 231, 231);
-    box-sizing: border-box;
-    overflow: hidden;
-    margin-left: 3%;
-    margin-right: 5%;
-    border-radius: 10px;
-    margin-top: 5%;
-    width: 18%;
-    text-align: center;
-}
-hr {
-    border-top: 3px solid rgb(240, 208, 208);
-    border-bottom: 1px solid #C7988E;
-}
-h4 {
-    text-align: center;
-    padding-top: 5%;
-}
-.description {
-    margin-left: 50%;
-    margin-top: -40%;
-
-}
-
-@media only screen and (max-width: 600px){
-    .container {
-        margin-top: 90%;
-        width: 95%;
-    }
-    .leftDiv {
-        width: 50%;
-        margin-top: 5%;
-        margin-right: 10%;
-        margin-left: 25%;
-    }
-    .description {
-        margin-top: -10%;
-        margin-left: 20%;
-    }
-    h4 {
-        font-size: 120%;
-    }
-    .order {
-        margin-left: 18%;
-    }
-}
-@media only screen and (min-width: 320px) and (max-width:568px){
-    .container {
-        margin-top: 105%;
-    }
-    .order{
-        margin-left: 10%;
-    }
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    .description {
-        margin-left: 24%;
-        margin-top: -12%;
-    }
-}
-@media only screen and (min-width: 1024px) and (max-width: 1366px){
-    .description {
-        margin-left: 60%;
-        margin-top: -58%;
-        margin-bottom: 20%;
-    }
-} */
