@@ -70,12 +70,24 @@
             </thead>
             <tbody *ngIf="pendingOrders">
                 <tr *ngFor="let pending of pendingOrders">
-                    <td>{{ pending.total }}</td>
-                    <td>{{ pending.status }}</td>
-                    <td>{{ pending.payment_method }}</td>
+                    <td>{{ pending.customer.firstname }} {{ pending.customer.lastname }}</td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let product of pending.products">{{ product.name }}</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let product of pending.products">{{ product.pivot.quantity }}</li>
+                        </ul>
+                    </td>
                     <td>M</td>
-                    <td>Php 100.00</td>
-                    <td>Php 200.00</td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let product of pending.products">{{ product.price }}</li>
+                        </ul>
+                    </td>
+                    <td>{{ pending.total }}</td>
                 </tr>
             </tbody>
         </table>
@@ -121,39 +133,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>20% off</td>
-                    <td>2</td>
-                    <td>M</td>
-                    <td>Php 100.00</td>
-                    <td>Php 200.00</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>20% off</td>
-                    <td>2</td>
-                    <td>M</td>
-                    <td>Php 100.00</td>
-                    <td>Php 200.00</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>20% off</td>
-                    <td>2</td>
-                    <td>M</td>
-                    <td>Php 100.00</td>
-                    <td>Php 200.00</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>20% off</td>
-                    <td>2</td>
-                    <td>M</td>
-                    <td>Php 100.00</td>
-                    <td>Php 200.00</td>
+                <tr *ngFor="let sales of onSales">
+                    <td>{{ sales.products.name }}</td>
+                    <td>{{ sales.percent_off }}{{ sales.promo_type }} off</td>
+                    <td>{{ sales.unit_measure }}</td>
+                    <td>{{ sales.size }}</td>
+                    <td>{{ sales.price }}</td>
+                    <td>{{ sales.total }}</td>
                 </tr>
             </tbody>
         </table>
+        <div *ngIf="!categories || categories?.length == 0" class="noData">
+            <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+        </div>
     </div>
 </div>

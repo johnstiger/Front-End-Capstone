@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
 
   success! : any;
   error! : any;
-
+  page : Number = 1;
 
   products! : Products[];
 
@@ -40,15 +40,15 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  async searchProducts(){
+  searchProducts(){
     this.service.loading();
-    const result = await this.service.searchProducts(this.form.value, this.token).then((result)=>{
+    this.service.searchProducts(this.form.value, this.token).then((result)=>{
       if(result.data.found){
         this.products = result.data.data;
+        this.service.closeLoading();
       }else{
         this.service.ShowErrorMessage(result.data.message);
       }
-      this.service.closeLoading();
     });
   }
 
@@ -79,13 +79,13 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  // addToSales(product:any){
-  //   this.router.navigate(['/admin/edit-product/'+product.id],{
-  //     state: {
-  //       data: product
-  //     }
-  //   })
-  // }
+  addToSale(product : any){
+    this.router.navigate(['/admin/add-sales/'+product.id],{
+          state: {
+            data: product
+          }
+        })
+  }
 
 
   async confirmDelete(product:any){
@@ -113,5 +113,8 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  pageChange(page: Event) {
+    page = page;
+  }
 
 }

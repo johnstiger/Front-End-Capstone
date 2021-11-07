@@ -2,7 +2,6 @@
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #F6F2EF;
-  margin-left: 4%;
   margin-bottom: 10%;
   color: #C7988E;
   font-family: 'Roboto';
@@ -133,6 +132,9 @@ a{
 }
 
 @media screen and (min-width: 320px) {
+  .media320{
+    margin-left: 16px;
+  }
   p{
     font-size: 15px;
   }
@@ -157,6 +159,7 @@ a{
   .headers{text-align: center;}
 }
 
+
 @media screen and (min-width: 350px) {
   .headers{font-size: 15px;}
   p{font-size: 16px;}
@@ -167,6 +170,7 @@ a{
   #allorders{padding-left: 8px}
 }
 @media screen and (min-width: 375px){
+  .media320{margin-left: 12px;}
   .headers{
     font-size: 16px;
     text-align: center;
@@ -188,6 +192,7 @@ a{
   .hr2{width: 108%;}
 }
 @media screen and (min-width: 420px){
+  .media320{margin-left: 14px;}
   .headers{font-size: 18px;}
   p,.status, .removebutton{font-size: 19px;}
   #allorders{padding-left: 11px;}
@@ -225,13 +230,17 @@ a{
   }
   .right768{text-align: center;}
   .allorder768{margin-left: -15px;}
-  #img768{margin-left: 12%;}
+  #img768{margin-left: 6%;}
   .header768 a{
     font-size: 15px;
   }
   #prodname{
     font-size: 15px;
     margin-top: 18%;
+    margin-left: -20px;
+  }
+  #amount, #total{
+    margin-left: -18px;
   }
   #amount, #prodname, #hr1{margin-bottom: 5px;}
   .totalvalue{
@@ -243,6 +252,7 @@ a{
   }
   .account{
     margin-bottom: 20%;
+    margin-left: 5px;
   }
   .account p{
     font-size: 15px;
@@ -281,8 +291,9 @@ a{
     margin-bottom: 2%;
   }
   #shippingfee{margin-right: 2%;}
+  #quant{margin-left: 50%;}
 }
-@media screen and (max-width:1024px){
+@media screen and (min-width:1024px){
   .account p{
     font-size: 18px;
     padding-top: 3%;

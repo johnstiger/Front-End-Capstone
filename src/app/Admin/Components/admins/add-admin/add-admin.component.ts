@@ -20,6 +20,7 @@ export class AddAdminComponent implements OnInit {
     contact_number: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
+    password_confirmation : new FormControl(''),
   })
 
   errors! : any;

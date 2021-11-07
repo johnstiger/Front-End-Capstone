@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
-import { Categories, Products } from 'src/app/Customer/Common/model/customer-model';
+import { Categories, Products, Sizes } from 'src/app/Customer/Common/model/customer-model';
 import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
@@ -24,6 +24,7 @@ export class EditProductComponent implements OnInit {
   status! : boolean;
   category_id! : number;
   sizes! : any;
+  allSize! : Sizes [];
   unit_measure! : number;
   noSize! : number;
 
@@ -52,6 +53,7 @@ export class EditProductComponent implements OnInit {
       }
     );
     this.getProduct()
+    this.getSize();
   }
 
 
@@ -118,5 +120,8 @@ export class EditProductComponent implements OnInit {
     const result = await this.service.getCategories(this.token);
     this.categories = result.data.data;
   }
-
+  async getSize(){
+    const result = await this.service.getSizes(this.token);
+    this.allSize = result.data.error ? false : result.data.data;
+  }
 }

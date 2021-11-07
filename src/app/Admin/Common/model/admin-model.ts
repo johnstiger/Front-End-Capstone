@@ -1,3 +1,5 @@
+import { AnonymousSubject } from "rxjs/internal/Subject";
+
 export interface Product {
   id : number,
   category_id : number,
@@ -32,4 +34,19 @@ export interface Orders {
 
 export interface Data {
   id : number
+}
+
+export interface SalesProduct {
+  id : number,
+  name : any,
+  percent_off : any,
+  unit_measure : any,
+  promo_type : any,
+  size : any,
+  status : any,
+  total : any,
+  price : any,
+  products : any,
+  category : any,
+  description : any
 }

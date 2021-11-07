@@ -54,11 +54,7 @@
                         </div>
                         <select name="size" id="" class="options field form-control" formControlName="sizes">
                       <option value="" hidden>Size</option>
-                    <option value="1">M</option>
-                    <option value="2">S</option>
-                    <option value="3">XL</option>
-                    <option value="4">L</option>
-                    <option value="5">XXL</option>
+                      <option *ngFor="let size of allSize" [value]="size.id">{{ size.size }}</option>
                   </select>
                         <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->
                     </div>

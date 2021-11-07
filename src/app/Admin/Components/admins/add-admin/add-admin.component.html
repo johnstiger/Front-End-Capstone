@@ -39,10 +39,20 @@
                     *{{ errors.email[0] }}
                 </div>
                 <input type="email" formControlName="email" class="form-control field" name="" id="" placeholder="Email Address">
-                <div *ngIf="errors && errors.password" class="alert alert-danger">
-                    *{{ errors.password[0] }}
+                <div class="row">
+                    <div *ngIf="errors && errors.password" class="alert alert-danger">
+                        *{{ errors.password[0] }}
+                    </div>
+                    <div *ngIf="errors && errors.password_confirmation" class="alert alert-danger">
+                        *{{ errors.password_confirmation[0] }}
+                    </div>
+                    <div class="col">
+                        <input type="password" formControlName="password" class="form-control field" name="" id="" placeholder="Password">
+                    </div>
+                    <div class="col">
+                        <input type="password" formControlName="password_confirmation" class="form-control field" name="password_confirmation" id="" placeholder="Confirm Password">
+                    </div>
                 </div>
-                <input type="password" formControlName="password" class="form-control field" name="" id="" placeholder="Password">
                 <button class="btn btn-success field add-product">Add as Administrator</button>
                 <a routerLink="/admin/admins" class="btn btn-success field same">Cancel</a>
             </div>
