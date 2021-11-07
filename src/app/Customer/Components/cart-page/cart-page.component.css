@@ -446,4 +446,19 @@ p,
     .select {
         margin-left: 15%;
     }
+    .hr768{
+        width: 103%;
+        margin-left: -13px;
+    }
+}
+@media screen and (min-width:1440px){
+    .hr768{width: 102%;}
+    .media768{
+        width: 85.66%;
+        margin-left: 8%;
+    }
+}
+@media screen and (min-width:2560px){
+    .media768{width: 75.66%;}
+    
 }
