@@ -60,6 +60,11 @@ export class CustomerService {
     return response;
   }
 
+  async getProduct(id:any) {
+    const response = await axios.get(this.url+"/dagom/{product}"+id);
+    return response;
+  }
+
   //Message
   ShowSuccessMessage(message : any){
     Swal.fire({
