@@ -4,12 +4,12 @@
             <div class="col-md-4 form-group">
                 <img class="image" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
                 <div *ngIf="errors && errors.image" class="alert alert-danger">
-                  <div class="" *ngFor="let image of errors.image">
-                      *{{ errors.image }}
-                  </div>
-              </div>
+                    <div class="" *ngFor="let image of errors.image">
+                        *{{ errors.image }}
+                    </div>
+                </div>
                 <ng-template #default>
-                    <img class="image" src="{{ path+image }}" alt="product-image">
+                    <img class="image" src="{{ image }}" alt="product-image">
                 </ng-template>
                 <label for="file" class="file-upload">
         <input

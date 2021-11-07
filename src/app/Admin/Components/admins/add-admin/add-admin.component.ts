@@ -62,18 +62,18 @@ export class AddAdminComponent implements OnInit {
 
   async submit(){
     this.http.loading();
-    var imageData = new FormData();
-    imageData.append('image', this.filedata);
+    // var imageData = new FormData();
+    // imageData.append('image', this.filedata);
     await this.http.addAdmin(this.AddAdminForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
       }else{
-        const response = await this.http.adminImage(result.data.data.id, imageData, this.token);
-        if(response.data.error){
-          this.errors = response.data.message;
-        }else{
-          this.location.back();
-        }
+        this.location.back();
+        // const response = await this.http.adminImage(result.data.data.id, imageData, this.token);
+        // if(response.data.error){
+        //   this.errors = response.data.message;
+        // }else{
+        // }
       }
       this.http.closeLoading();
     });

@@ -96,21 +96,21 @@ export class EditProductComponent implements OnInit {
 
   submit(data : any){
     this.service.loading();
-    var imageData = new FormData();
-    imageData.append('image', this.filedata);
+    // var imageData = new FormData();
+    // imageData.append('image', this.filedata);
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
-       if(data.image == ''){
-        this.errors['image'] = ["This image is required"];
-      }
+      //  if(data.image == ''){
+      //   this.errors['image'] = ["This image is required"];
+      // }
     }else{
-      const response = await this.service.AddImage(result.data.data.id, imageData, this.token);
-      if(response.data){
-        this.location.back();
-      }else{
-        this.errors = result.data.message;
-      }
+      this.location.back();
+      // const response = await this.service.AddImage(result.data.data.id, imageData, this.token);
+      // if(response.data){
+      // }else{
+      //   this.errors = result.data.message;
+      // }
     }
     this.service.closeLoading();
    });

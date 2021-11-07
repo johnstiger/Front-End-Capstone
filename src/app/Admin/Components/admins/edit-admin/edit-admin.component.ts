@@ -76,18 +76,18 @@ export class EditAdminComponent implements OnInit {
   // Kani kulang ani kay ang pag update sang password sa admin
   submit(data: any){
     this.service.loading();
-    var imageData = new FormData();
-    imageData.append('image', this.filedata);
+    // var imageData = new FormData();
+    // imageData.append('image', this.filedata);
     this.service.updateAdmin(this.id, data, this.token).then( async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
       }else{
-        const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
-        if(response.data.error){
-          this.errors = response.data.message;
-        }else{
-          this.location.back();
-        }
+        this.location.back();
+        // const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
+        // if(response.data.error){
+        //   this.errors = response.data.message;
+        // }else{
+        // }
       }
       this.service.closeLoading();
     });

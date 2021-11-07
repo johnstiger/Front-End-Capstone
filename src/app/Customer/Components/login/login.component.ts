@@ -25,19 +25,19 @@ export class LoginComponent implements OnInit {
     ])
   });
 
+  error : any;
+
   constructor(private router : Router, private service : CustomerService, private message : AdminService) { }
 
   ngOnInit(): void {
   }
-
-  error : any;
 
   async login(){
     this.service.showLoading();
     const result =  await this.service.login(this.form.value);
     if(result.data.error){
       this.router.navigate(['/login']);
-      this.message.ShowErrorMessage(result.data.message);
+      this.error = result.data.message;
     }else if(result.data.data.is_admin){
       window.localStorage.setItem('admin_token', "Bearer "+result.data.access_token);
       this.router.navigate(['/admin/dashboard']);

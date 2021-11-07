@@ -39,13 +39,13 @@
                     *{{ errors.email[0] }}
                 </div>
                 <input type="email" formControlName="email" class="form-control field" name="" id="" placeholder="Email Address">
+                <div *ngIf="errors && errors.password" class="alert alert-danger">
+                    *{{ errors.password[0] }}
+                </div>
+                <div *ngIf="errors && errors.password_confirmation" class="alert alert-danger">
+                    *{{ errors.password_confirmation[0] }}
+                </div>
                 <div class="row">
-                    <div *ngIf="errors && errors.password" class="alert alert-danger">
-                        *{{ errors.password[0] }}
-                    </div>
-                    <div *ngIf="errors && errors.password_confirmation" class="alert alert-danger">
-                        *{{ errors.password_confirmation[0] }}
-                    </div>
                     <div class="col">
                         <input type="password" formControlName="password" class="form-control field" name="" id="" placeholder="Password">
                     </div>
