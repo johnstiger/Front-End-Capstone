@@ -5,37 +5,17 @@
   margin-bottom: 10%;
   color: #C7988E;
   font-family: 'Roboto';
-}
-.headers{
-  font-size: 14px;
-  margin-top: 7%;
+  margin-left: 3vw;
 }
 a{
   color: #C7988E;
   text-decoration: none;
-  padding: 4px;
 }
-#img320, #img768{
-  width: 100%;
-  height: 100%;
-}
+
 .col-6{
   margin-bottom: 10%;
 }
-#prodname{
-  font-weight: bold;
-}
-.right{
-  text-align: center;
-}
-#hr1{
-  margin-top: -14px;
-}
 
-#headerhr{
-  margin-left: -11px;
-  margin-top: 3%;
-}
 .status, .removebutton{
   text-align: center;
 }
@@ -46,9 +26,7 @@ a{
   color: #02530A;
 }
 #rmvbtn{
-  border: none;
   background-color: #D71515;
-  color: #F6F2EF;
   border-radius: 8px;
   width: 85%;
 }
@@ -84,9 +62,8 @@ a{
 .btn{
   box-sizing: border-box;
   border: none;
-  background-color: #C7988E;
   color: #F6F2EF;
-  font-size: 15px;
+  font-size: 5vw;
   padding: 7px;
   margin-left: 3%;
   width: 98%;
@@ -132,44 +109,48 @@ a{
 }
 
 @media screen and (min-width: 320px) {
-  .media320{
-    margin-left: 16px;
+  .headers{
+    font-size: 4vw;
+    margin-top: 7%;
   }
-  p{
-    font-size: 15px;
+  .headers a{padding: 1.7vw;}
+  #img320{
+    width: 95%;
+    height: 95%;
+    margin-left: 7%;
   }
-  #quant{
-    margin-left: 50%;
-  }
-  #allorders{
-    margin-left: -9.1px;
-    padding-left: 4px;
-  }
-  #subtotal, #shippingfee, #alltotal{
+  #prodname{
     font-weight: bold;
   }
+  .right{
+    text-align: center;
+  }
+  .right p{
+    font-size: 4vw;
+    padding: 1vw;
+  }
 }
-@media screen and (min-width: 323px){
+/* @media screen and (min-width: 323px){
   #allorders{ padding-left: 6px;}
-}
+} */
 
-@media screen and (min-width: 330px) {
+/* @media screen and (min-width: 330px) {
   #allorders{margin-left: -9.9px;}
   a{padding: 5px;}
   .headers{text-align: center;}
-}
+} */
 
 
-@media screen and (min-width: 350px) {
+/* @media screen and (min-width: 350px) {
   .headers{font-size: 15px;}
   p{font-size: 16px;}
-}
-@media screen and (min-width: 350px) {
+} */
+/* @media screen and (min-width: 350px) {
   a{padding: 5px;}
   #quant{margin-left: 45%;}
   #allorders{padding-left: 8px}
-}
-@media screen and (min-width: 375px){
+} */
+/* @media screen and (min-width: 375px){
   .media320{margin-left: 12px;}
   .headers{
     font-size: 16px;
@@ -197,7 +178,7 @@ a{
   p,.status, .removebutton{font-size: 19px;}
   #allorders{padding-left: 11px;}
   .hr2{margin-left: -4%;}
-}
+} */
 @media screen and (max-width:767px){
   .media768{display: none;}
 }
@@ -211,33 +192,30 @@ a{
     margin-left: 3%;
   }
   .text, .deliverypanel p{
-    font-size: 15px;
+    font-size: 1.9vw;
   }
   .deliverypanel a{
-    padding: 28px;
+    padding: 5vw;
     margin-top: 5%;
     color: #C7988E;
     text-decoration: none;
-    padding-left: 32px;
+    padding-left: 3.5vw;
   }
   .header768{
     margin-top: 5%;
-    font-size: 15px;
+    font-size: 1.8vw;
   }
   #hr768{
     width: 105%;
-    margin-left: -13px;
+    margin-left: -1.5vw;
   }
   .right768{text-align: center;}
-  .allorder768{margin-left: -15px;}
+  .allorder768{margin-left: -1.9vw;}
   #img768{margin-left: 6%;}
-  .header768 a{
-    font-size: 15px;
-  }
   #prodname{
-    font-size: 15px;
+    font-size: 1.8vw;
     margin-top: 18%;
-    margin-left: -20px;
+    margin-left: -1.9vw;
   }
   #amount, #total{
     margin-left: -18px;
@@ -255,7 +233,7 @@ a{
     margin-left: 5px;
   }
   .account p{
-    font-size: 15px;
+    font-size: 1.8vw;
     margin-bottom: 0%;
   }
   #confirmed{
@@ -263,12 +241,12 @@ a{
     margin-left: -4%;
     margin-top: -4%;}
   #rmvbtn{
-    font-size: 15px;
-    padding-bottom: 3px;
+    font-size: 1.8vw;
+    padding-bottom: 0.5vw;
     margin-left: 9%;
     width: 100%;
     margin-left: 9%;
-    padding-top: 3px;
+    padding-top: 0.5vw;
     margin-top: -13%;
   }
   #pending{
@@ -293,7 +271,9 @@ a{
   #shippingfee{margin-right: 2%;}
   #quant{margin-left: 50%;}
 }
-@media screen and (min-width:1024px){
+/* @media screen and (min-width:1024px){
+  .header768{margin-left: 10px;}
+  .deliverypanel{margin-bottom: 5%;}
   .account p{
     font-size: 18px;
     padding-top: 3%;
@@ -302,6 +282,8 @@ a{
     width: 20%;
     margin-left: 3%;
   }
+  .subdiv{width: 41.66%; margin-left: 5%;}
+  .details{text-align: center;}
   .profileimg{
     width: 50%;
     height: 25%;
@@ -313,4 +295,13 @@ a{
     padding: 60px;
     padding-left: 30px;
   }
+  #quant{margin-left: 45%;}
+  .hr2{width: 104%;}
+
+
 }
+@media screen and (min-width:1440px) {
+  .header768{width: 100%;}
+  .deliverypanel{width: 50%; margin-left: 10%;}
+  .account{width: 16.66%; margin-left: 9%;}
+} */
