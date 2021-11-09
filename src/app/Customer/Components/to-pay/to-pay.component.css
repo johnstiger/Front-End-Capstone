@@ -11,65 +11,48 @@ a{
   color: #C7988E;
   text-decoration: none;
 }
-
-.col-6{
-  margin-bottom: 10%;
-}
-
-.status, .removebutton{
-  text-align: center;
-}
-#pending{
-  color: #D71515;
-}
-#confirmed{
-  color: #02530A;
-}
+.status, .buttons, .account{text-align: center;}
+#pending{color: #D71515;}
+#confirmed{color: #02530A;}
 #rmvbtn{
   background-color: #D71515;
   border-radius: 8px;
-  width: 85%;
+  width: 90%;
+  margin-left: 5vw;
+  margin-top: 2vw;
+}
+#headerhr{
+  width: 85vw;
+  margin-top: 2%;
+  margin-left: -1vw;
 }
 .buttons{
-  text-align: center;
   font-weight: bold;
+  font-size: 4vw;
 }
 .hr2{
-  width: 111%;
-  margin-left: -6%;
   border-top: 1px solid #9b5748;
+  width: 109%;
+  margin-left: -4vw;
 }
-.account{
+.account, .deliverypanel{
   background-color: #F6F2EF;
   border-radius: 5px;
-  text-align: center;
 }
-.deliverypanel{
-  background-color: #F6F2EF;
-  margin-left: 7%;
-  border-radius: 5px;
-}
+.deliverypanel{margin-left: 7%;}
 .profileimg{
   width: 60%;
   height: 28%;
   border-radius: 50%;
-  /* margin-left: 20%; */
   margin-top: 20%;
-}
-.text{
-  margin-bottom: 15%;
 }
 .btn{
   box-sizing: border-box;
   border: none;
   color: #F6F2EF;
-  font-size: 5vw;
-  padding: 7px;
+  padding: 0px;
   margin-left: 3%;
-  width: 98%;
-  padding: 3px;
   border-radius: 7px;
-
 }
 #recievedate{
   margin-left: -30%;
@@ -115,70 +98,27 @@ a{
   }
   .headers a{padding: 1.7vw;}
   #img320{
-    width: 95%;
-    height: 95%;
-    margin-left: 7%;
+    width: 90%;
+    height: 100%;
+    margin-left: 13%;
   }
-  #prodname{
-    font-weight: bold;
-  }
-  .right{
-    text-align: center;
-  }
+  #prodname{font-weight: bold;}
+  .right{text-align: center;}
   .right p{
-    font-size: 4vw;
-
+    font-size: 5vw;
+    margin-bottom: 2%;
   }
-}
-/* @media screen and (min-width: 323px){
-  #allorders{ padding-left: 6px;}
-} */
-
-/* @media screen and (min-width: 330px) {
-  #allorders{margin-left: -9.9px;}
-  a{padding: 5px;}
-  .headers{text-align: center;}
-} */
-
-
-/* @media screen and (min-width: 350px) {
-  .headers{font-size: 15px;}
-  p{font-size: 16px;}
-} */
-/* @media screen and (min-width: 350px) {
-  a{padding: 5px;}
-  #quant{margin-left: 45%;}
-  #allorders{padding-left: 8px}
-} */
-/* @media screen and (min-width: 375px){
-  .media320{margin-left: 12px;}
-  .headers{
-    font-size: 16px;
-    text-align: center;
+  .btn, .status p{ font-size: 5vw;}
+  #hr1{
+    width: 78%;
+    margin-left: 5vw;
+    margin-top: 8%;
   }
-  p{font-size: 17px;}
-  .hr2{
-    width: 109%;
-    margin-top: 1%;
-    margin-left: -5%;
-  }
+  #quant{margin-left: 60%;}
+  #confirmed{margin-bottom: 0%;}
+  .status{margin-bottom: 5vw;}
 }
-@media screen and (min-width: 385px){
-  a{padding: 7px;}
-}
-@media screen and (min-width: 400px){
-  .headers{font-size: 17px;}
-  p{font-size: 18px;}
-  #allorders{padding-left: 5px;}
-  .hr2{width: 108%;}
-}
-@media screen and (min-width: 420px){
-  .media320{margin-left: 14px;}
-  .headers{font-size: 18px;}
-  p,.status, .removebutton{font-size: 19px;}
-  #allorders{padding-left: 11px;}
-  .hr2{margin-left: -4%;}
-} */
+
 @media screen and (max-width:767px){
   .media768{display: none;}
 }
@@ -191,27 +131,68 @@ a{
   .deliverypanel{
     margin-left: 3%;
   }
-  .text, .deliverypanel p{
-    font-size: 1.9vw;
+  .header768{
+    margin-top: 5%;
+    font-size: 2.3vw;
   }
-  .deliverypanel a{
+  .header768 a{
+    padding-left: 7vw;
+  }
+  .allorder768{margin-left: -10%;}
+  #hr768{
+    width: 105%;
+    margin-left: -1.5vw;
+  }
+  .account{
+    margin-bottom: 31%;
+    margin-left: 5px;
+  }
+  .account p{
+    font-size: 2.3vw;
+    margin-bottom: 0%;
+    padding-top: 2vw;
+  }
+  #img768{
+    margin-left: 9%;
+    width: 90%;
+    height: 100%;
+  }
+  .details{
+    margin-left: -5%;
+    text-align: center;
+  }
+  .details p{
+    margin-bottom: 10%;
+  }
+  #confirmed{
+    text-align: right;
+    margin-left: -4%;
+    margin-top: 8%;
+  }
+  #rmvbtn{
+    font-size: 2.3vw;
+    margin-top: 2vw;
+    margin-left: 1vw;
+  }
+  #hr1{
+    width: 100%;
+    margin-left: 0vw;
+  }
+  #pending{
+    text-align: right;
+  }
+
+
+  /* .deliverypanel a{
     padding: 5vw;
     margin-top: 5%;
     color: #C7988E;
     text-decoration: none;
     padding-left: 3.5vw;
-  }
-  .header768{
-    margin-top: 5%;
-    font-size: 1.8vw;
-  }
-  #hr768{
-    width: 105%;
-    margin-left: -1.5vw;
-  }
-  .right768{text-align: center;}
-  .allorder768{margin-left: -1.9vw;}
-  #img768{margin-left: 6%;}
+  } */
+  /* .right768{text-align: center;} */
+  /* .allorder768{margin-left: -1.9vw;} */
+  /*
   #prodname{
     font-size: 1.8vw;
     margin-top: 18%;
@@ -228,14 +209,8 @@ a{
   .date{
     margin-top: 10%;
   }
-  .account{
-    margin-bottom: 20%;
-    margin-left: 5px;
-  }
-  .account p{
-    font-size: 1.8vw;
-    margin-bottom: 0%;
-  }
+
+
   #confirmed{
     text-align: right;
     margin-left: -4%;
@@ -269,7 +244,7 @@ a{
     margin-bottom: 2%;
   }
   #shippingfee{margin-right: 2%;}
-  #quant{margin-left: 50%;}
+  #quant{margin-left: 50%;} */
 }
 /* @media screen and (min-width:1024px){
   .header768{margin-left: 10px;}
