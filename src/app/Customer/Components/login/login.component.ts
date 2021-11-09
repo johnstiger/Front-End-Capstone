@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     if(result.data.error){
       this.router.navigate(['/login']);
       this.error = result.data.message;
+      this.service.closeLoading();
     }else if(result.data.data.is_admin){
       window.localStorage.setItem('admin_token', "Bearer "+result.data.access_token);
       this.router.navigate(['/admin/dashboard']);

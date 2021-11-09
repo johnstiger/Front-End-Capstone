@@ -3,12 +3,7 @@ import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { UrlService } from 'src/app/Url/url.service';
 import { environment } from 'src/environments/environment';
-// import Swal from 'sweetalert2';
 import Swal from 'sweetalert2';
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })

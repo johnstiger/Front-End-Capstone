@@ -73,7 +73,6 @@ export class AddProductComponent implements OnInit {
     this.http.loading();
     // var data = new FormData();
     // data.append('image', this.filedata);
-
     this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;

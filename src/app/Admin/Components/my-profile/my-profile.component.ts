@@ -77,6 +77,7 @@ export class MyProfileComponent implements OnInit {
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
+        this.filedata = this.imageSrc
       };
     }
   }
@@ -85,6 +86,8 @@ export class MyProfileComponent implements OnInit {
     this.service.loading();
     // var imageData = new FormData();
     // imageData.append('image', this.filedata);
+    data.fileSource = this.filedata != undefined ? this.filedata : data.image;
+
     this.service.updateAdmin(data.id, data, this.token).then(async (result)=>{
     if(result.data.error){
       this.error = result.data.message

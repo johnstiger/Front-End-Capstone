@@ -44,6 +44,7 @@ export class EditProductComponent implements OnInit {
     token = localStorage.getItem('admin_token');
     id:any;
     categories! : Categories[];
+    fileSource : any;
 
   ngOnInit(): void {
 
@@ -85,11 +86,12 @@ export class EditProductComponent implements OnInit {
 
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
-      this.filedata = file;
+
       reader.readAsDataURL(file);
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
+        this.filedata = this.imageSrc;
       };
     }
   }
@@ -98,6 +100,13 @@ export class EditProductComponent implements OnInit {
     this.service.loading();
     // var imageData = new FormData();
     // imageData.append('image', this.filedata);
+
+    data.fileSource = this.filedata != undefined ? this.filedata : data.image;
+
+    console.log(data);
+    // if(this.filedata){
+    //   data.image = this.filedata
+    // }
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;

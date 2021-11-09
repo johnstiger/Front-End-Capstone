@@ -26,19 +26,19 @@
                 <div *ngIf="errors && errors.firstname" class="alert alert-danger">
                     *{{ errors.firstname[0] }}
                 </div>
-                <input type="text" formControlName="firstname" class="form-control field" name="" id="" placeholder="First Name">
+                <input type="text" formControlName="firstname" class="form-control field" name="" placeholder="First Name">
                 <div *ngIf="errors && errors.lastname" class="alert alert-danger">
                     *{{ errors.lastname[0] }}
                 </div>
-                <input type="text" formControlName="lastname" class="form-control field" name="" id="" placeholder="Last Name">
+                <input type="text" formControlName="lastname" class="form-control field" name="" placeholder="Last Name">
                 <div *ngIf="errors && errors.contact_number" class="alert alert-danger">
                     *{{ errors.contact_number[0] }}
                 </div>
-                <input type="text" formControlName="contact_number" class="form-control field" name="" id="" placeholder="Contact Number">
+                <input type="text" formControlName="contact_number" class="form-control field" name="" placeholder="Contact Number">
                 <div *ngIf="errors && errors.email" class="alert alert-danger">
                     *{{ errors.email[0] }}
                 </div>
-                <input type="email" formControlName="email" class="form-control field" name="" id="" placeholder="Email Address">
+                <input type="email" formControlName="email" class="form-control field" name="" placeholder="Email Address">
                 <div *ngIf="errors && errors.password" class="alert alert-danger">
                     *{{ errors.password[0] }}
                 </div>
@@ -47,10 +47,10 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="password" formControlName="password" class="form-control field" name="" id="" placeholder="Password">
+                        <input type="password" formControlName="password" class="form-control field" name="" placeholder="Password">
                     </div>
                     <div class="col">
-                        <input type="password" formControlName="password_confirmation" class="form-control field" name="password_confirmation" id="" placeholder="Confirm Password">
+                        <input type="password" formControlName="password_confirmation" class="form-control field" name="password_confirmation" placeholder="Confirm Password">
                     </div>
                 </div>
                 <button class="btn btn-success field add-product">Add as Administrator</button>
