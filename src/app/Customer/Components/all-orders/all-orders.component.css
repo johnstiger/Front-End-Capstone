@@ -5,7 +5,7 @@
     margin-bottom: 10%;
     color: #C7988E;
     font-family: 'Roboto';
-    margin-left: 3vw;
+    margin-left: 5vw;
   }
   a{
     color: #C7988E;
@@ -18,7 +18,7 @@
   #img320{
     width: 90%;
     height: 100%;
-    margin-left: 13%;
+    margin-left: 14%;
   }
   .profileimg{
     width: 60%;
@@ -119,10 +119,13 @@
       font-size: 4vw;
       margin-top: 7%;
     }
-    #prodname{font-weight: bold;}
+    #prodname{
+      font-weight: bold;
+      padding-top: 2vw;
+    }
     .right{
       text-align: center;
-      margin-left: -1%;
+      margin-left: -2%;
     }
     .right p, #prodname{
       font-size: 4.5vw;
@@ -131,16 +134,13 @@
     #quant{margin-left: 20vw;}
     #hr1{
       margin-top: 5%;
-      width: 30vw;
-      margin-left: 3.9vw;
+      width: 33vw;
+      margin-left: 3vw;
     }
-    /* .media320{margin-left: 14px;}
-    p{font-size: 13px;}
-    #quant{margin-left: 50%;}
-    #allorders{
-      margin-left: -9.1px;
-      padding-left: 4px;
-    } */
+  }
+  @media screen and (min-width:420px){
+    #headerhr{width: 86vw;}
+    #hr1{margin-left: 4vw;}
   }
 
   /* @media screen and (min-width: 330px) {
@@ -285,7 +285,32 @@
       background-color: transparent;
       margin-left: 2%;
     }
-    .text, .deliverypanel p{
+    .deliverypanel{
+      margin-left: 3%;
+      width: 72%;
+      margin-bottom: 10%;
+    }
+    .header768{margin-top: 5%;}
+    .header768, .account p, p{font-size: 2vw;}
+    .allorder768{
+      margin-left: 1%;
+      padding-right: 10vw;
+    }
+    .account{
+      margin-bottom: 31%;
+      margin-left: 5px;
+      width: 20%;
+    }
+    .account p{
+      margin-bottom: 0%;
+      padding-top: 2vw;
+    }
+    #img768{
+      margin-left: 15%;
+      width: 80%;
+      height: 80%;
+    }
+    /* .text, .deliverypanel p{
       font-size: 15px;
     }
     .deliverypanel{margin-bottom: 5%;}
@@ -312,7 +337,6 @@
     #img768{margin-left: 6%;}
     .account p{
       font-size: 15px;
-      /* margin-bottom: 0%; */
     }
     .account a{
       text-decoration: none;
@@ -403,4 +427,5 @@
         margin-left: -69px;
     }
     #quant{margin-left: 49%;}
-  }
+  } */
+}
