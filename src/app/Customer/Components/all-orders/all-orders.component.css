@@ -5,8 +5,38 @@
     margin-bottom: 10%;
     color: #C7988E;
     font-family: 'Roboto';
+    margin-left: 3vw;
   }
-  .headers{
+  a{
+    color: #C7988E;
+    text-decoration: none;
+  }
+  .account, .deliverypanel{
+    background-color: #F6F2EF;
+    border-radius: 5px;
+  }
+  #img320{
+    width: 90%;
+    height: 100%;
+    margin-left: 13%;
+  }
+  .profileimg{
+    width: 60%;
+    height: 28%;
+    border-radius: 50%;
+    margin-top: 20%;
+  }
+  #headerhr{
+    width: 85vw;
+    margin-top: 2%;
+    margin-left: -1vw;
+  }
+  .deliverypanel{margin-left: 7%;}
+  .submedia{margin-bottom: 7vw;}
+  #allorders, #topay{padding-right: 4vw;}
+  #deliverydate{padding-right: 5vw;}
+
+  /* .headers{
     font-size: 14px;
     margin-top: 7%;
   }
@@ -52,7 +82,7 @@
     background-color: #F6F2EF;
     margin-left: 4%;
     border-radius: 5px;
-  }
+  } */
 
   @media only screen and (min-width: 600px) {
     /* For tablets: */
@@ -85,16 +115,35 @@
     .col-12 {width: 100%;}
   }
   @media screen and (min-width: 320px) {
-    .media320{margin-left: 14px;}
+    .headers{
+      font-size: 4vw;
+      margin-top: 7%;
+    }
+    #prodname{font-weight: bold;}
+    .right{
+      text-align: center;
+      margin-left: -1%;
+    }
+    .right p, #prodname{
+      font-size: 4.5vw;
+      margin-bottom: 7%;
+    }
+    #quant{margin-left: 20vw;}
+    #hr1{
+      margin-top: 5%;
+      width: 30vw;
+      margin-left: 3.9vw;
+    }
+    /* .media320{margin-left: 14px;}
     p{font-size: 13px;}
     #quant{margin-left: 50%;}
     #allorders{
       margin-left: -9.1px;
       padding-left: 4px;
-    }
+    } */
   }
 
-  @media screen and (min-width: 330px) {
+  /* @media screen and (min-width: 330px) {
     #allorders{margin-left: -9.9px;}
     a{padding: 5px;}
     .headers{text-align: center;}
@@ -224,7 +273,7 @@
 
   @media screen and (min-width: 765px){
     a{padding: 37px;}
-  }
+  } */
 
   @media screen and (max-width: 767px){
     .media768{display: none;}
@@ -286,7 +335,6 @@
       padding: 60px;
       padding-left: 30px;
     }
-    /* .deliverypanel{margin-left: 5%;} */
     .account{
         width: 22%;
         margin-left: 2%;
