@@ -5,7 +5,7 @@
   border-radius: 8px;
   margin-left: 4%;
   font-family: 'Roboto';
-
+  margin-left: 5vw;
 }
 .profile{
   text-align: center;
@@ -22,24 +22,21 @@
   background-color: #C7988E;
   border: none;
   margin-top: 7%;
-  font-size: 15px;
-  border-radius: 10px;
-  color: #F6F2EF;
+  border-radius: 8px;
   width: 60%;
+
 }
 input{
   border: none;
   margin-top: 7%;
   padding: 5px;
-  color: #F6F2EF;
   width: 90%;
   border-radius: 8px;
   padding-left: 8px;
-  height: 38px;
-  font-size: 15px;
+  /* height: 38px; */
   background-color: #C7988E;
 }
-input::placeholder{color: #F6F2EF;}
+input, .btn, input::placeholder{color: #F6F2EF;}
 #edit{
   margin-bottom: 15%;
 }
@@ -50,23 +47,18 @@ input::placeholder{color: #F6F2EF;}
 #restpass:hover{
   background-color: #598cf0;
 }
-.account{
-  background-color: #F6F2EF;
-  border-radius: 5px;
-  align-content: center;
-  margin-bottom: 19%;
-}
 .profileimg{
   width: 60%;
-  height: 30%;
+  height: 28%;
   border-radius: 50%;
-  margin-left: 20%;
   margin-top: 20%;
 }
-p{
+p, a{
   color: #C7988E;
   text-align: center;
+  text-decoration: none;
 }
+
 .editprofileimg{
   width: 100%;
   height: 100%;
@@ -74,12 +66,12 @@ p{
   border: none;
   border-radius: 8px;
 }
-.editpanel{
+.editpanel, .account{
   background-color: #F6F2EF;
   margin-left: 4%;
   border-radius: 5px;
-  padding-top: 30px;
 }
+.editpanel{padding-top: 30px;}
 
 
 @media only screen and (min-width: 600px) {
@@ -113,6 +105,14 @@ p{
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
+@media screen and (min-width:320px) {
+  .profile{margin-bottom: -12%;}
+  .btn, input{font-size: 5vw;}
+  input{
+    padding: 1.5vw;
+    padding-left: 3vw;
+  }
+}
 
 @media screen and (max-width:767px){
   .media768{display: none;}
@@ -123,45 +123,55 @@ p{
     background-color: transparent;
     margin-left: 2%;
   }
-  input{
-    width: 100%;
-    height: 34px;
-    font-size: 15px;
-  }
-  #restpass{float: right;}
-  #cancel, #save{
-    width: 100%;
-    margin-top: 15%;
-  }
-  #selectimg{
-    margin-left: 9%;
-    width: 52%;
-  }
-  .editpanel{
-    margin-bottom: 11%;
+  .account{
+    text-align: center;
+    margin-bottom: 31%;
+    margin-left: 5px;
+    width: 20%;
   }
   .account p{
-    font-size: 15px;
-    /* margin-bottom: 0%; */
+    margin-bottom: 0%;
+    padding-top: 2vw;
+    font-size: 2vw;
   }
-  .account a{
-    text-decoration: none;
-    color: #C7988E;
-    text-align: center;
+  .editpanel{
+    margin-left: 3%;
+    width: 72%;
+    margin-bottom: 14%;
   }
-}
-@media screen and (min-width: 1024px) {
-  .account p{font-size: 18px;}
-  #restpass{width: 40%;}
+  #restpass{
+    float: right;
+    width: 20vw;
+    margin-top: 4vw;
+  }
+  .btn{
+    padding-top: 0.4vw;
+    font-size: 2vw;
+  }
   input{
     width: 95%;
-    margin-left: 5%;
+    padding-left: 1.5vw;
+    height: 4vw;
+    font-size: 2vw;
+    margin-left: 2vw;
   }
-  #selectimg{
-    width: 45%;
-    margin-left: 17%;
+  #selectimgbtn{
+    margin-left: 4vw;
+    width: 16vw;
+  }
+  #cancelbtn, #savebtn{
+    width: 14vw;
+    margin-top: 2.4vw;
   }
 
 }
-
+@media screen and (min-width:1024px) {
+  #cancelbtn, #savebtn{margin-left: 1vw;}
+}
+@media screen and (min-width:1440px) {
+  #cancelbtn, #savebtn{margin-left: 2vw;}
+}
+@media screen and (min-width:2650px) {
+  #cancelbtn, #savebtn{margin-left: 3vw;}
+}
 
