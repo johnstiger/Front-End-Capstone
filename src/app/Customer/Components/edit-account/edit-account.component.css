@@ -5,7 +5,7 @@
   border-radius: 8px;
   margin-left: 4%;
   font-family: 'Roboto';
-  margin-left: 5vw;
+  /* margin-left: 5vw; */
 }
 .profile{
   text-align: center;
@@ -121,12 +121,11 @@ p, a{
   .media320{display: none;}
   .media768{
     background-color: transparent;
-    margin-left: 2%;
   }
   .account{
     text-align: center;
     margin-bottom: 31%;
-    margin-left: 5px;
+    margin-left: -1.4vw;
     width: 20%;
   }
   .account p{
@@ -167,9 +166,59 @@ p, a{
 }
 @media screen and (min-width:1024px) {
   #cancelbtn, #savebtn{margin-left: 1vw;}
+  .account{
+    width: 16.66%;
+    margin-left: 3.5vw;
+  }
+  .editpanel{
+    margin-bottom: 19%;
+    margin-left: 8%;
+    width: 60%;
+  }
+  .account p, .deliverypanel p, .btn, input{font-size: 1.3vw;}
+  input{
+    height: 3vw;
+    width: 90%;
+    margin-left: 1vw;
+  }
+  .fname{margin-top: 2vw;}
+  .editprofileimg{
+    width: 80%;
+    margin-left: 1.7vw;
+    margin-top: 1.5vw;
+  }
+  #restpass{
+    width: 13vw;
+    margin-right: 2vw;
+    margin-top: 3vw;
+  }
+  #selectimgbtn{
+    margin-top: 3.5vw;
+    width: 12vw;
+  }
+  #cancelbtn, #savebtn{
+    margin-top: 3.8vw;
+    width: 10.5vw;
+    margin-left: -1vw;
+  }
+
+
 }
 @media screen and (min-width:1440px) {
   #cancelbtn, #savebtn{margin-left: 2vw;}
+  .account p, .deliverypanel p, .btn, input{font-size: 1.5vw;}
+  .account{width: 16.66%;}
+  .deliverypanel{
+    margin-bottom: 15%;
+    width: 58.33%;
+  }
+  input{height: 3vw;}
+  .fname{margin-top: 2vw;}
+  .editprofileimg{
+    width: 75%;
+    margin-left: 2.5vw;
+    margin-top: 2vw;
+  }
 }
 @media screen and (min-width:2650px) {
   #cancelbtn, #savebtn{margin-left: 3vw;}
