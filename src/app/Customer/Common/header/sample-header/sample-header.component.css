@@ -25,73 +25,6 @@ body {
   margin-top: -50px;
 }
 
-.search2 {
-    float: right;
-    margin-right: 5%;
-    margin-top: -70px;
-}
-.user {
-    color: black;
-    font-size: 2.8vw;
-    padding-top: 1vw;
-    
-}
-
-.cart {
-    margin-left: 10px;
-    color: black;
-    padding-top: 1vw;
-    font-size: 2.8vw;
-    padding-left: 1vw;
-}
-.dropbtn {
-    background-color: #C7988E;
-    color: white;
-    font-size: 22px;
-    font-family: arial;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 5px;
-    right: 0;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 20px 22px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover,
-.dropdown:hover .dropbtn {
-    background-color: #f1f1f1
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #f1f1f1;
-    color: black;
-    border-radius: 10px;
-}
-
-
 /*
 */
 
@@ -205,11 +138,10 @@ hr {
   background-color: white;
 }
 
+/* .grid {
+  margin-bottom: 100px;
+} */
 
-button{
-    border: none;
-    background: none;
-}
 .search {
   padding: 10px;
   border-radius: 10px;

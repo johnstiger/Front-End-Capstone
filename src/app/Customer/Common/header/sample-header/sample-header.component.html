@@ -12,8 +12,8 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn categories" (click)="closeNav()">&times;</a>
             <div class="users">
-                <a href="" class="user-link"><i class="fa fa-user fa-3x"></i></a>
-                <a href="" class="user-link"><i class="fa fa-shopping-bag fa-3x"></i></a>
+                <a href="" class="user-link"><i class="fa fa-user fa-3x" ></i></a>
+                <a href="" class="user-link"><i class="fa fa-shopping-bag fa-3x" ></i></a>
             </div>
             <a href="#" class="categories" (click)="category()">Category 1</a>
             <div id="dropdown">
@@ -59,36 +59,24 @@
             </div>
         </div>
     </div>
-
     <ul class="titles">
-        <li><a routerLink="#">Summer Collection</a></li>
+        <li><a routerLink="#"> Summer Collection</a></li>
         <li><a routerLink="#">First Collection</a></li>
         <li><a routerLink="#">Second Collection</a></li>
         <li><a routerLink="#">Hot Sales</a></li>
         <li><a routerLink="#">About Us</a></li>
-        <div style="margin-left:65%; margin-top:-2%;" *ngIf="unAuthorized">
-            <li><a routerLink="login">Log In</a></li>
-            <li><a routerLink="register">Register</a></li>
-        </div>
     </ul>
-
     <hr>
     <div class="grid">
         <div class="search">
-            <form action="" [formGroup]="form" (ngSubmit)="searchProducts()">
-                <input type="text" class="searchField" formControlName="data" name="data" placeholder="Search Products">
-                <button type="submit"><i class="fa fa-search fa-2x"></i></button>
-            </form>
-            <div class="search2" *ngIf="authorized">
-                <div class="dropdown">
-                    <a href="#" class="user"><i class="far fa-user-circle"></i></a>
-                    <div class="dropdown-content">
-                        <a routerLink="">My Profile</a>
-                        <a >Log Out</a>
-                    </div>
-                </div>
-                <a href="cart" class="cart"><i class="fas fa-shopping-cart"></i></a>
-            </div>
+          <div id="input-search-wrapper">
+            <input type="text" name="data" placeholder="Search Products...">
+            <a href="#"><i class="fa fa-search fa-2x" ></i></a>
+          </div>
+        </div>
+        <div class="icons">
+            <a href="#" class="cart"><span class="custom-badge">1</span><i class="fa fa-search fa-2x"></i></a>
+            <a href="#" class="user"><span class="custom-badge">1</span><i class="fa fa-search  fa-2x" ></i></a>
         </div>
     </div>
 </div>

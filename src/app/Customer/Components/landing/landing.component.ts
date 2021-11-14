@@ -42,6 +42,14 @@ export class LandingComponent implements OnInit {
    });
   }
 
+  select(product:any){
+    this.router.navigate(['/selected/'+product.id],{
+      state: {
+        data: product
+      }
+    })
+  }
+
 
 
 

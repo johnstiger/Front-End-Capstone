@@ -77,7 +77,8 @@ const routes: Routes = [
   { path: 'show-profile', component:ShowProfileComponent, canActivate: [CustomerGuard] },
   { path: 'product', component:ProductSelectComponent, canActivate: [CustomerGuard] },
   { path: 'pay', component:ToPayComponent, canActivate: [CustomerGuard] },
-
+  
+  { path: 'selected/:id', component: ProductSelectComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: LandingComponent },
