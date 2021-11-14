@@ -2,12 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { UrlService } from 'src/app/Url/url.service';
-// import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,10 +12,11 @@ export class CustomerService {
   constructor(private http : HttpClient, private link : UrlService) { }
 
   response: any;
-  url = this.link.setUrl();
+  // url = this.link.setUrl();
+  url = environment.url;
 
   async login(data:any){
-    const response = await axios.post(this.url+"login", data);
+    const response = await axios.post(this.url+"login", data, {headers:{ 'Content-Type': 'application/json' }});
     console.log(response)
     return response;
 

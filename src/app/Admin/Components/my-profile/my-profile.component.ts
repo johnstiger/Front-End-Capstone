@@ -77,28 +77,30 @@ export class MyProfileComponent implements OnInit {
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
+        this.filedata = this.imageSrc
       };
     }
   }
 
    submit(data:any){
     this.service.loading();
-    var imageData = new FormData();
-    imageData.append('image', this.filedata);
+    // var imageData = new FormData();
+    // imageData.append('image', this.filedata);
+    data.fileSource = this.filedata != undefined ? this.filedata : data.image;
+
     this.service.updateAdmin(data.id, data, this.token).then(async (result)=>{
     if(result.data.error){
       this.error = result.data.message
     }else{
-      const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
-      if(response.data.error){
-        this.error = response.data.message;
-      }else{
-        setTimeout(()=>{
-          window.location.reload();
-        }, 1000);
-      }
+      this.service.ShowSuccessMessage(result.data.message);
+      this.ngOnInit();
+      // const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
+      // if(response.data.error){
+      //   this.error = response.data.message;
+      //   this.service.closeLoading();
+      // }else{
+      // }
     }
-    this.service.closeLoading();
     }).catch((e)=>{
       console.log(e);
       this.service.closeLoading();

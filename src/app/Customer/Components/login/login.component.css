@@ -4,8 +4,16 @@
     width: 100%;
 }
 
+form {
+    margin-top: 3rem!important;
+}
+
 .alert {
     text-align: center;
+}
+
+.mt-5 {
+    margin-top: 0rem !important;
 }
 
 .text {

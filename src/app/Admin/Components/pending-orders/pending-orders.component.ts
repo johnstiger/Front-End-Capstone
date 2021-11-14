@@ -35,8 +35,8 @@ export class PendingOrdersComponent implements OnInit {
       }else{
         this.orders = result.data.data;
       }
+      this.http.closeLoading();
     })
-    this.http.closeLoading();
   }
 
 

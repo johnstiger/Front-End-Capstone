@@ -16,10 +16,10 @@ export class NavigationComponent implements OnInit {
          $(this).is(":hidden") ? $(".main-content").attr('style','width: calc(100% - 10px) !important')
          : $(".main-content").attr('style','width: calc(100% - 252px) !important')
       });
-
-
     });
+
   }
+
  logout(){
    this.router.navigate(['/']);
    window.localStorage.removeItem('admin_token');

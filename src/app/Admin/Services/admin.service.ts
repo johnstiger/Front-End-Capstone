@@ -13,7 +13,8 @@ export class AdminService {
 
   // token = localStorage.getItem('admin_token');
 
-  url = this.link.setUrl();
+  // url = this.link.setUrl();
+  url = environment.url;
 
   // auth = {headers:{Authorization: this.token}};
 
@@ -119,7 +120,9 @@ export class AdminService {
 
   //update Admin
   async updateAdmin(id:any, data: any, token:any){
-    const response = await axios.put(this.url+"admin/update/"+id, data, {headers:{Authorization:token}});
+    const response = await axios.post(this.url+"admin/update/"+id, data, {headers:{
+      Authorization:token
+    }});
     return response;
   }
 

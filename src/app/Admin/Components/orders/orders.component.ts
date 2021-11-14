@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Orders } from '../../Common/model/admin-model';
 import { AdminService } from '../../Services/admin.service';
 
@@ -11,13 +12,18 @@ import { AdminService } from '../../Services/admin.service';
 // Wala pay back end url ani
 
 export class OrdersComponent implements OnInit {
-
+  form = new FormGroup({
+    data : new FormControl('',[
+      Validators.required
+    ])
+  });
   token = localStorage.getItem('admin_token');
   constructor(private http : AdminService) { }
 
   errors : any;
   orders! : Orders[];
   message : any;
+  search = "";
 
   ngOnInit(): void {
     this.getAllOrders();
@@ -29,8 +35,23 @@ export class OrdersComponent implements OnInit {
     })
   }
 
-  searchProducts(){
-
+  searchProducts() {
+    this.search = this.form.value.data;
+    if (this.search == '') {
+      this.ngOnInit();
+    } else {
+      this.orders = this.orders.filter(res => {
+        return (
+          res.customer.firstname
+            .toLocaleLowerCase()
+            .match(this.search.toLocaleLowerCase()) ||
+          res.customer.lastname
+            .toLocaleLowerCase()
+            .match(this.search.toLocaleLowerCase()) ||
+          res.products.name.toLocaleLowerCase().match(this.search.toLocaleLowerCase())
+        );
+      });
+    }
   }
 
   getAllOrders(){

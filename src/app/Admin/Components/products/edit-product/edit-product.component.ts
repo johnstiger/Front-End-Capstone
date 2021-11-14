@@ -44,6 +44,7 @@ export class EditProductComponent implements OnInit {
     token = localStorage.getItem('admin_token');
     id:any;
     categories! : Categories[];
+    fileSource : any;
 
   ngOnInit(): void {
 
@@ -85,32 +86,40 @@ export class EditProductComponent implements OnInit {
 
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
-      this.filedata = file;
+
       reader.readAsDataURL(file);
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
+        this.filedata = this.imageSrc;
       };
     }
   }
 
   submit(data : any){
     this.service.loading();
-    var imageData = new FormData();
-    imageData.append('image', this.filedata);
+    // var imageData = new FormData();
+    // imageData.append('image', this.filedata);
+
+    data.fileSource = this.filedata != undefined ? this.filedata : data.image;
+
+    console.log(data);
+    // if(this.filedata){
+    //   data.image = this.filedata
+    // }
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
-       if(data.image == ''){
-        this.errors['image'] = ["This image is required"];
-      }
+      //  if(data.image == ''){
+      //   this.errors['image'] = ["This image is required"];
+      // }
     }else{
-      const response = await this.service.AddImage(result.data.data.id, imageData, this.token);
-      if(response.data){
-        this.location.back();
-      }else{
-        this.errors = result.data.message;
-      }
+      this.location.back();
+      // const response = await this.service.AddImage(result.data.data.id, imageData, this.token);
+      // if(response.data){
+      // }else{
+      //   this.errors = result.data.message;
+      // }
     }
     this.service.closeLoading();
    });

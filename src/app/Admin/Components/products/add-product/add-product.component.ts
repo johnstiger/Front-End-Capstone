@@ -71,25 +71,24 @@ export class AddProductComponent implements OnInit {
 
   submit(){
     this.http.loading();
-    var data = new FormData();
-    data.append('image', this.filedata);
-
+    // var data = new FormData();
+    // data.append('image', this.filedata);
     this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
-        if(this.AddProductForm.value.image == ''){
-          this.errors['image'] = ["This image is required"];
-        }
+        // if(this.AddProductForm.value.image == ''){
+        //   this.errors['image'] = ["This image is required"];
+        // }
       }else{
-        const response = await this.http.AddImage(result.data.data.id, data, this.token);
-        if(response.data.error){
-          this.errors = response.data.message;
-          if(this.AddProductForm.value.image == ''){
-            this.errors['image'] = ["This image is required"];
-          }
-        }else{
-          this.location.back();
-        }
+        this.location.back();
+        // const response = await this.http.AddImage(result.data.data.id, data, this.token);
+        // if(response.data.error){
+        //   this.errors = response.data.message;
+        //   if(this.AddProductForm.value.image == ''){
+        //     this.errors['image'] = ["This image is required"];
+        //   }
+        // }else{
+        // }
       }
       this.http.closeLoading();
     }).catch((e)=>{
