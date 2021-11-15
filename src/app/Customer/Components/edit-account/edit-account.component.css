@@ -121,6 +121,7 @@ p, a{
   .media320{display: none;}
   .media768{
     background-color: transparent;
+    margin-bottom: -11vw;
   }
   .account{
     text-align: center;
@@ -165,6 +166,7 @@ p, a{
 
 }
 @media screen and (min-width:1024px) {
+  .media768{margin-bottom: -15vw;}
   #cancelbtn, #savebtn{margin-left: 1vw;}
   .account{
     width: 16.66%;

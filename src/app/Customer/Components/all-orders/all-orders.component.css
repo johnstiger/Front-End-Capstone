@@ -5,7 +5,6 @@
     margin-bottom: 10%;
     color: #C7988E;
     font-family: 'Roboto';
-    /* margin-left: 5vw; */
   }
   a{
     color: #C7988E;
@@ -155,7 +154,7 @@
   @media screen and (min-width: 1024px) {
     #hr768{
       width: 73vw;
-      margin-bottom: 3vw;
+      margin-bottom: 4vw;
     }
     #hr1{
       width: 15vw;
@@ -200,5 +199,6 @@
       margin-left: 3%;
 
     }
+    #total{margin-top: 0vw;}
   }
 

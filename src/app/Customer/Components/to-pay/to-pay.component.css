@@ -5,7 +5,6 @@
   margin-bottom: 10%;
   color: #C7988E;
   font-family: 'Roboto';
-  /* margin-left: 3vw; */
 }
 a{
   color: #C7988E;
@@ -215,6 +214,7 @@ a{
   }
 }
 @media screen and (min-width: 1024px) {
+  .media768{margin-bottom: -10vw;}
   .deliverypanel{margin-bottom: 12%;}
   #hr2{width: 72vw;}
   .account{

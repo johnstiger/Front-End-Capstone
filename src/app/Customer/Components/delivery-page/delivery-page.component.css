@@ -3,77 +3,40 @@
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #F6F2EF;
-    margin-left: 4%;
+    /* margin-left: 4%; */
     margin-bottom: 10%;
     font-family: 'Roboto';
   }
-  .submedia320{
-    font-size: 14px;
-    margin-top: 7%;
-    text-align: center;
-  }
-  hr{
-    width: 94%;
-    margin-left: -1%;
-    background-color: #C7988E;
-    margin-top: 3%;
-  }
-  #img320, #img768{
-    width: 100%;
-    height: 100%;
-  }
-  a{
+  a, p{
     color: #C7988E;
     text-decoration: none;
-    padding: 3px;
   }
-
-  p{
-    color:  #C7988E;
-    margin-bottom: 0rem;
-    text-align: center;
-  }
-  #prodname{
-    font-weight: bold;
-  }
-  #hr1{
-    margin-bottom: 4%;
-  }
-  #quant{
-    margin-left: 60%;
-  }
-  .delivery320 p{
-      font-size: 14px;
-  }
-  .delivery320{
-      margin-top: 4%;
-      margin-bottom: 12%;
-      margin-left: 5%;
-  }
-  .div2{
-      margin-top: 5%;
-  }
-  .account{
+  .account, .deliverypanel{
     background-color: #F6F2EF;
     border-radius: 5px;
-    align-content: center;
   }
-  .deliverypanel{
-    background-color: #F6F2EF;
-    margin-left: 3%;
-    border-radius: 5px;
+  #img320{
+    width: 90%;
+    height: 100%;
+    margin-left: 12%;
   }
   .profileimg{
     width: 60%;
-    height: 30%;
+    height: 28%;
     border-radius: 50%;
-    margin-left: 20%;
     margin-top: 20%;
   }
-  .text{
-    margin-bottom: 15%;
+  #headerhr{
+    width: 84vw;
+    margin-top: 2%;
+    margin-left: -1vw;
+    border: 1px solid #C7988E;
   }
-
+  .submedia{margin-bottom: 7vw;}
+  #allorders, #topay{padding-right: 4vw;}
+  #deliverydate{padding-right: 5vw;}
+  #hr768{border: 1px solid #C7988E;}
+  
   @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {width: 8.33%;}
@@ -104,147 +67,151 @@
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
   }
-  @media screen and (min-width: 320px) and (max-width: 767px){
+  @media screen and (min-width:320px){
+    .media320{margin-left: 4.5vw;}
+   .headers{margin-top: 7%;}
+   .headers a{
+     font-size: 4vw;
+  }
+  p{font-size: 5vw;}
+  #prodname{font-weight: bold;}
+  .right{text-align: center;}
+  #prodname, #amount{margin-bottom: 1vw;}
+  #quant{
+    margin-bottom: 0vw;
+    margin-left: 23vw;
+  }
+  #hr1{margin-top: 1vw;}
+  #img320{height: 90%;}
+  #hr1{
+    width: 28vw;
+    margin-left: 5vw;
+  }
+  #deliverydate1{
+    margin-left: 10vw;
+    margin-bottom: 0vw;
+  }
+  #deliverydate1, #prepareamount{font-size: 4vw;}
+  #prepareamount{margin-left: 5vw;}
+  .col-6{margin-top: 3vw;}
+  }
+  @media screen and (min-width:375px){
+    #headerhr{width: 85vw;}
+  }
+  @media screen and (min-width:420px){
+    #headerhr{width: 86vw;}
+    #hr1{
+      width: 30vw;
+      margin-left: 4.5vw;
+    }
+  }
+  @media screen and (max-width:767px){
     .media768{display: none;}
   }
-  @media screen and (min-width: 322px){
-    .submedia320{
-      text-align: center;
-    }
-  }
-
-  @media screen and (min-width: 331px){
-    .submedia320{font-size: 14px;}
-    /* .media768{
-      display: none;
-    } */
-  }
-  @media screen and (min-width: 345px) and (max-width: 374px){
-    #quant{
-      margin-left: 54%;
-    }
-  }
-  @media screen and (min-width: 375px){
-    .submedia320{
-      font-size: 17px;
-    }
-    /* .media768{
-      display: none;
-    } */
-    #amount, #total{
-      margin-left: 10%;
-    }
-  }
-
-  @media screen and (min-width: 425px){
-    p{
-      font-size: 18px;
-    }
-    a{
-      padding: 8px;
-    }
-    .delivery320 p{
-      font-size: 15px;
-    }
-  }
-
-  @media screen and (min-width: 433px){
-    a{
-      font-size: 18px;
-    }
-    #prodname{
-      font-size: 19px;
-    }
-    #amount, #total{
-      margin-left: 22%;
-    }
-    #quant{
-      margin-left: 65%;
-    }
-  }
-  @media screen and (max-width: 767px){
-    .media768{display: none;}
-  }
-  @media screen and (min-width: 768px){
-    .media320, #img320{
-      display: none;
-    }
+  @media screen and (min-width:768px){
+    .media320{display: none;}
     .media768{
       background-color: transparent;
-      margin-top: 5%;
-      margin-left: 3%;
-    }
-    .text, .deliverypanel p, #prodname{
-      font-size: 13px;
-    }
-    .deliverypanel a{
-      padding: 36px;
-      margin-top: 5%;
-      color: #C7988E;
-      text-decoration: none;
-      padding-left: 32px;
-      font-size: 13px;
-
-    }
-    .header768{
-      margin-top: 5%;
-    }
-    #hr768{
-      width: 106%;
-      margin-left: -3%;
-    }
-    .right768 p{text-align: center;}
-    .allorder768{margin-left: -15px;}
-    #img768{margin-left: 27%;}
-    .headertxt768{
-      font-weight: bold;
-      margin-bottom: 4%;
-      font-size: 14px;
-    }
-    .prodheader{
-      float: left;
-      margin-left: 11%;
-    }
-    .delheader{
-      text-align: center;
-      margin-left: -8%;
-    }
-    .amountheader{
-      text-align: center;
-      margin-left: -26%;
-    }
-    #amount, #total{margin-left: 0;}
-    #quant{margin-left: 53%;}
-    .total{
-      margin-left: -24%;
-      margin-top: 17%;
-    }
-    .content{margin-bottom: 5%;}
-    .account{margin-bottom: 19%;}
-    .account p{
-      font-size: 15px;
-    }
-    .account a{
-      text-decoration: none;
-      color: #C7988E;
-      text-align: center;
-    }
-  }
-   @media screen and (min-width:1024px){
-    .deliverypanel a{
-      font-size: 18px;
-      padding: 55px;
-      padding-left: 35px;
-    }
-    .account p{
-      font-size: 18px;
     }
     #img768{
-      width: 95%;
-      margin-left: 25%;
+      margin-left: 15%;
+      width: 100%;
+      height: 90%;
     }
-    .text, .deliverypanel p, #prodname{
-      font-size: 17px;
+    .account{
+      text-align: center;
+      margin-bottom: 49%;
+      margin-left: 2.6vw;
+      width: 20%;
     }
-    #hr1{width: 80%; margin-left: 10%;}
-   }
+    .deliverypanel{
+      margin-left: 3%;
+      width: 72%;
+      margin-bottom: 27%;
+    }
+    .header768{
+      margin-top: 2vw;
+    margin-bottom: 1vw;}
+    .header768 a, .account p{font-size: 2vw;}
+    .right768 p, p{font-size: 1.8vw;}
+    .account p{
+      margin-bottom: 0%;
+      padding-top: 2vw;
+    }
+    .allorder768{
+      margin-left: 1%;
+      padding-right: 10vw;
+    }
+    #toPay, #deliverydate{ padding-right: 11vw;}
+    #hr768{
+      width: 68vw;
+      margin-left: 0vw;
+    }
+    .headertxt768 p{font-weight: bold;}
+    .right768, .date, .amount{text-align: center;}
+    .amount{
+      width: 20%;
+      margin-left: -1vw;
+    }
+    .imgdiv{width: 21.66%;}
+    #hr1{
+      width: 11vw;
+      margin-left: 2vw;
+    }
+    #quant{margin-left: 8vw;}
+    #prodname, #amount{margin-bottom: 1vw;}
+    .delheader{
+      text-align: center;
+      margin-left: 6vw;
+    }
+    .amountheader{float: right;}
+    #fromdate{
+      margin-bottom: 0vw;
+      margin-top: 3vw;
+    }
+    .total{margin-top: 3vw;}
+    .prodheader{margin-left: 2vw;}
+    .amountheader{margin-right: 0.5vw;}
+    .content{
+      margin-top: 2%;
+      padding-bottom: 1vw;
+    }
+
+  }
+  @media screen and (min-width:1024px){
+    .media768{margin-bottom: -8vw;}
+    .account{
+      width: 16.66%;
+      margin-left: 6.8vw;
+      margin-bottom: 40%;
+    }
+    .deliverypanel{
+      margin-left: 8%;
+      width: 60%;
+    }
+    .header768 a, .account p,  .right768 p, p{font-size: 1.3vw;}
+    #hr768{
+      width: 57vw;
+    }
+    #img768{width: 90%;}
+    #quant{margin-left: 6vw;}
+    #hr1{
+      width: 8vw;
+      margin-left: 2.5vw;
+    }
+    #prodname, #amount{margin-bottom: 0.5vw;}
+    #total{margin-top: -0.5vw;}
+  }
+  @media screen and (min-width:1440px){
+    #hr768{
+      width: 58vw;
+    }
+    .deliverypanel{margin-bottom: 13%;}
+  }
+  @media screen and (min-width:2560px){
+    .header768{margin-bottom: 0.3vw;}
+    #hr768{
+      width: 59vw;
+    }
+    .media768{margin-bottom: -7vw;}
+  }
