@@ -133,9 +133,7 @@ export class MyProfileComponent implements OnInit {
       x.type = 'password';
       (<HTMLHtmlElement>icon).className  = 'far fa-eye';
     }
-    // x.type = x.type == 'password' ? 'text' : 'password';
-    // icon = x.type == 'password' ?  "far fa-eye" : "far fa-eye-slash";
-    console.log(icon);
+
   }
 
   showCurrentPassword(){

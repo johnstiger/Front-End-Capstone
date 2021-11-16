@@ -41,7 +41,8 @@
                 {{category.name}}
               </option>
             </select>
-                <div class="row">
+
+                <div class="row size-container">
                     <div class="col">
                         <div *ngIf="errors && errors.price" class="alert alert-danger">
                             *{{ errors.price[0] }}
@@ -52,9 +53,9 @@
                         <div *ngIf="errors && errors.sizes" class="alert alert-danger">
                             *{{ errors.sizes[0] }}
                         </div>
-                        <select name="size" id="" class="options field form-control" formControlName="sizes">
+                        <select name="size" id="size" class="options field form-control" formControlName="sizes">
                       <option value="" hidden>Size</option>
-                      <option *ngFor="let size of allSize" [value]="size.id">{{ size.size }}</option>
+                      <option *ngFor="let size of allSize" id="{{ size.id }}" [value]="size.id">{{ size.size }}</option>
                   </select>
                         <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->
                     </div>
@@ -62,10 +63,25 @@
                         <div *ngIf="errors && errors.unit_measure" class="alert alert-danger">
                             *{{ errors.unit_measure[0] }}
                         </div>
-                        <input type="number" min="0" class="form-control" name="" id="" formControlName="unit_measure" placeholder="Unit">
+                        <input type="number" min="0" class="form-control" name="" id="unit_measure" formControlName="unit_measure" placeholder="Unit" value="">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn add-size" (click)="addSize(this)"><i class="fas fa-plus-circle"></i> Add Size</button>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success field add-product">Add Product</button>
+                <div class="row" *ngFor="let product of stockSizes">
+                    <div class="col">
+                        <input type="text" name="" class="form-control" value="{{ product.size }}" disabled>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="" class="form-control" value="{{ product.unit_measure }}" disabled>
+                    </div>
+                    <div class="col">
+                        <label for=""></label>
+                        <button type="button" class="btn btn-danger" (click)="delete(product)"><i class="far fa-trash-alt"></i> Remove Size</button>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!AddProductForm.valid" class="btn btn-success field add-product">Add Product</button>
                 <a routerLink="/admin/products" class="btn btn-success field same">Cancel</a>
             </div>
         </div>

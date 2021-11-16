@@ -63,3 +63,11 @@ export interface Address {
   municipality : string,
   barangay : string
 }
+
+export interface Size {
+  id : number,
+  product_id : number,
+  size: string,
+  unit_measure : number,
+  price : number
+}
