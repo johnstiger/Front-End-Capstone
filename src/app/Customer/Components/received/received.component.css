@@ -32,162 +32,62 @@
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #F6F2EF;
-  margin-left: 4%;
   margin-bottom: 10%;
   font-family: 'Roboto';
-
 }
-.submedia320{
-  font-size: 14px;
-  margin-top: 7%;
-  text-align: center;
-}
-hr{
-  width: 94%;
-  margin-left: -1%;
-  background-color: #C7988E;
-  margin-top: 3%;
-}
-#img320, #img768{
-  width: 100%;
-  height: 100%;
-}
-a{
+a, p{
   color: #C7988E;
   text-decoration: none;
-  padding: 3px;
 }
-
-html {
-  font-family: "Lucida Sans", sans-serif;
+#img320{
+  width: 90%;
+  height: 100%;
+  margin-left: 14%;
 }
-p{
-  color:  #C7988E;
-  margin-bottom: 0rem;
-  text-align: center;
+#headerhr{
+  width: 84vw;
+  margin-top: 2%;
+  margin-left: -1vw;
 }
-#prodname{
-  font-weight: bold;
-}
-#hr1{
-  margin-bottom: 4%;
-}
-#quant{
-  margin-left: 60%;
-}
-.delivery320 p{
-    font-size: 14px;
-}
-.delivery320{
-    margin-top: 4%;
-    margin-bottom: 12%;
-}
-.div2{
-    margin-top: 5%;
-}
-.account{
-  background-color: #F6F2EF;
-  border-radius: 5px;
-  align-content: center;
-}
-.deliverypanel{
-  background-color: #F6F2EF;
-  margin-left: 7%;
-  border-radius: 5px;
-}
-.profileimg{
-  width: 60%;
-  height: 28%;
-  border-radius: 50%;
-  margin-left: 20%;
-  margin-top: 20%;
-}
-.text{
-  margin-bottom: 15%;
-}
-.btn{
-  box-sizing: border-box;
-  border: none;
-  background-color: #C7988E;
-  color: #F6F2EF;
-  font-size: 15px;
-  padding: 7px;
-  margin-left: 3%;
-  width: 98%;
-  padding: 3px;
-  border-radius: 7px;
-
-}
-#recievedate{
-  margin-left: -30%;
-}
-#totalamount{margin-left: -8%;}
+#allorders, #topay{padding-right: 4vw;}
+#deliverydate{padding-right: 5vw;}
+#hr768,#headerhr{border: 1px solid #C7988E;}
 
 
 
-/* For mobile phones: */
-/* [class*="col-"] {
-  width: 100%;
-} */
+@media screen and (min-width: 320px){
+  .media320{margin-left: 4.5vw;}
+  .headers{margin-top: 7%;}
+  .headers a, .received320 p{
+    font-size: 4vw;
+ }
+ p{font-size: 5vw;}
+ #prodname{font-weight: bold;}
+ .right{text-align: center;}
+ #prodname, #amount{margin-bottom: 1vw;}
+ #quant{
+   margin-bottom: 0vw;
+   margin-left: 23vw;
+ }
+ #hr1{margin-top: 1vw;}
+ #img320{height: 90%;}
+ #hr1{
+   width: 28vw;
+   margin-left: 5vw;
+ }
+ #receiveddate1{
+   margin-left: 10vw;
+   margin-bottom: 0vw;
+ }
+ #prepareamount{margin-left: 5vw;}
+ .col-6{margin-top: 3vw;}
+}
+ @media screen and (min-width:375px) {
+  #headerhr{
+    width: 85vw;}
+ }
+ #hr1{width: 30vw;}
 
-@media screen and (min-width: 320px) and (max-width: 767px){
-  .media768{display: none;}
-}
-@media screen and (min-width: 322px){
-  .submedia320{
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 331px){
-  .submedia320{font-size: 14px;}
-  /* .media768{
-    display: none;
-  } */
-}
-@media screen and (min-width: 345px) and (max-width: 374px){
-  #quant{
-    margin-left: 54%;
-  }
-}
-@media screen and (min-width: 375px){
-  .submedia320{
-    font-size: 17px;
-  }
-  /* .media768{
-    display: none;
-  } */
-  #amount, #total{
-    margin-left: 10%;
-  }
-}
-
-@media screen and (min-width: 425px){
-  p{
-    font-size: 18px;
-  }
-  a{
-    padding: 8px;
-  }
-  .delivery320 p{
-    font-size: 15px;
-  }
-}
-
-@media screen and (min-width: 433px){
-  a{
-    font-size: 18px;
-  }
-  #prodname{
-    font-size: 19px;
-  }
-  #amount, #total{
-    margin-left: 22%;
-  }
-  #quant{
-    margin-left: 65%;
-  }
-}
 @media screen and (max-width: 767px){
   .media768{display: none;}
 }
@@ -195,9 +95,52 @@ p{
   .media320{display: none;}
   .media768{
     background-color: transparent;
-    margin-left: 2%;
+  }
+  #img768{
+    margin-left: 15%;
+    width: 100%;
+    height: 90%;
+  }
+  .account{
+    text-align: center;
+    margin-bottom: 49%;
+    margin-left: 2vw;
+    width: 20%;
+    height: 30vw;
   }
   .deliverypanel{
+    margin-left: 2%;
+    width: 72%;
+    margin-bottom: 27%;
+  }
+  .account, .deliverypanel{
+    background-color: #F6F2EF;
+    border-radius: 5px;
+  }
+  .profileimg{
+    width: 60%;
+    height: 28%;
+    border-radius: 50%;
+    margin-top: 20%;
+  }
+  .header768 a, .account p{font-size: 2vw;}
+  .right768 p, p{font-size: 1.8vw;}
+  #toPay, #deliverydate{ padding-right: 11vw;}
+  .allorder768{
+    margin-left: 1%;
+    padding-right: 10vw;
+  }
+  .right768, .date, .amount{text-align: center;}
+  .total{margin-top: 3vw;}
+  #prodheader{margin-left: 2vw;}
+  #amountheader{margin-right: 0.5vw;}
+  .headertxt768 p{font-weight: bold;}
+  .receiveheader{
+    text-align: center;
+    margin-left: 6vw;
+  }
+}
+  /* .deliverypanel{
     margin-left: 3%;
   }
   .text, .deliverypanel p{
@@ -278,4 +221,4 @@ p{
     margin-top: 10%;
   }
   .totalvalue{margin-top: 10%;}
-}
+} */
