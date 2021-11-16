@@ -123,6 +123,15 @@ a, p{
     border-radius: 50%;
     margin-top: 20%;
   }
+  .btn{
+    box-sizing: border-box;
+    background-color: #C7988E;
+    border-radius: 5px;
+    color: #F6F2EF;
+    font-size: 1.8vw;
+    padding-bottom: 0.2vw;
+    padding-top: 0.2vw;
+  }
   .header768 a, .account p{font-size: 2vw;}
   .right768 p, p{font-size: 1.8vw;}
   #toPay, #deliverydate{ padding-right: 11vw;}
@@ -131,13 +140,25 @@ a, p{
     padding-right: 10vw;
   }
   .right768, .date, .amount{text-align: center;}
-  .total{margin-top: 3vw;}
+  .totalvalue{margin-top: 3vw;}
+  #quant{margin-left: 8vw;}
   #prodheader{margin-left: 2vw;}
   #amountheader{margin-right: 0.5vw;}
   .headertxt768 p{font-weight: bold;}
   .receiveheader{
     text-align: center;
     margin-left: 6vw;
+  }
+  .header768{
+    margin-top: 2vw;
+  margin-bottom: 1vw;}
+  #hr1{
+    width: 11vw;
+    margin-left: 2vw;
+  }
+  #datereveived{
+    margin-bottom: 0vw;
+    margin-top: 3vw;
   }
 }
   /* .deliverypanel{

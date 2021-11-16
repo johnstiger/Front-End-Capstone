@@ -204,6 +204,7 @@
     }
     #prodname, #amount{margin-bottom: 0.5vw;}
     #total{margin-top: -0.5vw;}
+    .amountheader{margin-right: 1.5vw;}
   }
   @media screen and (min-width:1440px){
     .media768{margin-bottom: -7vw;}
