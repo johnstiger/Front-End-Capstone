@@ -107,6 +107,12 @@ a{
 @media screen and (min-width: 600px){
   .footertxt{margin-top: 15vw;}
 }
+@media screen and (min-width: 768px){
+  .footer320{display: none;}
+  .footer768{
+    color: #F6F2EF;
+  }
+}
 
 
 /* .footer {
