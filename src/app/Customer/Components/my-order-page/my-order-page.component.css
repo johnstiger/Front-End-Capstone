@@ -2,13 +2,12 @@
     background-color: #F6F2EF;
     box-sizing: border-box;
     border-radius: 5px;
-    margin-left: 4%;
     font-family: 'Roboto';
 }
 .headertxt{
   color: #F6F2EF;
   text-align: center;
-  font-size: 18px;
+  font-size: 5vw;
 }
 
 .pageheader {
@@ -17,33 +16,30 @@
     color: #C7988E;
     margin-bottom: -3%;
 }
-.cartimg {
+.img320 {
     height: 100%;
     width: 100%;
 }
-
+.removebtn, .input, .btn{
+  box-sizing: border-box;
+  border: none;
+  color: #F6F2EF;
+  background-color: #C7988E;
+}
 .removebtn {
-    box-sizing: border-box;
-    font-size: 11px;
-    border: none;
+    font-size: 4.8vw;
     cursor: pointer;
-    background-color: #C7988E;
     border-radius: 8px;
-    color: #F6F2EF;
     height: 24%;
     width: 83%;
 }
 
 .input {
-    font-size: 11px;
-    box-sizing: border-box;
-    border: none;
+    font-size: 4.5vw;
     width: 30%;
     margin-left: 6%;
     height: 15%;
-    background-color: #C7988E;
     border-radius: 3px;
-    color: #F6F2EF;
     font-weight: bold;
 }
 
@@ -59,16 +55,6 @@
   margin-bottom: 5%;
 }.quantity{
   margin-top: -8px;
-}
-
-.btn{
-  box-sizing: border-box;
-  border: none;
-  background-color: #C7988E;
-  color: #F6F2EF;
-  font-size: 11px;
-  border-radius: 8px;
-  width: 50%;
 }
 
 p, .quantity{
@@ -115,7 +101,19 @@ p, .quantity{
 }
 
 @media screen and (min-width:320px) {
-  #price {
+  .media320{
+    margin-left: 4vw;
+  }
+  #price{float: right;}
+  #headerhr{
+    width: 84vw;
+    margin-top: 2%;
+    margin-left: -1vw;
+    border: 1px solid #C7988E;
+  }
+
+
+  /* #price {
       text-align: right;
       font-size: 12px;
   }
@@ -139,6 +137,7 @@ p, .quantity{
   .col-4{
     margin-bottom: 5%;
   }
+} */
 }
 @media screen and (min-width: 340px){
 #headerId,.hr2{

@@ -166,14 +166,16 @@
       text-align: center;
       margin-left: 6vw;
     }
-    .amountheader{float: right;}
+    .amountheader{
+      float: right;
+      margin-right: 0.5vw;
+    }
     #fromdate{
       margin-bottom: 0vw;
       margin-top: 3vw;
     }
     .total{margin-top: 3vw;}
     .prodheader{margin-left: 2vw;}
-    .amountheader{margin-right: 0.5vw;}
     .content{
       margin-top: 2%;
       padding-bottom: 1vw;
