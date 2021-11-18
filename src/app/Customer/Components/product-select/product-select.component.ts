@@ -39,7 +39,7 @@ export class ProductSelectComponent implements OnInit {
   }
 
   async getProduct() {
-    this.service.loading();
+    // this.service.loading();
     await this.service.getProduct(this.id).then((result) => {
       this.product = result.data.data;
       this.image =this.product.image;
