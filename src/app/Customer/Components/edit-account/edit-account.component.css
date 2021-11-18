@@ -3,7 +3,7 @@
   background-color: #F6F2EF;
   box-sizing: border-box;
   border-radius: 8px;
-  margin-left: 4%;
+  /* margin-left: 4%; */
   font-family: 'Roboto';
   /* margin-left: 5vw; */
 }
@@ -112,6 +112,7 @@ p, a{
     padding: 1.5vw;
     padding-left: 3vw;
   }
+  .media320{margin-left: 4.5vw;}
 }
 
 @media screen and (max-width:767px){
@@ -121,13 +122,13 @@ p, a{
   .media320{display: none;}
   .media768{
     background-color: transparent;
-    margin-bottom: -11vw;
-
+    margin-bottom: -8vw;
+    margin-left: 3vw;
   }
   .account{
     text-align: center;
-    margin-bottom: 31%;
-    margin-left: -1.4vw;
+    margin-bottom: 35%;
+    margin-left: 2.6vw;
     width: 20%;
   }
   .account p{
@@ -136,9 +137,9 @@ p, a{
     font-size: 2vw;
   }
   .editpanel{
-    margin-left: 3%;
+    margin-left: 5%;
     width: 72%;
-    margin-bottom: 14%;
+    margin-bottom: 10%;
   }
   #restpass{
     float: right;
@@ -167,14 +168,15 @@ p, a{
 
 }
 @media screen and (min-width:1024px) {
-  .media768{margin-bottom: -15vw;}
+  .media768{margin-bottom: -19vw;}
   #cancelbtn, #savebtn{margin-left: 1vw;}
   .account{
     width: 16.66%;
-    margin-left: 3.5vw;
+    margin-left: 8vw;
+    margin-bottom: 35%;
   }
   .editpanel{
-    margin-bottom: 19%;
+    margin-bottom: 24%;
     margin-left: 8%;
     width: 60%;
   }
@@ -208,6 +210,7 @@ p, a{
 
 }
 @media screen and (min-width:1440px) {
+  .account{margin-bottom: 33%;}
   #cancelbtn, #savebtn{margin-left: 2vw;}
   .account p, .deliverypanel p, .btn, input{font-size: 1.5vw;}
   .account{width: 16.66%;}

@@ -3,7 +3,6 @@
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #F6F2EF;
-    /* margin-left: 4%; */
     margin-bottom: 10%;
     font-family: 'Roboto';
   }
@@ -68,7 +67,7 @@
     .col-12 {width: 100%;}
   }
   @media screen and (min-width:320px){
-    .media320{margin-left: 3.5vw;}
+    .media320{margin-left: 4.5vw;}
    .headers{margin-top: 7%;}
    .headers a{
      font-size: 4vw;
@@ -109,10 +108,10 @@
     .media768{display: none;}
   }
   @media screen and (min-width:768px){
-    .media768{margin-bottom: -20%;}
     .media320{display: none;}
     .media768{
       background-color: transparent;
+      margin-bottom: -8vw;
     }
     #img768{
       margin-left: 15%;
@@ -121,15 +120,14 @@
     }
     .account{
       text-align: center;
-      margin-bottom: 49%;
-      margin-left: 2vw;
+      margin-bottom: 35%;
+      margin-left: 2.6vw;
       width: 20%;
-      height: 30vw;
     }
     .deliverypanel{
-      margin-left: 2%;
+      margin-left: 3%;
       width: 72%;
-      margin-bottom: 27%;
+      margin-bottom: 10%;
     }
     .header768{
       margin-top: 2vw;
@@ -183,21 +181,19 @@
 
   }
   @media screen and (min-width:1024px){
-    .media768{margin-bottom: -18vw;}
+    .media768{margin-bottom: -19vw;}
     .account{
       width: 16.66%;
-      margin-left: 6.8vw;
-      margin-bottom: 40%;
-      height: 25vw;
+      margin-left: 8vw;
+      margin-bottom: 35%;
     }
     .deliverypanel{
       margin-left: 8%;
       width: 60%;
+      margin-bottom: 22%;
     }
     .header768 a, .account p,  .right768 p, p{font-size: 1.3vw;}
-    #hr768{
-      width: 57vw;
-    }
+    #hr768{width: 57vw;}
     #img768{width: 90%;}
     #quant{margin-left: 6vw;}
     #hr1{
@@ -209,16 +205,10 @@
     .amountheader{margin-right: 1.5vw;}
   }
   @media screen and (min-width:1440px){
-    .media768{margin-bottom: -7vw;}
-    #hr768{
-      width: 58vw;
-    }
-    .deliverypanel{margin-bottom: 13%;}
+    .account{margin-bottom: 33%;}
+    #hr768{width: 58vw;}
   }
   @media screen and (min-width:2560px){
-    .header768{margin-bottom: 0.3vw;}
-    #hr768{
-      width: 59vw;
-    }
-    .media768{margin-bottom: -7vw;}
+    #hr768{width: 59vw;}
+    .account{margin-bottom: 33%;}
   }

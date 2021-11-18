@@ -26,7 +26,7 @@
     margin-top: 20%;
   }
   #headerhr{
-    width: 85vw;
+    width: 84vw;
     margin-top: 2%;
     margin-left: -1vw;
   }
@@ -92,7 +92,9 @@
     .media320{margin-left: 4.5vw;}
   }
   @media screen and (min-width:375px){
-    /* .media320{margin-left: 3vw;} */
+    #headerhr{
+      width: 85vw;
+    }
   }
   @media screen and (min-width:420px){
     #headerhr{width: 86vw;}
@@ -106,6 +108,7 @@
     .media320{display: none;}
     .media768{
       background-color: transparent;
+      margin-bottom: -8vw;
     }
     .deliverypanel{
       margin-left: 3%;
@@ -120,7 +123,7 @@
     }
     .account{
       text-align: center;
-      margin-bottom: 31%;
+      margin-bottom: 35%;
       margin-left: 2.6vw;
       width: 20%;
     }
@@ -143,8 +146,8 @@
     .right768{text-align: center;}
     #toPay, #deliverydate{ padding-right: 11vw;}
     #hr768{
-      width: 72vw;
-      margin-left: -2vw;
+      width: 68vw;
+      margin-left: 0vw;
       margin-bottom: 5vw;
     }
     .col-6{
@@ -152,8 +155,9 @@
     }
   }
   @media screen and (min-width: 1024px) {
+    .media768{margin-bottom: -19vw;}
     #hr768{
-      width: 73vw;
+      width: 57vw;
       margin-bottom: 4vw;
     }
     #hr1{
@@ -165,7 +169,7 @@
     .account{
       width: 16.66%;
       margin-left: 8vw;
-      margin-bottom: 33%;
+      margin-bottom: 35%;
     }
     .deliverypanel{
       margin-bottom: 22%;
@@ -191,13 +195,16 @@
     .right768{text-align: left;}
     #amount, #total{margin-left: 1vw;}
   }
+  @media screen and (min-width:1440px) {
+    .account{margin-bottom: 33%;}
+    #hr768{width: 58vw;}
+  }
   @media screen and (min-width: 2560px) {
     #hr768{
-      width: 74vw;
+      width: 59vw;
     }
     .allorder768{
       margin-left: 3%;
-
     }
     #total{margin-top: 0vw;}
   }

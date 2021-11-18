@@ -53,6 +53,9 @@ a{
   margin-left: 3%;
   border-radius: 7px;
 }
+#allorders, #topay{padding-right: 4vw;}
+#deliverydate{padding-right: 5vw;}
+#hr768{border: 1px solid #C7988E;}
 #recievedate{margin-left: -30%;}
 #totalamount{margin-left: -8%;}
 
@@ -95,13 +98,16 @@ a{
     font-size: 4vw;
     margin-top: 7%;
   }
-  .headers a{padding: 1.7vw;}
-
-  #prodname{font-weight: bold;}
-  .right{text-align: center;}
+  #prodname{
+    font-weight: bold;
+    padding-top: 2vw;
+  }
+  .right{
+    text-align: center;
+    margin-left: -2%;}
   .right p{
-    font-size: 5vw;
-    margin-bottom: 2%;
+    font-size: 4.5vw;
+    margin-bottom: 7%;
   }
   .btn, .status p{ font-size: 5vw;}
   #hr1{
@@ -116,6 +122,8 @@ a{
   #quant{margin-left: 60%;}
   #confirmed{margin-bottom: 0%;}
   .status{margin-bottom: 5vw;}
+  .col-6{margin-top: 5vw;}
+  #pending{padding-top: 2vw;}
 }
 @media screen and (min-width: 425px) {
   #hr2{width: 93vw;}
@@ -137,6 +145,7 @@ a{
   .media320{display: none;}
   .media768{
     background-color: transparent;
+    margin-bottom: -8vw;
   }
   .deliverypanel{
     margin-left: 3%;
@@ -156,7 +165,7 @@ a{
     margin-left: -1.5vw;
   }
   .account{
-    margin-bottom: 31%;
+    margin-bottom: 35%;
     margin-left: 2.6vw;
     width: 20%;
   }
@@ -200,7 +209,10 @@ a{
     margin-right: 3.5vw;
     margin-top: -3vw;
   }
-  #prodname{margin-bottom: 1%;}
+  #prodname{
+    margin-bottom: 1%;
+    padding-top: 1vw;
+  }
   #total{margin-bottom: 30%;}
   #amount{margin-bottom: 0%;}
   .buttons{text-align: right;}
@@ -212,17 +224,18 @@ a{
     margin-bottom: 0%;
     margin-right: 5vw;
   }
+  .col-6{margin-top: 0vw;}
 }
 @media screen and (min-width: 1024px) {
-  .media768{margin-bottom: -10vw;}
-  .deliverypanel{margin-bottom: 12%;}
+  .media768{margin-bottom: -19vw;}
   #hr2{width: 72vw;}
   .account{
     width: 16.66%;
-    margin-left: 6.8vw;
+    margin-left: 8vw;
+    margin-bottom: 35%;
   }
   .deliverypanel{
-    margin-bottom: 20%;
+    margin-bottom: 22%;
     margin-left: 8%;
     width: 60%;
   }
@@ -239,9 +252,15 @@ a{
     margin-left: 4vw;
     width: 9.3vw;
   }
-  #amount, #total, #quant{
-    margin-right: 1vw;
+  #hr2{
+    margin-left: -1.1vw;
+    width: 59.4vw;
   }
+  #hr768{
+    width: 59.5vw;
+    margin-left: -1.2vw;
+  }
+  #amount, #total, #quant{margin-right: 1vw;}
   #prodname{
     padding-top: 0.5vw;
     margin-bottom: 5%;}
@@ -256,15 +275,26 @@ a{
   }
   #confirmed, #pending{margin-top: -0.8vw;}
 }
-    
+
 @media screen and (min-width: 1440px) {
-  .account{width: 16.66%;}
-  .deliverypanel{
+  .account{margin-bottom: 33%;}
+  /* .account{width: 16.66%;} */
+  /* .deliverypanel{
     margin-bottom: 23%;
     width: 58.33%;
+  } */
+  #hr2, #hr768{
+    width: 59.7vw;
+    margin-left: -0.9vw;
   }
-  #hr2{width: 73vw;}
 }
 @media screen and (min-width: 2560px) {
-  .deliverypanel{margin-bottom: 25%;}
+  #hr2, #hr768{
+    width: 59.8vw;
+    margin-left: -0.5vw;
+  }
+  .account{margin-bottom: 30%;}
+  .allorder768{
+    margin-left: 3%;
+  }
 }
