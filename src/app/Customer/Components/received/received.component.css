@@ -1,3 +1,28 @@
+.media320, .media768{
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #F6F2EF;
+  margin-bottom: 10%;
+  font-family: 'Roboto';
+}
+a, p{
+  color: #C7988E;
+  text-decoration: none;
+}
+#img320{
+  width: 90%;
+  height: 100%;
+  margin-left: 14%;
+}
+#headerhr{
+  width: 84vw;
+  margin-top: 2%;
+  margin-left: -1vw;
+}
+#allorders, #topay{padding-right: 4vw;}
+#deliverydate{padding-right: 5vw;}
+#hr768,#headerhr{border: 1px solid #C7988E;}
+
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   .col-s-1 {width: 8.33%;}
@@ -28,166 +53,43 @@
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
-.media320, .media768{
-  box-sizing: border-box;
-  border-radius: 5px;
-  background-color: #F6F2EF;
-  margin-left: 4%;
-  margin-bottom: 10%;
-  font-family: 'Roboto';
-
-}
-.submedia320{
-  font-size: 14px;
-  margin-top: 7%;
-  text-align: center;
-}
-hr{
-  width: 94%;
-  margin-left: -1%;
-  background-color: #C7988E;
-  margin-top: 3%;
-}
-#img320, #img768{
-  width: 100%;
-  height: 100%;
-}
-a{
-  color: #C7988E;
-  text-decoration: none;
-  padding: 3px;
-}
-
-html {
-  font-family: "Lucida Sans", sans-serif;
-}
-p{
-  color:  #C7988E;
-  margin-bottom: 0rem;
-  text-align: center;
-}
-#prodname{
-  font-weight: bold;
-}
-#hr1{
-  margin-bottom: 4%;
-}
-#quant{
-  margin-left: 60%;
-}
-.delivery320 p{
-    font-size: 14px;
-}
-.delivery320{
-    margin-top: 4%;
-    margin-bottom: 12%;
-}
-.div2{
-    margin-top: 5%;
-}
-.account{
-  background-color: #F6F2EF;
-  border-radius: 5px;
-  align-content: center;
-}
-.deliverypanel{
-  background-color: #F6F2EF;
-  margin-left: 7%;
-  border-radius: 5px;
-}
-.profileimg{
-  width: 60%;
-  height: 28%;
-  border-radius: 50%;
-  margin-left: 20%;
-  margin-top: 20%;
-}
-.text{
-  margin-bottom: 15%;
-}
-.btn{
-  box-sizing: border-box;
-  border: none;
-  background-color: #C7988E;
-  color: #F6F2EF;
-  font-size: 15px;
-  padding: 7px;
-  margin-left: 3%;
-  width: 98%;
-  padding: 3px;
-  border-radius: 7px;
-
-}
-#recievedate{
-  margin-left: -30%;
-}
-#totalamount{margin-left: -8%;}
 
 
 
-/* For mobile phones: */
-/* [class*="col-"] {
-  width: 100%;
-} */
-
-@media screen and (min-width: 320px) and (max-width: 767px){
-  .media768{display: none;}
+@media screen and (min-width: 320px){
+  .media320{margin-left: 4.5vw;}
+  .headers{margin-top: 7%;}
+  .headers a, .received320 p{font-size: 4vw;}
+ p{font-size: 5vw;}
+ #prodname{font-weight: bold;}
+ .right{text-align: center;}
+ #prodname, #amount{margin-bottom: 1vw;}
+ #quant{
+   margin-bottom: 0vw;
+   margin-left: 23vw;
+ }
+ #hr1{margin-top: 1vw;}
+ #img320{height: 90%;}
+ #hr1{
+   width: 28vw;
+   margin-left: 5vw;
+ }
+ #receiveddate1{
+   margin-left: 10vw;
+   margin-bottom: 0vw;
+ }
+ #prepareamount{margin-left: 5vw;}
+ .col-6{margin-top: 3vw;}
 }
-@media screen and (min-width: 322px){
-  .submedia320{
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 331px){
-  .submedia320{font-size: 14px;}
-  /* .media768{
-    display: none;
-  } */
-}
-@media screen and (min-width: 345px) and (max-width: 374px){
-  #quant{
-    margin-left: 54%;
-  }
-}
-@media screen and (min-width: 375px){
-  .submedia320{
-    font-size: 17px;
-  }
-  /* .media768{
-    display: none;
-  } */
-  #amount, #total{
-    margin-left: 10%;
-  }
+ @media screen and (min-width:375px) {
+  #headerhr{
+    width: 85vw;}
+ }
+ #hr1{width: 30vw;}
+ #allorder768{
+  margin-left: 1%;
 }
 
-@media screen and (min-width: 425px){
-  p{
-    font-size: 18px;
-  }
-  a{
-    padding: 8px;
-  }
-  .delivery320 p{
-    font-size: 15px;
-  }
-}
-
-@media screen and (min-width: 433px){
-  a{
-    font-size: 18px;
-  }
-  #prodname{
-    font-size: 19px;
-  }
-  #amount, #total{
-    margin-left: 22%;
-  }
-  #quant{
-    margin-left: 65%;
-  }
-}
 @media screen and (max-width: 767px){
   .media768{display: none;}
 }
@@ -195,87 +97,151 @@ p{
   .media320{display: none;}
   .media768{
     background-color: transparent;
-    margin-left: 2%;
+    margin-bottom: -8vw;
+  }
+  #img768{
+    margin-left: 15%;
+    width: 100%;
+    height: 90%;
+  }
+  .account{
+    text-align: center;
+    margin-bottom: 35%;
+    margin-left: 2.6vw;
+    width: 20%;
+  }
+  .account p{
+    margin-bottom: 0%;
+    padding-top: 2vw;
   }
   .deliverypanel{
     margin-left: 3%;
-  }
-  .text, .deliverypanel p{
-    font-size: 15px;
-  }
-  .deliverypanel a{
-    padding: 28px;
-    margin-top: 5%;
-    color: #C7988E;
-    text-decoration: none;
-    padding-left: 32px;
-  }
-  .header768{
-    margin-top: 5%;
-    font-size: 15px;
-  }
-  #hr768{
-    width: 106%;
-    margin-left: -3%;
-  }
-  .right768{text-align: center;}
-  .allorder768{margin-left: -15px;}
-  #img768{margin-left: 8%; width: 85%;}
-  .header768 a{
-    font-size: 15px;
-  }
-  .prt{
-    font-weight: bold;
-  }
-  #prodname{font-size: 15px;}
-  #img768{margin-left: 8%; width: 85%;}
-  #recievedate{
-    margin-left: -30%;
-  }
-  #totalamount{margin-left: -8%;}
-  .totalvalue{
-    margin-left: 20%;
-    margin-top: 25%;
-  }
-  .date{
-    margin-top: 10%;
-  }
-  .account{
+    width: 72%;
     margin-bottom: 10%;
   }
-  .account p{
-    font-size: 15px;
+  .account, .deliverypanel{
+    background-color: #F6F2EF;
+    border-radius: 5px;
   }
-  .account a{
-    text-decoration: none;
-    color: #C7988E;
-    text-align: center;
+  .profileimg{
+    width: 60%;
+    height: 28%;
+    border-radius: 50%;
+    margin-top: 20%;
   }
-  .btn{margin-top: 5%;}
-  #amount, #total{margin-left: -1%;}
-}
-@media screen and (min-width:1024px) {
-  .account p{
-    font-size: 18px;
-  }
-  .deliverypanel a{
-    font-size: 18px;
-    padding: 55px;
-    padding-left: 35px;
-  }
-  #img768{
-    width: 85%;
-    margin-left: 15%;
-  }
-  .right768 p{font-size: 16px;}
-  #prodname{font-size: 16px; margin-left: -15%;}
-  #amount, #total{margin-left: -25px;}
-  #quant{margin-left: 33%;}
   .btn{
-    width: 75%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 10%;
+    box-sizing: border-box;
+    background-color: #C7988E;
+    border-radius: 5px;
+    color: #F6F2EF;
+    font-size: 1.8vw;
+    padding-bottom: 0.4vw;
+    padding-top: 0.4vw;
+    width: 13vw;
   }
-  .totalvalue{margin-top: 10%;}
+  .allorder768{
+    margin-left: 1%;
+    padding-right: 10vw;
+  }
+  .header768 a, .account p{font-size: 2vw;}
+  .right768 p, p{font-size: 1.8vw;}
+  .right768, .date, .amount{text-align: center;}
+  .totalvalue{margin-top: 3vw;}
+  .headertxt768 p{font-weight: bold;}
+  #toPay, #deliverydate{ padding-right: 11vw;}
+  #quant{margin-left: 8vw;}
+  #prodheader{margin-left: 2vw;}
+  #amountheader{
+    margin-right: 1.5vw;
+    float: right;
+  }
+  .receiveheader{
+    text-align: center;
+    margin-left: 6vw;
+  }
+  .header768{
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+  }
+  #hr1{
+    width: 11vw;
+    margin-left: 2vw;
+  }
+  #hr768{
+    width: 68vw;
+    margin-left: 0vw;
+  }
+  #datereveived{
+    margin-bottom: 2vw;
+    margin-top: 3vw;
+  }
+  .amount{
+    width: 20%;
+    margin-left: -1vw;
+  }
+  .imgdiv{width: 21.66%;}
+  #receiveheader{
+    text-align: center;
+    margin-left: 5vw;
+  }
+  .datediv{text-align: center;}
+  .content{
+    margin-top: 2%;
+    padding-bottom: 1vw;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .media768{margin-bottom: -19vw;}
+  .account{
+    width: 16.66%;
+    margin-left: 8vw;
+    margin-bottom: 35%;
+  }
+  .deliverypanel{
+    margin-left: 8%;
+    margin-bottom: 22%;
+    width: 60%;
+  }
+  .header768 a, .account p, .right768 p, p, .btn{font-size: 1.3vw;}
+  #img768{width: 90%;}
+  #hr1{
+    width: 8vw;
+    margin-left: 0.5vw;
+  }
+  #hr768{
+    width: 57vw;
+  }
+  #datereveived,.totalvalue {
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+  }
+  .btn{
+    float: left;
+    width: 9vw;
+    margin-left: 3.5vw;
+  }
+  #quant{margin-left: 7vw;}
+  #prodname, #amount{
+    margin-bottom: 0.5vw;}
+  #total{margin-top: -0.5vw;}
+  #amount, #total{margin-left: 1vw;}
+  .right768{text-align: left;}
+}
+@media screen and (min-width: 1440px) {
+  .account{margin-bottom: 33%;}
+  #hr768{
+    width: 58vw;
+  }
+  .allorder768{
+    margin-left: 2%;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .allorder768{
+    margin-left: 3%;
+  }
+    #hr768{
+      width: 59vw;
+    }
 }

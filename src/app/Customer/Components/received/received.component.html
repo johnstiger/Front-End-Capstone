@@ -1,13 +1,13 @@
 <app-sample-header></app-sample-header>
 <div class="col-11 col-s-11 media320">
   <div class="row">
-    <div class="col-12 col-s-12 submedia320">
-      <a id="allorders" href="#" style="margin-left: -1%;">All Orders</a>
-      <a href="#">To Pay</a>
-      <a href="#">Delivery Date</a>
-      <a href="#">Received</a>
+    <div class="col-12 col-s-12 headers">
+      <a id="allorders" href="#">All Orders</a>
+      <a id="topay" href="#">To Pay</a>
+      <a id="deliverydate" href="#">Delivery Date</a>
+      <a id="received" href="#">Received</a>
     </div>
-    <hr>
+    <hr id="headerhr">
     <div class="col-6 col-s-6">
       <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
     </div>
@@ -18,9 +18,9 @@
       <hr id = "hr1">
       <p id="total" >Php 200.00</p>
     </div>
-    <div class="col-12 col-s-12 delivery320">
-      <p >Delivery Date: December 25 2021</p>
-      <p >Prepare Amount: Php 270.00</p>
+    <div class="col-12 col-s-12 received320">
+      <p id="receiveddate1">Received Date: December 25 2021</p>
+      <p id="prepareamount">Prepare Amount: Php 270.00</p>
     </div>
       <div class="col-6 col-s-6">
         <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
@@ -32,9 +32,9 @@
         <hr id = "hr1">
         <p id="total">Php 200.00</p>
       </div>
-      <div class="col-12 col-s-12 delivery320">
-        <p >Received Date: December 25 2021</p>
-        <p >Total Amount: Php 270.00</p>
+      <div class="col-12 col-s-12 received320">
+        <p id="receiveddate1">Received Date: December 25 2021</p>
+        <p id="prepareamount">Total Amount: Php 270.00</p>
       </div>
     </div>
 </div>
@@ -52,56 +52,52 @@
         <div class="col-12 col-s-12 header768">
           <a class="allorder768" href="#">All Orders</a>
           <a id="toPay" href="#">To Pay</a>
-          <a href="#">Delivery Date</a>
-          <a href="#">Received</a>
+          <a id="deliverydate" href="#">Delivery Date</a>
+          <a id="received" href="#">Received</a>
         </div>
-        <div class="col-12 col-s-12">
-          <hr id="hr768">
-        </div>
-        <div class="col-12 col-s-12 prt">
+        <hr id="hr768">
+        <div class="col-4 col-s-4 headertxt768"><p id="prodheader">Product</p></div>
+        <div class="col-1 col-s-1"></div>
+        <div class="col-4 col-s-4 headertxt768"><p id="receiveheader">Received Date</p></div>
+        <div class="col-3 col-s-3 headertxt768"><p id="amountheader">Total Amount</p></div>
+        <div class="col-12 col-s-12 content">
           <div class="row">
-            <div class="col-2 col-s-2"><p>Product</p></div>
-            <div class="col-4 col-s-4"></div>
-            <div class="col-3 col-s-3"><p id="recievedate">Received Date</p></div>
-            <div class="col-3 col-s-3"><p id="totalamount">Total Amount</p></div>
-          </div>
-        </div>
-        <div class="col-12 col-s-12 right768" style="margin-top: 5%;">
-          <div class="row">
-            <div class="col-3 col-s-3">
+            <div class="col-2 col-s-2 imgdiv">
               <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
             </div>
-            <div class="col-3 col-s-3" style="margin-left: -3%;">
+            <div class="col-3 col-s-3 right768">
               <p id="prodname">Product Name</p>
               <p id ="amount">Php 100.00</p>
               <p id="quant">2</p>
+              <hr id="hr1">
               <p id="total">Php 200.00</p>
             </div>
-            <div class="col-3 col-s-3">
-              <p class="date">December 12, 2021</p>
+            <div class="col-4 col-s-4 datediv">
+              <p id="datereveived">December 12, 2021</p>
               <button class="btn">Comment</button>
             </div>
-            <div class="col-3 col-s-3">
+            <div class="col-3 col-s-3 amount">
               <p class="totalvalue">Php 200.00</p>
             </div>
           </div>
         </div>
-        <div class="col-12 col-s-12 right768" style="margin-top: 5%;">
+        <div class="col-12 col-s-12 content">
           <div class="row">
-            <div class="col-3 col-s-3">
+            <div class="col-2 col-s-2 imgdiv">
               <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
             </div>
-            <div class="col-3 col-s-3" style="margin-left: -3%;">
+            <div class="col-3 col-s-3 right768">
               <p id="prodname">Product Name</p>
               <p id ="amount">Php 100.00</p>
               <p id="quant">2</p>
+              <hr id="hr1">
               <p id="total">Php 200.00</p>
             </div>
-            <div class="col-3 col-s-3">
-              <p class="date">December 12, 2021</p>
+            <div class="col-4 col-s-4 datediv">
+              <p id="datereveived">December 12, 2021</p>
               <button class="btn">Comment</button>
             </div>
-            <div class="col-3 col-s-3">
+            <div class="col-3 col-s-3 amount">
               <p class="totalvalue">Php 200.00</p>
             </div>
           </div>
@@ -110,102 +106,5 @@
     </div>
   </div>
 </div>
-
-
-
+<hr>
 <app-cus-footer></app-cus-footer>
-<!-- <div>
-  <div class="leftDiv">
-    <div class="leftImage">
-      <img class="rounded-circle mt-5" style="width:80%; height:auto;" src="../../../../assets/imgs/image1.jpg" alt="">
-    </div>
-
-    <h4 class="mb-5">Customer Name</h4>
-    <a href="">
-      <h4>Edit Account</h4>
-    </a>
-    <a href="">
-      <h4 class="mb-3">My Orders</h4>
-    </a>
-  </div>
-  <div class="container">
-    <div class="row d-flex">
-      <div class="col">
-        <h4>All Orders</h4>
-      </div>
-      <div class="col">
-        <h4>To Pay</h4>
-      </div>
-      <div class="col">
-        <h4>Delivery Date</h4>
-      </div>
-      <div class="col">
-        <h4>Received</h4>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="row">
-      <div class="col-6">
-        <h4>Product</h4>
-      </div>
-      <div class="col-3">
-        <h4>Received Date</h4>
-      </div>
-      <div class="col-3">
-        <h4>Total Amount</h4>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-6">
-        <div>
-          <img class="mr-5 mt-5 mb-5" style="width:150px; height:200px;" src="../../../../assets/imgs/image1.jpg"
-            alt="">
-        </div>
-        <div class="description">
-          <h5>Product Name</h5>
-          <h6>Php 100.00</h6>
-          <h6>2</h6>
-          <h6>Php 200.00</h6>
-        </div>
-      </div>
-      <div class="col-3">
-        <p>December 12, 2021</p>
-        <button type="button" class="btn ml-4 w-75">Comment</button>
-      </div>
-      <div class="col-3">
-        <p>Php 250.00</p>
-      </div>
-    </div>
-
-    <br><br>
-
-    <div class="row prods">
-      <div class="col-6">
-        <div>
-          <img class="mr-5 mt-5 mb-5" style="width:150px; height:200px;" src="../../../../assets/imgs/image1.jpg"
-            alt="">
-        </div>
-        <div class="description">
-          <h5>Product Name</h5>
-          <h6>Php 100.00</h6>
-          <h6>2</h6>
-          <h6>Php 200.00</h6>
-        </div>
-      </div>
-      <div class="col-3">
-        <p>December 12, 2021</p>
-        <button type="button" class="btn ml-4 w-75">Comment</button>
-      </div>
-      <div class="col-3">
-        <p>Php 250.00</p>
-      </div>
-    </div>
-    <br><br><br>
-  </div>
-</div> -->
-<!-- <app-cus-footer></app-cus-footer> -->
