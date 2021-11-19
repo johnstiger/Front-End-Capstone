@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   countSales : any;
   categories! : Categories[];
   pendingOrders! : Orders[];
+  annually! : number[];
   onSales! : SalesProduct[];
   countOrders : any;
   countCustomers : any;
@@ -43,7 +44,7 @@ export class DashboardComponent implements OnInit {
   lineChartData: ChartDataSets[] = [
     {
       data: [
-        20, 55, 25, 60, 40, 35, 0, 0, 0, 0, 0, 0
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
       ],
       label: "Monthly Customer's Order",
       lineTension: 0.3,
@@ -129,6 +130,8 @@ export class DashboardComponent implements OnInit {
 
    getDashboard(){
     this.http.loading();
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1
      this.http.dashboard(this.token).then((result)=>{
       this.categories = result.data.categories;
       this.pendingOrders = result.data.pendingOrders;
@@ -137,7 +140,10 @@ export class DashboardComponent implements OnInit {
       this.countOrders = result.data.orders;
       this.countSales = result.data.sales;
       this.countProducts = result.data.products;
+      this.annually = result.data.annuallyOrders;
       this.http.closeLoading();
+      this.lineChartData[0].data = Object.values(this.annually)
+
     });
   }
 
