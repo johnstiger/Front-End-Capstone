@@ -3,19 +3,18 @@
 <div class=" col-11 col-s-11 media320">
   <div class="row">
     <div class="col-12 col-s-12 img320">
-      <img id="img768" src="{{image }}" alt="this is an image" *ngIf="image">
+      <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
     </div>
     <div class="col-12 col-s-12">
       <div class="text320">
         <p id="prodname">{{product.name}}</p>
         <p id="amount">Php {{product.price}}</p>
         <label id="quantity">Quantity </label>
-        <input id="inputQuantity" class="input" [(ngModel)]="unit_measure" name="unit_measure" type="number" min="0"
-          placeholder="0"><br>
+        <input id="inputQuantity" class="input" type="number" min="0" placeholder="0"><br>
         <label id="size" class="size">Size: </label>
-        <button type="button" id="mbtn" class="btn">{{product.sizes[0].pivot.size || 0}}</button>
+        <button type="button" id="mbtn" class="btn">{{sizes}}</button>
         <!-- <button type="button" id="sbtn" class="btn">S</button> -->
-        <p id="avialable">Available: {{product.sizes[0].pivot.avail_unit_measure}}pcs.</p>
+        <p id="avialable">Available: {{avail_unit_measure}} pcs.</p>
         <button type="button" id="addtocartbtn" class="btn">Add to Cart</button><br>
         <button type="button" id="buyitbtn" class="btn">Buy It Now</button>
       </div>
@@ -26,22 +25,24 @@
 <div class=" col-11 col-s-11 media768">
   <div class="row">
     <div class="col-5 col-s-5 img768">
-      <img id="img768" src="{{image}}" alt="this is an image" *ngIf="image">
+      <img id="psimg" src="{{image }}" alt="this is an image" *ngIf="image">
+      <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!image">
     </div>
     <div class="col-1 col-s-1"></div>
     <div class="col-4 col-s-4">
       <div class="text768">
-        <p id="prodname">{{product.name}}</p>
-        <p id="amount">Php {{product.price}}</p>
-        <label id="quantity">Quantity </label>
-        <input id="inputQuantity" class="input" [(ngModel)]="unit_measure" name="unit_measure" type="number" min="0"
-          placeholder="0"><br>
-        <label id="size" class="size">Size: </label>
-        <button type="button" id="mbtn" class="btn">{{product.sizes[0].pivot.size || 0}}</button>
-        <!-- <button type="button" id="sbtn" class="btn">S</button> -->
-        <p id="avialable">Available: {{product.sizes[0].pivot.avail_unit_measure}}pcs.</p>
-        <button type="button" id="addtocartbtn" class="btn">Add to Cart</button><br>
-        <button type="button" id="buyitbtn" class="btn">Buy It Now</button>
+        <form name="form" #AddCart="ngForm" (ngSubmit)="submit(product.id, AddCart.value)">
+          <p id="prodname">{{product.name}}</p>
+          <p id="amount">Php {{product.price}}</p>
+          <label id="quantity">Quantity </label>
+          <input id="inputQuantity" class="input" type="number" min="0" placeholder="0"><br>
+          <label id="size" class="size">Size: </label>
+          <button type="button" id="mbtn" class="btn">{{sizes}}</button>
+          <!-- <button type="button" id="sbtn" class="btn">S</button> -->
+          <p id="avialable">Available: {{avail_unit_measure}} pcs.</p>
+          <button type="submit" id="addtocartbtn" class="btn">Add to Cart</button><br>
+          <button type="button" id="buyitbtn" class="btn" click="(checkOut)">Buy It Now</button>
+        </form>
       </div>
     </div>
   </div>
@@ -49,6 +50,5 @@
 <a href="home">
   <button type="button" id="backbtn" class="btn">Back</button>
 </a>
-
 <hr>
 <app-cus-footer></app-cus-footer>

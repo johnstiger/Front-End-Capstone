@@ -113,7 +113,8 @@ input::placeholder{color: #F6F2EF;}
   }
   #prodname{
     font-size: 2.5vw;
-    margin-bottom: 1vw;
+    margin-bottom: 1vw; 
+    
   }
   #amount{margin-bottom: 1vw;}
   .text768 p, .btn, #mbtn, #sbtn, .input, #quantity, #inputQuantity{font-size: 2vw;}
