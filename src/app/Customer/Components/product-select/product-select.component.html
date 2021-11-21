@@ -13,11 +13,11 @@
           <h2>{{product.name}}</h2>
           <h5 style="padding-top: 10px;">Php {{product.price}}</h5>
           <label id="quantity">Quantity </label>
-          <input id="inputQuantity" class="input" [(ngModel)]="unit_measure" name="unit_measure" type="number" min="0"><br>
+          <input id="inputQuantity" class="input" [ngModel]="unit_measure" name="unit_measure" type="number" min="0"><br>
           <label id="size" class="size">Size: </label>
           <button type="button" class="mbtn">{{sizes}}</button>
           <!-- <button type="button" class="sbtn">S</button> -->
-          <h5 id="avialable">Available: {{unit_measure}} pcs</h5>
+          <h5 id="avialable">Available: {{avail_unit_measure}} pcs</h5>
           <button type="submit" class="addtocartbtn">Add to Cart</button><br>
           <button type="button" class="buyitbtn" (click)="checkOut(product)">Buy It Now</button>
         </form> 
@@ -54,7 +54,8 @@
 <div class=" col-11 col-s-11 media768">
   <div class="row">
     <div class="col-7 col-s-7 img768">
-      <img id="psimg768" src="../../../../assets/imgs/dag.jpg" alt="">
+      <img id="psimg" src="{{image }}" alt="this is an image" *ngIf="image">
+      <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!image">
     </div>
     <div class="col-4 col-s-4">
       <div class="text768">
@@ -78,7 +79,8 @@
 <div class=" col-11 col-s-11 media320">
   <div class="row">
     <div class="col-3 col-s-3 img320">
-      <img id="psimg320" src="../../../../assets/imgs/dag.jpg" alt="">
+      <img id="psimg" src="{{image }}" alt="this is an image" *ngIf="image">
+      <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!image">
     </div>
     <div class="col-3 col-s-3">
       <div class="text320">

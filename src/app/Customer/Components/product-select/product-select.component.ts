@@ -13,6 +13,7 @@ export class ProductSelectComponent implements OnInit {
 
   product!: Products;
   unit_measure!: number;
+  avail_unit_measure!: number;
   sizes!: any;
   image!: string;
 
@@ -36,6 +37,7 @@ export class ProductSelectComponent implements OnInit {
       }
     );
     this.getProduct();
+
   }
 
   async getProduct() {
@@ -44,7 +46,8 @@ export class ProductSelectComponent implements OnInit {
       this.product = result.data.data;
       this.image =this.product.image;
       this.id = this.product.id;
-      if (this.product.sizes.length > 0) {
+      this.avail_unit_measure = this.product.sizes[0].pivot.avail_unit_measure;
+      if (this.product.sizes.length < 0) {
         this.sizes = this.product.sizes[0].pivot.size;
         this.unit_measure = this.product.sizes[0].pivot.unit_measure;
       } else {
@@ -60,9 +63,8 @@ export class ProductSelectComponent implements OnInit {
         if(result.data.error){
           this.errors = result.data.message;
         }else {
-          this.router.navigate(["home"]);
+          //this.router.navigate(["home"]);
         }
-        console.log(id, data)
       })
     }else {
       this.router.navigate(["login"]);

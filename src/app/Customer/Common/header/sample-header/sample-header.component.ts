@@ -22,6 +22,8 @@ export class SampleHeaderComponent implements OnInit {
 
   data : string = "test";
 
+  token = localStorage.getItem('customer_token')
+
   @Output() messageEvent  = new EventEmitter<string>();
 
   constructor(private router: Router, private service : CustomerService) { }
@@ -56,10 +58,10 @@ export class SampleHeaderComponent implements OnInit {
     this.change == true ? value.css('display','block') : value.css('display','none');
   }
 
-  // async logout(){
-  //   this.service.loading();
-  //   const result = await this.service.logoutUser(this.token);
-  //   localStorage.clear();
-  //   window.location.reload();
-  // }
+  async logout(){
+    this.service.loading();
+    const result = await this.service.logoutUser(this.token);
+    localStorage.clear();
+    window.location.reload();
+  }
 }
