@@ -3,15 +3,44 @@
     box-sizing: border-box;
     border-radius: 5px;
     font-family: 'Roboto';
+    font-weight: bold;
 }
+p{color: #C7988E;}
 .headertxt{
   color: #F6F2EF;
   text-align: center;
   font-size: 5vw;
 }
-#product, #price{font-weight: bold;}
+.img320 {
+  height: 100%;
+  width: 100%;
+  box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
+}
+.pageheader{color: #C7988E;}
+.removebtn, .input, .btn{
+  box-sizing: border-box;
+  border: none;
+  color: #F6F2EF;
+  background-color: #C7988E;
+  border-radius: 5px;
+}
+.input {
+  font-size: 4vw;
+  width: 30%;
+  margin-left: 8%;
+  height: 15%;
+  border-radius: 3px;
+  font-weight: regular;
+  padding: 1vw;
+}
+.content{margin-bottom: 8vw;}
+.hr2{
+  width: 84.5vw;
+  margin-left: -1vw;
+}
+.buttons{text-align: center;}
 
-.pageheader {
+/* .pageheader {
     display: inline-block;
     margin-top: 5%;
     color: #C7988E;
@@ -21,12 +50,7 @@
     height: 100%;
     width: 100%;
 }
-.removebtn, .input, .btn{
-  box-sizing: border-box;
-  border: none;
-  color: #F6F2EF;
-  background-color: #C7988E;
-}
+
 .removebtn {
     font-size: 4.8vw;
     cursor: pointer;
@@ -67,7 +91,7 @@ p, .quantity{
     margin-left: -6%;
     border: 1px solid #9b5748;
 }
-
+ */
 
 
 @media only screen and (min-width: 600px) {
@@ -112,7 +136,31 @@ p, .quantity{
     margin-left: -1vw;
     border: 1px solid #C7988E;
   }
-  p{font-size: 5vw;}
+  p,.removebtn, .quantity, #cancel, #placeorder{font-size: 4vw;}
+  .productname{
+    font-size: 4vw;
+    margin-left: -4vw;
+    margin-top: 5%;
+  }
+  #product, #price{
+    font-size: 5vw;
+    margin-top: 5vw;
+    margin-bottom: 1vw;
+  }
+  .quantity{
+    color: #C7988E;
+    margin-left: -2vw;
+    margin-bottom: 5vw;
+  }
+  #total{
+    margin-left: -9vw;
+    margin-bottom: 5vw;
+  }
+  .amount{margin-top: 5%;}
+  #cancel, #placeorder{
+    width: 45vw;
+    padding: 2vw;
+  }
 
   /* #price {
       text-align: right;
