@@ -152,7 +152,7 @@ export class MyProfileComponent implements OnInit {
     this.display='block';
  }
 
-onCloseHandled(){
-  this.display='none';
-}
+  onCloseHandled(){
+    this.display='none';
+  }
 }

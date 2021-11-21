@@ -34,6 +34,8 @@ export class DashboardComponent implements OnInit {
   onSales! : SalesProduct[];
   countOrders : any;
   countCustomers : any;
+  cp : number = 1;
+  onsale : number = 1;
 
   ngOnInit(): void {
     this.getDashboard();
@@ -143,7 +145,6 @@ export class DashboardComponent implements OnInit {
       this.annually = result.data.annuallyOrders;
       this.http.closeLoading();
       this.lineChartData[0].data = Object.values(this.annually)
-
     });
   }
 

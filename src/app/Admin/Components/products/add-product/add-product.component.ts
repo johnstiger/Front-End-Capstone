@@ -109,8 +109,6 @@ export class AddProductComponent implements OnInit {
 
   addSize(params : any){
     let value = params.AddProductForm.value
-    console.log(value.sizes, value.unit_measure);
-
     if(value.sizes != '' && value.unit_measure != ''){
       let test = '';
       let productId;
@@ -134,9 +132,10 @@ export class AddProductComponent implements OnInit {
   }
 
   delete(params : any){
+    console.log(params);
     this.stockSizes.forEach((element, index) => {
       if(params.size == element.size){
-        (document.getElementById(""+ params.id +"") as HTMLInputElement).disabled = false;
+        (document.getElementById(""+ params.size_id +"") as HTMLInputElement).disabled = false;
         this.stockSizes.splice(index, 1)
       }
     })

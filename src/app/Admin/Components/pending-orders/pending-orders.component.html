@@ -20,13 +20,11 @@
                                 <tr>
                                     <th scope="col">Customer Name</th>
                                     <th scope="col">Product</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
+
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of orders">
+                            <tbody *ngFor="let order of orders | paginate:{itemsPerPage:5, currentPage: cp}">
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td>
@@ -35,23 +33,8 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <ul>
-                                            <li *ngFor="let product of order.products">{{ product.price }} </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li *ngFor="let product of order.products">{{ product.pivot.quantity }} </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <ul>
-                                            <li *ngFor="let product of order.products">{{product.pivot.subtotal}} </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <button type="button" (click)="confirm(order.id, order.customer.id)" class="btn btn-primary tableBtn">Confirmed</button>
-                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn">Declined</button>
+                                        <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i> Preview</button>
+                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
                                     </td>
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">
@@ -61,8 +44,8 @@
                                     <td> Not set </td>
                                     <td> Not set </td>
                                     <td>
-                                        <button type="button" (click)="confirm(order.id, order.customer.id)" class="btn btn-primary tableBtn">Confirmed</button>
-                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn">Declined</button>
+                                        <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i>Preview</button>
+                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -76,3 +59,52 @@
         </div>
     </div>
 </div>
+<div *ngIf="orders.length > 0">
+  <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+</div>
+
+<!-- Preview Modal -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ customerName }}'s Orders</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product Quantity</th>
+                <th scope="col">Product Size</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of customerOrders">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.pivot.quantity }}</td>
+                <td *ngFor="let size of product.sizes">
+                  <div *ngIf="size.id == product.pivot.size_id">
+                    {{ size.size }}
+                  </div>
+                </td>
+                <td>{{ product.pivot.quantity*product.price }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-primary" (click)="onCloseHandled()">Okay</button>
+              <button class="btn btn-success confirm" (click)="confirm(orderId, customerId)">Confirmed</button>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal !-->

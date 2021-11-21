@@ -40,8 +40,6 @@ export class EditProductComponent implements OnInit {
     private link : UrlService
     ) { }
 
-    path = this.link.setImageUrl();
-    // token = this.link.getToken();
     token = localStorage.getItem('admin_token');
     id:any;
     categories! : Categories[];
@@ -72,14 +70,14 @@ export class EditProductComponent implements OnInit {
       this.category_id = this.product.category_id;
       if(this.product.sizes.length > 0){
         this.stockSizes = this.product.sizes
-        this.sizes = this.product.sizes[0].id;
-        this.unit_measure = this.product.sizes[0].pivot.unit_measure
-      }else{
-        this.sizes = 0;
-        this.unit_measure = 0;
-      }
-      console.log(this.product);
+        console.log(this.stockSizes);
 
+        // this.sizes = this.product.sizes[0].id;
+        // this.unit_measure = this.product.sizes[0].pivot.unit_measure
+      }else{
+      }
+      this.sizes = 0;
+      this.unit_measure = 0;
       this.getCategory();
       this.service.closeLoading();
     });
@@ -108,10 +106,6 @@ export class EditProductComponent implements OnInit {
 
     data.fileSource = this.filedata != undefined ? this.filedata : data.image;
 
-    console.log(data);
-    // if(this.filedata){
-    //   data.image = this.filedata
-    // }
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
@@ -138,14 +132,10 @@ export class EditProductComponent implements OnInit {
   async getSize(){
     const result = await this.service.getSizes(this.token);
     this.allSize = result.data.error ? false : result.data.data;
-    console.log('AllSizes', this.allSize);
-
   }
   // addSize
   addSize(params : any){
-    let value = params.AddProductForm.value
-    console.log('VALUE_', value.sizes, value.unit_measure);
-
+    let value = params
     if(value.sizes != '' && value.unit_measure != ''){
       let test = '';
       let productId;

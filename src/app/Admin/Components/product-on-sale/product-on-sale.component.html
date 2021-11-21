@@ -31,7 +31,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let product of sales">
+                                <tr *ngFor="let product of sales | paginate : {itemsPerPage:5, currentPage:cp}">
                                     <td> {{ product.products.name }} </td>
                                     <td> {{ product.products.category.name }} </td>
                                     <td>{{ product.price }}</td>
@@ -55,4 +55,7 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="sales.length > 0">
+  <pagination-controls (pageChange)="cp = $event"></pagination-controls>
 </div>

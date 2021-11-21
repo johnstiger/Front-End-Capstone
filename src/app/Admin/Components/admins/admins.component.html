@@ -29,9 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody *ngIf="admins">
-                                <tr *ngFor="let admin of admins">
-
-
+                                <tr *ngFor="let admin of admins | paginate:{itemsPerPage:5, currentPage:cp}">
                                     <td> {{ admin.firstname }} </td>
                                     <td>{{ admin.lastname }}</td>
                                     <td> {{ admin.contact_number }} </td>
@@ -40,7 +38,6 @@
                                         <button type="button" (click)="update(admin)" class="btn btn-success actionBtn"><i class="fas fa-edit"></i></button>
                                         <button type="button" (click)="confirmDelete(admin)" class="btn btn-danger actionBtn"><i class="far fa-trash-alt"></i></button>
                                     </td>
-
                                 </tr>
                             </tbody>
                         </table>
@@ -52,4 +49,7 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="admins.length > 0">
+  <pagination-controls (pageChange)="cp = $event"></pagination-controls>
 </div>

@@ -20,18 +20,20 @@
                                 <tr>
                                     <th scope="col"> First Name</th>
                                     <th scope="col"> Last Name</th>
-                                    <th scope="col">Contact Number</th>
                                     <th scope="col">Email Address</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let customer of customers">
+                                <tr *ngFor="let customer of customers | paginate: {itemsPerPage:5, currentPage:cp}">
                                     <td>{{ customer.firstname }} </td>
                                     <td>{{ customer.lastname }} </td>
-                                    <td> {{ customer.contact_number }}</td>
-                                    <td> {{ customer.email }} </td>
-                                    <td> {{ customer.addresses }} </td>
+                                    <td>{{ customer.email }} </td>
+                                    <td>
+                                      <button class="btn btn-primary" (click)="openModal(customer)">
+                                        <i id="cpIcon" class="far fa-eye"></i> Preview
+                                      </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -44,3 +46,53 @@
         </div>
     </div>
 </div>
+<div *ngIf="customers.length > 0">
+  <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+</div>
+
+<!-- Preview Modal -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ customerName }}</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Postal Code</th>
+                <th scope="col">City</th>
+                <th scope="col">Province</th>
+                <th scope="col">Municipality</th>
+                <th scope="col">Barangay</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="addresses">
+              <tr *ngFor="let address of addresses">
+                  <td>{{ address.contact_number }}</td>
+                  <td>{{ address.postal_code }}</td>
+                  <td>{{ address.city }}</td>
+                  <td>{{ address.province }}</td>
+                  <td>{{ address.municipality }}</td>
+                  <td>{{ address.barangay }}</td>
+                  <td *ngIf="address.active == 1" class="active">Active Address</td>
+                  <td *ngIf="address.active != 1">Not Active Address</td>
+              </tr>
+            </tbody>
+          </table>
+          <img *ngIf="addresses == false" src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-primary" (click)="onCloseHandled()">Okay</button>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal !-->

@@ -11,6 +11,7 @@ export interface Products {
   unit_measure : number,
   category : any,
   percent_off : any,
+  total_avail_unit_measure : any,
 }
 
 export interface Admins {
