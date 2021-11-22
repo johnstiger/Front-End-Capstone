@@ -29,6 +29,7 @@ a{
   width: 90%;
   height: 100%;
   margin-left: 13%;
+  box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
 }
 .buttons{
   font-weight: bold;
@@ -178,6 +179,7 @@ a{
     margin-left: 15%;
     width: 80%;
     height: 80%;
+    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
   }
   .details{
     margin-left: -8%;
@@ -278,11 +280,6 @@ a{
 
 @media screen and (min-width: 1440px) {
   .account{margin-bottom: 33%;}
-  /* .account{width: 16.66%;} */
-  /* .deliverypanel{
-    margin-bottom: 23%;
-    width: 58.33%;
-  } */
   #hr2, #hr768{
     width: 59.7vw;
     margin-left: -0.9vw;

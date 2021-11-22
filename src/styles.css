@@ -13,3 +13,6 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+hr{
+  border: 1px solid #C7988E ;
+}

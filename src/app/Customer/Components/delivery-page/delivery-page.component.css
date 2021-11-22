@@ -18,6 +18,7 @@
     width: 90%;
     height: 100%;
     margin-left: 12%;
+    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
   }
   .profileimg{
     width: 60%;
@@ -117,6 +118,7 @@
       margin-left: 15%;
       width: 100%;
       height: 90%;
+      box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
     }
     .account{
       text-align: center;

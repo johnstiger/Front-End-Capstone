@@ -13,6 +13,7 @@ a, p{
   width: 90%;
   height: 100%;
   margin-left: 14%;
+  box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
 }
 #headerhr{
   width: 84vw;
@@ -103,6 +104,7 @@ a, p{
     margin-left: 15%;
     width: 100%;
     height: 90%;
+    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
   }
   .account{
     text-align: center;
