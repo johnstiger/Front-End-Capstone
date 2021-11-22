@@ -158,136 +158,161 @@ p, .quantity{
   }
   .amount{margin-top: 5%;}
   #cancel, #placeorder{
-    width: 45vw;
+    width: 50vw;
     padding: 2vw;
+    margin-bottom: 4vw;
+    border-radius: 8px;
   }
-
-  /* #price {
-      text-align: right;
-      font-size: 12px;
+  #subtotal{margin-bottom: 1vw;}
+  #shippingfee{
+    margin-right: 10vw;
+    margin-bottom: 1vw;
   }
-  #product{font-size: 12px;}
-  p, .quantity, .productname  {
-      font-size: 11px;
-      font-weight: bold;
-  }
-  #headerId {
-      width: 111%;
-      border: 1px solid #C7988E;
-      margin-left: -6%;
-      margin-top: -2%;
-  }
-  .productname {
-      margin-bottom: 5%;
-  }
-  #total {
-      margin-left: -21%;
-  }
-  .col-4{
-    margin-bottom: 5%;
-  }
-} */
+  #alltotal{margin-left: 14vw;}
+  .buttons{margin-bottom: 5vw;}
 }
-@media screen and (min-width: 340px){
-#headerId,.hr2{
-  width: 110%;
-  margin-left: -15px;
-  }
-}
-
 @media screen and (min-width: 375px) {
-p, .quantity, .input, .productname, .removebtn {
-  font-size: 12px;
-}
-#headerId,.hr2{
-  width: 109%;
-  margin-top: 1%;
-}
-}
-@media screen and (min-width: 400px){
-#headerId,.hr2{
-  width: 108%;
-}
+  #headerhr{width: 85vw;}
+  .hr2{width: 85.5vw;}
 }
 @media screen and (min-width: 425px){
-p, .quantity, .input, #productname, .btn, .productname, .removebtn {
-  font-size: 13px;
+  #headerhr{width: 86vw;}
+  .hr2{width: 86.5vw;}
 }
-#price, #product{
-  font-size: 14px;
+@media screen and (min-width: 500px){
+  #headerhr, .hr2{width: 87vw;}
 }
+@media screen and (min-width: 600px){
+  #headerhr, .hr2{width: 88vw;}
+}
+@media screen and (min-width: 700px){
+  #headerhr, .hr2{width: 89vw;}
 }
 @media screen and (max-width: 767px){
   .media768{display: none;}
 }
 @media screen and (min-width:768px){
   .media320{display: none;}
+  .media768{margin-left: 4vw;}
+  .img768{
+    width: 85%;
+    height: 90%;
+    margin-left: 2vw;
+    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
+  }
+  p,.removebtn, .quantity, #cancel, #placeorder, .productname, #price, .input, #product{
+    font-size: 2vw;
+    font-weight: 400;
+  }
   .headertxt{
-    font-size: 31px;
-    font-weight: 500;
     font-family: 'Philosopher';
+    font-size: 3vw;
   }
-  #headerId{
-    width: 104%;
-    margin-top: -4%;
+  .head{margin-top: 3vw;}
+  .mngadress, .mngpayment{
+    padding: 0.5vw;
+    width: 20vw;
+    margin-left: 5vw;
   }
-  .head{
-    margin-top: 5%;
-    margin-bottom: 0%;
+  .side{margin-left: 3vw;}
+  #headerid{
+    width: 88.6vw;
+    margin-left: -0.4vw;
+    margin-top: 1vw;
   }
-  .head p, .headp p{
-    font-weight: normal;
+  .hr2{
+    width: 91.7vw;
+    margin-left: -1.9vw;
   }
-  .mngadress, .mngpattern{
-    width: 60%;
-    float: right;
-    margin-right: 8%;
+  .product, #headerprice, #headerquantity, #headertotal, .productname, .buttons p{font-weight: bold;}
+  .product{margin-left: 2vw;}
+  .productname{
+    margin-left: 1vw;
   }
-  .side{
-    margin-left: 10%;
+  #product, #total{margin-top: 3vw;}
+  .removebtn{
+    margin-left: 1vw;
+    width: 13vw;
   }
-  p{
-    font-size: 14px;
+  #total{margin-left: 0vw;}
+  .input{
+    width: 7vw;
+    margin-left: 0.4vw;
+    padding: 1.5vw;
+    margin-top: 3vw;
   }
-  .cartimg{margin-left: 15%;}
-  .product{
-    margin-left: 15%;
+  .buttons{text-align: right;}
+  #headertotal{margin-left: 2vw;}
+  #cancel, #placeorder{
+    width: 20vw;
+    padding: 0.5vw;
+    border-radius: 5px;
+  }
+  #placeorder{margin-left: -1vw;}
+  #cancel{margin-left: -3vw;}
+  .prodside{margin-top: 1.5vw;}
+  .headers{margin-top: 1vw;}
+}
+@media screen and (min-width:1024px){
+  p,.removebtn, .quantity, #cancel, #placeorder, .productname, #price, .input, #product, .mngadress, .mngpayment{font-size: 1.3vw;}
+  .headertxt{font-size: 2vw;}
+  .mngadress, .mngpayment{
+    width: 15vw;
+    margin-left: 12vw;
+  }
+  .mngadress{
+    margin-top: -2%;
+  }
+  #headerid{
+    width: 89.5vw;
+    margin-left: -0.3vw;
+  }
+  .productname{margin-left: 2vw;}
+  .removebtn{
+    margin-left: 2vw;
+    width: 8vw;
   }
   .input{
-    padding-left: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-weight: normal;
+    width: 4.5vw;
+    padding: 1vw;
+    float: right;
   }
-  .prodside{
-    margin-top: 3%;
+  #headertotal{
+    text-align: center;
+    margin-left: 0vw;
   }
   #total{
-    font-weight: normal;
+    margin-left: 0vw;
+    text-align: center;
+  }
+  #headerquantity, #headerprice, #product{float: right;}
+  .side{margin-left: 5vw;}
+  .img768, .product{margin-left: 3vw;}
+  #cancel, #placeorder{width: 17vw;}
+  #placeorder{margin-left: 3vw;}
+  #cancel{margin-left: 7vw;}
+  .hr2{
+    width: 91.8vw;
+    margin-left: -1.6vw;
+  }
+}
+@media screen and (min-width: 1440px){
+  #headerid{
+    width: 90vw;
+    margin-left: -0.2vw;
   }
   .hr2{
-    margin-left: -29px;
-    width: 109%;
-    margin-top: 3%;
+    width: 91.7vw;
+    margin-left: -1.1vw;
   }
   #cancel, #placeorder{
-    width: 100%;
+    border-radius: 8px;
   }
-  .bottomdiv{
-    margin-bottom: 5%;
+  .mngadress{
+    margin-top: -3%;
   }
 }
-@media screen and (min-width: 1024px) {
-  p, .btn, .productname, .removebtn, .input{
-    font-size: 17px;
-  }
-  .productname, .removebtn{margin-left: 15%;}
-  .input{margin-top: 5%;}
-  #headerId{width: 103%;}
-  .hr2{
-    margin-left: -31px;
-    width: 107%;
-  }
-  .buttons{margin-left: -2%;}
+@media screen and (min-width:2560px){
+  #headerid{width: 91vw;}
+  .hr2{width: 92.3vw;}
 }
-
