@@ -6,8 +6,12 @@ export const environment = {
   production: false,
   projectName : "Dagom local",
   // url : "http://santafe-dagom.herokuapp.com/api/"
+<<<<<<< HEAD
   // url  : "https://santafe-dagom.herokuapp.com/"
   url: "http://localhost:8000/api/"
+=======
+  url  : "https://santafe-dagom.herokuapp.com/api/"
+>>>>>>> 977d3b012d5ed09f49a3fb26ec4533b13be7eee5
 };
 
 /*
