@@ -6,6 +6,9 @@
     color: #C7988E;
     font-family: 'Roboto';
   }
+  hr{
+    border: 1px solid #C7988E ;
+  }
   a{
     color: #C7988E;
     text-decoration: none;
@@ -18,6 +21,7 @@
     width: 90%;
     height: 100%;
     margin-left: 14%;
+    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
   }
   .profileimg{
     width: 60%;
@@ -135,6 +139,7 @@
       margin-left: 15%;
       width: 90%;
       height: 90%;
+      box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
     }
     #quant{margin-left: 9vw;}
     #prodname, #amount{margin-bottom: 0vw;}
