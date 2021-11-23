@@ -9,6 +9,7 @@
   hr{
     border: 1px solid #C7988E ;
   }
+  .hr{background-color: white;}
   a{
     color: #C7988E;
     text-decoration: none;

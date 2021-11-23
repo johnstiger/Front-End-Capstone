@@ -5,6 +5,7 @@
   margin-bottom: 10%;
   font-family: 'Roboto';
 }
+.hr{background-color: #F6F2EF;}
 a, p{
   color: #C7988E;
   text-decoration: none;
@@ -19,10 +20,10 @@ a, p{
   width: 84vw;
   margin-top: 2%;
   margin-left: -1vw;
+  background-color: #C7988E;
 }
 #allorders, #topay{padding-right: 4vw;}
 #deliverydate{padding-right: 5vw;}
-#hr768,#headerhr{border: 1px solid #C7988E;}
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
@@ -69,7 +70,10 @@ a, p{
    margin-bottom: 0vw;
    margin-left: 23vw;
  }
- #hr1{margin-top: 1vw;}
+ #hr1{
+   margin-top: 1vw;
+   background-color: #C7988E;
+  }
  #img320{height: 90%;}
  #hr1{
    width: 28vw;
@@ -172,6 +176,7 @@ a, p{
   #hr768{
     width: 68vw;
     margin-left: 0vw;
+    background-color: #C7988E;
   }
   #datereveived{
     margin-bottom: 2vw;

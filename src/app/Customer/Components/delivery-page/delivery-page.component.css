@@ -10,6 +10,7 @@
     color: #C7988E;
     text-decoration: none;
   }
+  .hr{background-color: #F6F2EF;}
   .account, .deliverypanel{
     background-color: #F6F2EF;
     border-radius: 5px;
@@ -30,12 +31,12 @@
     width: 84vw;
     margin-top: 2%;
     margin-left: -1vw;
-    border: 1px solid #C7988E;
+    background-color: #C7988E;
   }
   .submedia{margin-bottom: 7vw;}
   #allorders, #topay{padding-right: 4vw;}
   #deliverydate{padding-right: 5vw;}
-  #hr768{border: 1px solid #C7988E;}
+  #hr768{background-color: #C7988E;}
 
   @media only screen and (min-width: 600px) {
     /* For tablets: */
@@ -81,7 +82,10 @@
     margin-bottom: 0vw;
     margin-left: 23vw;
   }
-  #hr1{margin-top: 1vw;}
+  #hr1{
+    margin-top: 1vw;
+    background-color: #C7988E;
+  }
   #img320{height: 90%;}
   #hr1{
     width: 28vw;
@@ -133,7 +137,7 @@
     }
     .header768{
       margin-top: 2vw;
-    margin-bottom: 1vw;}
+      margin-bottom: 1vw;}
     .header768 a, .account p{font-size: 2vw;}
     .right768 p, p{font-size: 1.8vw;}
     .account p{
@@ -148,6 +152,7 @@
     #hr768{
       width: 68vw;
       margin-left: 0vw;
+      background-color: #C7988E;
     }
     .headertxt768 p{font-weight: bold;}
     .right768, .date, .amount{text-align: center;}
