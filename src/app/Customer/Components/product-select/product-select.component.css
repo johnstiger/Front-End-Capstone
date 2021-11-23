@@ -6,6 +6,7 @@
   color: 000000;
   font-family: 'Roboto';
 }
+hr{height: 0.2vw;}
 .hr{background-color: #F6F2EF;}
 #img320{
   width: 75%;

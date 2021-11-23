@@ -6,6 +6,8 @@
   color: #C7988E;
   font-family: 'Roboto';
 }
+hr{height: 0.2vw;}
+.hr{background-color: #F6F2EF;}
 a{
   color: #C7988E;
   text-decoration: none;
@@ -21,9 +23,10 @@ a{
   margin-top: 2vw;
 }
 #headerhr{
-  width: 85vw;
+  width: 88vw;
   margin-top: 2%;
   margin-left: -1vw;
+  background-color: #C7988E;
 }
 #img320{
   width: 90%;
@@ -56,7 +59,7 @@ a{
 }
 #allorders, #topay{padding-right: 4vw;}
 #deliverydate{padding-right: 5vw;}
-#hr768{border: 1px solid #C7988E;}
+/* #hr768{border: 1px solid #C7988E;} */
 #recievedate{margin-left: -30%;}
 #totalamount{margin-left: -8%;}
 
@@ -128,7 +131,7 @@ a{
 }
 @media screen and (min-width: 425px) {
   #hr2{width: 93vw;}
-  #headerhr{width: 86vw;}
+  /* #headerhr{width: 86vw;} */
 }
 @media screen and (min-width: 600px) {
   #headerhr{width: 88vw;}
@@ -162,7 +165,7 @@ a{
   #toPay, #deliverydate{ padding-right: 11vw;}
   #quant{margin-left: 9.1vw;}
   #hr768{
-    width: 105%;
+    width: 72vw;
     margin-left: -1.5vw;
   }
   .account{
@@ -256,10 +259,10 @@ a{
   }
   #hr2{
     margin-left: -1.1vw;
-    width: 59.4vw;
+    width: 60vw;
   }
   #hr768{
-    width: 59.5vw;
+    width: 60vw; 
     margin-left: -1.2vw;
   }
   #amount, #total, #quant{margin-right: 1vw;}

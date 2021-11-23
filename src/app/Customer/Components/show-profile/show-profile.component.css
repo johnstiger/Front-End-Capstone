@@ -4,7 +4,9 @@
   border-radius: 8px;
   font-family: 'Roboto';
   margin-bottom: 10%;
-
+}
+.hr{
+  background-color: #F6F2EF;
 }
 .profile{
   text-align: center;
@@ -139,6 +141,7 @@ p{
   .media768{
     background-color: transparent;
     margin-left: 2%;
+    margin-bottom: -13vw;
   }
   input{
     width: 95%;

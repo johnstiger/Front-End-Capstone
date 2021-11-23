@@ -6,9 +6,7 @@
     color: #C7988E;
     font-family: 'Roboto';
   }
-  hr{
-    border: 1px solid #C7988E ;
-  }
+  hr{height: 0.2vw;}
   .hr{background-color: white;}
   a{
     color: #C7988E;
@@ -31,7 +29,7 @@
     margin-top: 20%;
   }
   #headerhr{
-    width: 84vw;
+    width: 85vw;
     margin-top: 2%;
     margin-left: -1vw;
   }
@@ -39,7 +37,6 @@
   .submedia{margin-bottom: 7vw;}
   #allorders, #topay{padding-right: 4vw;}
   #deliverydate{padding-right: 5vw;}
-  #hr768{border: 1px solid #C7988E;}
 
   @media only screen and (min-width: 600px) {
     /* For tablets: */
@@ -98,11 +95,10 @@
   }
   @media screen and (min-width:375px){
     #headerhr{
-      width: 85vw;
+      width: 87vw;
     }
   }
   @media screen and (min-width:420px){
-    #headerhr{width: 86vw;}
     #hr1{margin-left: 4vw;}
   }
   @media screen and (max-width: 767px){
@@ -152,9 +148,10 @@
     .right768{text-align: center;}
     #toPay, #deliverydate{ padding-right: 11vw;}
     #hr768{
-      width: 68vw;
+      width: 70vw;
       margin-left: 0vw;
       margin-bottom: 5vw;
+      margin-top: 1vw;
     }
     .col-6{
       margin-bottom: 2vw;
@@ -163,7 +160,7 @@
   @media screen and (min-width: 1024px) {
     .media768{margin-bottom: -19vw;}
     #hr768{
-      width: 57vw;
+      /* width: 57vw; */
       margin-bottom: 4vw;
     }
     #hr1{

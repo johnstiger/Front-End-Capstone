@@ -5,6 +5,12 @@
     font-family: 'Roboto';
     font-weight: bold;
 }
+hr{
+  height: 0.2vw;
+  border: none;
+  background-color: #C7988E;
+}
+.hr{background-color: #F6F2EF;}
 p{color: #C7988E;}
 .headertxt{
   color: #F6F2EF;
@@ -36,62 +42,10 @@ p{color: #C7988E;}
 .hr2{
   width: 84.5vw;
   margin-left: -1vw;
+  background-color: #C7988E;
+  border: none;
 }
 .buttons{text-align: center;}
-
-/* .pageheader {
-    display: inline-block;
-    margin-top: 5%;
-    color: #C7988E;
-    margin-bottom: -3%;
-}
-.img320 {
-    height: 100%;
-    width: 100%;
-}
-
-.removebtn {
-    font-size: 4.8vw;
-    cursor: pointer;
-    border-radius: 8px;
-    height: 24%;
-    width: 83%;
-}
-
-.input {
-    font-size: 4.5vw;
-    width: 30%;
-    margin-left: 6%;
-    height: 15%;
-    border-radius: 3px;
-    font-weight: bold;
-}
-
-.checkinput{
-  height: 30px;
-  width: 15px;
-  margin-left: 10%;
-}
-.buttons{
-  text-align: right;
-}
-.buttons button{
-  margin-bottom: 5%;
-}.quantity{
-  margin-top: -8px;
-}
-
-p, .quantity{
-  color: #C7988E;
-  padding-top: 5px;
-}
-.hr2{
-  width: 111%;
-    margin-left: -6%;
-    border: 1px solid #9b5748;
-}
- */
-
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
@@ -133,7 +87,7 @@ p, .quantity{
     width: 84vw;
     margin-top: 2%;
     margin-left: -1vw;
-    border: 1px solid #C7988E;
+    background-color: #C7988E;
   }
   p,.removebtn, .quantity, #cancel, #placeorder{font-size: 4vw;}
   .productname{
@@ -218,6 +172,7 @@ p, .quantity{
     width: 88.6vw;
     margin-left: -0.4vw;
     margin-top: 1vw;
+    background-color: #C7988E;
   }
   .hr2{
     width: 91.7vw;

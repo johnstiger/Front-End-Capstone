@@ -6,6 +6,7 @@
     margin-bottom: 10%;
     font-family: 'Roboto';
   }
+  hr{height: 0.2vw;}
   a, p{
     color: #C7988E;
     text-decoration: none;
@@ -150,9 +151,10 @@
     }
     #toPay, #deliverydate{ padding-right: 11vw;}
     #hr768{
-      width: 68vw;
+      width: 70vw;
       margin-left: 0vw;
       background-color: #C7988E;
+      border: none;
     }
     .headertxt768 p{font-weight: bold;}
     .right768, .date, .amount{text-align: center;}
@@ -200,7 +202,6 @@
       margin-bottom: 22%;
     }
     .header768 a, .account p,  .right768 p, p{font-size: 1.3vw;}
-    #hr768{width: 57vw;}
     #img768{width: 90%;}
     #quant{margin-left: 6vw;}
     #hr1{
@@ -213,9 +214,7 @@
   }
   @media screen and (min-width:1440px){
     .account{margin-bottom: 33%;}
-    #hr768{width: 58vw;}
   }
   @media screen and (min-width:2560px){
-    #hr768{width: 59vw;}
     .account{margin-bottom: 33%;}
   }

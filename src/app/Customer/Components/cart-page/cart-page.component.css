@@ -6,6 +6,7 @@
     font-family: 'Roboto';
     margin-bottom: 5%;
 }
+hr{height: 0.2vw;}
 .hr{background-color: white;}
 .headertitle{
   color: #F6F2EF;
