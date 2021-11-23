@@ -6,7 +6,12 @@
     font-family: 'Roboto';
     margin-bottom: 5%;
 }
-
+.hr{background-color: white;}
+.headertitle{
+  color: #F6F2EF;
+  text-align: center;
+  font-size: 6vw;
+}
 .pageheader {
   color: #C7988E;
 }
@@ -55,7 +60,7 @@
     color: #F6F2EF;
     font-size: 4vw;
     border-radius: 8px;
-    width: 50%;
+    width: 55%;
 }
 
 p,
@@ -64,10 +69,9 @@ p,
 }
 
 .hr2 {
-    width: 111%;
-    margin-left: -6%;
-    border: 1px solid #9b5748;
-    background-color: #9b5748;
+    width: 91vw;
+    margin-left: -4.5vw;
+    background-color: #C7988E;
 }
 
 .container768 {
@@ -94,10 +98,10 @@ p,
 
 .checkmark {
     position: absolute;
-    top: -5px;
-    left: 0;
-    height: 25px;
-    width: 25px;
+    top: -3vw;
+    left: 7vw;
+    height: 6vw;
+    width: 8vw;
     background-color: #C7988E;
 }
 
@@ -116,12 +120,12 @@ p,
 }
 
 .container768 .checkmark:after {
-    left: 9px;
-    top: 1px;
-    width: 8px;
-    height: 21px;
+    left: 2.5vw;
+    top: -1vw;
+    width: 3vw;
+    height: 6vw;
     border: solid black;
-    border-width: 0 3px 3px 0;
+    border-width: 0 1vw 1vw 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -161,17 +165,22 @@ p,
   .media320{margin-left: 4vw;}
   #price{float: right;}
   #product, #price{
-    font-size: 5vw;
+    font-size: 4.3vw;
     margin-top: 5vw;
     margin-bottom: 1vw;
+    font-weight: bold;
   }
   #headerhr{
-    width: 111%;
-    border: 1px solid #C7988E;
-    margin-left: -6%;
-    margin-top: -2%;
+    width: 91vw;
+    margin-left: -4.5vw;
+    margin-top: 0%;
+    background-color: #C7988E;
   }
-  p,.removebtn, .quantity{font-size: 4vw;}
+  p,.removebtn, .quantity{
+    font-size: 4vw;
+    font-weight: bold;
+  }
+  .removebtn{font-weight: 400;}
   .productname{
     font-size: 4vw;
     margin-left: -4vw;
@@ -186,241 +195,157 @@ p,
     margin-left: -9vw;
     margin-bottom: 5vw;
   }
-  /* #cancel, #placeorder{
-    width: 45vw;
-    padding: 2vw;
-  } */
-
-    /* .quantity,
-    .productname {
-        font-size: 4vw;
-        font-weight: bold;
-    }
-    #headerId {
-        width: 111%;
-        border: 1px solid #C7988E;
-        margin-left: -6%;
-        margin-top: -2%;
-    }
-    .productname {
-        margin-bottom: 5%;
-    }
-    #total {
-        margin-left: -21%;
-    }
-    .headertitle {
-        font-size: 16px;
-        font-weight: bold;
-        color: #F6F2EF;
-        text-align: center;
-    }
-    .box {
-        margin-top: 5%;
-    }
-    .checkmark {
-        margin-left: 10%;
-        height: 20px;
-        width: 20px;
-    }
-    .container768 .checkmark:after {
-        height: 15px;
-        width: 7px;
-        left: 7px;
-    } */
 }
-
-/* @media screen and (min-width: 340px) {
-    #headerId,
-    .hr2 {
-        width: 110%;
-        margin-left: -15px;
-    }
+@media screen and (min-width:375px) {
+  .hr2, #headerhr{
+    width: 91.8vw;
+    margin-left: -4vw;
+  }
 }
-
-@media screen and (min-width: 375px) {
-    p,
-    .quantity,
-    .input,
-    .productname,
-    .removebtn {
-        font-size: 12px;
-    }
-    #price,
-    #product {
-        font-size: 13px;
-    }
-    .headertitle {
-        font-size: 17px;
-    }
-    #headerId,
-    .hr2 {
-        width: 109%;
-    }
+@media screen and (min-width:425px){
+  .hr2, #headerhr{
+    width: 91.8vw;
+    margin-left: -3.5vw;
+  }
 }
-
-@media screen and (min-width: 400px) {
-    #headerId,
-    .hr2 {
-        width: 108%;
-    }
+@media screen and (min-width:500px) {
+  .hr2, #headerhr{
+    width: 91.6vw;
+    margin-left: -3vw;
+  }
 }
-
-@media screen and (min-width: 425px) {
-    p,
-    .quantity,
-    .input,
-    #productname,
-    .btn,
-    .productname,
-    .removebtn {
-        font-size: 13px;
-    }
-    #price,
-    #product {
-        font-size: 14px;
-    }
-    .headertitle {
-        font-size: 18px;
-    }
-} */
+@media screen and (min-width:600px){
+  .hr2, #headerhr{
+    margin-left: -2.5vw;
+  }
+}
 
 @media screen and (max-width: 767px) {
-    .media768 {
-        display: none;
-    }
+  .media768 {
+      display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .media320 {
-        display: none;
-    }
-    .headertitle {
-        font-size: 31px;
-        font-weight: 500;
-        font-family: 'Philosopher';
-    }
-    .headers768 {
-        text-align: center;
-        margin-top: 5%;
-    }
-    .hr768 {
-        margin-left: -2%;
-        width: 104%;
-        margin-top: 0%;
-    }
-    .subselect {
-        margin-left: 40%;
-        margin-top: 35%;
-    }
-    .rmvbtn {
-        width: 85%;
-        padding: 4px;
-        font-size: 13px;
-        border-radius: 8px;
-    }
-    .productname {
-        margin-top: 18%;
-    }
-    .col-2,
-    .col-1 {
-        text-align: center;
-    }
-    .cntshopping {
-        width: 21%;
-        font-size: 13px;
-        margin-left: 38%;
-    }
-    .updatebtn,
-    .checkoutbtn {
-        width: 18%;
-        margin-left: 2%;
-        float: right;
-        font-size: 13px;
-    }
-    .input {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        padding-left: 8px;
-        width: 100%;
-    }
-    .select {
-        margin-top: 4%;
-    }
-    .size {
-        margin-top: 110%;
-    }
-    .amount768 {
-        margin-top: 40%;
-    }
-    .input {
-        margin-top: 95%;
-    }
-    .total768 {
-        margin-top: 38%;
-    }
-    .size,
-    .amount768,
-    .total768,
-    .subtotal,
-    .subtotalamount {
-        font-weight: 400;
-    }
+  .media320 {
+      display: none;
+  }
+  .media768{
+    margin-left: 4vw;
+    margin-bottom: 4vw;
+  }
+  .headertitle {
+      font-size: 3.5vw;
+      font-weight: 500;
+      font-family: 'Philosopher';
+  }
+  p, .btn, .removebtn, .productname, .container768{font-size: 2vw;}
+  .checkmark{
+    height: 2.5vw;
+    width: 3.3vw;
+  }
+  .container768 .checkmark:after{
+    left: 1vw;
+    top: -0.2vw;
+    width: 1.2vw;
+    height: 2.5vw;
+    border-width: 0 0.6vw 0.6vw 0;
+  }
+  .hr768{
+    margin-top: -1vw;
+    width: 91.6vw;
+    margin-left: -1.9vw;
+    background-color: #C7988E;
+  }
+  .container768{
+    margin-left: -1vw;
+    margin-top: 0vw;
+  }
+  .headers768{
+    margin-top: 4vw;
+  }
+  .subselect{margin-top: 7vw;}
+  .select{
+    margin-left: -5.5vw;
+    margin-top: 3.2vw;
+  }
+  .producthd{margin-left: -5vw;}
+  .productname{margin-left: -1vw;}
+  .size, .amount768, .total768{
+    font-weight: 400;
+    margin-top: 4vw;
+  }
+  #quantityvalue{
+    margin-top: 4vw;
+    font-size: 2vw;
+    width: 5vw;
+    padding: 1vw;
+    height: 2.5vw;
+  }
+  .sizehd{margin-left: -1vw;}
+  .pricehd, .totalhd{text-align: center;}
+  .btn{
+    width: 22%;
+    padding: 0.6vw;
+  }
+  .subtotalamount, .subtotal{
+    font-weight: 400;
+    margin-top: 0vw;
+  }
+  .subtotal{margin-left: -2vw;}
+  .subtotalamount{margin-right: 1vw;}
+  .checkoutbtn{
+    width: 18vw;
+    margin-right: -23vw;
+  }
+  .buttons button{
+    margin-left: 2.3vw;
+    border-radius: 5px;
+  }
+  .updatebtn{width: 18vw;}
+  .buttons{margin-bottom: -1vw;}
 }
-
 @media screen and (min-width: 1024px) {
-    .container768,
-    p,
-    .productname,
-    .btn {
-        font-size: 16px;
-    }
-    .size {
-        margin-top: 100%;
-    }
-    .amount768 {
-        margin-top: 40%;
-    }
-    .input {
-        margin-top: 95%;
-    }
-    .checkmark {
-        height: 22px;
-        width: 25px;
-    }
-    .container768 .checkmark:after {
-        border-width: 0 4px 4px 0;
-        height: 20px;
-        width: 10px;
-        left: 8px;
-        top: -1px;
-    }
-    .total768 {
-        margin-top: 39%;
-    }
-    .cntshopping,
-    .updatebtn,
-    .checkoutbtn {
-        width: 18%;
-    }
-    .headers768 {
-        margin-top: 4%;
-    }
-    .select {
-        margin-left: 15%;
-    }
-    .hr768{
-        width: 103%;
-        margin-left: -13px;
-    }
+  p, .btn, .removebtn, .productname, .container768, #quantityvalue{font-size: 1.3vw;}
+  .headertitle{font-size: 2vw;}
+  .checkmark{
+    width: 2.5vw;
+    height: 2vw;
+  }
+  .container768 .checkmark:after{
+    left: 0.6vw;
+    height: 1.9vw;
+    border-width: 0 0.4vw 0.4vw 0;
+  }
+  .headers768{margin-top: 2.5vw;}
+  .img768{
+    width: 90%;
+    height: 95%;
+  }
+  .select{
+    margin-left: -4.5vw;
+    margin-top: 2.9vw;
+  }
+  .productname{margin-top: 2vw;}
+  .amount768, .total768{text-align: center;}
+  .cntshopping, .checkoutbtn, .updatebtn{width: 15vw;}
+  .checkoutbtn{margin-right: -30vw;}
+  .hr768{
+    width: 91.5vw;
+    margin-left: -1.4vw;
+  }
+  .subtotal{margin-left: 2vw;}
 }
-@media screen and (min-width:1440px){
-    .hr768{width: 102%;}
-    .media768{
-        width: 85.66%;
-        margin-left: 8%;
-    }
+@media screen and (min-width:1440px) {
+  .headers768{margin-top: 2vw;}
+  .hr768{
+    margin-top: -0.5vw;
+    margin-left: -1vw;
+  }
 }
-@media screen and (min-width:2560px){
-    .media768{width: 75.66%;}
-
+@media screen and (min-width:2000px) {
+  .hr768{
+    margin-top: -0.1vw;
+    margin-left: -0.7vw;
+  }
 }
