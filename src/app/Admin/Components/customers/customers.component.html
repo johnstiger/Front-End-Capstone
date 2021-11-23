@@ -46,7 +46,7 @@
         </div>
     </div>
 </div>
-<div *ngIf="customers.length > 0">
+<div *ngIf="customers">
   <pagination-controls (pageChange)="cp = $event"></pagination-controls>
 </div>
 

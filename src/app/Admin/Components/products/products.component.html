@@ -72,7 +72,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="products.length > 0">
+    <div *ngIf="products">
       <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
 </div>

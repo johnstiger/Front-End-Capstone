@@ -105,7 +105,7 @@
                 </tr>
               </tbody>
             </table>
-            <div *ngIf="pendingOrders.length >= 1">
+            <div *ngIf="pendingOrders">
               <pagination-controls (pageChange)="cp = $event"></pagination-controls>
             </div>
         <div *ngIf="!pendingOrders || pendingOrders?.length == 0" class="noData">
@@ -160,7 +160,7 @@
                 </tr>
               </tbody>
             </table>
-            <div *ngIf="onSales.length >= 1">
+            <div *ngIf="onSales">
               <pagination-controls (pageChange)="onsale = $event"></pagination-controls>
             </div>
         <div *ngIf="!onSales || onSales?.length == 0" class="noData">

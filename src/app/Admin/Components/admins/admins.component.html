@@ -50,6 +50,6 @@
         </div>
     </div>
 </div>
-<div *ngIf="admins.length > 0">
+<div *ngIf="admins">
   <pagination-controls (pageChange)="cp = $event"></pagination-controls>
 </div>
