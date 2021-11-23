@@ -28,12 +28,6 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrders();
-    $('#myInput').on('keyup',function(){
-      var test = $(this).val()?.toString().toLowerCase();
-      // $('#myTable tr').filter(function(){
-
-      // })
-    })
   }
 
   searchProducts() {

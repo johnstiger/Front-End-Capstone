@@ -29,24 +29,38 @@
                         <label for="">Price</label>
                         <input type="number" class="form-control" name="price" [ngModel]="price" id="" min="0" placeholder="Price" disabled>
                     </div>
-                    <div class="col">
+                    <div class="col" *ngIf="currentPage">
                         <div *ngIf="error && error.unit_measure" class="alert alert-danger">
                             *{{ error.unit_measure[0] }}
                         </div>
                         <label for="">Available Unit</label>
                         <input type="number" class="form-control" [ngModel]="unit_measure" name="unit_measure" min="0" max="{{ unit_measure }}" id="" placeholder="Unit">
                     </div>
-                    <div class="col">
+                    <div class="col" *ngIf="currentPage">
                         <div *ngIf="error && error.size" class="alert alert-danger">
                             *{{ error.size[0] }}
                         </div>
                         <label for="">Size</label>
                         <select name="size" id="" class="options field form-control" [ngModel]="size">
-                  <option value="0" hidden>Size</option>
-                  <option *ngFor="let size of allSize" [value]="size.id">{{ size.size }}</option>
-                </select>
+                          <option value="0" hidden>Size</option>
+                          <option *ngFor="let size of allSize" [value]="size.id">{{ size.size }}</option>
+                      </select>
                     </div>
                 </div>
+
+                <!-- If from other page -->
+                <div *ngIf="!currentPage">
+                  <div class="row" *ngFor="let size of selectedSizes">
+                    <div class="col">
+                      <input type="text" name="" id="" value="" disabled>
+                    </div>
+                    <div class="col">
+                      <input type="text" name="" id="" value="" disabled>
+                    </div>
+                  </div>
+                </div>
+                <!-- from other page -->
+
                 <div class="row">
                     <div class="col">
                         <div *ngIf="error && error.percent_off" class="alert alert-danger">
@@ -56,15 +70,15 @@
                         <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" placeholder="Promo">
                     </div>
                     <div class="col">
-                        <div *ngIf="error && error.promo_type" class="alert alert-danger">
-                            *{{ error.promo_type[0] }}
-                        </div>
-                        <label for="">Promo Type</label>
-                        <select name="promo_type" id="" [ngModel]="promo_type" class="form-control">
-                <option value="#" hidden>Promo Type</option>
-                <option value="%">Percent Off</option>
-                <option value="Pesos">Pesos Off</option>
-              </select>
+                      <div *ngIf="error && error.promo_type" class="alert alert-danger">
+                          *{{ error.promo_type[0] }}
+                      </div>
+                      <label for="">Promo Type</label>
+                      <select name="promo_type" id="" [ngModel]="promo_type" class="form-control">
+                        <option value="#" hidden>Promo Type</option>
+                        <option value="%">Percent Off</option>
+                        <option value="Pesos">Pesos Off</option>
+                      </select>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success field add-product">Add To On Sales</button>
