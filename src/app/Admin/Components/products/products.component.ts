@@ -34,18 +34,15 @@ export class ProductsComponent implements OnInit {
   // token = this.link.getToken();
   token = localStorage.getItem('admin_token');
   path = this.link.setImageUrl();
-
-
+  cp : number = 1;
   ngOnInit(): void {
     this.getProducts();
   }
 
   searchProducts(){
-    this.service.loading();
     this.service.searchProducts(this.form.value, this.token).then((result)=>{
       if(result.data.found){
         this.products = result.data.data;
-        this.service.closeLoading();
       }else{
         this.service.ShowErrorMessage(result.data.message);
       }
@@ -55,7 +52,22 @@ export class ProductsComponent implements OnInit {
   async getProducts(){
     this.service.loading();
     const result = await this.service.products(this.token).then((res)=>{
-      this.products = res.data.data;
+      if(res.data.error){
+        this.service.ShowErrorMessage(res.data.message);
+      }else{
+        this.products = res.data.data;
+        this.products = this.products.map(res => {
+          const size = res.sizes.map((size:any, ndx : any) => {
+            return size.pivot.avail_unit_measure
+          })
+          let total_avail_unit_measure = 0
+          if (size.length) {
+            total_avail_unit_measure = size.reduce((total:any, num:any) => total + num)
+          }
+          res['total_avail_unit_measure'] = total_avail_unit_measure
+          return res
+        })
+      }
     this.service.closeLoading();
    });
 
@@ -113,8 +125,5 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  pageChange(page: Event) {
-    page = page;
-  }
 
 }

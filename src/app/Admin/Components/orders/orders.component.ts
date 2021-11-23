@@ -24,6 +24,7 @@ export class OrdersComponent implements OnInit {
   orders! : Orders[];
   message : any;
   search = "";
+  cp : number = 1;
 
   ngOnInit(): void {
     this.getAllOrders();

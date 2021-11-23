@@ -27,6 +27,7 @@ export class EditProductComponent implements OnInit {
   allSize! : Sizes [];
   unit_measure! : number;
   noSize! : number;
+  stockSizes: Array<any> = [];
 
   filedata : any;
 
@@ -39,8 +40,6 @@ export class EditProductComponent implements OnInit {
     private link : UrlService
     ) { }
 
-    path = this.link.setImageUrl();
-    // token = this.link.getToken();
     token = localStorage.getItem('admin_token');
     id:any;
     categories! : Categories[];
@@ -70,12 +69,15 @@ export class EditProductComponent implements OnInit {
       this.status = this.product.status;
       this.category_id = this.product.category_id;
       if(this.product.sizes.length > 0){
-        this.sizes = this.product.sizes[0].id;
-        this.unit_measure = this.product.sizes[0].pivot.unit_measure
+        this.stockSizes = this.product.sizes
+        console.log(this.stockSizes);
+
+        // this.sizes = this.product.sizes[0].id;
+        // this.unit_measure = this.product.sizes[0].pivot.unit_measure
       }else{
-        this.sizes = 0;
-        this.unit_measure = 0;
       }
+      this.sizes = 0;
+      this.unit_measure = 0;
       this.getCategory();
       this.service.closeLoading();
     });
@@ -86,6 +88,7 @@ export class EditProductComponent implements OnInit {
 
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
+      console.log(file);
 
       reader.readAsDataURL(file);
 
@@ -103,10 +106,6 @@ export class EditProductComponent implements OnInit {
 
     data.fileSource = this.filedata != undefined ? this.filedata : data.image;
 
-    console.log(data);
-    // if(this.filedata){
-    //   data.image = this.filedata
-    // }
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
@@ -128,9 +127,43 @@ export class EditProductComponent implements OnInit {
   async getCategory(){
     const result = await this.service.getCategories(this.token);
     this.categories = result.data.data;
+
   }
   async getSize(){
     const result = await this.service.getSizes(this.token);
     this.allSize = result.data.error ? false : result.data.data;
+  }
+  // addSize
+  addSize(params : any){
+    let value = params
+    if(value.sizes != '' && value.unit_measure != ''){
+      let test = '';
+      let productId;
+      (document.getElementById("unit_measure") as HTMLInputElement).value = '';
+      (document.getElementById("size") as HTMLInputElement).value = '';
+      this.allSize.forEach((element, index)=>{
+        if(element.id == value.sizes){
+          (document.getElementById(""+ element.id +"") as HTMLInputElement).disabled = true;
+          test = element.size
+          productId = element.id
+        }
+      })
+      this.stockSizes.push({
+        size : test,
+        unit_measure : value.unit_measure,
+        size_id : productId,
+      })
+      value.sizes = '';
+      value.unit_measure = '';
+    }
+  }
+  // delete
+  delete(params : any){
+    this.stockSizes.forEach((element, index) => {
+      if(params.size == element.size){
+        (document.getElementById(""+ params.id +"") as HTMLInputElement).disabled = false;
+        this.stockSizes.splice(index, 1)
+      }
+    })
   }
 }

@@ -24,6 +24,7 @@ export class ProductOnSaleComponent implements OnInit {
   token = localStorage.getItem('admin_token');
 
   sales! : SalesProduct[];
+  cp : number = 1;
   // error : any;
 
   ngOnInit(): void {

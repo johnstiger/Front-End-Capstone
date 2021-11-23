@@ -26,6 +26,7 @@ export class AdminsComponent implements OnInit {
   error! : any;
   success! : any;
   userEmail! : any;
+  cp : number = 1;
 
   constructor(
     private http : AdminService,

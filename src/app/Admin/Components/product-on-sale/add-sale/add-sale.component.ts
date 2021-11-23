@@ -44,20 +44,15 @@ export class AddSaleComponent implements OnInit {
         this.newId = params.get('id');
       }
     );
-    // Testing
-    this.select = $('select')
-    console.log($(this.getProductNameSelect(this.select)).children('option'))
 
     if(this.newId){
       this.onChange(this.newId);
-      // console.log($('div.nameSelect').find('select').first());
-
-
-
+    }else{
+      this.getSize();
     }
 
     this.getProductsName();
-    this.getSize();
+
   }
 
 
@@ -97,6 +92,11 @@ export class AddSaleComponent implements OnInit {
         this.size = this.product.sizes.length > 0 ? this.product.sizes[0].id : 0;
         this.unit_measure = this.size > 0 ? this.product.sizes[0].pivot.avail_unit_measure : 0;
       }
+
+      if(event > 0){
+        this.allSize = this.product.sizes
+      }
+
       this.service.closeLoading();
     }).catch((error)=>{
       console.log(error);
@@ -121,7 +121,6 @@ submit(data : any){
 async getSize(){
   const result = await this.service.getSizes(this.token);
   this.allSize = result.data.error ? false : result.data.data;
-
 }
 
 }

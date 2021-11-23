@@ -11,6 +11,7 @@ export interface Products {
   unit_measure : number,
   category : any,
   percent_off : any,
+  total_avail_unit_measure : any,
 }
 
 export interface Admins {
@@ -62,4 +63,12 @@ export interface Address {
   city : string,
   municipality : string,
   barangay : string
+}
+
+export interface Size {
+  id : number,
+  product_id : number,
+  size: string,
+  unit_measure : number,
+  price : number
 }
