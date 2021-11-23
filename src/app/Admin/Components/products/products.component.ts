@@ -5,6 +5,7 @@ import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { AdminService } from '../../Services/admin.service';
 import Swal from 'sweetalert2';
 import { UrlService } from 'src/app/Url/url.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -26,26 +27,31 @@ export class ProductsComponent implements OnInit {
   success! : any;
   error! : any;
   page : Number = 1;
-
+  display = 'none';
   products! : Products[];
+  productName : any;
 
-  constructor( private service : AdminService, private router : Router, private link : UrlService ) { }
+  constructor(
+    private service : AdminService,
+    private router : Router,
+    private link : UrlService,
+     ) { }
 
   // token = this.link.getToken();
   token = localStorage.getItem('admin_token');
-  path = this.link.setImageUrl();
-
+  sizeId = new Array();
+  cp : number = 1;
+  stockSizes: Array<any> = [];
+  product : any;
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   searchProducts(){
-    this.service.loading();
     this.service.searchProducts(this.form.value, this.token).then((result)=>{
       if(result.data.found){
         this.products = result.data.data;
-        this.service.closeLoading();
       }else{
         this.service.ShowErrorMessage(result.data.message);
       }
@@ -55,11 +61,27 @@ export class ProductsComponent implements OnInit {
   async getProducts(){
     this.service.loading();
     const result = await this.service.products(this.token).then((res)=>{
-      this.products = res.data.data;
+      if(res.data.error){
+        this.service.ShowErrorMessage(res.data.message);
+      }else{
+        this.products = res.data.data;
+        this.products = this.products.map(res => {
+          const size = res.sizes.map((size:any, ndx : any) => {
+            return size.pivot.avail_unit_measure
+          })
+          let total_avail_unit_measure = 0
+          if (size.length) {
+            total_avail_unit_measure = size.reduce((total:any, num:any) => total + num)
+          }
+          res['total_avail_unit_measure'] = total_avail_unit_measure
+          return res
+        })
+      }
     this.service.closeLoading();
    });
 
   }
+
 
   async deleteProduct(id:any){
     const result = await this.service.deleteProduct(id, this.token).then((result)=>{
@@ -78,15 +100,6 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
-
-  addToSale(product : any){
-    this.router.navigate(['/admin/add-sales/'+product.id],{
-          state: {
-            data: product
-          }
-        })
-  }
-
 
   async confirmDelete(product:any){
     Swal.fire({
@@ -113,8 +126,50 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  pageChange(page: Event) {
-    page = page;
+
+  selected(size : any){
+    if(this.sizeId.includes(size)){
+      this.sizeId.slice(this.sizeId.indexOf(size),1);
+    }else{
+      this.sizeId.push(size);
+    }
   }
 
+  selectAll(sizes : Array<any> = []){
+   let test = document.getElementsByClassName('selectId')[0] as HTMLInputElement;
+   let selectall = document.getElementById('selectAll') as HTMLInputElement;
+   if(selectall.checked){
+     sizes.forEach(element => {
+       this.selected(element);
+     });
+     test.checked = true;
+   }else{
+    this.sizeId = [];
+    test.checked = false;
+   }
+  }
+
+  addToSale(product : any){
+    if(this.sizeId.length > 0){
+      this.router.navigate(['/admin/add-sales/'+product.id],{
+          state: {
+            data: product,
+            productSize : this.sizeId
+          }
+      })
+    }else{
+      this.service.ShowErrorMessage('Please Select Product Sizes');
+    }
+  }
+
+  openModal(product : any){
+    this.display = 'block';
+    this.productName = product.name;
+    this.stockSizes = product.sizes
+    this.product = product;
+  }
+
+  onCloseHandled(){
+    this.display = 'none'
+  }
 }

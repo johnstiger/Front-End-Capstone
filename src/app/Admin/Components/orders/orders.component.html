@@ -26,7 +26,7 @@
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of orders" id="myTable">
+                            <tbody *ngFor="let order of orders | paginate:{itemsPerPage:5, currentPage:cp}" id="myTable">
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td>
@@ -76,6 +76,9 @@
                                     </td>
                                 </tr>
                             </tbody>
+                            <div *ngIf="orders">
+                              <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+                            </div>
                         </table>
                         <div class="Unathorized" *ngIf="!orders">
                             <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">

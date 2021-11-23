@@ -18,13 +18,13 @@ export class AddProductComponent implements OnInit {
 
   imageSrc! : string;
   AddProductForm = new FormGroup({
-    name: new FormControl(''),
-    image: new FormControl(''),
-    fileSource : new FormControl(''),
-    category_id: new FormControl(''),
-    price: new FormControl(''),
-    sizes: new FormControl(''),
-    unit_measure: new FormControl('')
+    name: new FormControl('', Validators.required),
+    image: new FormControl('', Validators.required),
+    fileSource : new FormControl('', Validators.required),
+    category_id: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+    sizes: new FormControl('', Validators.required),
+    unit_measure: new FormControl('', Validators.required)
   })
 
 
@@ -41,7 +41,7 @@ export class AddProductComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.gategories();
+    this.productCategories();
     this.sizes();
   }
 
@@ -49,6 +49,7 @@ export class AddProductComponent implements OnInit {
   success! : any;
   categories! : Categories[];
   allSize! : Sizes[];
+  stockSizes: Array<any> = [];
 
   onFileChange(event:any){
     const reader = new FileReader();
@@ -71,24 +72,18 @@ export class AddProductComponent implements OnInit {
 
   submit(){
     this.http.loading();
-    // var data = new FormData();
-    // data.append('image', this.filedata);
+    if(this.stockSizes.length == 0){
+      this.stockSizes.push({
+        size_id : this.AddProductForm.value.sizes,
+        unit_measure : this.AddProductForm.value.unit_measure,
+      })
+    }
+    this.AddProductForm.value.sizes = this.stockSizes
     this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
-        // if(this.AddProductForm.value.image == ''){
-        //   this.errors['image'] = ["This image is required"];
-        // }
       }else{
         this.location.back();
-        // const response = await this.http.AddImage(result.data.data.id, data, this.token);
-        // if(response.data.error){
-        //   this.errors = response.data.message;
-        //   if(this.AddProductForm.value.image == ''){
-        //     this.errors['image'] = ["This image is required"];
-        //   }
-        // }else{
-        // }
       }
       this.http.closeLoading();
     }).catch((e)=>{
@@ -98,7 +93,7 @@ export class AddProductComponent implements OnInit {
 
   }
 
-  async gategories(){
+  async productCategories(){
     const result = await this.http.getCategories(this.token);
     this.categories = result.data.error ? false : result.data.data;
   }
@@ -108,4 +103,41 @@ export class AddProductComponent implements OnInit {
     this.allSize = result.data.error ? false : result.data.data;
   }
 
+  emptyFields(){
+
+  }
+
+  addSize(params : any){
+    let value = params.AddProductForm.value
+    if(value.sizes != '' && value.unit_measure != ''){
+      let test = '';
+      let productId;
+      (document.getElementById("unit_measure") as HTMLInputElement).value = '';
+      (document.getElementById("size") as HTMLInputElement).value = '';
+      this.allSize.forEach((element, index)=>{
+        if(element.id == value.sizes){
+          (document.getElementById(""+ element.id +"") as HTMLInputElement).disabled = true;
+          test = element.size
+          productId = element.id
+        }
+      })
+      this.stockSizes.push({
+        size : test,
+        unit_measure : value.unit_measure,
+        size_id : productId,
+      })
+      value.sizes = '';
+      value.unit_measure = '';
+    }
+  }
+
+  delete(params : any){
+    console.log(params);
+    this.stockSizes.forEach((element, index) => {
+      if(params.size == element.size){
+        (document.getElementById(""+ params.size_id +"") as HTMLInputElement).disabled = false;
+        this.stockSizes.splice(index, 1)
+      }
+    })
+  }
 }
