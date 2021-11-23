@@ -16,7 +16,7 @@ export class CustomerService {
   url = environment.url;
 
   async login(data:any){
-    const response = await axios.post(this.url+"login", data);
+    const response = await axios.post(this.url+"login", data, {headers:{ 'Content-Type': 'application/json' }});
     console.log(response)
     return response;
 
