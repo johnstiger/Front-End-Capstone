@@ -42,7 +42,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productCategories();
-    this.sizes();
+    this.getSizes();
   }
 
   errors! : any;
@@ -50,6 +50,7 @@ export class AddProductComponent implements OnInit {
   categories! : Categories[];
   allSize! : Sizes[];
   stockSizes: Array<any> = [];
+  sizes : number = 0;
 
   onFileChange(event:any){
     const reader = new FileReader();
@@ -82,6 +83,7 @@ export class AddProductComponent implements OnInit {
     this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
+        this.stockSizes = []
       }else{
         this.location.back();
       }
@@ -98,13 +100,9 @@ export class AddProductComponent implements OnInit {
     this.categories = result.data.error ? false : result.data.data;
   }
 
-  async sizes(){
+  async getSizes(){
     const result = await this.http.getSizes(this.token);
     this.allSize = result.data.error ? false : result.data.data;
-  }
-
-  emptyFields(){
-
   }
 
   addSize(params : any){
@@ -139,5 +137,18 @@ export class AddProductComponent implements OnInit {
         this.stockSizes.splice(index, 1)
       }
     })
+  }
+
+  noSizesChoose($event : any){
+    const buttonSize = document.querySelector<HTMLElement>('.add-size')!;
+    const unit = document.getElementById('unit_measure') as HTMLInputElement;
+    if($event.value == 'n/a'){
+      buttonSize.style.display = 'none';
+      unit.disabled = true;
+      this.stockSizes = [];
+    }else{
+      buttonSize.style.display = 'block';
+      unit.disabled = false;
+    }
   }
 }
