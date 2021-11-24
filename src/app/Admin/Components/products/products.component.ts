@@ -5,6 +5,7 @@ import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { AdminService } from '../../Services/admin.service';
 import Swal from 'sweetalert2';
 import { UrlService } from 'src/app/Url/url.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -26,15 +27,23 @@ export class ProductsComponent implements OnInit {
   success! : any;
   error! : any;
   page : Number = 1;
-
+  display = 'none';
   products! : Products[];
+  productName : any;
 
-  constructor( private service : AdminService, private router : Router, private link : UrlService ) { }
+  constructor(
+    private service : AdminService,
+    private router : Router,
+    private link : UrlService,
+     ) { }
 
   // token = this.link.getToken();
   token = localStorage.getItem('admin_token');
-  path = this.link.setImageUrl();
+  sizeId = new Array();
   cp : number = 1;
+  stockSizes: Array<any> = [];
+  product : any;
+
   ngOnInit(): void {
     this.getProducts();
   }
@@ -73,6 +82,7 @@ export class ProductsComponent implements OnInit {
 
   }
 
+
   async deleteProduct(id:any){
     const result = await this.service.deleteProduct(id, this.token).then((result)=>{
       if(result.data.error){
@@ -90,15 +100,6 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
-
-  addToSale(product : any){
-    this.router.navigate(['/admin/add-sales/'+product.id],{
-          state: {
-            data: product
-          }
-        })
-  }
-
 
   async confirmDelete(product:any){
     Swal.fire({
@@ -126,4 +127,71 @@ export class ProductsComponent implements OnInit {
   }
 
 
+  selected(size : any){
+    let select = document.getElementById(''+size.id+'') as HTMLInputElement
+    if(this.sizeId.includes(size)){
+      this.sizeId.slice(this.sizeId.indexOf(size),1);
+      select.disabled = true;
+    }else{
+      this.sizeId.push(size);
+      select.disabled = false;
+    }
+  }
+
+  selectAll(sizes : Array<any> = []){
+   let selectall = document.getElementById('selectAll') as HTMLInputElement;
+   sizes.forEach((element, index) => {
+    let test = document.getElementsByClassName('selectId')[index] as HTMLInputElement
+    let select = document.getElementById(''+element.id+'') as HTMLInputElement
+    if(selectall.checked){
+      this.selected(element);
+      test.checked = true;
+    }else{
+      this.sizeId = [];
+      test.checked = false;
+      select.disabled = true;
+    }
+   });
+
+  }
+
+  addToSale(product : any){
+    this.sizeId.forEach(element=>{
+      let select = document.getElementById(''+element.id+'') as HTMLInputElement
+      element.pivot.sales_item = parseInt(select.value);
+      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+    })
+    if(this.sizeId.length > 0){
+      this.router.navigate(['/admin/add-sales/'+product.id],{
+          state: {
+            data: product,
+            productSize : this.sizeId
+          }
+      })
+    }else{
+      this.service.ShowErrorMessage('Please Select Product Sizes');
+    }
+  }
+
+  openModal(product : any){
+    this.productName = product.name;
+    this.stockSizes = product.sizes
+    let check = this.stockSizes.map(res => {
+      if(res.size === 'N/A'){
+        return true;
+      }
+      return false;
+    })
+    this.product = product;
+    if(check[0]){
+      this.sizeId = product.sizes
+      this.addToSale(product);
+    }else{
+      this.display = 'block';
+    }
+  }
+
+  onCloseHandled(){
+    this.display = 'none'
+  }
 }

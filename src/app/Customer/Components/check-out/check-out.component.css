@@ -73,15 +73,15 @@ html {
     text-align: center;
 }
 .button1 {
-    float: right; 
-    margin-top:-8%; 
-    margin-right: 5%; 
+    float: right;
+    margin-top:-8%;
+    margin-right: 5%;
     background-color: #C7988E;
 }
 .button2 {
-    float: right; 
-    margin-top:-4%; 
-    margin-right: 5%; 
+    float: right;
+    margin-top:-4%;
+    margin-right: 5%;
     background-color: #C7988E;
 }
 
@@ -104,11 +104,6 @@ html {
     width: 100%;
     height: auto;
 }
-
-
-/* #price {
-    text-align: right;
-} */
 
 
 /* For mobile phones: */

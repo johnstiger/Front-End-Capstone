@@ -1,97 +1,48 @@
 <app-sample-header></app-sample-header>
-
-<div class=" col-10 col-s-10 media">
+<div class=" col-11 col-s-11 media320">
   <div class="row">
-    <div class="col-6 col-s-6 img1240">
-        <img id="psimg" src="../../../../assets/imgs/dag.jpg" alt="">
+    <div class="col-12 col-s-12 img320">
+        <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
     </div>
-    <div class="col-4 col-s-4">
-      <div class="text">
-        <h2>Product Name:</h2>
-        <h5 style="padding-top: 10px;">Php 100.00</h5>
+    <div class="col-12 col-s-12">
+      <div class="text320">
+        <p id="prodname">Product Name:</p>
+        <p id="amount">Php 100.00</p>
         <label id="quantity">Quantity </label>
-        <input id="inputQuantity" class="input" type="number" min="0"><br>
-        <label id="size" class="size">Size: </label>
-        <button type="button" class="mbtn">M</button>
-        <button type="button" class="sbtn">S</button>
-        <h5 id="avialable">Available: 10pcs.</h5>
-        <button type="button" class="addtocartbtn">Add to Cart</button><br>
-        <button type="button" class="buyitbtn">Buy It Now</button>
+        <input id="inputQuantity" class="input" type="number" min="0" placeholder="0"><br>
+        <label id="size" class="size" >Size: </label>
+        <button type="button" id="mbtn" class="btn">M</button>
+        <button type="button" id="sbtn" class="btn">S</button>
+        <p  id="avialable" >Available: 10pcs.</p>
+        <button type="button" id="addtocartbtn" class="btn">Add to Cart</button><br>
+        <button type="button" id="buyitbtn" class="btn">Buy It Now</button>
       </div>
     </div>
   </div>
 </div>
-
-
-<div class=" col-10 col-s-10 media1024">
-  <div class="row">
-    <div class="col-5 col-s-5 img768">
-        <img id="psimg1024" src="../../../../assets/imgs/dag.jpg" alt="">
-    </div>
-    <div class="col-4 col-s-4">
-      <div class="text768">
-        <h4>Product Name:</h4>
-        <p>Php 100.00</p>
-        <label id="quantity768">Quantity </label>
-        <input id="inputQuantity768" class="input" type="number" min="0"><br>
-        <label id="size768" class="size">Size: </label>
-        <button type="button" class="mbtn768">M</button>
-        <button type="button" class="sbtn768">S</button>
-        <p id="avialable">Available: 10pcs.</p>
-        <button type="button" class="addtocartbtn768">Add to Cart</button><br>
-        <button type="button" class="buyitbtn768">Buy It Now</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <div class=" col-11 col-s-11 media768">
   <div class="row">
-    <div class="col-7 col-s-7 img768">
-        <img id="psimg768" src="../../../../assets/imgs/dag.jpg" alt="">
+    <div class="col-5 col-s-5 img768">
+        <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
     </div>
+    <div class="col-1 col-s-1"></div>
     <div class="col-4 col-s-4">
       <div class="text768">
-        <h4>Product Name:</h4>
-        <p>Php 100.00</p>
-        <label id="quantity768">Quantity </label>
-        <input id="inputQuantity768" class="input" type="number" min="0"><br>
-        <label id="size768" class="size">Size: </label>
-        <button type="button" class="mbtn768">M</button>
-        <button type="button" class="sbtn768">S</button>
+        <p id="prodname">Product Name:</p>
+        <p id="amount">Php 100.00</p>
+        <label id="quantity">Quantity </label>
+        <input id="inputQuantity" class="input" type="number" min="0" placeholder="0"><br>
+        <label id="size" class="size">Size: </label>
+        <button type="button" id="mbtn" class="btn">M</button>
+        <button type="button" id="sbtn" class="btn">S</button>
         <p id="avialable">Available: 10pcs.</p>
-        <button type="button" class="addtocartbtn768">Add to Cart</button><br>
-        <button type="button" class="buyitbtn768">Buy It Now</button>
+        <button type="button" id="addtocartbtn" class="btn">Add to Cart</button><br>
+        <button type="button" id="buyitbtn" class="btn">Buy It Now</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
-<div class=" col-11 col-s-11 media320">
-  <div class="row">
-    <div class="col-3 col-s-3 img320">
-        <img id="psimg320" src="../../../../assets/imgs/dag.jpg" alt="">
-    </div>
-    <div class="col-3 col-s-3">
-      <div class="text320">
-        <p>Product Name:</p>
-        <p>Php 100.00</p>
-        <label id="quantity320">Quantity </label>
-        <input id="inputQuantity320" class="input" type="number" min="0"><br>
-        <label id="size320" class="size" >Size: </label>
-        <button type="button" class="mbtn320">M</button>
-        <button type="button" class="sbtn320">S</button>
-        <p  id="avialable" >Available: 10pcs.</p>
-        <button type="button" class="addtocartbtn320">Add to Cart</button><br>
-        <button type="button" class="buyitbtn320">Buy It Now</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<button type="button" class="backbtn">Back</button>
-<hr>
+<button type="button" id="backbtn" class="btn">Back</button>
+<hr class="hr">
 <app-cus-footer></app-cus-footer>

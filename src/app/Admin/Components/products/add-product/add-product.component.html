@@ -53,10 +53,10 @@
                         <div *ngIf="errors && errors.sizes" class="alert alert-danger">
                             *{{ errors.sizes[0] }}
                         </div>
-                        <select name="size" id="size" class="options field form-control" formControlName="sizes">
-                      <option value="" hidden>Size</option>
-                      <option *ngFor="let size of allSize" id="{{ size.id }}" [value]="size.id">{{ size.size }}</option>
-                  </select>
+                        <select name="sizes" id="size" class="options field form-control" formControlName="sizes" (change)="noSizesChoose($event.target)">
+                            <option value="0" hidden>Size</option>
+                            <option *ngFor="let size of allSize" id="{{ size.id }}" [value]="size.id">{{ size.size }}</option>
+                        </select>
                         <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->
                     </div>
                     <div class="col">
@@ -81,7 +81,7 @@
                         <button type="button" class="btn btn-danger" (click)="delete(product)"><i class="far fa-trash-alt"></i> Remove Size</button>
                     </div>
                 </div>
-                <button type="submit" [disabled]="!AddProductForm.valid" class="btn btn-success field add-product">Add Product</button>
+                <button type="submit" class="btn btn-success field add-product">Add Product</button>
                 <a routerLink="/admin/products" class="btn btn-success field same">Cancel</a>
             </div>
         </div>

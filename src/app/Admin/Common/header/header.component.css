@@ -87,3 +87,14 @@
     text-decoration: none;
     color: white;
 }
+
+.top-navigation li a .badge{
+  background: red;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 3;
+    margin-left: -15px;
+    font-size: 12px;
+    margin-top: -6px;
+    display: none;
+}

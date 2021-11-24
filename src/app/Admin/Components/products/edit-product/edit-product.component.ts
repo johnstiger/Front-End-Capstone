@@ -23,10 +23,10 @@ export class EditProductComponent implements OnInit {
   part! : string;
   status! : boolean;
   category_id! : number;
-  sizes! : any;
+  sizes : number = 0;
   allSize! : Sizes [];
   unit_measure! : number;
-  noSize! : number;
+  sChoose! : number;
   stockSizes: Array<any> = [];
 
   filedata : any;
@@ -52,8 +52,8 @@ export class EditProductComponent implements OnInit {
         this.id = params.get('id');
       }
     );
-    this.getProduct()
     this.getSize();
+    this.getProduct()
   }
 
 
@@ -70,14 +70,17 @@ export class EditProductComponent implements OnInit {
       this.category_id = this.product.category_id;
       if(this.product.sizes.length > 0){
         this.stockSizes = this.product.sizes
-        console.log(this.stockSizes);
-
-        // this.sizes = this.product.sizes[0].id;
-        // this.unit_measure = this.product.sizes[0].pivot.unit_measure
+        this.stockSizes.forEach((element)=>{
+          this.allSize.forEach((test)=>{
+            if(element.id == test.id){
+              (document.getElementById(""+ element.id +"") as HTMLInputElement).disabled = true;
+            }
+          })
+        })
       }else{
+        this.sizes = 0;
+        this.unit_measure = 0;
       }
-      this.sizes = 0;
-      this.unit_measure = 0;
       this.getCategory();
       this.service.closeLoading();
     });
@@ -85,7 +88,6 @@ export class EditProductComponent implements OnInit {
 
   onFileChange(event:any){
     const reader = new FileReader();
-
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
       console.log(file);
@@ -101,24 +103,13 @@ export class EditProductComponent implements OnInit {
 
   submit(data : any){
     this.service.loading();
-    // var imageData = new FormData();
-    // imageData.append('image', this.filedata);
-
     data.fileSource = this.filedata != undefined ? this.filedata : data.image;
-
+    data.sizes = this.stockSizes;
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
-      //  if(data.image == ''){
-      //   this.errors['image'] = ["This image is required"];
-      // }
     }else{
       this.location.back();
-      // const response = await this.service.AddImage(result.data.data.id, imageData, this.token);
-      // if(response.data){
-      // }else{
-      //   this.errors = result.data.message;
-      // }
     }
     this.service.closeLoading();
    });
@@ -127,12 +118,13 @@ export class EditProductComponent implements OnInit {
   async getCategory(){
     const result = await this.service.getCategories(this.token);
     this.categories = result.data.data;
-
   }
+
   async getSize(){
     const result = await this.service.getSizes(this.token);
     this.allSize = result.data.error ? false : result.data.data;
   }
+
   // addSize
   addSize(params : any){
     let value = params
@@ -150,7 +142,10 @@ export class EditProductComponent implements OnInit {
       })
       this.stockSizes.push({
         size : test,
-        unit_measure : value.unit_measure,
+        pivot : {
+          avail_unit_measure : value.unit_measure,
+          sizes_id : productId
+        },
         size_id : productId,
       })
       value.sizes = '';
@@ -161,9 +156,23 @@ export class EditProductComponent implements OnInit {
   delete(params : any){
     this.stockSizes.forEach((element, index) => {
       if(params.size == element.size){
-        (document.getElementById(""+ params.id +"") as HTMLInputElement).disabled = false;
+        (document.getElementById(""+ element.pivot.sizes_id +"") as HTMLInputElement).disabled = false;
         this.stockSizes.splice(index, 1)
       }
     })
+  }
+
+  noSizesChoose($event : any){
+    let test = document.getElementById(''+$event.value+'') as HTMLLIElement
+    const buttonSize = document.querySelector<HTMLElement>('.add-size')!;
+    if(test.innerHTML == 'N/A'){
+      buttonSize.style.display ='none'
+      this.stockSizes.forEach((element, index) => {
+        (document.getElementById(""+ element.size_id +"") as HTMLInputElement).disabled = false;
+      })
+      this.stockSizes = []
+    }else{
+      buttonSize.style.display = 'block';
+    }
   }
 }

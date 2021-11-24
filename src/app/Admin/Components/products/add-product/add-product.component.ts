@@ -42,7 +42,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productCategories();
-    this.sizes();
+    this.getSizes();
   }
 
   errors! : any;
@@ -50,6 +50,7 @@ export class AddProductComponent implements OnInit {
   categories! : Categories[];
   allSize! : Sizes[];
   stockSizes: Array<any> = [];
+  sizes : number = 0;
 
   onFileChange(event:any){
     const reader = new FileReader();
@@ -98,13 +99,9 @@ export class AddProductComponent implements OnInit {
     this.categories = result.data.error ? false : result.data.data;
   }
 
-  async sizes(){
+  async getSizes(){
     const result = await this.http.getSizes(this.token);
-    this.allSize = result.data.error ? false : result.data.data;
-  }
-
-  emptyFields(){
-
+    this.allSize = result.data.error ? [] : result.data.data;
   }
 
   addSize(params : any){
@@ -140,4 +137,19 @@ export class AddProductComponent implements OnInit {
       }
     })
   }
+
+  noSizesChoose($event : any){
+    let test = document.getElementById(''+$event.value+'') as HTMLLIElement
+    const buttonSize = document.querySelector<HTMLElement>('.add-size')!;
+    if(test.innerHTML == 'N/A'){
+      buttonSize.style.display ='none'
+      this.stockSizes.forEach((element, index) => {
+        (document.getElementById(""+ element.size_id +"") as HTMLInputElement).disabled = false;
+      })
+      this.stockSizes = []
+    }else{
+      buttonSize.style.display = 'block';
+    }
+  }
+
 }

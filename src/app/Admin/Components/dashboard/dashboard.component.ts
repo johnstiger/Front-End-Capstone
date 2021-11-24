@@ -39,6 +39,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDashboard();
+    if(this.pendingOrders === undefined){
+      this.pendingOrders = [];
+    }
+
+    if(this.onSales === undefined){
+      this.onSales = [];
+    }
+    
   }
 
 

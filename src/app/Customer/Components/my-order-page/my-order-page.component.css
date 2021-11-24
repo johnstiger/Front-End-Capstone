@@ -2,86 +2,50 @@
     background-color: #F6F2EF;
     box-sizing: border-box;
     border-radius: 5px;
-    margin-left: 4%;
     font-family: 'Roboto';
+    font-weight: bold;
 }
+hr{
+  height: 0.2vw;
+  border: none;
+  background-color: #C7988E;
+}
+.hr{background-color: #F6F2EF;}
+p{color: #C7988E;}
 .headertxt{
   color: #F6F2EF;
   text-align: center;
-  font-size: 18px;
+  font-size: 5vw;
 }
-
-.pageheader {
-    display: inline-block;
-    margin-top: 5%;
-    color: #C7988E;
-    margin-bottom: -3%;
+.img320 {
+  height: 100%;
+  width: 100%;
+  box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
 }
-.cartimg {
-    height: 100%;
-    width: 100%;
-}
-
-.removebtn {
-    box-sizing: border-box;
-    font-size: 11px;
-    border: none;
-    cursor: pointer;
-    background-color: #C7988E;
-    border-radius: 8px;
-    color: #F6F2EF;
-    height: 24%;
-    width: 83%;
-}
-
-.input {
-    font-size: 11px;
-    box-sizing: border-box;
-    border: none;
-    width: 30%;
-    margin-left: 6%;
-    height: 15%;
-    background-color: #C7988E;
-    border-radius: 3px;
-    color: #F6F2EF;
-    font-weight: bold;
-}
-
-.checkinput{
-  height: 30px;
-  width: 15px;
-  margin-left: 10%;
-}
-.buttons{
-  text-align: right;
-}
-.buttons button{
-  margin-bottom: 5%;
-}.quantity{
-  margin-top: -8px;
-}
-
-.btn{
+.pageheader{color: #C7988E;}
+.removebtn, .input, .btn{
   box-sizing: border-box;
   border: none;
-  background-color: #C7988E;
   color: #F6F2EF;
-  font-size: 11px;
-  border-radius: 8px;
-  width: 50%;
+  background-color: #C7988E;
+  border-radius: 5px;
 }
-
-p, .quantity{
-  color: #C7988E;
-  padding-top: 5px;
+.input {
+  font-size: 4vw;
+  width: 30%;
+  margin-left: 8%;
+  height: 15%;
+  border-radius: 3px;
+  padding: 1vw;
 }
+.content{margin-bottom: 8vw;}
 .hr2{
-  width: 111%;
-    margin-left: -6%;
-    border: 1px solid #9b5748;
+  width: 84.5vw;
+  margin-left: -1vw;
+  background-color: #C7988E;
+  border: none;
 }
-
-
+.buttons{text-align: center;}
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
@@ -115,131 +79,194 @@ p, .quantity{
 }
 
 @media screen and (min-width:320px) {
-  #price {
-      text-align: right;
-      font-size: 12px;
+  .media320{
+    margin-left: 4vw;
   }
-  #product{font-size: 12px;}
-  p, .quantity, .productname  {
-      font-size: 11px;
-      font-weight: bold;
+  #price{float: right;}
+  #headerhr{
+    width: 84vw;
+    margin-top: 2%;
+    margin-left: -1vw;
+    background-color: #C7988E;
   }
-  #headerId {
-      width: 111%;
-      border: 1px solid #C7988E;
-      margin-left: -6%;
-      margin-top: -2%;
+  p,.removebtn, .quantity, #cancel, #placeorder{font-size: 4vw;}
+  .productname{
+    font-size: 4vw;
+    margin-left: -4vw;
+    margin-top: 5%;
   }
-  .productname {
-      margin-bottom: 5%;
+  #product, #price{
+    font-size: 5vw;
+    margin-top: 5vw;
+    margin-bottom: 1vw;
   }
-  #total {
-      margin-left: -21%;
+  .quantity{
+    color: #C7988E;
+    margin-left: -2vw;
+    margin-bottom: 5vw;
   }
-  .col-4{
-    margin-bottom: 5%;
+  #total{
+    margin-left: -9vw;
+    margin-bottom: 5vw;
   }
+  .amount{margin-top: 5%;}
+  #cancel, #placeorder{
+    width: 50vw;
+    padding: 2vw;
+    margin-bottom: 4vw;
+    border-radius: 8px;
+  }
+  #subtotal{margin-bottom: 1vw;}
+  #shippingfee{
+    margin-right: 10vw;
+    margin-bottom: 1vw;
+  }
+  #alltotal{margin-left: 14vw;}
+  .buttons{margin-bottom: 5vw;}
 }
-@media screen and (min-width: 340px){
-#headerId,.hr2{
-  width: 110%;
-  margin-left: -15px;
-  }
-}
-
 @media screen and (min-width: 375px) {
-p, .quantity, .input, .productname, .removebtn {
-  font-size: 12px;
-}
-#headerId,.hr2{
-  width: 109%;
-  margin-top: 1%;
-}
-}
-@media screen and (min-width: 400px){
-#headerId,.hr2{
-  width: 108%;
-}
+  #headerhr{width: 85vw;}
+  .hr2{width: 85.5vw;}
 }
 @media screen and (min-width: 425px){
-p, .quantity, .input, #productname, .btn, .productname, .removebtn {
-  font-size: 13px;
+  #headerhr{width: 86vw;}
+  .hr2{width: 86.5vw;}
 }
-#price, #product{
-  font-size: 14px;
+@media screen and (min-width: 500px){
+  #headerhr, .hr2{width: 87vw;}
 }
+@media screen and (min-width: 600px){
+  #headerhr, .hr2{width: 88vw;}
+}
+@media screen and (min-width: 700px){
+  #headerhr, .hr2{width: 89vw;}
 }
 @media screen and (max-width: 767px){
   .media768{display: none;}
 }
 @media screen and (min-width:768px){
   .media320{display: none;}
+  .media768{margin-left: 4vw;}
+  .img768{
+    width: 85%;
+    height: 90%;
+    margin-left: 2vw;
+    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
+  }
+  p,.removebtn, .quantity, #cancel, #placeorder, .productname, #price, .input, #product{
+    font-size: 2vw;
+    font-weight: 400;
+  }
   .headertxt{
-    font-size: 31px;
-    font-weight: 500;
     font-family: 'Philosopher';
+    font-size: 3vw;
   }
-  #headerId{
-    width: 104%;
-    margin-top: -4%;
+  .head{margin-top: 3vw;}
+  .mngadress, .mngpayment{
+    padding: 0.5vw;
+    width: 20vw;
+    margin-left: 5vw;
   }
-  .head{
-    margin-top: 5%;
-    margin-bottom: 0%;
+  .side{margin-left: 3vw;}
+  #headerid{
+    width: 88.6vw;
+    margin-left: -0.4vw;
+    margin-top: 1vw;
+    background-color: #C7988E;
   }
-  .head p, .headp p{
-    font-weight: normal;
+  .hr2{
+    width: 91.7vw;
+    margin-left: -1.9vw;
   }
-  .mngadress, .mngpattern{
-    width: 60%;
-    float: right;
-    margin-right: 8%;
+  .product, #headerprice, #headerquantity, #headertotal, .productname, .buttons p{font-weight: bold;}
+  .product{margin-left: 2vw;}
+  .productname{
+    margin-left: 1vw;
   }
-  .side{
-    margin-left: 10%;
+  #product, #total{margin-top: 3vw;}
+  .removebtn{
+    margin-left: 1vw;
+    width: 13vw;
   }
-  p{
-    font-size: 14px;
+  #total{margin-left: 0vw;}
+  .input{
+    width: 7vw;
+    margin-left: 0.4vw;
+    padding: 1.5vw;
+    margin-top: 3vw;
   }
-  .cartimg{margin-left: 15%;}
-  .product{
-    margin-left: 15%;
+  .buttons{text-align: right;}
+  #headertotal{margin-left: 2vw;}
+  #cancel, #placeorder{
+    width: 20vw;
+    padding: 0.5vw;
+    border-radius: 5px;
+  }
+  #placeorder{margin-left: -1vw;}
+  #cancel{margin-left: -3vw;}
+  .prodside{margin-top: 1.5vw;}
+  .headers{margin-top: 1vw;}
+}
+@media screen and (min-width:1024px){
+  p,.removebtn, .quantity, #cancel, #placeorder, .productname, #price, .input, #product, .mngadress, .mngpayment{font-size: 1.3vw;}
+  .headertxt{font-size: 2vw;}
+  .mngadress, .mngpayment{
+    width: 15vw;
+    margin-left: 12vw;
+  }
+  .mngadress{
+    margin-top: -2%;
+  }
+  #headerid{
+    width: 89.5vw;
+    margin-left: -0.3vw;
+  }
+  .productname{margin-left: 2vw;}
+  .removebtn{
+    margin-left: 2vw;
+    width: 8vw;
   }
   .input{
-    padding-left: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-weight: normal;
+    width: 4.5vw;
+    padding: 1vw;
+    float: right;
   }
-  .prodside{
-    margin-top: 3%;
+  #headertotal{
+    text-align: center;
+    margin-left: 0vw;
   }
   #total{
-    font-weight: normal;
+    margin-left: 0vw;
+    text-align: center;
+  }
+  #headerquantity, #headerprice, #product{float: right;}
+  .side{margin-left: 5vw;}
+  .img768, .product{margin-left: 3vw;}
+  #cancel, #placeorder{width: 17vw;}
+  #placeorder{margin-left: 3vw;}
+  #cancel{margin-left: 7vw;}
+  .hr2{
+    width: 91.8vw;
+    margin-left: -1.6vw;
+  }
+}
+@media screen and (min-width: 1440px){
+  #headerid{
+    width: 90vw;
+    margin-left: -0.2vw;
   }
   .hr2{
-    margin-left: -29px;
-    width: 109%;
-    margin-top: 3%;
+    width: 91.7vw;
+    margin-left: -1.1vw;
   }
   #cancel, #placeorder{
-    width: 100%;
+    border-radius: 8px;
   }
-  .bottomdiv{
-    margin-bottom: 5%;
+  .mngadress{
+    margin-top: -3%;
   }
 }
-@media screen and (min-width: 1024px) {
-  p, .btn, .productname, .removebtn, .input{
-    font-size: 17px;
-  }
-  .productname, .removebtn{margin-left: 15%;}
-  .input{margin-top: 5%;}
-  #headerId{width: 103%;}
-  .hr2{
-    margin-left: -31px;
-    width: 107%;
-  }
-  .buttons{margin-left: -2%;}
+@media screen and (min-width:2560px){
+  #headerid{width: 91vw;}
+  .hr2{width: 92.3vw;}
 }
-
