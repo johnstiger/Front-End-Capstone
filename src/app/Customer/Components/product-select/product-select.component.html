@@ -35,7 +35,7 @@
           <p id="prodname">{{product.name}}</p>
           <p id="amount">Php {{product.price}}</p>
           <label id="quantity">Quantity </label>
-          <input id="inputQuantity" class="input" type="number" min="0" placeholder="0"><br>
+          <input id="inputQuantity" [ngModel]="unit_measure" name="unit_measure" class="input" type="number" min="0" placeholder="0"><br>
           <label id="size" class="size">Size: </label>
           <button type="button" id="mbtn" class="btn">{{sizes}}</button>
           <!-- <button type="button" id="sbtn" class="btn">S</button> -->

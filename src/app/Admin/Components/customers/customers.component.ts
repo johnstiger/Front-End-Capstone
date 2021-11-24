@@ -15,53 +15,44 @@ import { AdminService } from '../../Services/admin.service';
 
 export class CustomersComponent implements OnInit {
   form = new FormGroup({
-    data : new FormControl('',[
+    data: new FormControl('', [
       Validators.required
     ])
   });
-  constructor(private http : AdminService) { }
+  constructor(private http: AdminService) { }
 
-  customers! : Customers[];
+  customers!: Customers[];
+
 
   ngOnInit(): void {
     this.getCustomers();
   }
 
-  message : any;
+  message: any;
   token = localStorage.getItem('admin_token');
 
-  async getCustomers(){
+  async getCustomers() {
     this.http.loading();
-    await this.http.getCustomers(this.token).then((result)=>{
-      if(result.data.message == "Success"){
+    await this.http.getCustomers(this.token).then((result) => {
+      if (result.data.message == "Success") {
         this.customers = result.data.data;
-      }else{
-       this.message = result.data.message;
+      } else {
+        this.message = result.data.message;
       }
       this.http.closeLoading();
     });
   }
 
- async searchCustomers()
-  {
+  async searchCustomers() {
     const result = await this.http.searchCustomers(this.form.value, this.token);
-    if(result.data.found){
+    if (result.data.found) {
       this.customers = result.data.data;
       console.log(this.customers);
-    }else{
+    } else {
       this.http.ShowErrorMessage(result.data.message);
     }
 
   }
 
-  // searchFilter() {
-  //   $(document).ready(function(){
-  //     $("#myInput").on("keyup", function() {
-  //       var value = $(this).val().toLowerCase();
-  //       $("#myTable tr").filter(function() {
-  //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-  //       });
-  //     });
-  //   });
-  // }
+
 }

@@ -19,6 +19,7 @@ export class ProductSelectComponent implements OnInit {
   image!: string;
 
   errors!: any;
+  id: any;
 
   token= localStorage.getItem('customer_token');
 
@@ -28,7 +29,7 @@ export class ProductSelectComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  id: any;
+ 
 
 
   ngOnInit(): void {
@@ -47,14 +48,14 @@ export class ProductSelectComponent implements OnInit {
       this.product = result.data.data;
       this.image =this.product.image;
       this.id = this.product.id;
+      this.unit_measure = this.product.sizes[0].pivot.unit_measure;
       if (this.product.sizes.length > 0) {
         this.avail_unit_measure = this.product.sizes[0].pivot.avail_unit_measure;
         this.sizes = this.product.sizes[0].pivot.size;
-        this.unit_measure = this.product.sizes[0].pivot.unit_measure;
       } else {
         this.avail_unit_measure=0;
         this.sizes="";
-        this.unit_measure = 0;
+        // this.unit_measure = 0;
       }
     })
     // this.service.closeLoading();
@@ -66,7 +67,7 @@ export class ProductSelectComponent implements OnInit {
         if(result.data.error){
           this.errors = result.data.message;
         }else {
-          //this.router.navigate(["home"]);
+          this.router.navigate(["home"]);
         }
       })
     }else {
