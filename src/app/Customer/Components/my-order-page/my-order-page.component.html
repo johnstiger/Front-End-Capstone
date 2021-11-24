@@ -70,37 +70,33 @@
     <div class="col-4 col-s-4 headp"><p class="side">Address</p></div>
     <div class="col-4 col-s-4 headp"><p>Payment Type</p></div>
     <div class="col-4 col-s-4">
-      <button class="btn mngpattern">Manage Pattern</button>
+      <button class="btn mngpayment">Manage Payment</button>
     </div>
-    <div class="col-12 col-s-12">
-      <hr id="headerId">
-    </div>
-    <div class="col-12 col-s-12">
+    <hr id="headerid">
+    <div class="col-12 col-s-12 headers">
       <div class="row">
           <div class="col-3 col-s-3 "><p class="product">Product</p></div>
           <div class="col-3 col-s-3"></div>
-          <div class="col-2 col-s-2"><p>Price</p></div>
-          <div class="col-2 col-s-2"><p>Quantity</p></div>
-          <div class="col-2 col-s-2"><p>Total</p></div>
+          <div class="col-2 col-s-2"><p id="headerprice">Price</p></div>
+          <div class="col-2 col-s-2"><p id="headerquantity">Quantity</p></div>
+          <div class="col-2 col-s-2"><p id="headertotal">Total</p></div>
       </div>
     </div>
     <div class="col-12 col-s-12 prodside">
       <div class="row">
         <div class="col-2 col-s-2">
-          <img class="cartimg" src="../../../../assets/imgs/dag.jpg" alt="">
+          <img class="img768" src="../../../../assets/imgs/dag.jpg" alt="">
         </div>
-        <div class="col-2 col-s-2">
+        <div class="col-3 col-s-3">
           <p class="productname">Product Name</p>
           <button class="removebtn">Remove</button>
         </div>
-        <div class="col-2 col-s-2"></div>
-        <div class="col-2 col-s-2"><p style="font-weight: normal;">100.00</p></div>
+        <div class="col-1 col-s-1"></div>
+        <div class="col-2 col-s-2"><p id="product">100.00</p></div>
         <div class="col-2 col-s-2"> <input class="input" type="number" min="0" value="2"></div>
         <div class="col-2 col-s-2"><p id="total">Php 200.00</p></div>
       </div>
-      <div class="col-12 col-s-12">
-        <hr class="hr2">
-      </div>
+      <hr class="hr2">
       <div class="col-12 col-s-12 buttons">
         <p style="margin-bottom: 0px;">Subtotal: Php 200.00</p>
         <p style="margin-bottom: 0px; margin-right: 1%;">Shipping Fee: Php 70.00</p>
@@ -115,9 +111,6 @@
       </div>
     </div>
   </div>
-
-
 </div>
-
-
+<hr class="hr" style="margin-top: 5vw;">
 <app-cus-footer></app-cus-footer>

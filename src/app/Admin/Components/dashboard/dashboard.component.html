@@ -69,7 +69,7 @@
                 </tr>
             </thead>
             <tbody *ngIf="pendingOrders">
-                <tr *ngFor="let pending of pendingOrders">
+                <tr *ngFor="let pending of pendingOrders | paginate:{ itemsPerPage : 5, currentPage: cp}">
                     <td>{{ pending.customer.firstname }} {{ pending.customer.lastname }}</td>
                     <td>
                         <ul>
@@ -81,16 +81,33 @@
                             <li *ngFor="let product of pending.products">{{ product.pivot.quantity }}</li>
                         </ul>
                     </td>
-                    <td>M</td>
+                    <td>
+                      <ul>
+                        <li *ngFor="let product of pending.products">
+                          <div *ngFor="let size of product.sizes">
+                            <div *ngIf="size.id == product.pivot.size_id">
+                              {{ size.size }}
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </td>
                     <td>
                         <ul>
                             <li *ngFor="let product of pending.products">{{ product.price }}</li>
                         </ul>
                     </td>
-                    <td>{{ pending.total }}</td>
+                    <td>
+                      <ul>
+                        <li *ngFor="let product of pending.products">{{ product.price*product.pivot.quantity }}</li>
+                      </ul>
+                    </td>
                 </tr>
-            </tbody>
-        </table>
+              </tbody>
+            </table>
+            <div *ngIf="pendingOrders.length > 0">
+              <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+            </div>
         <div *ngIf="!pendingOrders || pendingOrders?.length == 0" class="noData">
             <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
         </div>
@@ -132,8 +149,8 @@
                     <th>Total</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let sales of onSales">
+            <tbody *ngIf="onSales">
+                <tr *ngFor="let sales of onSales | paginate: {itemsPerPage:5, currentPage:onsale}">
                     <td>{{ sales.products.name }}</td>
                     <td>{{ sales.percent_off }}{{ sales.promo_type }} off</td>
                     <td>{{ sales.unit_measure }}</td>
@@ -141,8 +158,11 @@
                     <td>{{ sales.price }}</td>
                     <td>{{ sales.total }}</td>
                 </tr>
-            </tbody>
-        </table>
+              </tbody>
+            </table>
+            <div *ngIf="onSales.length > 0">
+              <pagination-controls (pageChange)="onsale = $event"></pagination-controls>
+            </div>
         <div *ngIf="!onSales || onSales?.length == 0" class="noData">
             <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
         </div>

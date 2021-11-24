@@ -32,3 +32,52 @@ p {
     margin-left: -10px;
     width: 280px;
 }
+
+
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+
+.modal-dialog{
+  max-width: 70%;
+}
+
+.modal-content{
+  padding: 15px;
+}
+
+
+td,
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    text-align: center;
+}
+
+.confirm{
+  margin-left: 15px;
+}
+
+.btn{
+  width: 115px;
+}
+
+.active{
+  color: green;
+}
+
+img{
+  width: 50%;
+    display: block;
+    margin-inline: auto;
+}

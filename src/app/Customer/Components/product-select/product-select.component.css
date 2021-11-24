@@ -6,12 +6,15 @@
   color: 000000;
   font-family: 'Roboto';
 }
+hr{height: 0.2vw;}
+.hr{background-color: #F6F2EF;}
 #img320{
   width: 75%;
   height: 90%;
   margin-left: 10vw;
   margin-top: 10vw;
   border-radius: 5px;
+  box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
 }
 .text320{
   margin-top: 10vw;
@@ -110,6 +113,7 @@ input::placeholder{color: #F6F2EF;}
     height: 80%;
     margin-top: 5vw;
     margin-left: 7vw;
+    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
   }
   #prodname{
     font-size: 2.5vw;

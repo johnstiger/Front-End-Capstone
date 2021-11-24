@@ -18,6 +18,12 @@ export class PendingOrdersComponent implements OnInit {
   token = localStorage.getItem('admin_token');
   orders! : Orders [];
   data : Data[] = [];
+  display ='none';
+  customerName : any;
+  customerOrders : any;
+  orderId : any;
+  customerId : any;
+  cp : number = 1;
 
   ngOnInit(): void {
     this.getPendingOrders();
@@ -50,6 +56,7 @@ export class PendingOrdersComponent implements OnInit {
       if(result.data.error){
           this.http.ShowErrorMessage(result.data.message);
       }else{
+        this.onCloseHandled();
           this.http.ShowSuccessMessage(result.data.message);
           setTimeout(()=>{
             this.ngOnInit();
@@ -76,6 +83,19 @@ export class PendingOrdersComponent implements OnInit {
       }
       // this.http.closeLoading();
     });
+  }
+
+  openModal(order : any){
+    this.display='block';
+    console.log(order);
+    this.orderId = order.id;
+    this.customerId = order.customer.id;
+    this.customerName = order.customer.firstname+" "+order.customer.lastname;
+    this.customerOrders = order.products
+ }
+
+  onCloseHandled(){
+    this.display='none';
   }
 
 }

@@ -3,15 +3,14 @@
   background-color: #F6F2EF;
   box-sizing: border-box;
   border-radius: 8px;
-  /* margin-left: 4%; */
   font-family: 'Roboto';
-  /* margin-left: 5vw; */
 }
+hr{height: 0.2vw;}
 .profile{
   text-align: center;
   margin-top: 8%;
 }
-
+.hr{background-color: white;}
 .proimg{
   width: 65%;
   height: 25%;
@@ -33,20 +32,12 @@ input{
   width: 90%;
   border-radius: 8px;
   padding-left: 8px;
-  /* height: 38px; */
   background-color: #C7988E;
 }
 input, .btn, input::placeholder{color: #F6F2EF;}
-#edit{
-  margin-bottom: 15%;
-}
-
-#restpass{
-  background-color: #0B5CFA;
-}
-#restpass:hover{
-  background-color: #598cf0;
-}
+#edit{margin-bottom: 15%;}
+#restpass{background-color: #0B5CFA;}
+#restpass:hover{background-color: #598cf0;}
 .profileimg{
   width: 60%;
   height: 28%;
@@ -165,7 +156,6 @@ p, a{
     width: 14vw;
     margin-top: 2.4vw;
   }
-
 }
 @media screen and (min-width:1024px) {
   .media768{margin-bottom: -19vw;}
@@ -206,8 +196,6 @@ p, a{
     width: 10.5vw;
     margin-left: -1vw;
   }
-
-
 }
 @media screen and (min-width:1440px) {
   .account{margin-bottom: 33%;}

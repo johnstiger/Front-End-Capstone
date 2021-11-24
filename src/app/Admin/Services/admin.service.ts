@@ -214,7 +214,7 @@ export class AdminService {
 
   // get all orders
   async getAllOrders(token:any){
-     const response = await axios.get(this.url+"order/",{headers:{Authorization:token}});
+     const response = await axios.get(this.url+"order",{headers:{Authorization:token}});
      return response;
   }
 

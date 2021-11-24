@@ -23,6 +23,15 @@ export class CustomersComponent implements OnInit {
 
   customers!: Customers[];
 
+<<<<<<< HEAD
+=======
+  customers! : Customers[];
+  display ='none';
+  addresses : any;
+  customerName : any;
+  contactNumber : any;
+  cp : number = 1;
+>>>>>>> ae82de35862c072e822193cea5b5733f92d861fa
 
   ngOnInit(): void {
     this.getCustomers();
@@ -40,6 +49,8 @@ export class CustomersComponent implements OnInit {
         this.message = result.data.message;
       }
       this.http.closeLoading();
+      console.log(this.customers);
+
     });
   }
 
@@ -54,5 +65,19 @@ export class CustomersComponent implements OnInit {
 
   }
 
+<<<<<<< HEAD
 
+=======
+  openModal(customer:any){
+    this.display='block';
+    console.log(customer);
+    this.customerName = customer.firstname+" "+customer.lastname;
+    this.addresses = customer.addresses.length == 0 ? false : customer.addresses
+    this.contactNumber = customer.contact_number
+ }
+
+  onCloseHandled(){
+    this.display='none';
+  }
+>>>>>>> ae82de35862c072e822193cea5b5733f92d861fa
 }

@@ -53,7 +53,7 @@
                         <input type="password" formControlName="password_confirmation" class="form-control field" name="password_confirmation" placeholder="Confirm Password">
                     </div>
                 </div>
-                <button class="btn btn-success field add-product">Add as Administrator</button>
+                <button [disabled]="!AddAdminForm.valid" class="btn btn-success field add-product">Add as Administrator</button>
                 <a routerLink="/admin/admins" class="btn btn-success field same">Cancel</a>
             </div>
         </div>

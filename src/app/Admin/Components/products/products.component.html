@@ -40,11 +40,8 @@
                                     </tr>
                                 </thead>
                                 <tbody *ngIf="products">
-                                    <!-- <tr *ngFor="let product of products |paginate : {
-                                      itemsPerPage : 10,
-                                      currentPage : page
-                                    }"> -->
-                                    <tr *ngFor="let product of products">
+                                    <tr *ngFor="let product of products | paginate : {
+                                      itemsPerPage: 5, currentPage: cp } ">
                                         <div class="thumb">
                                             <th><img src="{{ product.image}}" alt=""></th>
                                         </div>
@@ -52,13 +49,16 @@
                                         <td>{{ product.category.name }}</td>
                                         <td>{{ product.price }}</td>
                                         <td *ngIf="product.sizes[0]">{{ product.sizes[0].pivot.unit_measure }}</td>
-                                        <td *ngIf="product.sizes[0]">{{ product.sizes[0].pivot.avail_unit_measure }}</td>
+                                        <td *ngIf="product.sizes[0]"> {{ product.total_avail_unit_measure }}</td>
                                         <td *ngIf="!product.sizes[0]">0</td>
                                         <td *ngIf="!product.sizes[0]">0</td>
-                                        <td>
-                                            <button type="button" (click)="addToSale(product)" class="btn btn-primary actionBtn"><i class="fas fa-plus-circle"></i></button>
-                                            <button type="button" (click)="update(product)" class="btn btn-success actionBtn"><i class="fas fa-edit"></i></button>
-                                            <button type="button" (click)="confirmDelete(product)" class="btn btn-danger actionBtn"><i class="far fa-trash-alt"></i></button>
+                                        <td *ngIf="product.total_avail_unit_measure > 0">
+                                            <button type="button" (click)="openModal(product)" class="btn btn-primary actionBtn" title="Add to Sale"><i class="fas fa-plus-circle"></i></button>
+                                            <button type="button" (click)="update(product)" class="btn btn-success actionBtn" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button type="button" (click)="confirmDelete(product)" class="btn btn-danger actionBtn" title="Delete"><i class="far fa-trash-alt"></i></button>
+                                        </td>
+                                        <td *ngIf="product.total_avail_unit_measure == 0" class="soldOut">
+                                            Sold Out
                                         </td>
                                     </tr>
                                 </tbody>
@@ -71,8 +71,49 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="d-flex justify-content-end">
-            <pagination-controls maxSixe="5" (pageChange)="page = $event"></pagination-controls>
-        </div> -->
+    </div>
+    <div *ngIf="products">
+      <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+    </div>
+</div>
+
+
+<!-- Preview Modal -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ productName }}</h5>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="title"><p>Select product sizes to add in sales</p></div>
+            <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col" class="thead">
+                  <input type="checkbox" name="" (click)="selectAll(stockSizes)" id="selectAll">
+
+                </th>
+                <th scope="col" class="thead">Product Size</th>
+                <th scope="col" class="thead">Product Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let size of stockSizes">
+                <td><input type="checkbox" (click)="selected(size)" class="selectId"></td>
+                <td>{{ size.size }}</td>
+                <td>
+                  <input type="number" name="" class="modalInput" id="{{ size.id }}" value="{{ size.pivot.avail_unit_measure }}" min="0" max="{{ size.pivot.avail_unit_measure }}" disabled>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-success confirm" (click)="addToSale(product)">Add To Sale</button>
+            </div>
+          </div>
+        </div>
     </div>
 </div>

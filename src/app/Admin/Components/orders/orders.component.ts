@@ -24,15 +24,10 @@ export class OrdersComponent implements OnInit {
   orders! : Orders[];
   message : any;
   search = "";
+  cp : number = 1;
 
   ngOnInit(): void {
     this.getAllOrders();
-    $('#myInput').on('keyup',function(){
-      var test = $(this).val()?.toString().toLowerCase();
-      // $('#myTable tr').filter(function(){
-
-      // })
-    })
   }
 
   searchProducts() {

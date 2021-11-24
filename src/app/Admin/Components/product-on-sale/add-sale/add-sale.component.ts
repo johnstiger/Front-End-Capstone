@@ -1,11 +1,12 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/Admin/Common/model/admin-model';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Products, Sizes } from 'src/app/Customer/Common/model/customer-model';
 import { UrlService } from 'src/app/Url/url.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-sale',
@@ -14,15 +15,16 @@ import Swal from 'sweetalert2';
 })
 export class AddSaleComponent implements OnInit {
 
+
   constructor(
     private url : UrlService,
     private service : AdminService,
+    private route : Router,
     private router : ActivatedRoute,
-    private location : Location
+    private location : Location,
     ) { }
 
   token = localStorage.getItem('admin_token');
-  path = this.url.setImageUrl();
   products! : Product[];
   image : any;
   product! : Products;
@@ -37,6 +39,9 @@ export class AddSaleComponent implements OnInit {
   allSize! : Sizes[];
   error : any;
   select: any;
+  selectedSizes : Array<any> = [];
+
+  currentPage = true;
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(
@@ -44,32 +49,19 @@ export class AddSaleComponent implements OnInit {
         this.newId = params.get('id');
       }
     );
-    // Testing
-    this.select = $('select')
-    console.log($(this.getProductNameSelect(this.select)).children('option'))
 
     if(this.newId){
       this.onChange(this.newId);
-      // console.log($('div.nameSelect').find('select').first());
+      this.currentPage = false;
+      this.selectedSizes = history.state.productSize
+      console.log(this.selectedSizes);
 
-
-
+    }else{
+      this.getSize();
     }
 
-    this.getProductsName();
-    this.getSize();
   }
 
-
-  // Testing
-  getProductNameSelect(selecteds:any) : any {
-    let selected;
-    for (selected of selecteds) {
-       if (selected.id == 'selected') {
-         return selected
-       }
-    }
-  }
 
   getProductsName(){
        this.service.products(this.token).then((result)=>{
@@ -97,6 +89,11 @@ export class AddSaleComponent implements OnInit {
         this.size = this.product.sizes.length > 0 ? this.product.sizes[0].id : 0;
         this.unit_measure = this.size > 0 ? this.product.sizes[0].pivot.avail_unit_measure : 0;
       }
+
+      if(event > 0){
+        this.allSize = this.product.sizes
+      }
+
       this.service.closeLoading();
     }).catch((error)=>{
       console.log(error);
@@ -105,11 +102,19 @@ export class AddSaleComponent implements OnInit {
 
 submit(data : any){
   this.service.loading();
+  if(!this.currentPage){
+    data.size = this.selectedSizes;
+    data.unit_measure = 0;
+  }
+  console.log(data);
+
   this.service.getSalesProduct(this.id, data, this.token).then((result)=>{
+    console.log(result.data);
+
     if(result.data.error){
       this.error = result.data.message;
     }else{
-      this.location.back();
+      this.route.navigate(['/admin/product-on-sale'])
     }
     this.service.closeLoading();
   }).catch(err => {
@@ -121,7 +126,12 @@ submit(data : any){
 async getSize(){
   const result = await this.service.getSizes(this.token);
   this.allSize = result.data.error ? false : result.data.data;
-
 }
+
+
+return(){
+  this.location.back();
+}
+
 
 }

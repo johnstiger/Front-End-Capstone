@@ -26,18 +26,20 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Total Quantity</th>
                                     <th scope="col">Number of Units</th>
+                                    <th scope="col">Size</th>
                                     <th scope="col">Available No. of Stock</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let product of sales">
+                                <tr *ngFor="let product of sales | paginate : {itemsPerPage:5, currentPage:cp}">
                                     <td> {{ product.products.name }} </td>
                                     <td> {{ product.products.category.name }} </td>
                                     <td>{{ product.price }}</td>
                                     <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.unit_measure }} </td>
                                     <td>{{ product.unit_measure }}</td>
-                                    <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.unit_measure - product.unit_measure }} </td>
+                                    <td>{{ product.size }}</td>
+                                    <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.avail_unit_measure }} </td>
                                     <td *ngIf="product.products.sizes.length == 0"> 0 </td>
                                     <td *ngIf="product.products.sizes.length == 0"> 0 </td>
                                     <td>
@@ -55,4 +57,7 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="sales">
+  <pagination-controls (pageChange)="cp = $event"></pagination-controls>
 </div>

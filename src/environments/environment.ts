@@ -5,9 +5,18 @@
 export const environment = {
   production: false,
   projectName : "Dagom local",
+<<<<<<< HEAD
   // url : "http://santafe-dagom.herokuapp.com/api/"
   // url  : "https://santafe-dagom.herokuapp.com/"
   url: "http://localhost:8000/api/"
+=======
+//   url : "http://localhost:8000/api/",
+  url  : "https://santafe-dagom.herokuapp.com/api/",
+  socket: {
+    url: 'http://dagom-notif.herokuapp.com/',
+    topic: 'notification',
+  }
+>>>>>>> ae82de35862c072e822193cea5b5733f92d861fa
 };
 
 /*
