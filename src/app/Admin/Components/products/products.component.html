@@ -52,12 +52,12 @@
                                         <td *ngIf="product.sizes[0]"> {{ product.total_avail_unit_measure }}</td>
                                         <td *ngIf="!product.sizes[0]">0</td>
                                         <td *ngIf="!product.sizes[0]">0</td>
-                                        <td *ngIf="product.sizes[0]">
+                                        <td *ngIf="product.total_avail_unit_measure > 0">
                                             <button type="button" (click)="openModal(product)" class="btn btn-primary actionBtn" title="Add to Sale"><i class="fas fa-plus-circle"></i></button>
                                             <button type="button" (click)="update(product)" class="btn btn-success actionBtn" title="Edit"><i class="fas fa-edit"></i></button>
                                             <button type="button" (click)="confirmDelete(product)" class="btn btn-danger actionBtn" title="Delete"><i class="far fa-trash-alt"></i></button>
                                         </td>
-                                        <td *ngIf="!product.sizes[0]" class="soldOut">
+                                        <td *ngIf="product.total_avail_unit_measure == 0" class="soldOut">
                                             Sold Out
                                         </td>
                                     </tr>
@@ -93,15 +93,19 @@
               <tr>
                 <th scope="col" class="thead">
                   <input type="checkbox" name="" (click)="selectAll(stockSizes)" id="selectAll">
-                  Select All
+
                 </th>
                 <th scope="col" class="thead">Product Size</th>
+                <th scope="col" class="thead">Product Quantity</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let size of stockSizes">
-                <td><input type="checkbox" (click)="selected(size.id)" class="selectId"></td>
+                <td><input type="checkbox" (click)="selected(size)" class="selectId"></td>
                 <td>{{ size.size }}</td>
+                <td>
+                  <input type="number" name="" class="modalInput" id="{{ size.id }}" value="{{ size.pivot.avail_unit_measure }}" min="0" max="{{ size.pivot.avail_unit_measure }}" disabled>
+                </td>
               </tr>
             </tbody>
           </table>

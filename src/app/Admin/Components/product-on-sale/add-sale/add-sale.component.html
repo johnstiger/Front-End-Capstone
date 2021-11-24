@@ -50,12 +50,14 @@
 
                 <!-- If from other page -->
                 <div *ngIf="!currentPage">
-                  <div class="row" *ngFor="let size of selectedSizes">
+                  <div class="row" *ngFor="let product of selectedSizes">
                     <div class="col">
-                      <input type="text" name="" id="" value="" disabled>
+                      <label for="">Sizes</label>
+                      <input type="text" class="form-control" name="" id="" value="{{ product.size }}" disabled>
                     </div>
                     <div class="col">
-                      <input type="text" name="" id="" value="" disabled>
+                      <label for="">Unit To Sale</label>
+                      <input type="text" class="form-control" name="" id="" value="{{ product.pivot.sales_item }}" disabled>
                     </div>
                   </div>
                 </div>
@@ -82,7 +84,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success field add-product">Add To On Sales</button>
-                <a routerLink="/admin/product-on-sale" class="btn btn-success field same">Cancel</a>
+                <a (click)="return()" class="btn btn-success field same">Cancel</a>
             </div>
         </div>
     </form>

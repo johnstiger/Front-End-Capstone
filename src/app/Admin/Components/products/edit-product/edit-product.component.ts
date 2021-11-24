@@ -88,7 +88,6 @@ export class EditProductComponent implements OnInit {
 
   onFileChange(event:any){
     const reader = new FileReader();
-
     if(event.target.files && event.target.files.length){
       const [file] = event.target.files;
       console.log(file);
@@ -105,7 +104,7 @@ export class EditProductComponent implements OnInit {
   submit(data : any){
     this.service.loading();
     data.fileSource = this.filedata != undefined ? this.filedata : data.image;
-
+    data.sizes = this.stockSizes;
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
@@ -119,8 +118,8 @@ export class EditProductComponent implements OnInit {
   async getCategory(){
     const result = await this.service.getCategories(this.token);
     this.categories = result.data.data;
-
   }
+
   async getSize(){
     const result = await this.service.getSizes(this.token);
     this.allSize = result.data.error ? false : result.data.data;
@@ -129,8 +128,6 @@ export class EditProductComponent implements OnInit {
   // addSize
   addSize(params : any){
     let value = params
-    console.log(this.stockSizes);
-        
     if(value.sizes != '' && value.unit_measure != ''){
       let test = '';
       let productId;
@@ -166,15 +163,16 @@ export class EditProductComponent implements OnInit {
   }
 
   noSizesChoose($event : any){
+    let test = document.getElementById(''+$event.value+'') as HTMLLIElement
     const buttonSize = document.querySelector<HTMLElement>('.add-size')!;
-    const unit = document.getElementById('unit_measure') as HTMLInputElement;
-    if($event.value == 'n/a'){
-      buttonSize.style.display = 'none';
-      unit.disabled = true;
-      this.stockSizes = [];
+    if(test.innerHTML == 'N/A'){
+      buttonSize.style.display ='none'
+      this.stockSizes.forEach((element, index) => {
+        (document.getElementById(""+ element.size_id +"") as HTMLInputElement).disabled = false;
+      })
+      this.stockSizes = []
     }else{
       buttonSize.style.display = 'block';
-      unit.disabled = false;
     }
   }
 }

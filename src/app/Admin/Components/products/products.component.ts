@@ -128,28 +128,39 @@ export class ProductsComponent implements OnInit {
 
 
   selected(size : any){
+    let select = document.getElementById(''+size.id+'') as HTMLInputElement
     if(this.sizeId.includes(size)){
       this.sizeId.slice(this.sizeId.indexOf(size),1);
+      select.disabled = true;
     }else{
       this.sizeId.push(size);
+      select.disabled = false;
     }
   }
 
   selectAll(sizes : Array<any> = []){
-   let test = document.getElementsByClassName('selectId')[0] as HTMLInputElement;
    let selectall = document.getElementById('selectAll') as HTMLInputElement;
-   if(selectall.checked){
-     sizes.forEach(element => {
-       this.selected(element);
-     });
-     test.checked = true;
-   }else{
-    this.sizeId = [];
-    test.checked = false;
-   }
+   sizes.forEach((element, index) => {
+    let test = document.getElementsByClassName('selectId')[index] as HTMLInputElement
+    let select = document.getElementById(''+element.id+'') as HTMLInputElement
+    if(selectall.checked){
+      this.selected(element);
+      test.checked = true;
+    }else{
+      this.sizeId = [];
+      test.checked = false;
+      select.disabled = true;
+    }
+   });
+
   }
 
   addToSale(product : any){
+    this.sizeId.forEach(element=>{
+      let select = document.getElementById(''+element.id+'') as HTMLInputElement
+      element.pivot.sales_item = parseInt(select.value);
+      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+    })
     if(this.sizeId.length > 0){
       this.router.navigate(['/admin/add-sales/'+product.id],{
           state: {
@@ -163,10 +174,21 @@ export class ProductsComponent implements OnInit {
   }
 
   openModal(product : any){
-    this.display = 'block';
     this.productName = product.name;
     this.stockSizes = product.sizes
+    let check = this.stockSizes.map(res => {
+      if(res.size === 'N/A'){
+        return true;
+      }
+      return false;
+    })
     this.product = product;
+    if(check[0]){
+      this.sizeId = product.sizes
+      this.addToSale(product);
+    }else{
+      this.display = 'block';
+    }
   }
 
   onCloseHandled(){

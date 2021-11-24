@@ -15,10 +15,10 @@ export class AppComponent {
   // testing
   constructor(private notificationService:NotificationService)
   {
-    this.notificationService.recieveNotification('notification')
+    this.notificationService.recieveNotification()
   }
 
   publishNotification() {
-    this.notificationService.sendNotification('notification', 'this is a message')
+    this.notificationService.sendNotification('this is a message')
   }
 }

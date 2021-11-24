@@ -55,7 +55,6 @@
                         </div>
                         <select name="sizes" id="size" class="options field form-control" formControlName="sizes" (change)="noSizesChoose($event.target)">
                             <option value="0" hidden>Size</option>
-                            <option value="n/a">N/A</option>
                             <option *ngFor="let size of allSize" id="{{ size.id }}" [value]="size.id">{{ size.size }}</option>
                         </select>
                         <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->

@@ -19,6 +19,7 @@ export class AddSaleComponent implements OnInit {
   constructor(
     private url : UrlService,
     private service : AdminService,
+    private route : Router,
     private router : ActivatedRoute,
     private location : Location,
     ) { }
@@ -52,12 +53,9 @@ export class AddSaleComponent implements OnInit {
     if(this.newId){
       this.onChange(this.newId);
       this.currentPage = false;
-      if(sessionStorage.getItem('sizes')){
+      this.selectedSizes = history.state.productSize
+      console.log(this.selectedSizes);
 
-      }else{
-        this.selectedSizes = history.state.productSize
-        sessionStorage.setItem('sizes',this.selectedSizes.toString());
-      }
     }else{
       this.getSize();
     }
@@ -104,11 +102,19 @@ export class AddSaleComponent implements OnInit {
 
 submit(data : any){
   this.service.loading();
+  if(!this.currentPage){
+    data.size = this.selectedSizes;
+    data.unit_measure = 0;
+  }
+  console.log(data);
+
   this.service.getSalesProduct(this.id, data, this.token).then((result)=>{
+    console.log(result.data);
+
     if(result.data.error){
       this.error = result.data.message;
     }else{
-      this.location.back();
+      this.route.navigate(['/admin/product-on-sale'])
     }
     this.service.closeLoading();
   }).catch(err => {
@@ -123,7 +129,9 @@ async getSize(){
 }
 
 
-
+return(){
+  this.location.back();
+}
 
 
 }

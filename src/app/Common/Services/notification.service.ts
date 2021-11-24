@@ -8,17 +8,18 @@ import { environment } from 'src/environments/environment';
 export class NotificationService {
 
   private socket:any;
+  private topic = 'notification';
   constructor() {
     this.socket = io(environment.socket.url);
   }
 
-  sendNotification(topic:string, message:string) {
-    this.socket.emit(topic, message)
+  sendNotification(message:any) {
+    this.socket.emit(this.topic, message)
   }
 
-  recieveNotification(topic:string) {
-    this.socket.on(topic, (message:any) => {
-      console.log(message)
+  recieveNotification() {
+    this.socket.on(this.topic, (message:any) => {
+      document.querySelector<HTMLElement>('.badge')!.style.display = 'block';
     })
   }
 }

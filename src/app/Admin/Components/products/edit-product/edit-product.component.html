@@ -51,7 +51,6 @@
 
                         <select name="sizes" id="size" class="options field form-control" [ngModel]="sizes" (change)="noSizesChoose($event.target)">
                     <option value="0" hidden>Size</option>
-                    <option value="n/a">N/A</option>
                     <option *ngFor="let size of allSize" id="{{ size.id }}" [value]="size.id">{{ size.size }}</option>
                 </select>
                     </div>
@@ -61,7 +60,7 @@
                         </div>
                         <input type="number" min="0" class="form-control" name="unit_measure" id="unit_measure" [ngModel]="unit_measure" placeholder="Quantity">
                     </div>
-                    
+
                     <!-- add size  -->
                     <div class="col">
                         <button type="button" class="btn add-size" (click)="addSize(FormUpdate.value)"><i class="fas fa-plus-circle"></i> Add Size</button>
