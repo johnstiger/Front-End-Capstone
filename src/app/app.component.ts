@@ -15,7 +15,6 @@ export class AppComponent {
   // testing
   constructor(private notificationService:NotificationService)
   {
-    this.notificationService.recieveNotification()
   }
 
   publishNotification() {

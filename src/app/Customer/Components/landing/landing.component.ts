@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { CustomerService } from '../../Services/customer.service';
+import { NotificationService } from 'src/app/Common/Services/notification.service';
 
 @Component({
   selector: 'app-landing',
@@ -22,7 +23,8 @@ export class LandingComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: CustomerService
+    private service: CustomerService,
+    private notificationService : NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +39,9 @@ export class LandingComponent implements OnInit {
 
 
 
-  
+  publishNotification() {
+    this.notificationService.sendNotification('this is a message')
+  }
 
 
 }
