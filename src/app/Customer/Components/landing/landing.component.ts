@@ -39,9 +39,4 @@ export class LandingComponent implements OnInit {
 
 
 
-  publishNotification() {
-    this.notificationService.sendNotification('this is a message')
-  }
-
-
 }
