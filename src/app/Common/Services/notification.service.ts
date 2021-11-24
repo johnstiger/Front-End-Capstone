@@ -9,6 +9,7 @@ export class NotificationService {
 
   private socket:any;
   private topic = 'notification';
+  private counter : number = 0;
   constructor() {
     this.socket = io(environment.socket.url);
   }
@@ -19,7 +20,9 @@ export class NotificationService {
 
   recieveNotification() {
     this.socket.on(this.topic, (message:any) => {
+      this.counter++;
       document.querySelector<HTMLElement>('.badge')!.style.display = 'block';
+      document.querySelector<HTMLElement>('.badge')!.innerHTML = this.counter.toString();
     })
   }
 }
