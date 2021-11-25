@@ -37,7 +37,6 @@ export class ProductsComponent implements OnInit {
     private link : UrlService,
      ) { }
 
-  // token = this.link.getToken();
   token = localStorage.getItem('admin_token');
   sizeId = new Array();
   cp : number = 1;
@@ -48,6 +47,7 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
+  // Search specific product
   searchProducts(){
     this.service.searchProducts(this.form.value, this.token).then((result)=>{
       if(result.data.found){
@@ -58,31 +58,39 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  // get the products
   async getProducts(){
     this.service.loading();
     const result = await this.service.products(this.token).then((res)=>{
+      console.log(res.data);
       if(res.data.error){
         this.service.ShowErrorMessage(res.data.message);
       }else{
         this.products = res.data.data;
-        this.products = this.products.map(res => {
-          const size = res.sizes.map((size:any, ndx : any) => {
-            return size.pivot.avail_unit_measure
+        if(this.products == undefined){
+          this.products = [];
+        }else{
+          // get the total of all quantity sizes
+          this.products = this.products.map(res => {
+            const size = res.sizes.map((size:any, ndx : any) => {
+              return size.pivot.avail_unit_measure
+            })
+            let total_avail_unit_measure = 0
+            if (size.length) {
+              total_avail_unit_measure = size.reduce((total:any, num:any) => total + num)
+            }
+
+            res['total_avail_unit_measure'] = total_avail_unit_measure
+            return res
           })
-          let total_avail_unit_measure = 0
-          if (size.length) {
-            total_avail_unit_measure = size.reduce((total:any, num:any) => total + num)
-          }
-          res['total_avail_unit_measure'] = total_avail_unit_measure
-          return res
-        })
+        }
       }
     this.service.closeLoading();
    });
 
   }
 
-
+  // Delete Product
   async deleteProduct(id:any){
     const result = await this.service.deleteProduct(id, this.token).then((result)=>{
       if(result.data.error){
@@ -93,6 +101,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  // Go to edit product edit page
   update(product:any){
     this.router.navigate(['/admin/edit-product/'+product.id],{
       state: {
@@ -101,6 +110,7 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  // Confirmation in delete
   async confirmDelete(product:any){
     Swal.fire({
       title: 'Are you sure?',
@@ -126,30 +136,62 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-
+  // Individual selection
   selected(size : any){
+    let select = document.getElementById(''+size.id+'') as HTMLInputElement
     if(this.sizeId.includes(size)){
       this.sizeId.slice(this.sizeId.indexOf(size),1);
+      select.disabled = true;
     }else{
       this.sizeId.push(size);
+      select.disabled = false;
     }
   }
 
+  // Check All Sizes
   selectAll(sizes : Array<any> = []){
-   let test = document.getElementsByClassName('selectId')[0] as HTMLInputElement;
    let selectall = document.getElementById('selectAll') as HTMLInputElement;
-   if(selectall.checked){
-     sizes.forEach(element => {
-       this.selected(element);
-     });
-     test.checked = true;
-   }else{
-    this.sizeId = [];
-    test.checked = false;
-   }
+   sizes.forEach((element, index) => {
+    let test = document.getElementsByClassName('selectId')[index] as HTMLInputElement
+    let select = document.getElementById(''+element.id+'') as HTMLInputElement
+    if(selectall.checked){
+      this.selected(element);
+      test.checked = true;
+    }else{
+      this.sizeId = [];
+      test.checked = false;
+      select.disabled = true;
+    }
+   });
+
   }
 
+  // Pop Up Modal
+  openModal(product : any){
+    this.productName = product.name;
+    this.stockSizes = product.sizes
+    let check = this.stockSizes.map(res => {
+      if(res.size === 'N/A'){
+        return true;
+      }
+      return false;
+    })
+    this.product = product;
+    if(check[0]){
+      this.sizeId = product.sizes
+      this.addToSale(product);
+    }else{
+      this.display = 'block';
+    }
+  }
+
+  // Submit Modal To Sales Page
   addToSale(product : any){
+    this.sizeId.forEach(element=>{
+      let select = document.getElementById(''+element.id+'') as HTMLInputElement
+      element.pivot.sales_item = parseInt(select.value);
+      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+    })
     if(this.sizeId.length > 0){
       this.router.navigate(['/admin/add-sales/'+product.id],{
           state: {
@@ -162,13 +204,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  openModal(product : any){
-    this.display = 'block';
-    this.productName = product.name;
-    this.stockSizes = product.sizes
-    this.product = product;
-  }
-
+  // Close Pop Up Modal
   onCloseHandled(){
     this.display = 'none'
   }

@@ -20,7 +20,6 @@
                                 <tr>
                                     <th scope="col">Customer Name</th>
                                     <th scope="col">Product</th>
-
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -33,15 +32,13 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i> Preview</button>
+                                        <button *ngIf="order.tracking_code === null && order.status === 1" type="button" (click)="trackingCode(order)" class="btn btn-primary tracking"><i class="fas fa-truck-loading"></i> Tracking Code</button>
+                                        <button *ngIf="order.status == 0" type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i> Preview</button>
                                         <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
                                     </td>
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                                    <td> Not set </td>
-                                    <td> Not set </td>
-                                    <td> Not set </td>
                                     <td> Not set </td>
                                     <td>
                                         <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i>Preview</button>
@@ -83,24 +80,98 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of customerOrders">
+              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: cp}">
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
                 <td *ngFor="let size of product.sizes">
-                  <div *ngIf="size.id == product.pivot.size_id">
-                    {{ size.size }}
-                  </div>
+                    {{ size }}
                 </td>
-                <td>{{ product.pivot.quantity*product.price }}</td>
+                <td *ngIf="product.sizes.length == 0">
+                  N/A
+                </td>
+                <td>{{ product.total }}</td>
               </tr>
             </tbody>
           </table>
+          <div *ngIf="customerOrders">
+            <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+          </div>
           <div class="row">
             <div class="col">
               <button class="btn btn-primary" (click)="onCloseHandled()">Okay</button>
               <button class="btn btn-success confirm" (click)="confirm(orderId, customerId)">Confirmed</button>
             </div>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal !-->
+
+
+<!-- Tracking Code Modal -->
+<div class="backdrop" [ngStyle]="{'display': displayModalTracking}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': displayModalTracking}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ customerName }}'s Orders</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product Quantity</th>
+                <th scope="col">Product Size</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: cp}">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.pivot.quantity }}</td>
+                <td *ngFor="let size of product.sizes">
+                    {{ size }}
+                </td>
+                <td *ngIf="product.sizes.length == 0">
+                  N/A
+                </td>
+                <td>{{ product.total }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="customerOrders">
+            <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+          </div>
+          <div class="def">
+            <form name="form" [formGroup]="TrackingCodeForm" (ngSubmit)="addTrackingCode(customerId,orderId)">
+              <div class="row">
+                <div *ngIf="error && error.tracking_code" class="alert alert-danger">
+                  *{{ error.tracking_code[0] }}
+                </div>
+                <div *ngIf="error && error.name_of_deliver_company" class="alert alert-danger">
+                  *{{ error.name_of_deliver_company[0] }}
+                </div>
+                <div class="col-6">
+                  <input type="text"  class="form-control" formControlName="tracking_code" name="tracking_code" id="trackingCode" placeholder="Tracking Code">
+                </div>
+                <div class="col">
+                  <select name="" id="" class="form-control" formControlName="name_of_deliver_company" name="name_of_deliver_company">
+                    <option value=""hidden>Select Delivery Company</option>
+                    <option value="LBC">LBC</option>
+                    <option value="JnT">J&T Express</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <button type="submit" class="btn btn-success confirm">Submit</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <!-- /.modal-content -->

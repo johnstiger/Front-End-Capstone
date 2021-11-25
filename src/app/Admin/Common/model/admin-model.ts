@@ -29,11 +29,13 @@ export interface Orders {
   user_id : any,
   customer : any,
   products : any,
+  tracking_code : any
 }
 
 
 export interface Data {
-  id : number
+  id : number,
+  total : number
 }
 
 export interface SalesProduct {

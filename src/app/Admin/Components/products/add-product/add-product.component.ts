@@ -83,9 +83,11 @@ export class AddProductComponent implements OnInit {
     this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
-        this.stockSizes = []
       }else{
+        this.http.showMessage(result.data.message);
+      setTimeout(() => {
         this.location.back();
+      }, 2000);
       }
       this.http.closeLoading();
     }).catch((e)=>{
@@ -102,7 +104,7 @@ export class AddProductComponent implements OnInit {
 
   async getSizes(){
     const result = await this.http.getSizes(this.token);
-    this.allSize = result.data.error ? false : result.data.data;
+    this.allSize = result.data.error ? [] : result.data.data;
   }
 
   addSize(params : any){
@@ -140,15 +142,17 @@ export class AddProductComponent implements OnInit {
   }
 
   noSizesChoose($event : any){
+    let test = document.getElementById(''+$event.value+'') as HTMLLIElement
     const buttonSize = document.querySelector<HTMLElement>('.add-size')!;
-    const unit = document.getElementById('unit_measure') as HTMLInputElement;
-    if($event.value == 'n/a'){
-      buttonSize.style.display = 'none';
-      unit.disabled = true;
-      this.stockSizes = [];
+    if(test.innerHTML == 'N/A'){
+      buttonSize.style.display ='none'
+      this.stockSizes.forEach((element, index) => {
+        (document.getElementById(""+ element.size_id +"") as HTMLInputElement).disabled = false;
+      })
+      this.stockSizes = []
     }else{
       buttonSize.style.display = 'block';
-      unit.disabled = false;
     }
   }
+
 }

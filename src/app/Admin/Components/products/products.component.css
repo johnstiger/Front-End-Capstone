@@ -101,3 +101,7 @@ th {
 .thead{
   font-weight: 600;
 }
+
+.modalInput{
+  width: 100px;
+}
