@@ -1,25 +1,39 @@
-.container1 {
-    margin-top: 5%;
+.shop{
+  position: relative;
 }
+
+.container1 {
+  margin-top: 10%;
+}
+
+.card{
+  box-shadow: 6px 6px 7px dimgrey;
+}
+
+.line{
+  height: 2px;
+  color: white;
+  margin-top: 50px;
+}
+
 img {
     max-width: 100%;
     height: auto;
 }
+
 .shop1 img{
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2%;
-    /* position: relative; */
-    /* margin-top: 10% */
+
 }
 .shop2 img{
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2%;
-    /* position: relative; */
-    /* margin-top: 10% */
+
 }
 .shop3 img{
     display: block;
@@ -29,24 +43,34 @@ img {
     height: 75vh;
 }
 
+.card-feature{
+  width: 12rem !important;
+}
+
 .shopbtn {
     box-sizing: border-box;
     border-radius: 20px;
     padding: 11px;
     font-size: 15px;
     position: absolute;
-    left: 42%;
+    left: 50%;
     width: 15em;
     cursor: pointer;
     border: none;
-    margin-top: 23%;
+    top: 50%;
     background-color: rgb(226, 221, 212);
     opacity: 0.7;
     color: black;
+    transform: translate(-50%, 70%);
 }
 
 .shopbtn:hover {
     opacity: 0.5;
+}
+
+.card .card-img-top{
+  height: 19em;
+  object-fit: cover;
 }
 
 .card {
@@ -55,13 +79,9 @@ img {
     margin-top: 2em;
 }
 
-.card-img-top {
-    width: unset;
-    height: 19em;
+.card-feature .card-img-top {
+    height: 10em;
     object-fit: cover;
-    margin-left: -0.813rem;
-    margin-right: -0.813rem;
-    margin-top: -0.063rem;
 }
 
 .viewbtn {
@@ -93,4 +113,18 @@ img {
         left: 25%;
         margin-top: 30%;
     } */
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-6/p526x296/220142484_187577836677717_1685348265597263347_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHmCH5zE485Y--n4GZaZG4wft8ylKVVypN-3zKUpVXKk1nqjGwYpXjb0bC8O5ikxklPf3Vz5VbRf38iZ1ZIwH2R&_nc_ohc=eDgWZFGJj3QAX97XGlK&_nc_ht=scontent.fceb1-2.fna&oh=c56c584ddf21f743efb767818589669b&oe=61A4C6E6");
+
+  /* Set a specific height */
+  min-height: 275px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
