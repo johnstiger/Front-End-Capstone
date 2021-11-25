@@ -12,22 +12,6 @@
         <button class="shopbtn">SHOP NOW</button>
         <img src="../../../../assets/imgs/3.jpeg" class="img-fluid" alt="">
     </div>
-
-
-    <div class="shop4 p-4">
-        <h3 class="text-center m-3">Hot Sales</h3>
-        <div class="row">
-            <div class="card" *ngFor = "let product of products">
-                <img class="card-img-top" (click)="select(product)"  src="{{ product+product.image }}" alt="Card image cap" *ngIf="product.image">
-                <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!product.image">
-                <div class="card-body text-center">
-                    <h6 class="card-title">{{product.name}}</h6>
-                    <p class="card-text">P {{product.price}}
-                        <i class="fas fa-cart-plus"></i> </p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="carousel">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -46,84 +30,13 @@
     <div class="shop4 p-4">
         <h3 class="text-center m-3">Hot Sales</h3>
         <div class="row">
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/image1.jpg" alt="Card image cap">
+            <div class="card" *ngFor = "let product of products">
+                <img class="card-img-top" (click)="select(product)"  src="{{ product+product.image }}" alt="Card image cap" *ngIf="product.image">
+                <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!product.image">
                 <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
+                    <h6 class="card-title">{{product.name}}</h6>
+                    <p class="card-text">P {{product.price}}
                         <i class="fas fa-cart-plus"></i> </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/image1.jpg" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/dress_PNG147.png" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/dress_PNG147.png" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/dress_PNG147.png" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/dress_PNG147.png" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/dress_PNG147.png" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/dress_PNG147.png" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="../../../../assets/imgs/dress_PNG147.png" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Product Name</h6>
-                    <p class="card-text">P 100.00
-                        <i class="fas fa-cart-plus"></i>
-                    </p>
                 </div>
             </div>
         </div>

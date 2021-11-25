@@ -21,17 +21,14 @@ export class CustomersComponent implements OnInit {
   });
   constructor(private http: AdminService) { }
 
-  customers!: Customers[];
+  // customers!: Customers[];
 
-<<<<<<< HEAD
-=======
   customers! : Customers[];
   display ='none';
   addresses : any;
   customerName : any;
   contactNumber : any;
   cp : number = 1;
->>>>>>> ae82de35862c072e822193cea5b5733f92d861fa
 
   ngOnInit(): void {
     this.getCustomers();
@@ -65,9 +62,6 @@ export class CustomersComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
-
-=======
   openModal(customer:any){
     this.display='block';
     console.log(customer);
@@ -79,5 +73,4 @@ export class CustomersComponent implements OnInit {
   onCloseHandled(){
     this.display='none';
   }
->>>>>>> ae82de35862c072e822193cea5b5733f92d861fa
 }

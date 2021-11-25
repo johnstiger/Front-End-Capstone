@@ -4,11 +4,8 @@ import axios from 'axios';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { CustomerService } from '../../Services/customer.service';
-<<<<<<< HEAD
 import Swal from 'sweetalert2';
-=======
 import { NotificationService } from 'src/app/Common/Services/notification.service';
->>>>>>> ae82de35862c072e822193cea5b5733f92d861fa
 
 @Component({
   selector: 'app-landing',

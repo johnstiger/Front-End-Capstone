@@ -12,4 +12,7 @@ export class CartPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  async getProducts(id:any){
+
+  }
 }
