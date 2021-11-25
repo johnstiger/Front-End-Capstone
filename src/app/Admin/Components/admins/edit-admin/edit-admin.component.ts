@@ -86,7 +86,10 @@ export class EditAdminComponent implements OnInit {
       if(result.data.error){
         this.errors = result.data.message;
       }else{
-        this.location.back();
+        this.service.showMessage(result.data.message);
+        setTimeout(() => {
+          this.location.back();
+        }, 2000);
         // const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
         // if(response.data.error){
         //   this.errors = response.data.message;
