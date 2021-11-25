@@ -34,6 +34,7 @@ export class AdminService {
     return response;
   }
 
+
   async getSizes(token:any){
     const response = await axios.get(this.url+"product/sizes",{headers: {Authorization:token}});
     return response;

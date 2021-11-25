@@ -31,7 +31,8 @@ export interface Categories {
 
 export interface Sizes {
   id : number,
-  size : string
+  size : string,
+  pivot : any
 }
 
 export interface Comments {

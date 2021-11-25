@@ -37,7 +37,6 @@ export class ProductsComponent implements OnInit {
     private link : UrlService,
      ) { }
 
-  // token = this.link.getToken();
   token = localStorage.getItem('admin_token');
   sizeId = new Array();
   cp : number = 1;
@@ -48,6 +47,7 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
+  // Search specific product
   searchProducts(){
     this.service.searchProducts(this.form.value, this.token).then((result)=>{
       if(result.data.found){
@@ -58,6 +58,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  // get the products
   async getProducts(){
     this.service.loading();
     const result = await this.service.products(this.token).then((res)=>{
@@ -65,6 +66,7 @@ export class ProductsComponent implements OnInit {
         this.service.ShowErrorMessage(res.data.message);
       }else{
         this.products = res.data.data;
+        // get the total of all quantity sizes
         this.products = this.products.map(res => {
           const size = res.sizes.map((size:any, ndx : any) => {
             return size.pivot.avail_unit_measure
@@ -73,6 +75,7 @@ export class ProductsComponent implements OnInit {
           if (size.length) {
             total_avail_unit_measure = size.reduce((total:any, num:any) => total + num)
           }
+
           res['total_avail_unit_measure'] = total_avail_unit_measure
           return res
         })
@@ -82,7 +85,7 @@ export class ProductsComponent implements OnInit {
 
   }
 
-
+  // Delete Product
   async deleteProduct(id:any){
     const result = await this.service.deleteProduct(id, this.token).then((result)=>{
       if(result.data.error){
@@ -93,6 +96,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  // Go to edit product edit page
   update(product:any){
     this.router.navigate(['/admin/edit-product/'+product.id],{
       state: {
@@ -101,6 +105,7 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  // Confirmation in delete
   async confirmDelete(product:any){
     Swal.fire({
       title: 'Are you sure?',
@@ -126,7 +131,7 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-
+  // Individual selection
   selected(size : any){
     let select = document.getElementById(''+size.id+'') as HTMLInputElement
     if(this.sizeId.includes(size)){
@@ -138,6 +143,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  // Check All Sizes
   selectAll(sizes : Array<any> = []){
    let selectall = document.getElementById('selectAll') as HTMLInputElement;
    sizes.forEach((element, index) => {
@@ -155,24 +161,7 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  addToSale(product : any){
-    this.sizeId.forEach(element=>{
-      let select = document.getElementById(''+element.id+'') as HTMLInputElement
-      element.pivot.sales_item = parseInt(select.value);
-      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
-    })
-    if(this.sizeId.length > 0){
-      this.router.navigate(['/admin/add-sales/'+product.id],{
-          state: {
-            data: product,
-            productSize : this.sizeId
-          }
-      })
-    }else{
-      this.service.ShowErrorMessage('Please Select Product Sizes');
-    }
-  }
-
+  // Pop Up Modal
   openModal(product : any){
     this.productName = product.name;
     this.stockSizes = product.sizes
@@ -191,6 +180,26 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  // Submit Modal To Sales Page
+  addToSale(product : any){
+    this.sizeId.forEach(element=>{
+      let select = document.getElementById(''+element.id+'') as HTMLInputElement
+      element.pivot.sales_item = parseInt(select.value);
+      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+    })
+    if(this.sizeId.length > 0){
+      this.router.navigate(['/admin/add-sales/'+product.id],{
+          state: {
+            data: product,
+            productSize : this.sizeId
+          }
+      })
+    }else{
+      this.service.ShowErrorMessage('Please Select Product Sizes');
+    }
+  }
+
+  // Close Pop Up Modal
   onCloseHandled(){
     this.display = 'none'
   }

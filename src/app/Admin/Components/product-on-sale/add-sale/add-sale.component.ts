@@ -40,7 +40,8 @@ export class AddSaleComponent implements OnInit {
   error : any;
   select: any;
   selectedSizes : Array<any> = [];
-
+  selectName : boolean = false;
+  unitErrors : Array<any> = [];
   currentPage = true;
 
   ngOnInit(): void {
@@ -49,19 +50,17 @@ export class AddSaleComponent implements OnInit {
         this.newId = params.get('id');
       }
     );
-
+    this.getProductsName()
     if(this.newId){
       this.onChange(this.newId);
       this.currentPage = false;
       this.selectedSizes = history.state.productSize
       console.log(this.selectedSizes);
-
     }else{
       this.getSize();
     }
 
   }
-
 
   getProductsName(){
        this.service.products(this.token).then((result)=>{
@@ -83,15 +82,21 @@ export class AddSaleComponent implements OnInit {
         this.service.ShowErrorMessage(result.data.message)
       }else{
         this.product = result.data.data;
+        this.selectName = true;
         this.image = this.product.image
         this.price = this.product.price
         this.description = this.product.description;
+        this.allSize = this.product.sizes
+
         this.size = this.product.sizes.length > 0 ? this.product.sizes[0].id : 0;
         this.unit_measure = this.size > 0 ? this.product.sizes[0].pivot.avail_unit_measure : 0;
       }
 
       if(event > 0){
         this.allSize = this.product.sizes
+        this.currentPage = false;
+      }else{
+        this.currentPage = true;
       }
 
       this.service.closeLoading();
@@ -105,33 +110,69 @@ submit(data : any){
   if(!this.currentPage){
     data.size = this.selectedSizes;
     data.unit_measure = 0;
-  }
-  console.log(data);
+    this.addToSale(data);
+  }else{
+    this.allSize.forEach((element)=>{
+      let select = document.getElementById(''+element.id+'') as HTMLInputElement
+      console.log(element, select.value);
+      if(parseInt(select.value) > element.pivot.avail_unit_measure){
+        this.unitErrors.push(element.size)
+      }else{
+        element.pivot.sales_item = parseInt(select.value);
+        element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+      }
+    })
 
-  this.service.getSalesProduct(this.id, data, this.token).then((result)=>{
-    console.log(result.data);
-
-    if(result.data.error){
-      this.error = result.data.message;
+    if(this.unitErrors.length > 0){
+      this.service.ShowErrorMessage('number selected is out of range to this Sizes: '+this.unitErrors)
+      this.unitErrors = [];
     }else{
-      this.route.navigate(['/admin/product-on-sale'])
+      data.size = this.allSize
+      data.unit_measure = 0;
+      this.addToSale(data);
     }
-    this.service.closeLoading();
-  }).catch(err => {
-    console.log(err);
-  })
+  }
+
 }
 
+  addToSale(data : any){
+    this.service.getSalesProduct(this.id, data, this.token).then((result)=>{
+      if(result.data.error){
+        this.error = result.data.message;
+      }else{
+        this.route.navigate(['/admin/product-on-sale'])
+      }
+      this.service.closeLoading();
+    }).catch(err => {
+      console.log(err);
+    })
+  }
 
 async getSize(){
   const result = await this.service.getSizes(this.token);
   this.allSize = result.data.error ? false : result.data.data;
 }
 
+  // Trigger during changing the quantity
+  enterUnitMeasure(event : any){
+    console.log(event);
 
-return(){
-  this.location.back();
-}
+  }
 
+// Return to previous page
+  return(){
+    this.location.back();
+  }
 
+  // Delete Specific size
+  delete(size : any){
+    this.allSize.forEach((element, index)=>{
+      if(element.id == size.id){
+        this.allSize.splice(index,1);
+      }
+    })
+    if(this.allSize.length == 0){
+      this.selectName = false;
+    }
+  }
 }
