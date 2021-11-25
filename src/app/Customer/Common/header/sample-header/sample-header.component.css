@@ -2,11 +2,16 @@ body {
     background-color: #C7988E;
 }
 
-form{
-  position: absolute;
-  top: 6px;
+.grid{
+    position: relative;
 }
 
+.search{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 10%);
+}
 
 #dropdown {
     margin-left: 58px;
@@ -31,9 +36,7 @@ form{
     margin-top: -50px
 }
 
-.search{
-  position: relative;
-}
+
 
 /*
 */
@@ -160,7 +163,6 @@ button{
     border: none;
     color: rgb(214, 185, 190);
     text-align: center;
-    margin-left: 45px;
 }
 
 .search input[type="text"] {
