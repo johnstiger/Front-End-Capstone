@@ -28,6 +28,7 @@ export class EditProductComponent implements OnInit {
   unit_measure! : number;
   sChoose! : number;
   stockSizes: Array<any> = [];
+  deletedSizes : Array<any> = [];
 
   filedata : any;
 
@@ -101,10 +102,14 @@ export class EditProductComponent implements OnInit {
     }
   }
 
+  // submit data
   submit(data : any){
     this.service.loading();
     data.fileSource = this.filedata != undefined ? this.filedata : data.image;
     data.sizes = this.stockSizes;
+    if(this.deletedSizes != []){
+      data.deletedSizes = this.deletedSizes;
+    }
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
@@ -140,6 +145,11 @@ export class EditProductComponent implements OnInit {
           productId = element.id
         }
       })
+      this.deletedSizes.forEach((element, index) =>{
+        if(element.id == value.sizes){
+          this.deletedSizes.splice(index, 1);
+        }
+      })
       this.stockSizes.push({
         size : test,
         pivot : {
@@ -152,14 +162,18 @@ export class EditProductComponent implements OnInit {
       value.unit_measure = '';
     }
   }
+
   // delete
   delete(params : any){
     this.stockSizes.forEach((element, index) => {
       if(params.size == element.size){
         (document.getElementById(""+ element.pivot.sizes_id +"") as HTMLInputElement).disabled = false;
         this.stockSizes.splice(index, 1)
+        this.deletedSizes.push(element);
       }
     })
+    console.log(this.deletedSizes);
+
   }
 
   noSizesChoose($event : any){

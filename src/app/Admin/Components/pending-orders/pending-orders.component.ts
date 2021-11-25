@@ -20,7 +20,7 @@ export class PendingOrdersComponent implements OnInit {
   data : Data[] = [];
   display ='none';
   customerName : any;
-  customerOrders : any;
+  customerOrders : Array<any> = [];
   orderId : any;
   customerId : any;
   cp : number = 1;
@@ -29,10 +29,12 @@ export class PendingOrdersComponent implements OnInit {
     this.getPendingOrders();
   }
 
+  // Kulang Pani
   searchProducts(){
 
   }
 
+  // Get All Pending Orders
   getPendingOrders(){
     this.http.loading();
     this.http.pendingOrders(this.token).then((result) =>{
@@ -45,7 +47,7 @@ export class PendingOrdersComponent implements OnInit {
     })
   }
 
-
+  // Confirm Order Purchase
   confirm(orderId : any, customerId : any){
     this.data = [{
       id : orderId
@@ -57,15 +59,15 @@ export class PendingOrdersComponent implements OnInit {
           this.http.ShowErrorMessage(result.data.message);
       }else{
         this.onCloseHandled();
-          this.http.ShowSuccessMessage(result.data.message);
-          setTimeout(()=>{
-            this.ngOnInit();
-          }, 2000);
+        this.http.ShowSuccessMessage(result.data.message);
+        setTimeout(()=>{
+          this.ngOnInit();
+        }, 2000);
       }
-      // this.http.closeLoading();
     });
   }
 
+  // Declin Order Purchase
   declined(orderId : any, customerId : any){
     this.data = [{
       id : orderId
@@ -81,19 +83,35 @@ export class PendingOrdersComponent implements OnInit {
           this.ngOnInit();
         }, 2000);
       }
-      // this.http.closeLoading();
     });
   }
 
+  // Pop Up Modal
   openModal(order : any){
     this.display='block';
-    console.log(order);
     this.orderId = order.id;
     this.customerId = order.customer.id;
     this.customerName = order.customer.firstname+" "+order.customer.lastname;
     this.customerOrders = order.products
+    // Filter product sizes
+    this.customerOrders = this.customerOrders.map(res => {
+      const result = res.sizes.map((value : any) => {
+        if(value.id === res.pivot.size_id){
+          return value.size
+        }
+      })
+      var test = result.filter((removeUndefine : any) =>{
+        return removeUndefine;
+      });
+
+      if(result.length > 0){
+        res['sizes'] = test;
+      }
+      return res;
+    })
  }
 
+  // Close Pop Up Modal
   onCloseHandled(){
     this.display='none';
   }

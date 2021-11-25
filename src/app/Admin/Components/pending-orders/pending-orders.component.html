@@ -20,7 +20,6 @@
                                 <tr>
                                     <th scope="col">Customer Name</th>
                                     <th scope="col">Product</th>
-
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -39,9 +38,6 @@
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                                    <td> Not set </td>
-                                    <td> Not set </td>
-                                    <td> Not set </td>
                                     <td> Not set </td>
                                     <td>
                                         <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i>Preview</button>
@@ -88,9 +84,10 @@
                 <td>{{ product.price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
                 <td *ngFor="let size of product.sizes">
-                  <div *ngIf="size.id == product.pivot.size_id">
-                    {{ size.size }}
-                  </div>
+                    {{ size }}
+                </td>
+                <td *ngIf="product.sizes.length == 0">
+                  N/A
                 </td>
                 <td>{{ product.pivot.quantity*product.price }}</td>
               </tr>

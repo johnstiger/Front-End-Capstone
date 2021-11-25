@@ -11,41 +11,50 @@
                 <div *ngIf="error && error.name" class="alert alert-danger">
                     *{{ error.name[0] }}
                 </div>
-                <label for="">Product Name</label>
-                <select name="name" (change)="onChange($event)" id="selected" class="options field form-control" formControlName="name">
-            <option value="0" hidden>Product Name</option>
-            <option *ngFor="let product of products" [value]="product.id" id="{{ product.id }}">{{product.name}}</option>
-            </select>
+              <label for="">Product Name</label>
+              <select name="name" (change)="onChange($event)" id="selected" class="options field form-control" formControlName="name">
+                <option value="0" hidden>Product Name</option>
+                <option *ngFor="let product of products" [value]="product.id" id="{{ product.id }}">{{product.name}}</option>
+              </select>
                 <div *ngIf="error && error.description" class="alert alert-danger">
                     *{{ error.description[0] }}
                 </div>
+
                 <label for="">Description</label>
                 <textarea name="description" class="form-control field" cols="30" [ngModel]="description" rows="10" placeholder="Descriptions"></textarea>
-                <div class="row">
+
+                <div class="col">
+                    <div *ngIf="error && error.price" class="alert alert-danger">
+                        *{{ error.price[0] }}
+                    </div>
+                    <label for="">Price</label>
+                    <input type="number" class="form-control" name="price" [ngModel]="price" id="" min="0" placeholder="Price" disabled>
+                </div>
+
+                <div class="toggle" *ngIf="selectName && currentPage">
+                  <p class="message">You can change the quantity of the each product size</p>
+                  <div class="row">
                     <div class="col">
-                        <div *ngIf="error && error.price" class="alert alert-danger">
-                            *{{ error.price[0] }}
-                        </div>
-                        <label for="">Price</label>
-                        <input type="number" class="form-control" name="price" [ngModel]="price" id="" min="0" placeholder="Price" disabled>
+                      Size
                     </div>
-                    <div class="col" *ngIf="currentPage">
-                        <div *ngIf="error && error.unit_measure" class="alert alert-danger">
-                            *{{ error.unit_measure[0] }}
-                        </div>
-                        <label for="">Available Unit</label>
-                        <input type="number" class="form-control" [ngModel]="unit_measure" name="unit_measure" min="0" max="{{ unit_measure }}" id="" placeholder="Unit">
+                    <div class="col">
+                      Quantity
                     </div>
-                    <div class="col" *ngIf="currentPage">
-                        <div *ngIf="error && error.size" class="alert alert-danger">
-                            *{{ error.size[0] }}
-                        </div>
-                        <label for="">Size</label>
-                        <select name="size" id="" class="options field form-control" [ngModel]="size">
-                          <option value="0" hidden>Size</option>
-                          <option *ngFor="let size of allSize" [value]="size.id">{{ size.size }}</option>
-                      </select>
+                    <div class="col">
+
                     </div>
+                  </div>
+                  <div class="row" *ngFor="let size of allSize">
+                      <div class="col">
+                        <input type="text" class="form-control" value="{{ size.size }}" name="unit_measure" placeholder="Size" disabled>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control" id="{{ size.id }}" value="{{ size.pivot.avail_unit_measure }}" name="unit_measure" min="1" max="{{ size.pivot.avail_unit_measure  }}" id="" placeholder="Unit">
+                      </div>
+                      <div class="col">
+                        <button type="button" class="btn btn-danger" (click)="delete(size)"><i class="far fa-trash-alt"></i> Remove Size</button>
+                      </div>
+                  </div>
                 </div>
 
                 <!-- If from other page -->
@@ -63,7 +72,7 @@
                 </div>
                 <!-- from other page -->
 
-                <div class="row">
+                <div class="row" *ngIf="selectName">
                     <div class="col">
                         <div *ngIf="error && error.percent_off" class="alert alert-danger">
                             *{{ error.percent_off[0] }}
