@@ -34,7 +34,6 @@ export class AdminService {
     return response;
   }
 
-
   async getSizes(token:any){
     const response = await axios.get(this.url+"product/sizes",{headers: {Authorization:token}});
     return response;
@@ -225,12 +224,17 @@ export class AdminService {
     return response;
   }
 
-  // declin orders
+  // decline orders
   async declineOrder(userId:any, data : any, token:any){
     const response = await axios.put(this.url+"order/declined/"+userId, data, {headers:{Authorization:token}});
     return response;
   }
 
+  // Adding Tracking Code
+  async addTrackingCode(userId:any, data:any, token:any){
+    const response = await axios.post(this.url+"order/tracking/"+userId, data, {headers:{Authorization:token}});
+    return response;
+  }
 
   //Message
   ShowSuccessMessage(message : any){
@@ -250,6 +254,14 @@ export class AdminService {
       title: message,
       showConfirmButton: false,
       timer: 1500
+    })
+  }
+
+  showMessage(message : string){
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: message,
     })
   }
 

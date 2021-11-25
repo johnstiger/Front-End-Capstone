@@ -84,7 +84,10 @@ export class AddProductComponent implements OnInit {
       if(result.data.error){
         this.errors = result.data.message;
       }else{
+        this.http.showMessage(result.data.message);
+      setTimeout(() => {
         this.location.back();
+      }, 2000);
       }
       this.http.closeLoading();
     }).catch((e)=>{

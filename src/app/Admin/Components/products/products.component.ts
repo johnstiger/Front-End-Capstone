@@ -62,23 +62,28 @@ export class ProductsComponent implements OnInit {
   async getProducts(){
     this.service.loading();
     const result = await this.service.products(this.token).then((res)=>{
+      console.log(res.data);
       if(res.data.error){
         this.service.ShowErrorMessage(res.data.message);
       }else{
         this.products = res.data.data;
-        // get the total of all quantity sizes
-        this.products = this.products.map(res => {
-          const size = res.sizes.map((size:any, ndx : any) => {
-            return size.pivot.avail_unit_measure
-          })
-          let total_avail_unit_measure = 0
-          if (size.length) {
-            total_avail_unit_measure = size.reduce((total:any, num:any) => total + num)
-          }
+        if(this.products == undefined){
+          this.products = [];
+        }else{
+          // get the total of all quantity sizes
+          this.products = this.products.map(res => {
+            const size = res.sizes.map((size:any, ndx : any) => {
+              return size.pivot.avail_unit_measure
+            })
+            let total_avail_unit_measure = 0
+            if (size.length) {
+              total_avail_unit_measure = size.reduce((total:any, num:any) => total + num)
+            }
 
-          res['total_avail_unit_measure'] = total_avail_unit_measure
-          return res
-        })
+            res['total_avail_unit_measure'] = total_avail_unit_measure
+            return res
+          })
+        }
       }
     this.service.closeLoading();
    });
