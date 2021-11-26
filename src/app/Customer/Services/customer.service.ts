@@ -41,7 +41,12 @@ export class CustomerService {
   }
 
   async products(token:any){
-    const response = await axios.get(this.url+"products/all/", { headers: { Authorization: token} });
+    const response = await axios.get(this.url+"home");
+    return response;
+  }
+
+  async getSales(){
+    const response = await axios.get(this.url+'sales');
     return response;
   }
 
