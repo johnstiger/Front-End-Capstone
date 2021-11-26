@@ -69,7 +69,10 @@ export class AddAdminComponent implements OnInit {
       if(result.data.error){
         this.errors = result.data.message;
       }else{
-        this.location.back();
+        this.http.showMessage(result.data.message);
+        setTimeout(() => {
+          this.location.back();
+        }, 2000);
         // const response = await this.http.adminImage(result.data.data.id, imageData, this.token);
         // if(response.data.error){
         //   this.errors = response.data.message;

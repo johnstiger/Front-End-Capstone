@@ -1,5 +1,8 @@
 <div class="container con">
     <form [formGroup]="AddCategoryForm" (ngSubmit)="submit()">
+      <div *ngIf="errors && errors.name" class="alert alert-danger">
+        *{{ errors.name[0] }}
+      </div>
         <input type="text" class="form-control field" formControlName="name" name="name" id="" placeholder="Name">
         <button class="btn btn-success field add-product" type="submit">Add Category</button>
         <a routerLink="/admin/categories" class="btn btn-success field same">Cancel</a>

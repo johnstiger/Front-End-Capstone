@@ -42,6 +42,8 @@ export class ProductOnSaleComponent implements OnInit {
         this.http.ShowErrorMessage(result.data.message)
       }else{
         this.sales = result.data.data
+        console.log(this.sales);
+
         this.http.closeLoading();
       }
     })

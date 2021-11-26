@@ -55,7 +55,6 @@
                         </div>
                         <select name="sizes" id="size" class="options field form-control" formControlName="sizes" (change)="noSizesChoose($event.target)">
                             <option value="0" hidden>Size</option>
-                            <option value="n/a">N/A</option>
                             <option *ngFor="let size of allSize" id="{{ size.id }}" [value]="size.id">{{ size.size }}</option>
                         </select>
                         <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->
@@ -64,7 +63,7 @@
                         <div *ngIf="errors && errors.unit_measure" class="alert alert-danger">
                             *{{ errors.unit_measure[0] }}
                         </div>
-                        <input type="number" min="0" class="form-control" name="" id="unit_measure" formControlName="unit_measure" placeholder="Quantity" value="">
+                        <input type="number" min="1" class="form-control" name="" id="unit_measure" formControlName="unit_measure" placeholder="Quantity" value="">
                     </div>
                     <div class="col">
                         <button type="button" class="btn add-size" (click)="addSize(this)"><i class="fas fa-plus-circle"></i> Add Size</button>

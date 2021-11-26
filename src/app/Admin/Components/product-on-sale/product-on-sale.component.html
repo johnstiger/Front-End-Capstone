@@ -26,6 +26,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Total Quantity</th>
                                     <th scope="col">Number of Units</th>
+                                    <th scope="col">Size</th>
                                     <th scope="col">Available No. of Stock</th>
                                     <th scope="col">Actions</th>
                                 </tr>
@@ -37,7 +38,8 @@
                                     <td>{{ product.price }}</td>
                                     <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.unit_measure }} </td>
                                     <td>{{ product.unit_measure }}</td>
-                                    <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.unit_measure - product.unit_measure }} </td>
+                                    <td>{{ product.size }}</td>
+                                    <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.avail_unit_measure }} </td>
                                     <td *ngIf="product.products.sizes.length == 0"> 0 </td>
                                     <td *ngIf="product.products.sizes.length == 0"> 0 </td>
                                     <td>

@@ -92,8 +92,10 @@ export class MyProfileComponent implements OnInit {
     if(result.data.error){
       this.error = result.data.message
     }else{
-      this.service.ShowSuccessMessage(result.data.message);
-      this.ngOnInit();
+      this.service.showMessage(result.data.message);
+      setTimeout(() => {
+        this.ngOnInit();
+      }, 2000);
       // const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
       // if(response.data.error){
       //   this.error = response.data.message;
@@ -115,10 +117,10 @@ export class MyProfileComponent implements OnInit {
         this.service.closeLoading();
       }else{
         this.display='none';
-        this.service.ShowSuccessMessage(result.data.message);
-        setTimeout(()=>{
+        this.service.showMessage(result.data.message);
+        setTimeout(() => {
           window.location.reload();
-        }, 1000);
+        }, 2000);
       }
     })
   }

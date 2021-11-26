@@ -31,14 +31,14 @@
                             *{{ errors.unit_measure[0] }}
                         </div>
                         <label for="">Available Unit</label>
-                        <input type="number" class="form-control" [ngModel]="unit_measure" name="unit_measure" min="0" max="{{ unit_measure }}" id="" placeholder="Unit">
+                        <input type="number" class="form-control" [ngModel]="unit_measure" name="unit_measure" min="1" max="{{ unit_measure }}" id="" placeholder="Unit">
                     </div>
                     <div class="col">
                         <!-- <div *ngIf="error && error.size" class="alert alert-danger">
                             *{{ error.size[0] }}
                         </div> -->
                         <label for="">Size</label>
-                        <input type="text" name="size" [ngModel]="size" class="form-control" id="">
+                        <input type="text" name="size" [ngModel]="size" class="form-control" id="" disabled>
                     </div>
                 </div>
                 <div class="row">

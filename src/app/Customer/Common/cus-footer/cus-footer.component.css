@@ -11,8 +11,8 @@
   text-align: left;
   margin-left: 7vw;
 }
-.dagomtxt, .about, .contact, .contactnumber,.categories, .followus{font-size: 5vw;}
-.dagomtxt1,.descript, .owners, .address, .category, .footertxt{font-size: 4vw;}
+.dagomtxt, .about, .contact, .contactnumber,.categories, .followus, .owners, .address{font-size: 5vw;}
+.dagomtxt1,.descript, .category, .footertxt, .ownertxt{font-size: 4vw;}
 a{
   text-decoration: none;
   color: #F6F2EF;
