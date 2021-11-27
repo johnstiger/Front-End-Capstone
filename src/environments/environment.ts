@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  projectName : "Dagom local",
+//   url : "http://localhost:8000/api/",
+  url  : "https://santafe-dagom.herokuapp.com/api/",
+  socket: {
+    url: 'http://dagom-notif.herokuapp.com/',
+    topic: 'notification',
+  }
 };
 
 /*
