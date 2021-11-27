@@ -15,15 +15,27 @@ export class SampleHeaderComponent implements OnInit {
     data : new FormControl('')
   })
 
+  unAuthorized = true;
+  authorized = false;
+
   change = false;
 
   data : string = "test";
+
+  token = localStorage.getItem('customer_token')
 
   @Output() messageEvent  = new EventEmitter<string>();
 
   constructor(private router: Router, private service : CustomerService) { }
 
   ngOnInit(): void {
+    if (window.localStorage.getItem('customer_token')) {
+      this.unAuthorized = false;
+      this.authorized = true;
+    }else {
+      this.unAuthorized = true;
+      this.authorized = false;
+    }
   }
 
   searchProducts(){
@@ -46,6 +58,10 @@ export class SampleHeaderComponent implements OnInit {
     this.change == true ? value.css('display','block') : value.css('display','none');
   }
 
-
-
+  async logout(){
+    this.service.loading();
+    const result = await this.service.logoutUser(this.token);
+    localStorage.clear();
+    window.location.reload();
+  }
 }

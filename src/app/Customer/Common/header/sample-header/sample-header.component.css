@@ -1,5 +1,5 @@
 body {
-    background-color: #C7988E;
+  background-color: #c7988e;
 }
 
 .grid{
@@ -14,83 +14,80 @@ body {
 }
 
 #dropdown {
-    margin-left: 58px;
-    display: none;
-    animation: fadeIn 1s 1;
+  margin-left: 58px;
+  display: none;
+  animation: fadeIn 1s 1;
 }
 
 .titles a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 .titles a:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 #dropdown a {
-    color: white;
+  color: white;
 }
 
 .icons {
-    margin-top: -50px
+  margin-top: -50px;
 }
-
-
 
 /*
 */
 
 #dropdown1 {
-    margin-left: 58px;
-    display: none;
-    animation: fadeIn 1s 1;
+  margin-left: 58px;
+  display: none;
+  animation: fadeIn 1s 1;
 }
 
 #dropdown1 a {
-    color: white;
+  color: white;
 }
 
 #dropdown2 {
-    margin-left: 58px;
-    display: none;
-    animation: fadeIn 1s 1;
+  margin-left: 58px;
+  display: none;
+  animation: fadeIn 1s 1;
 }
 
 #dropdown2 a {
-    color: white;
+  color: white;
 }
 
 #dropdown3 {
-    margin-left: 58px;
-    display: none;
-    animation: fadeIn 1s 1;
+  margin-left: 58px;
+  display: none;
+  animation: fadeIn 1s 1;
 }
 
 #dropdown3 a {
-    color: white;
+  color: white;
 }
 
 #dropdown4 {
-    margin-left: 58px;
-    display: none;
-    animation: fadeIn 1s 1;
+  margin-left: 58px;
+  display: none;
+  animation: fadeIn 1s 1;
 }
 
 #dropdown4 a {
-    color: white;
+  color: white;
 }
 
 #dropdown5 {
-    margin-left: 58px;
-    display: none;
-    animation: fadeIn 1s 1;
+  margin-left: 58px;
+  display: none;
+  animation: fadeIn 1s 1;
 }
 
 #dropdown5 a {
-    color: white;
+  color: white;
 }
-
 
 /*
 *
@@ -99,64 +96,109 @@ body {
 *
 */
 
+/* Dropdown for profile and signout */
+/* .dropdown {
+  position: relative;
+  display: inline-block;
+} */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  right: 30px;
+  top: 40px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #f1f1f1;
+  color: black;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
 .users {
-    margin-left: 24px;
-    margin-top: -16px;
+  margin-left: 24px;
+  margin-top: -16px;
 }
 
 .users .user-link {
-    margin-left: 15px;
-    color: white;
+  margin-left: 15px;
+  color: white;
 }
 
 .right {
-    float: right;
-    margin-top: -45px;
-    margin-right: 11px;
-    display: none;
-    cursor: pointer;
+  float: right;
+  margin-top: -45px;
+  margin-right: 11px;
+  display: none;
+  cursor: pointer;
 }
 
 .right .bar {
-    width: 35px;
-    height: 5px;
-    background-color: white;
-    margin: 8px 0;
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 8px 0;
 }
 
 .topnav {
-    background-color: #C7988E;
+  background-color: #c7988e;
 }
 
 .topnav img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
 }
 
 .titles li {
-    display: inline;
-    margin-left: 25px;
+  display: inline;
+  margin-left: 25px;
 }
 
 .titles {
-    text-align: center;
-    margin-top: 30px;
-    color: white;
+  text-align: center;
+  margin-top: 30px;
+  color: white;
 }
 
 hr {
-    margin-top: 7px;
-    margin-bottom: -1px;
-    background-color: white;
+  margin-top: 7px;
+  margin-bottom: -1px;
+  background-color: white;
 }
 
+/* .grid {
+  margin-bottom: 100px;
+} */
 
-button{
-    border: none;
-    background: none;
-}
 .search {
     padding: 10px;
     border-radius: 10px;
@@ -166,146 +208,172 @@ button{
 }
 
 .search input[type="text"] {
-    padding: 10px;
-    width: 400px !important;
-    box-shadow: none;
-    border: none;
-    border-radius: 10px;
-    width: 300px;
-    color: #C7988E;
-    outline-style: none;
+  padding: 10px;
+  width: 400px !important;
+  box-shadow: none;
+  border: none;
+  border-radius: 10px;
+  width: 300px;
+  color: #c7988e;
+  outline-style: none;
 }
 
 .search input::placeholder {
-    color: #C7988E;
+  color: #c7988e;
 }
 
 .searchButton {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .search a {
-    color: black;
-    text-decoration: none;
-    margin-left: 5px;
+  color: black;
+  text-decoration: none;
+  margin-left: 5px;
 }
 
 .user {
-    float: right;
-    margin-right: 15px
+  float: right;
+  margin-right: 15px;
+  position: relative;
 }
 
 .cart {
-    float: right;
-    margin-right: 25px;
+  float: right;
+  margin-right: 25px;
+  position: relative;
 }
+
 
 
 /* Sidebar */
 
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #C7988E;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #c7988e;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
 .sidenav .categories {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    display: block;
-    transition: 0.3s;
-    margin-top: 16px;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  margin-top: 16px;
 }
 
 .sidenav .categories:hover {
-    color: #f1f1f1;
+  color: #f1f1f1;
 }
 
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Badge */
+.custom-badge {
+  text-decoration: none;
+  background: antiquewhite;
+  color: #c7988e;
+  padding: 0px 6px;
+  border-radius: 9px;
+  font-weight: 700;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  font-size: x-small;
 }
 
 @media screen and (max-width: 460px) {
-    .user,
-    .cart,
-    ul {
-        display: none;
-    }
-    .right {
-        display: block;
-    }
-    .topnav img {
-        margin-left: 0;
-        margin-right: 100%;
-        margin-top: 0;
-        height: 50px;
-        width: auto;
-    }
-    .search input[type="text"] {
-        width: 300px !important;
-        padding: 5px;
-        margin-left: 0px;
-    }
+  .user,
+  .cart,
+  ul {
+    display: none;
+  }
+  .right {
+    display: block;
+  }
+  .topnav img {
+    margin-left: 0;
+    margin-right: 100%;
+    margin-top: 0;
+    height: 50px;
+    width: auto;
+  }
+  .search input[type="text"] {
+    width: 300px !important;
+    padding: 5px;
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 620px) and (min-width: 460px) {
-    .user,
-    .cart,
-    ul {
-        display: none;
-    }
-    .right {
-        display: block;
-    }
-    .topnav img {
-        margin-left: 0;
-        margin-right: 100%;
-        height: 50px;
-        width: auto;
-    }
-    .search input[type="text"] {
-        width: 350px !important;
-        ;
-        padding: 5px;
-        margin-left: 0px;
-    }
+  .user,
+  .cart,
+  ul {
+    display: none;
+  }
+  .right {
+    display: block;
+  }
+  .topnav img {
+    margin-left: 0;
+    margin-right: 100%;
+    height: 50px;
+    width: auto;
+  }
+  .search input[type="text"] {
+    width: 350px !important;
+    padding: 5px;
+    margin-left: 0px;
+  }
 }
 
-@media screen and (max-width: 375px) and (min-width: 320px) {
-    .search input[type="text"] {
-        width: 230px !important;
-        padding: 5px;
-        margin-left: 0px !important;
-    }
+@media screen and (max-width: 375px) and (min-width: 280px) {
+  .search input[type="text"] {
+    width: 230px !important;
+    padding: 5px;
+    margin-left: 0px !important;
+  }
+  #input-search-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+  }
+  .grid {
+    margin-bottom: 20px;
+  }
+  .icons {
+    display: none;
+  }
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
-    }
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -113,7 +113,7 @@ img {
     .container {
         margin-top: -176%;
     }
-    /* .shopbtn {
+    .shopbtn {
         left: 25%;
         margin-top: 30%;
     }
@@ -124,7 +124,7 @@ img {
     .shopbtn2 {
         left: 25%;
         margin-top: 30%;
-    } */
+    }
 }
 
 .parallax {

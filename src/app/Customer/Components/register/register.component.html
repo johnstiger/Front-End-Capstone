@@ -5,7 +5,7 @@
         <div id="card1" class="card border-0 text-center">
           <img class="logo" src="../../../../../assets/imgs/logo1.png" alt="" />
           <div class="card-body">
-              <p class="card-text text-white text-left pl-5 pr-3 h6" style="font-family: 'Rufina';">
+            <p class="card-text text-white text-left pl-5 pr-3 h6" style="font-family: 'Rufina';">
               <p class="text">
                 Dagom is an online thrift shop that offers brand-new and preloved
                 blouses, dresses, trousers, and other clothing needs.
@@ -17,82 +17,69 @@
         </div>
       </div>
       <div class="col d-flex justify-content-center">
-        <div id="card2" class="card p-5 pb-5" >
+        <div id="card2" class="card p-5 pb-5">
           <div class="form">
             <div class="register">
               <h1 class="text-center"><b>Register</b></h1>
               <br>
               <br>
-              <form [formGroup]="form" (ngSubmit)="register()">
+              <div class="alert alert-danger" role="alert">
+                  {{ error }}
+               </div>
+              <form [formGroup]="registerForm" (ngSubmit)="register()">
                 <div class="row">
                   <div class="form-group col-sm-6 ">
+                      <div class="alert alert-danger" role="alert" *ngIf="error && error.firstname">
+                          {{ error.firstname[0] }}
+                       </div>
                     <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control form-control"
-                        formControlName="firstname"
-                        id="firstName"
-                        aria-describedby="firstName"
-                        placeholder="First Name"
-                      />
+                      <input type="text" class="form-control form-control" formControlName="firstname" id="firstName"
+                        aria-describedby="firstName" placeholder="First Name" />
                     </div>
                   </div>
                   <div class="form-group col-md-6 ">
+                      <div class="alert alert-danger" role="alert" *ngIf="error && error.lastname">
+                          {{ error.lastname[0] }}
+                       </div>
                     <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control form-control"
-                        formControlName="lastname"
-                        id="firstName"
-                        aria-describedby="lastname"
-                        placeholder="Last Name"
-                      />
+                      <input type="text" class="form-control form-control" formControlName="lastname" id="firstName"
+                        aria-describedby="lastname" placeholder="Last Name" />
                     </div>
                   </div>
                   <div class="form-group col-md-6">
+                      <div class="alert alert-danger" role="alert" *ngIf="error && error.contact_number">
+                          {{ error.contact_number[0] }}
+                       </div>
                     <div class="input-group">
-                      <input
-                        type="contact"
-                        class="form-control form-control"
-                        formControlName="contact_number"
-                        id="contactNumber"
-                        placeholder="Contact Number"
-                      />
+                      <input type="contact" class="form-control form-control" formControlName="contact_number" id="contactNumber"
+                        placeholder="Contact Number" />
                     </div>
                   </div>
                   <div class="form-group col-md-6">
+                      <div class="alert alert-danger" role="alert" *ngIf="error && error.email">
+                          {{ error.email[0] }}
+                       </div>
                     <div class="input-group">
-                      <input
-                        type="email"
-                        class="form-control form-control"
-                        formControlName="email"
-                        id="email"
-                        aria-describedby="email"
-                        placeholder="Email"
-                      />
+                      <input type="email" class="form-control form-control" formControlName="email" id="email"
+                        aria-describedby="email" placeholder="Email" />
                     </div>
                   </div>
                   <div class="form-group col-md-6">
+                      <div class="alert alert-danger" role="alert" *ngIf="error && error.password">
+                          {{ error.password[0] }}
+                       </div>
                     <div class="input-group">
-                      <input
-                        type="password"
-                        class="form-control form-control"
-                        formControlName="password"
-                        id="password"
-                        placeholder="Password"
-                      />
+                      <input type="password" class="form-control form-control" formControlName="password" id="password"
+                        placeholder="Password" />
                     </div>
                   </div>
                   <div class="form-group col-md-6">
+                      <div class="alert alert-danger" role="alert" *ngIf="error && error.password_confirmation">
+                          {{ error.password_confirmation[0] }}
+                       </div>
                     <div class="input-group">
-                      <input
-                        type="password"
-                        class="form-control form-control"
-                        formControlName="password_confirmation"
-                        id="confirmPassword"
-                        aria-describedby="confirmPassword"
-                        placeholder="Confirm Password"
-                      />
+                      <input type="password" class="form-control form-control" formControlName="password_confirmation"
+                        id="confirmPassword" aria-describedby="confirmPassword" placeholder="Confirm Password" />
                     </div>
                   </div>
                 </div>

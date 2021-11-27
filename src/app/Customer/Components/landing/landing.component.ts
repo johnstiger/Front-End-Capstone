@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { CustomerService } from '../../Services/customer.service';
+import Swal from 'sweetalert2';
 import { NotificationService } from 'src/app/Common/Services/notification.service';
 
 @Component({
@@ -53,6 +54,14 @@ export class LandingComponent implements OnInit {
     }
   }
 
+  select(product:any){
+    this.router.navigate(['/selected/'+product.id],{
+      state: {
+        data: product
+      }
+    })
+  }
+
   getSalesProduct(){
     this.service.getSales().then((res)=>{
       if(res.data.error){
@@ -64,5 +73,6 @@ export class LandingComponent implements OnInit {
       }
     })
   }
+
 
 }

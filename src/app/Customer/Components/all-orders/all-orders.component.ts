@@ -31,5 +31,5 @@ export class AllOrdersComponent implements OnInit {
     this.orders = result.data.data;
     console.log(this.orders);
   }
-
+  
 }
