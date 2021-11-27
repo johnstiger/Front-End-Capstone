@@ -15,31 +15,21 @@
                 <a href="" class="user-link"><i class="fa fa-user fa-3x"></i></a>
                 <a href="" class="user-link"><i class="fa fa-shopping-bag fa-3x"></i></a>
             </div>
-            <a class="categories" (click)="category()">Summer Collection</a>
-
-            <a class="categories">First Collection</a>
-
-            <a class="categories">Second Collection</a>
-
-            <a class="categories">Hot Sales</a>
-
+            <a class="categories" *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{category.name}}</a>
             <a class="categories">About Us</a>
-
             <a class="categories">Sign In</a>
             <a class="categories">Sign Up</a>
         </div>
     </div>
-    <ul class="titles">
-        <li><a routerLink="#"> Summer Collection</a></li>
-        <li><a routerLink="#">First Collection</a></li>
-        <li><a routerLink="#">Second Collection</a></li>
-        <li><a routerLink="#">Hot Sales</a></li>
+    <div class="titles">
+      <ul>
+
+        <li *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{ category.name}}</li>
         <li><a routerLink="#">About Us</a></li>
-        <div style="margin-left:58%; margin-top:-2%;" *ngIf="unAuthorized">
-            <li><a routerLink="/login">Log In</a></li>
-            <li><a routerLink="/register">Register</a></li>
-        </div>
-    </ul>
+        <li><a routerLink="/login" *ngIf="unAuthorized">Log In</a></li>
+        <li><a routerLink="/register" *ngIf="unAuthorized">Register</a></li>
+      </ul>
+    </div>
     <hr>
     <div class="grid">
         <div class="search">
@@ -49,14 +39,14 @@
             </div>
         </div>
         <div class="icons">
+          <a href="#" class="cart"><span class="custom-badge">1</span><i class="fas fa-shopping-bag bag"></i></a>
             <div class="dropdown">
-                <a class="user"><span class="custom-badge">1</span><i class="fa fa-search  fa-2x"></i></a>
-                <div class="dropdown-content">
+                <a class="user"><i class="far fa-user-circle bag"></i></a>
+                <div class="dropdown-content" *ngIf="!unAuthorized">
                     <a routerLink="/show-profile">My Profile</a>
                     <a (click)="logout()">Log Out</a>
                 </div>
             </div>
-            <a href="#" class="cart"><span class="custom-badge">1</span><i class="fa fa-search fa-2x"></i></a>
         </div>
     </div>
 </div>

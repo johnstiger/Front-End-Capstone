@@ -36,8 +36,6 @@ body {
   margin-top: -50px;
 }
 
-/*
-*/
 
 #dropdown1 {
   margin-left: 58px;
@@ -137,7 +135,10 @@ body {
 }
 
 
-
+.bag{
+  font-size : 2rem;
+  color: black;
+}
 
 
 
@@ -169,6 +170,10 @@ body {
 
 .topnav {
   background-color: #c7988e;
+  max-width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .topnav img {
@@ -348,10 +353,7 @@ hr {
     padding: 5px;
     margin-left: 0px !important;
   }
-  #input-search-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 0.3fr;
-  }
+
   .grid {
     margin-bottom: 20px;
   }

@@ -17,7 +17,7 @@ export class SampleHeaderComponent implements OnInit {
 
   unAuthorized = true;
   authorized = false;
-
+  categories : Array<any> = [];
   change = false;
 
   data : string = "test";
@@ -29,6 +29,7 @@ export class SampleHeaderComponent implements OnInit {
   constructor(private router: Router, private service : CustomerService) { }
 
   ngOnInit(): void {
+    this.getCategories();
     if (window.localStorage.getItem('customer_token')) {
       this.unAuthorized = false;
       this.authorized = true;
@@ -52,7 +53,7 @@ export class SampleHeaderComponent implements OnInit {
     $('#mySidenav').css('width','0');
   }
 
-  category(){
+  LinkThisCategory(category : any){
     this.change = !this.change;
     const value = $("#dropdown");
     this.change == true ? value.css('display','block') : value.css('display','none');
@@ -64,4 +65,14 @@ export class SampleHeaderComponent implements OnInit {
     localStorage.clear();
     window.location.reload();
   }
+
+  async getCategories(){
+    const result = await this.service.getCategories();
+    if(result.data.error){
+
+    }else{
+      this.categories = result.data.data;
+    }
+  }
+
 }
