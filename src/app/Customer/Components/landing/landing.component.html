@@ -1,5 +1,4 @@
 <app-sample-header></app-sample-header>
-
 <div class="container1">
     <div class="shop">
         <button class="shopbtn">SHOP THE COLLECTION</button>
@@ -14,7 +13,7 @@
         <img src="../../../../assets/imgs/3.jpeg" class="img-fluid" alt="">
     </div>
 
-    <div class="shop4 p-4">
+    <div class="shop4 p-4" *ngIf="salesItem.length > 0">
         <h3 class="text-center m-3">Hot Sales</h3>
         <div class="row">
           <div class="col" *ngFor="let sale of salesItem">
@@ -37,7 +36,7 @@
 
     <div class="parallax"></div>
 
-    <div class="shop4 ">
+    <div class="shop4" *ngIf="products">
         <h3 class="text-center m-3">Featured Collections</h3>
         <div class="row">
           <div class="col" *ngFor="let product of products">

@@ -45,6 +45,11 @@ export class CustomerService {
     return response;
   }
 
+  async getCategories(){
+    const response = await axios.get(this.url+"categories");
+    return response;
+  }
+
   async getSales(){
     const response = await axios.get(this.url+'sales');
     return response;
@@ -59,6 +64,27 @@ export class CustomerService {
     const response = await axios.post(this.url+"search/products", data );
     return response;
   }
+
+  async getProduct(id:any) {
+    const response = await axios.get(this.url+"dagom/"+id);
+    return response;
+  }
+
+  async getCategory(id:any, token:any){
+    const response = await axios.get(this.url+"category/show/"+id, {headers:{Authorization:token}});
+    return response;
+  }
+
+  async getSizes(token:any){
+    const response = await axios.get(this.url+"product/sizes",{headers: {Authorization:token}});
+    return response;
+  }
+
+  async addtoCart(id:any, quantity:any, token:any){
+    const response = await axios.post(this.url+"cart/add/"+id, {quantity: quantity},{headers: {Authorization:token}});
+    return response;
+  }
+
 
   //Message
   ShowSuccessMessage(message : any){
@@ -90,9 +116,19 @@ export class CustomerService {
     })
   }
 
+  loading(){
+    Swal.fire({
+      title: 'Loading....',
+      didOpen: ()=>{
+        Swal.showLoading();
+      }
+    })
+  }
+
   closeLoading(){
     Swal.close();
   }
-
-
 }
+
+
+

@@ -9,7 +9,7 @@ import { CustomerService } from '../../Services/customer.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form = new FormGroup({
+  registerForm = new FormGroup({
     lastname: new FormControl('', [
       Validators.required
     ]),
@@ -34,16 +34,22 @@ export class RegisterComponent implements OnInit {
     ])
   });
 
+
+  error : any;
   constructor(private router: Router, private service: CustomerService) { }
 
   ngOnInit(): void {
   }
   register() {
-    this.service.register(this.form.value).then((res)=>{
-      console.log(res.data)
-      window.localStorage.setItem('customer_token',res.data.access_token);
-      window.localStorage.setItem('customer_id',res.data.customer_id);
-      return this.router.navigate(['/landing']);
+    this.service.register(this.registerForm.value).then((res) => {
+      if(res.data.error){
+        this.error = res.data.message;
+      }else {
+        console.log(res.data)
+        window.localStorage.setItem('customer_token',"Bearer "+ res.data.access_token);
+        window.localStorage.setItem('customer_id',res.data.customer_id);
+        this.router.navigate(['/']);
+      }
     }).catch(err => {
       console.log(err);
     })
