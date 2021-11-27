@@ -50,6 +50,11 @@ export class CustomerService {
     return response;
   }
 
+  async getCategoryWithProducts(id:any){
+    const response = await axios.get(this.url+"category/"+id);
+    return response;
+  }
+
   async getSales(){
     const response = await axios.get(this.url+'sales');
     return response;

@@ -1,15 +1,15 @@
 <app-sample-header></app-sample-header>
 <div class="container1">
     <div class="shop">
-        <button class="shopbtn">SHOP THE COLLECTION</button>
+        <a class="d-flex shopbtn justify-content-center " id="Summer Collections" (click)="selectCategory($event)">SHOP THE COLLECTION</a>
         <img src="../../../../assets/imgs/1.jpeg" class="img-fluid" alt="">
     </div>
     <div class="shop">
-        <button class="d-flex justify-content-center shopbtn ">SHOP THE COLLECTION</button>
+        <a class="d-flex justify-content-center shopbtn" id="Second Collections" (click)="selectCategory($event)">SHOP THE COLLECTION</a>
         <img src="../../../../assets/imgs/2.jpeg" class="img-fluid" alt="">
     </div>
     <div class="shop">
-        <button class="shopbtn">SHOP NOW</button>
+        <a class="d-flex shopbtn justify-content-center " id="First Collections" (click)="selectCategory($event)">SHOP NOW</a>
         <img src="../../../../assets/imgs/3.jpeg" class="img-fluid" alt="">
     </div>
 
@@ -17,7 +17,7 @@
         <h3 class="text-center m-3">Hot Sales</h3>
         <div class="row">
           <div class="col" *ngFor="let sale of salesItem">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" (click)="select(sale.products)">
               <img class="card-img-top" src="{{ sale.products.image }}" alt="Card image cap">
               <div class="card-body text-center">
                 <h5 class="card-title">{{ sale.products.name }} <span class="badge badge-pill badge-danger">{{ sale.percent_off }}{{ sale.promo_type }} Off</span></h5>
@@ -34,17 +34,21 @@
         </div>
     </div>
 
-    <div class="parallax"></div>
+    <div class="parallax">
+      <div class="announceMent">
+        <h2 class="announceText">Incoming Third Collections</h2>
+      </div>
+    </div>
 
     <div class="shop4" *ngIf="products">
         <h3 class="text-center m-3">Featured Collections</h3>
         <div class="row">
           <div class="col" *ngFor="let product of products">
-            <div class="card card-feature">
+            <div class="card card-feature" (click)="select(product)">
               <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
               <div class="card-body text-center">
                 <h5 class="card-title">{{ product.name }}</h5>
-                <p><span class="badge badge-pill badge-success">Size: {{ product.first}} - {{ product.end }}</span></p>
+                <p><span class="badge badge-pill badge-success">Size: {{ product.availableSize}}</span></p>
                     <p class="card-text">₱ {{ product.price }}
                     <i class="fas fa-cart-plus"></i>
                     </p>
@@ -52,12 +56,7 @@
             </div>
           </div>
           <div class="d-flex justify-content-center pt-3">
-            <button class="btn viewbtn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View All</button>
-          </div>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-             Hello World
-            </div>
+            <button class="btn viewbtn" type="button" >View All</button>
           </div>
         </div>
     </div>

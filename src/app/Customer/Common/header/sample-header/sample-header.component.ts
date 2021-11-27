@@ -54,9 +54,11 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   LinkThisCategory(category : any){
-    this.change = !this.change;
-    const value = $("#dropdown");
-    this.change == true ? value.css('display','block') : value.css('display','none');
+    this.router.navigate(['/choose?=/'+category.id],{
+      state: {
+        data: category
+      }
+    })
   }
 
   async logout(){

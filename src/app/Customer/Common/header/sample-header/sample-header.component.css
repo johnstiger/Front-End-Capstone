@@ -134,6 +134,13 @@ body {
   border-radius: 10px;
 }
 
+.titles li{
+  cursor: pointer;
+}
+
+.titles li:hover{
+  opacity: 0.5;
+}
 
 .bag{
   font-size : 2rem;
@@ -194,7 +201,7 @@ body {
   color: white;
 }
 
-hr {
+.line {
   margin-top: 7px;
   margin-bottom: -1px;
   background-color: white;

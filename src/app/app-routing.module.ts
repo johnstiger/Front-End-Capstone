@@ -35,6 +35,8 @@ import { ReceivedComponent } from './Customer/Components/received/received.compo
 import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
+import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
+import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
@@ -64,7 +66,12 @@ const routes: Routes = [
     ],
   },
 
-  
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: LandingComponent },
+  { path: 'choose?=/:id', component: LandingCategoryComponent },
+  { path: 'register', component:RegisterComponent },
+  { path: 'login', component:LoginComponent },
+  { path: 'search-result', component: SearchResultComponent },
   { path: 'all-orders', component:AllOrdersComponent, canActivate: [CustomerGuard] },
   { path: 'cart', component:CartPageComponent, canActivate: [CustomerGuard] },
   { path: 'check-out', component:CheckOutComponent, canActivate: [CustomerGuard] },
@@ -77,14 +84,10 @@ const routes: Routes = [
   { path: 'show-profile', component:ShowProfileComponent, canActivate: [CustomerGuard] },
   { path: 'product', component:ProductSelectComponent, canActivate: [CustomerGuard] },
   { path: 'pay', component:ToPayComponent, canActivate: [CustomerGuard] },
-  
   { path: 'selected/:id', component: ProductSelectComponent },
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: LandingComponent },
-  { path: 'register', component:RegisterComponent },
-  { path: 'login', component:LoginComponent },
-  { path: 'search-result', component: SearchResultComponent },
+  {path:'spinner',component:SpinnerComponent},
+
   { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '/404' },
 
