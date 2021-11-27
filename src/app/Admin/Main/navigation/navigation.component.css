@@ -4,6 +4,10 @@ body {
     background-color: #fff !important;
 }
 
+.main-content{
+  background-color: #fff !important;
+}
+
 .container {
     margin-top: 34px;
 }

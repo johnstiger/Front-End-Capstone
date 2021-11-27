@@ -11,8 +11,8 @@
   text-align: left;
   margin-left: 7vw;
 }
-.dagomtxt, .about, .contact, .contactnumber,.categories, .followus{font-size: 5vw;}
-.dagomtxt1,.descript, .owners, .address, .category, .footertxt{font-size: 4vw;}
+.dagomtxt, .about, .contact, .contactnumber,.categories, .followus, .owners, .address{font-size: 5vw;}
+.dagomtxt1,.descript, .category, .footertxt, .ownertxt{font-size: 4vw;}
 a{
   text-decoration: none;
   color: #F6F2EF;
@@ -89,7 +89,8 @@ a{
     text-align: center;
     padding-top: 2vw;
   }
-  .dagom p, .ownersdiv p, .contactdiv p, .categories p, a, #reserved {font-size: 1.8vw;}
+  .dagom p, .contactdiv p, .categories p, a, #reserved{font-size: 1.8vw;}
+  .subtxt {font-size: 1.6vw;}
   #dagomtxt, #followus{
     font-size: 2.5vw;
   }
@@ -98,6 +99,7 @@ a{
     margin-left: 7%;
   }
   .ownersdiv, .contactdiv{width: 18%;}
+  .hdtxt{font-size: 2.1vw;}
   .dagom{width: 35.33%;}
   .categories{margin-top: 0vw;}
   .fb,.messenger, .instagram{
@@ -111,6 +113,7 @@ a{
   #dagomtxt, #followus{
     font-size: 1.8vw;
   }
+  #owners, #aboutus, #address,#contact, #categories{font-size: 1.5vw;}
   .fb,.messenger, .instagram{
     width: 50%;
     margin-left: -9vw;

@@ -22,6 +22,7 @@ export class LandingComponent implements OnInit {
 
   products! : Products[];
   salesItem : Array<any> = [];
+  categories : Array<any> = [];
 
   constructor(
     private router: Router,
@@ -43,9 +44,12 @@ export class LandingComponent implements OnInit {
         const sizes = res.sizes.map((element:any)=>{
             return element.size
         })
-        if(sizes.length > 0){
-          res.end = sizes[sizes.length - 1];
-          res.first = sizes[0];
+        if(sizes.length > 1){
+          res.availableSize = sizes[0]+'-'+sizes[sizes.length - 1];
+        }else if(sizes.length == 1){
+          res.availableSize = sizes[0];
+        }else{
+          res.availableSize = [];
         }
         return res;
       })
@@ -74,5 +78,23 @@ export class LandingComponent implements OnInit {
     })
   }
 
+
+  selectCategory(name:any){
+    this.service.getCategories().then((res)=>{
+      this.categories = res.data.data;
+      let test = this.categories.map(res=>{
+        if(res.name == name.target.id){
+          return res.id;
+        }
+      })
+      var ambotLang = test.filter(res=>{
+        return res;
+      })[0];
+      console.log(ambotLang);
+      this.router.navigate(['/choose?=/'+ambotLang])
+
+    });
+
+  }
 
 }

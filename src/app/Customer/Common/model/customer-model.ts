@@ -13,7 +13,8 @@ export interface Products {
   percent_off : any,
   total_avail_unit_measure : any,
   end : any,
-  first : any
+  first : any,
+  availableSize : any
 }
 
 export interface Admins {
