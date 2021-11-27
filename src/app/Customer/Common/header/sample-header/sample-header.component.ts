@@ -72,6 +72,8 @@ export class SampleHeaderComponent implements OnInit {
 
     }else{
       this.categories = result.data.data;
+      console.log(this.categories);
+
     }
   }
 

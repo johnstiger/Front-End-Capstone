@@ -4,6 +4,10 @@ body {
     background-color: #fff !important;
 }
 
+body .mat-typography{
+  background-color: #fff !important;
+}
+
 .container {
     margin-top: 34px;
 }
