@@ -46,4 +46,6 @@ export class SampleHeaderComponent implements OnInit {
     this.change == true ? value.css('display','block') : value.css('display','none');
   }
 
+
+
 }
