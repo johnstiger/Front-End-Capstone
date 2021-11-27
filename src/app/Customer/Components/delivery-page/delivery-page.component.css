@@ -104,12 +104,14 @@
     #headerhr{width: 85vw;}
   }
   @media screen and (min-width:420px){
-    #headerhr{width: 86vw;}
+    #headerhr{width: 87vw;}
     #hr1{
       width: 30vw;
       margin-left: 4.5vw;
     }
   }
+  @media screen and (min-width:600px){#headerhr{width: 89vw;}}
+
   @media screen and (max-width:767px){
     .media768{display: none;}
   }

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
-import { NgxPaginationModule } from 'ngx-pagination';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
