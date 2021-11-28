@@ -60,8 +60,13 @@ export class CustomerService {
     return response;
   }
 
-  async getProducts(id:any, token:any) {
-    const response = await axios.get(this.url+"product/show/"+id, { headers: { Authorization: token } });
+  // async getProducts(id:any, token:any) {
+  //   const response = await axios.get(this.url+"product/show/"+id, { headers: { Authorization: token } });
+  //   return response;
+  // }
+
+  async getProducts(token:any) {
+    const response = await axios.get(this.url+"cart/show", { headers: { Authorization: token } });
     return response;
   }
 
@@ -89,6 +94,22 @@ export class CustomerService {
     const response = await axios.post(this.url+"cart/add/"+id, {quantity: quantity},{headers: {Authorization:token}});
     return response;
   }
+
+  async checkOut(data:any, token:any) {
+    const response = await axios.get(this.url+"order/checkout",{headers: {Authorization:token}});
+    return response;
+  }
+
+  async showProducts(data:any, token:any){
+    const response = await axios.get(this.url+"order/show", {headers: {Authorization:token}});
+    return response;
+  }
+
+  async deleteProduct(id:any, token:any) {
+    const response = await axios.delete(this.url+"cart/delete/"+id, {headers: {Authorizatiion:token}});
+    return response;
+  }
+
 
 
   //Message
