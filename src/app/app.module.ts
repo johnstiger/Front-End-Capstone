@@ -54,6 +54,7 @@ import { EditCategoryComponent } from './Admin/Components/category/edit-category
 import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
+import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/
     NotFoundPageComponent,
     MyProfileComponent,
     EditSaleComponent,
+    AboutUsComponent,
 
   ],
   imports: [
