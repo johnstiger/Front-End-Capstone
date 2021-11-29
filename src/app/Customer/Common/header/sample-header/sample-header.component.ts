@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { CustomerService } from 'src/app/Customer/Services/customer.service';
+import { Customers } from '../../../../Admin/Common/model/admin-model';
 
 @Component({
   selector: 'app-sample-header',
@@ -15,15 +16,29 @@ export class SampleHeaderComponent implements OnInit {
     data : new FormControl('')
   })
 
+  unAuthorized = true;
+  authorized = false;
+  categories : Array<any> = [];
+  customers: Array<any> = [];
   change = false;
 
   data : string = "test";
+
+  token = localStorage.getItem('customer_token')
 
   @Output() messageEvent  = new EventEmitter<string>();
 
   constructor(private router: Router, private service : CustomerService) { }
 
   ngOnInit(): void {
+    this.getCategories();
+    if (window.localStorage.getItem('customer_token')) {
+      this.unAuthorized = false;
+      this.authorized = true;
+    }else {
+      this.unAuthorized = true;
+      this.authorized = false;
+    }
   }
 
   searchProducts(){
@@ -40,10 +55,39 @@ export class SampleHeaderComponent implements OnInit {
     $('#mySidenav').css('width','0');
   }
 
-  category(){
-    this.change = !this.change;
-    const value = $("#dropdown");
-    this.change == true ? value.css('display','block') : value.css('display','none');
+  LinkThisCategory(category : any){
+    this.router.navigate(['/choose?=/'+category.id],{
+      state: {
+        data: category
+      }
+    })
   }
+
+  async logout(){
+    this.service.loading();
+    const result = await this.service.logoutUser(this.token);
+    localStorage.clear();
+    window.location.reload();
+  }
+
+  async getCategories(){
+    const result = await this.service.getCategories();
+    if(result.data.error){
+
+    }else{
+      this.categories = result.data.data;
+      console.log(this.categories);
+
+    }
+  }
+  // async getCustomers(customer: Customers) {
+  //   const result = await this.service.getCustomerProfile(customer.id, this.token)
+  //   if(result.data.error) {
+
+  //   } else{
+  //     this.customers = result.data.data
+  //     console.log(this.customers)
+  //   }
+  // }
 
 }

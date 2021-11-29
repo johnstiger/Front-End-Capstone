@@ -1,7 +1,9 @@
 <div class="topnav">
     <div class="grid">
         <div class="left">
+             <a routerLink="/">
             <img src="../assets/imgs/logo.jpg" alt="">
+          </a>
         </div>
         <div class="right" (click)="openNav()">
             <div class="bar"></div>
@@ -12,71 +14,41 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn categories" (click)="closeNav()">&times;</a>
             <div class="users">
-                <a href="" class="user-link"><i class="fa fa-user fa-3x" ></i></a>
-                <a href="" class="user-link"><i class="fa fa-shopping-bag fa-3x" ></i></a>
+              <a href="#" class="cart"><span class="custom-badge">1</span><i class="fas fa-shopping-bag bag"></i></a>
+                <a class="user" routerLink="/show-profile"><i class="far fa-user-circle bag"></i></a>
             </div>
-            <a href="#" class="categories" (click)="category()">Category 1</a>
-            <div id="dropdown">
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-            </div>
-            <a href="#" class="categories">Category 2</a>
-            <div id="dropdown1">
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-            </div>
-            <a href="#" class="categories">Category 3</a>
-            <div id="dropdown2">
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-            </div>
-            <a href="#" class="categories">Category 4</a>
-            <div id="dropdown3">
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-            </div>
-            <a href="#" class="categories">Category 4</a>
-            <div id="dropdown4">
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-            </div>
-            <a href="#" class="categories">Category 6</a>
-            <div id="dropdown5">
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-                <a href="" class="dropdown-item">Item 1</a>
-            </div>
+            <a class="categories" *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{category.name}}</a>
+            <a class="categories">About Us</a>
+            <a class="categories" routerLink="/login">Sign In</a>
+            <a class="categories" routerLink="/register">Sign Up</a>
         </div>
     </div>
-    <ul class="titles">
-        <li><a routerLink="#"> Summer Collection</a></li>
-        <li><a routerLink="#">First Collection</a></li>
-        <li><a routerLink="#">Second Collection</a></li>
-        <li><a routerLink="#">Hot Sales</a></li>
+    <div class="titles">
+      <ul>
+
+        <li *ngFor="let category of categories"><a (click)="LinkThisCategory(category)">{{ category.name}}</a></li>
         <li><a routerLink="#">About Us</a></li>
-    </ul>
-    <hr>
+        <li><a routerLink="/login" *ngIf="!authorized">Log In</a></li>
+        <li><a routerLink="/register" *ngIf="!authorized">Register</a></li>
+      </ul>
+    </div>
+    <hr class="line">
     <div class="grid">
         <div class="search">
-            <form action="" [formGroup]="form" (ngSubmit)="searchProducts()">
-                <input type="text" class="searchField" formControlName="data" name="data" placeholder="Search Products">
-                <button type="submit"><i class="fa fa-search fa-2x" ></i></button>
-            </form>
+            <div id="input-search-wrapper">
+                <input type="text" name="data" placeholder="Search Products...">
+                <a href="#"><i class="fa fa-search fa-2x"></i></a>
+            </div>
         </div>
-        <!-- <div class="icons">
-            <a href="#" class="cart"><i class="fa fa-search fa-2x"></i></a>
-            <a href="#" class="user"><i class="fa fa-search  fa-2x" ></i></a>
-        </div> -->
+        <div class="icons" *ngIf="authorized">
+            <div class="dropdown">
+                <a class="user"><span class="custom-badge"></span><i class="fa fa-user fa-2x"></i></a>
+                <div class="dropdown-content">
+                    <a routerLink="/show-profile">My Profile</a>
+                    <a (click)="logout()">Log Out</a>
+                </div>
+            </div>
+            <a href="/cart" class="cart"><span class="custom-badge">1</span><i class="fa fa-cart-plus fa-2x"></i></a>
+        </div>
     </div>
 </div>

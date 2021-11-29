@@ -47,6 +47,8 @@ import { ShowProfileComponent } from './Customer/Components/show-profile/show-pr
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
 import { SearchResultComponent } from './Customer/Components/search-result/search-result.component'
 
+// Spinner
+import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
 
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
@@ -54,7 +56,7 @@ import { EditCategoryComponent } from './Admin/Components/category/edit-category
 import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
-import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
+import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,8 @@ import { AboutUsComponent } from './Customer/Components/about-us/about-us.compon
     NotFoundPageComponent,
     MyProfileComponent,
     EditSaleComponent,
-    AboutUsComponent,
+    LandingCategoryComponent,
+    SpinnerComponent
 
   ],
   imports: [

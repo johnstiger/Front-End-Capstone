@@ -1,5 +1,5 @@
 
-.media320{margin-left: 4vw;}
+.media320{margin-left: 4vw; height:133vh;;}
 .img320{
   width: 100%;
   height: 100%;
@@ -110,6 +110,7 @@ a{text-decoration: none;}
   /* .media768{margin-left: 2vw;} */
   .media768{
     overflow-y: hidden;
+    height: 100vh;
   }
   .img768{
     width: 108%;

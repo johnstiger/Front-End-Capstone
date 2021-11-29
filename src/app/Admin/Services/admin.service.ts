@@ -134,7 +134,7 @@ export class AdminService {
 
   //categories
   async getCategories(token:any){
-    const response = await axios.get(this.url+"category/all", {headers:{Authorization:token}});
+    const response = await axios.get(this.url+"categories", {headers:{Authorization:token}});
     return response;
   }
 

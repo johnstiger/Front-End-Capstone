@@ -87,9 +87,8 @@ export class AddProductComponent implements OnInit {
         this.http.showMessage(result.data.message);
       setTimeout(() => {
         this.location.back();
-      }, 2000);
+      }, 1000);
       }
-      this.http.closeLoading();
     }).catch((e)=>{
       console.log(e);
     });
