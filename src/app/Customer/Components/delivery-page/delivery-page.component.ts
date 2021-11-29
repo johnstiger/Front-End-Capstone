@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../../Services/customer.service';
+
 
 @Component({
   selector: 'app-delivery-page',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeliveryPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _customerService:CustomerService) { }
+  token = localStorage.getItem('customer_token');
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    console.log(await this._customerService.order(this.token))
   }
 
 }

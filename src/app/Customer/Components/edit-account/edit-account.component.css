@@ -98,7 +98,7 @@ p, a{
 }
 @media screen and (min-width:320px) {
   .profile{margin-bottom: -12%;}
-  .btn, input{font-size: 5vw;}
+  .btn, input{font-size: 4vw;}
   input{
     padding: 1.5vw;
     padding-left: 3vw;

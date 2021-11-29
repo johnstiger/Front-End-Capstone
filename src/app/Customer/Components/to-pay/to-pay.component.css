@@ -59,7 +59,6 @@ a{
 }
 #allorders, #topay{padding-right: 4vw;}
 #deliverydate{padding-right: 5vw;}
-/* #hr768{border: 1px solid #C7988E;} */
 #recievedate{margin-left: -30%;}
 #totalamount{margin-left: -8%;}
 
@@ -131,7 +130,6 @@ a{
 }
 @media screen and (min-width: 425px) {
   #hr2{width: 93vw;}
-  /* #headerhr{width: 86vw;} */
 }
 @media screen and (min-width: 600px) {
   #headerhr{width: 88vw;}
@@ -262,7 +260,7 @@ a{
     width: 60vw;
   }
   #hr768{
-    width: 60vw; 
+    width: 60vw;
     margin-left: -1.2vw;
   }
   #amount, #total, #quant{margin-right: 1vw;}

@@ -94,7 +94,9 @@ a, p{
  #allorder768{
   margin-left: 1%;
 }
-
+@media screen and (min-width:375px){
+  #headerhr{width: 89vw;}
+}
 @media screen and (max-width: 767px){
   .media768{display: none;}
 }
