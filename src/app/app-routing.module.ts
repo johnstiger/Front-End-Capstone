@@ -17,7 +17,7 @@ import { LandingComponent } from './Customer/Components/landing/landing.componen
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
 import { LoginComponent } from './Customer/Components/login/login.component';
 import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component';
-import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
+import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
 import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
 import { EditAccountComponent } from './Customer/Components/edit-account/edit-account.component';
@@ -71,10 +71,10 @@ const routes: Routes = [
   { path: 'choose?=/:id', component: LandingCategoryComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'login', component:LoginComponent },
+  { path: 'about-us', component:AboutUsComponent },
   { path: 'search-result', component: SearchResultComponent },
   { path: 'all-orders', component:AllOrdersComponent, canActivate: [CustomerGuard] },
   { path: 'cart', component:CartPageComponent, canActivate: [CustomerGuard] },
-  { path: 'check-out', component:CheckOutComponent, canActivate: [CustomerGuard] },
   { path: 'delivery-page', component:DeliveryPageComponent, canActivate: [CustomerGuard] },
   { path: 'edit-account', component:EditAccountComponent, canActivate: [CustomerGuard] },
   { path: 'order-page', component:MyOrderPageComponent, canActivate: [CustomerGuard] },

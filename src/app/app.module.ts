@@ -56,11 +56,8 @@ import { EditCategoryComponent } from './Admin/Components/category/edit-category
 import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
-<<<<<<< HEAD
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
-=======
 import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
->>>>>>> 15cc58c3fb624eee7c5f8bf7fdad9b5eeb99f2cd
 
 @NgModule({
   declarations: [
@@ -105,12 +102,9 @@ import { AboutUsComponent } from './Customer/Components/about-us/about-us.compon
     NotFoundPageComponent,
     MyProfileComponent,
     EditSaleComponent,
-<<<<<<< HEAD
     LandingCategoryComponent,
-    SpinnerComponent
-=======
+    SpinnerComponent,
     AboutUsComponent,
->>>>>>> 15cc58c3fb624eee7c5f8bf7fdad9b5eeb99f2cd
 
   ],
   imports: [
