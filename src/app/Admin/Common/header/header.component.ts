@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   async getUser(){
     const result = await this.service.getUser(this.token);
     this.name = result.data.firstname;
+    console.log('Logggg', this.name)
   }
 
 

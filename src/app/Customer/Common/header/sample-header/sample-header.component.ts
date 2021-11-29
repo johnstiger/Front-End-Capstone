@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { CustomerService } from 'src/app/Customer/Services/customer.service';
+import { Customers } from '../../../../Admin/Common/model/admin-model';
 
 @Component({
   selector: 'app-sample-header',
@@ -18,6 +19,7 @@ export class SampleHeaderComponent implements OnInit {
   unAuthorized = true;
   authorized = false;
   categories : Array<any> = [];
+  customers: Array<any> = [];
   change = false;
 
   data : string = "test";
@@ -78,5 +80,14 @@ export class SampleHeaderComponent implements OnInit {
 
     }
   }
+  // async getCustomers(customer: Customers) {
+  //   const result = await this.service.getCustomerProfile(customer.id, this.token)
+  //   if(result.data.error) {
+
+  //   } else{
+  //     this.customers = result.data.data
+  //     console.log(this.customers)
+  //   }
+  // }
 
 }

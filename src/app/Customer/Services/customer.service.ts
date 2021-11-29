@@ -110,6 +110,11 @@ export class CustomerService {
     return response;
   }
 
+  async getCustomerProfile(id:any, token:any) {
+    const response = await axios.get(this.url+"customer/myProfile/"+id, {headers: {Authorization:token}});
+    return response
+  }
+
 
 
   //Message

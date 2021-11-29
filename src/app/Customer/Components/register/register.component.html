@@ -1,77 +1,191 @@
 <div class="col-11 col-s-11 media320">
   <div class="row">
-      <div class="col-12 col-s-12 imgdiv">
-        <a routerLink='/'>
-        <img class="img320" src="../../../../assets/imgs/logo1.png" alt="">
-        </a>
-      </div>
-      <div class="col-11 col-s-11 dagomtxt">
-        <p class="meaning">Dagom is an online thrift shop that offers brand-new and preloved
-          blouses, dresses, trousers, and other clothing needs.
-        </p>
-      </div>
-      <div class="col-12 col-s-12 aboutusdiv">
-        <button class="aboutus">About Us</button>
-      </div>
-      <div class="col-12 col-s-12 registerdiv">
-        <div class="row">
-          <div class="col-12 col-s-12">
-            <p class="register">Register</p>
-          </div>
-          <div class="col-12 col-s-12">
-            <input class="input"  type="text" placeholder="Firstname">
-          </div>
-          <div class="col-12 col-s-12">
-            <input class="input" type="text" placeholder="Lastname">
-          </div>
-          <div class="col-12 col-s-12">
-            <input class="input" type="text" placeholder="Email Address">
-          </div>
-          <div class="col-12 col-s-12">
-            <input class="input" type="text" placeholder="Contact Number">
-          </div>
-          <div class="col-12 col-s-12">
-            <input class="input" type="text" placeholder="Password">
-          </div>
-          <div class="col-12 col-s-12">
-            <input class="input" type="text" placeholder="Confirm Password">
-          </div>
-          <div class="col-12 col-s-12" style="text-align: center;">
-            <button class="btn">Submit</button>
-          </div>
-          <div class="col-12 col-s-12 forgettxt">
-            <p>Do you already have an account? <a href="">Sign In</a></p>
-          </div>
+    <div class="col-12 col-s-12 imgdiv">
+      <a routerLink="/">
+        <img class="img320" src="../../../../assets/imgs/logo1.png" alt="" />
+      </a>
+    </div>
+    <div class="col-11 col-s-11 dagomtxt">
+      <p class="meaning">
+        Dagom is an online thrift shop that offers brand-new and preloved
+        blouses, dresses, trousers, and other clothing needs.
+      </p>
+    </div>
+    <div class="col-12 col-s-12 aboutusdiv">
+      <button class="aboutus">About Us</button>
+    </div>
+    <div class="col-12 col-s-12 registerdiv">
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <p class="register">Register</p>
+        </div>
+        <div class="col-12 col-s-12">
+          <input class="input" type="text" placeholder="Firstname" />
+        </div>
+        <div class="col-12 col-s-12">
+          <input class="input" type="text" placeholder="Lastname" />
+        </div>
+        <div class="col-12 col-s-12">
+          <input class="input" type="text" placeholder="Email Address" />
+        </div>
+        <div class="col-12 col-s-12">
+          <input class="input" type="text" placeholder="Contact Number" />
+        </div>
+        <div class="col-12 col-s-12">
+          <input class="input" type="text" placeholder="Password" />
+        </div>
+        <div class="col-12 col-s-12">
+          <input class="input" type="text" placeholder="Confirm Password" />
+        </div>
+        <div class="col-12 col-s-12" style="text-align: center;">
+          <button class="btn">Submit</button>
+        </div>
+        <div class="col-12 col-s-12 forgettxt">
+          <p>Do you already have an account? <a href="">Sign In</a></p>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
 <div class="col-12 col-s-12 media768">
   <div class="row">
-    <div class="col-4 col-s-4 dagomdiv" >
-      <img class="img768" src="../../../../assets/imgs/logo1.png" alt="">
-        <p class="meaning">Dagom is an online thrift shop that offers brand-new and preloved
-          blouses, dresses, trousers, and other clothing needs.
-        </p>
-        <button class="aboutus">About Us</button>
+    <div class="col-4 col-s-4 dagomdiv">
+      <img class="img768" src="../../../../assets/imgs/logo1.png" alt="" />
+      <p class="meaning">
+        Dagom is an online thrift shop that offers brand-new and preloved
+        blouses, dresses, trousers, and other clothing needs.
+      </p>
+      <button class="aboutus">About Us</button>
     </div>
     <div class="col-6 col-s-6 registerdiv">
-      <div class="row">
-         <p class="registertxt">Register</p>
-        <div class="col-6 col-s-6">
-          <input class="input" type="text" placeholder="Firstname">
-          <input class="input" type="text" placeholder="Contact Number">
-          <input class="input" type="text" placeholder="Password">
-        </div>
-        <div class="col-6 col-s-6 right">
-          <input class="input" type="text" placeholder="Lastname">
-          <input class="input" type="text" placeholder="Email">
-          <input class="input" type="text" placeholder="Confirm Password">
-        </div>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="row">
+          <p class="registertxt">Register</p>
+          <div class="col-6 col-s-6">
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Firstname"
+                formControlName="firstname"
+                [ngClass]="{ 'border-danger': error && error.firstname }"
+              />
+              <span
+                class="text-danger form-text"
+                *ngIf="error && error.firstname"
+              >
+                {{ error.firstname }}
+              </span>
+            </div>
+            <!-- <input class="input" type="text" placeholder="Firstname" formControlName="firstname" [ngClass]="{'border-danger': error && error.firstname }">
+            <span class="text-danger mt-0 mb-0" *ngIf="error && error.firstname">
+              Invalid Fist Name
+            </span> -->
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Contact Number"
+                formControlName="contact_number"
+                [ngClass]="{ 'border-danger': error && error.firstname }"
+              />
+              <span
+                class="text-danger form-text"
+                *ngIf="error && error.contact_number"
+              >
+                {{ error.contact_number }}
+              </span>
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="password"
+                placeholder="Password"
+                formControlName="password"
+                [ngClass]="{ 'border-danger': error && error.password }"
+              />
+              <span
+                class="text-danger form-text"
+                *ngIf="error && error.password"
+              >
+                {{ error.password[0] }}
+              </span>
+            </div>
+            <!-- <input
+              class="input"
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+            /> -->
+          </div>
+          <div class="col-6 col-s-6 right">
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Lastname"
+                formControlName="lastname"
+                [ngClass]="{ 'border-danger': error && error.lastname }"
+              />
+            </div>
+            <span class="text-danger form-text mt-0" *ngIf="error && error.lastname">
+              {{ error.lastname }}
+            </span>
+            <!-- <input
+              class="input"
+              type="text"
+              placeholder="Lastname"
+              formControlName="lastname"
+            /> -->
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Email"
+                formControlName="email"
+                [ngClass]="{ 'border-danger': error && error.email }"
+              />
+              <span class="text-danger form-text" *ngIf="error && error.email">
+                {{ error.email }}
+              </span>
+            </div>
+            <!-- <input
+              class="input"
+              type="text"
+              placeholder="Email"
+              formControlName="email"
+            /> -->
+            <div class="form-group">
+              <input
+                class="form-control "
+                type="password"
+                placeholder="Confirm Password"
+                formControlName="password_confirmation"
+                [ngClass]="{
+                  'border-danger': error && error.password_confirmation
+                }"
+              />
+              <span
+                class="text-danger form-text"
+                *ngIf="error && error.password_confirmation"
+              >
+                {{ error.password_confirmation[0] }}
+              </span>
+            </div>
+            <!-- <input
+              class="input"
+              type="password"
+              placeholder="Confirm Password"
+              formControlName="password_confirmation"
+            /> -->
+          </div>
           <button class="btn">Submit</button>
-          <p class="txt">Do you already have an account? <a routerLink="/login">Sign Up</a></p>
-      </div>
+          <p class="txt">
+            Do you already have an account? <a routerLink="/login">Sign Up</a>
+          </p>
+        </div>
+      </form>
     </div>
   </div>
 </div>
