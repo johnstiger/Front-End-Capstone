@@ -57,6 +57,7 @@ import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-p
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
+import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { LandingCategoryComponent } from './Customer/Components/landing-category
     MyProfileComponent,
     EditSaleComponent,
     LandingCategoryComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AboutUsComponent
 
   ],
   imports: [
