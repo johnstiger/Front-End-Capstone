@@ -58,6 +58,7 @@ import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.com
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
 import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
+import { CongratsComponent } from './customer/components/congrats/congrats.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { AboutUsComponent } from './Customer/Components/about-us/about-us.compon
     LandingCategoryComponent,
     SpinnerComponent,
     AboutUsComponent,
+    CongratsComponent,
 
   ],
   imports: [

@@ -10,6 +10,7 @@ import { CustomerService } from 'src/app/Customer/Services/customer.service';
 export class ShowProfileComponent implements OnInit {
 
   showProfile: Customers[] = [];
+
   token = localStorage.getItem('customer_token');
 
   constructor(
@@ -17,7 +18,7 @@ export class ShowProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('jj', this.showProfile)
+    // console.log('jj', this.getCustomersDetails(this.showProfile))
     // this.getCustomersDetails(customer: Customer)
   }
 
