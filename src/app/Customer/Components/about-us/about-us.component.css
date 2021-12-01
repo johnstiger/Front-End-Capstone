@@ -1,12 +1,10 @@
 .media320{
     box-sizing: border-box;
-    /* background-color: #F6F2EF; */
     border: none;
     border-radius: 5px;
     font-family: 'Rufina';
     margin-left: 4vw;
-    margin-top: 5vw;
-  
+    height: 110vh;
   }
   .logo320{
     width: 100%;
@@ -77,12 +75,18 @@
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
   }
+  @media screen and (min-width: 425px){
+    .media320{height: 120vh;}
+  }
   @media screen and (max-width:767px){
     .media768{display: none;}
   }
   @media screen and (min-width:768px){
     .media320{display: none;}
-    .media768{margin-left: 4vw;}
+    .media768{
+      margin-left: 4vw;
+      height: 100vh;
+    }
     .logo768{
       width: 95%;
       height: auto;
@@ -101,7 +105,7 @@
     .btn{
       font-size: 2vw;
       width: 12vw;
-      margin-top: 10vw;
+      margin-top: 7vw;
       padding: 0.9vw;
     }
     title{font-size: 3vw;}

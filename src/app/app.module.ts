@@ -27,7 +27,6 @@ import { CartPageComponent } from './Customer/Components/cart-page/cart-page.com
 import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
-import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
 import { ReceivedComponent } from './Customer/Components/received/received.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -81,7 +80,6 @@ import { CongratsComponent } from './customer/components/congrats/congrats.compo
     TableComponent,
     ProductsComponent,
     AllOrdersComponent,
-    CheckOutComponent,
     ToPayComponent,
     ReceivedComponent,
     SampleHeaderComponent,
