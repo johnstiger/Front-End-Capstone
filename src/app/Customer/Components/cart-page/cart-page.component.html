@@ -22,20 +22,20 @@
           <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="">
         </div>
         <div class="col-4 col-s-4">
-          <p class="productname">Product Name</p>
+          <p class="productname">{{product.name || ''}}</p>
           <button class="removebtn">Remove</button>
         </div>
         <div class="col-4 col-s-4 details">
-          <p class="amount">Php 100.00</p>
+          <p class="amount">Php {{product.price || ''}}</p>
           <label class="quantity">Quantity</label>
           <input class="input" type="number" min="0" value="0">
-          <p id="total">Total: Php 200.00</p>
+          <p id="total">Total: Php {{product.pivot.total}}</p>
         </div>
       </div>
     </div>
     <div class="col-12 col-s-12 box">
       <label class="container768 ">
-        <input type="checkbox" checked="checked">
+        <input type="checkbox" (click)="selectById(product, products)" [id]="product.id" class="selectId">
         <span class="checkmark subselect"></span>
       </label>
     </div>
@@ -43,7 +43,7 @@
       <hr class="hr2">
     </div>
     <div class="col-12 col-s-12 buttons">
-      <p>Subtotal Php 200.00</p>
+      <p>Subtotal Php {{total}}</p>
       <button class="btn">Continue Shopping</button><br>
       <button class="btn">Update</button><br>
       <button class="btn">Check Out</button>
