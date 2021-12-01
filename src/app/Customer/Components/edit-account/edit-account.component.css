@@ -36,7 +36,8 @@ input{
 }
 input, .btn, input::placeholder{color: #F6F2EF;}
 #edit{margin-bottom: 15%;}
-#restpass{background-color: #0B5CFA;}
+#restpass{
+  background-color: #0B5CFA;}
 #restpass:hover{background-color: #598cf0;}
 .profileimg{
   width: 60%;
@@ -113,7 +114,7 @@ p, a{
   .media320{display: none;}
   .media768{
     background-color: transparent;
-    margin-bottom: -8vw;
+    margin-bottom: -15vw;
     margin-left: 3vw;
   }
   .account{
@@ -130,7 +131,7 @@ p, a{
   .editpanel{
     margin-left: 5%;
     width: 72%;
-    margin-bottom: 10%;
+    margin-bottom: 22%;
   }
   #restpass{
     float: right;
