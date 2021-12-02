@@ -33,7 +33,7 @@
                 <div *ngIf="errors && errors.category_id" class="alert alert-danger">
                     *{{ errors.category_id[0] }}
                 </div>
-                <select name="category_id" formControlName="category_id" id="" class="options form-control">
+                <select name="category_id" formControlName="category_id"  class="options form-control">
                   <option value="" hidden>Category</option>
                   <option *ngFor="let category of categories"
                   [value]="category.id"
@@ -54,7 +54,7 @@
                             *{{ errors.sizes[0] }}
                         </div>
                         <select name="sizes" id="size" class="options field form-control" formControlName="sizes" (change)="noSizesChoose($event.target)">
-                            <option value="0" hidden>Size</option>
+                            <option value="" hidden>Size</option>
                             <option *ngFor="let size of allSize" id="{{ size.id }}" [value]="size.id">{{ size.size }}</option>
                         </select>
                         <!-- <input type="text" class="form-control" name="" id="" placeholder="Size"> -->

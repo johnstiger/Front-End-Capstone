@@ -10,6 +10,7 @@ textarea {
 
 .col-md-4 {
     text-align: center;
+    max-height: 30vh;
 }
 
 .field {

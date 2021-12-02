@@ -45,13 +45,18 @@ export class CustomerService {
     return response;
   }
 
+  async countProductsInCart(token:any){
+    const response = await axios.get(this.url+"cart/count",{headers:{Authorization:token}});
+    return response;
+  }
+
   async getCategories(){
-    const response = await axios.get(this.url+"categories");
+    const response = await axios.get(this.url+"allCategory");
     return response;
   }
 
   async getCategoryWithProducts(id:any){
-    const response = await axios.get(this.url+"category/"+id);
+    const response = await axios.get(this.url+"getCategory/"+id);
     return response;
   }
 

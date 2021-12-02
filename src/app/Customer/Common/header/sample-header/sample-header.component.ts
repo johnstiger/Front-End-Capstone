@@ -21,6 +21,7 @@ export class SampleHeaderComponent implements OnInit {
   categories : Array<any> = [];
   customers: Array<any> = [];
   change = false;
+  productsInCart: any;
 
   data : string = "test";
 
@@ -33,6 +34,7 @@ export class SampleHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
     if (window.localStorage.getItem('customer_token')) {
+      this.countProductsInCart()
       this.unAuthorized = false;
       this.authorized = true;
     }else {
@@ -45,6 +47,14 @@ export class SampleHeaderComponent implements OnInit {
     this.service.searchProducts(this.form.value).then((result)=>{
       this.messageEvent.emit(result.data);
     })
+  }
+
+  countProductsInCart(){
+    this.service.countProductsInCart(this.token).then((res)=>{
+      $('.custom-badge').css('display','block');
+      $('.custom-badge').html(res.data);
+    })
+
   }
 
 

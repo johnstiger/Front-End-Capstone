@@ -68,18 +68,19 @@ export class AddAdminComponent implements OnInit {
     await this.http.addAdmin(this.AddAdminForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
+      this.http.closeLoading();
+
       }else{
-        this.http.showMessage(result.data.message);
+        this.http.ShowSuccessMessage(result.data.message);
         setTimeout(() => {
           this.location.back();
-        }, 2000);
+        }, 1500);
         // const response = await this.http.adminImage(result.data.data.id, imageData, this.token);
         // if(response.data.error){
         //   this.errors = response.data.message;
         // }else{
         // }
       }
-      this.http.closeLoading();
     });
   }
 

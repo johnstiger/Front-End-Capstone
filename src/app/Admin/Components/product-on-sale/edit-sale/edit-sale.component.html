@@ -13,9 +13,9 @@
                 </div> -->
                 <label for="">Product Name</label>
                 <input type="text" name="name" id="selected" class="options field form-control" [ngModel]="name" disabled>
-                <!-- <div *ngIf="error && error.description" class="alert alert-danger">
-                    *{{ error.description[0] }}
-                </div> -->
+                <div *ngIf="errors && errors.description" class="alert alert-danger">
+                    *{{ errors.description[0] }}
+                </div>
                 <label for="">Description</label>
                 <textarea name="description" class="form-control field" cols="30" [ngModel]="description" rows="10" placeholder="Descriptions"></textarea>
                 <div class="row">
@@ -34,11 +34,11 @@
                         <input type="number" class="form-control" [ngModel]="unit_measure" name="unit_measure" min="1" max="{{ unit_measure }}" id="" placeholder="Unit">
                     </div>
                     <div class="col">
-                        <!-- <div *ngIf="error && error.size" class="alert alert-danger">
-                            *{{ error.size[0] }}
-                        </div> -->
+                        <div *ngIf="errors && errors.size" class="alert alert-danger">
+                            *{{ errors.size[0] }}
+                        </div>
                         <label for="">Size</label>
-                        <input type="text" name="size" [ngModel]="size" class="form-control" id="" disabled>
+                        <input type="text" name="size" [ngModel]="size" class="form-control" id="">
                     </div>
                 </div>
                 <div class="row">
