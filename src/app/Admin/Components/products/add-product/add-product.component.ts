@@ -105,7 +105,6 @@ export class AddProductComponent implements OnInit {
   async productCategories(){
     const result = await this.http.getCategories(this.token);
     console.log(result.data);
-
     this.categories = result.data.error ? false : result.data.data;
   }
 
