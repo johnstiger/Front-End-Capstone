@@ -37,6 +37,7 @@ import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.com
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
 import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
+import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
@@ -85,6 +86,7 @@ const routes: Routes = [
   { path: 'product', component:ProductSelectComponent, canActivate: [CustomerGuard] },
   { path: 'pay', component:ToPayComponent, canActivate: [CustomerGuard] },
   { path: 'selected/:id', component: ProductSelectComponent },
+  { path: 'view=?/:id', component:ViewAllComponent },
 
   {path:'spinner',component:SpinnerComponent},
 

@@ -34,7 +34,7 @@
                                     <td>
                                         <button *ngIf="order.tracking_code === null && order.status === 1" type="button" (click)="trackingCode(order)" class="btn btn-primary tracking"><i class="fas fa-truck-loading"></i> Tracking Code</button>
                                         <button *ngIf="order.status == 0" type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i> Preview</button>
-                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
+                                        <button *ngIf="order.tracking_code === null && order.status === 0" type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
                                     </td>
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">

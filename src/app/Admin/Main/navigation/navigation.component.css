@@ -73,7 +73,7 @@ body {
 }
 
 .activeLink {
-    background-color: red;
+    color: darkolivegreen !important;
 }
 @media (min-width: 1400px) {
     .container {

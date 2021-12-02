@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   constructor(private router : Router, private service : CustomerService, private message : AdminService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   async login(){
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
       this.router.navigate(['']);
+      this.service.closeLoading();
     }
   }
 

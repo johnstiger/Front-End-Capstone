@@ -53,6 +53,7 @@ export class PendingOrdersComponent implements OnInit {
       }else{
         this.orders = result.data.data;
         console.log(this.orders);
+
       }
       this.http.closeLoading();
     })
@@ -72,7 +73,9 @@ export class PendingOrdersComponent implements OnInit {
       }else{
         this.http.showMessage(res.data.message);
         this.onCloseHandled();
-        this.ngOnInit();
+        setTimeout(()=>{
+          window.location.reload();
+        })
       }
     })
   }
@@ -86,8 +89,10 @@ export class PendingOrdersComponent implements OnInit {
           this.http.ShowErrorMessage(result.data.message);
       }else{
         this.onCloseHandled();
-        this.http.showMessage(result.data.message);
-        this.ngOnInit();
+        this.http.ShowSuccessMessage(result.data.message);
+        setTimeout(()=>{
+          this.ngOnInit();
+        },1500)
       }
     });
   }
@@ -127,10 +132,10 @@ export class PendingOrdersComponent implements OnInit {
       if(result.data.error){
         this.http.ShowErrorMessage(result.data.message);
       }else{
-        this.http.showMessage(result.data.message);
+        this.http.ShowSuccessMessage(result.data.message);
         setTimeout(()=>{
-          this.ngOnInit();
-        }, 2000);
+          window.location.reload();
+        }, 1500);
       }
     });
   }
