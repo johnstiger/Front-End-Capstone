@@ -153,6 +153,26 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  
+  // Pop Up Modal
+  openModal(product : any){
+    this.productName = product.name;
+    this.stockSizes = product.sizes
+    let check = this.stockSizes.map(res => {
+      if(res.size === 'N/A'){
+        return true;
+      }
+      return false;
+    })
+    this.product = product;
+    if(check[0]){
+      this.sizeId = product.sizes
+      this.addToSale(product);
+    }else{
+      this.display = 'block';
+    }
+  }
+
   // Submit Modal To Sales Page
   addToSale(product : any){
     this.sizeId.forEach(element=>{

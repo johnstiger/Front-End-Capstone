@@ -18,7 +18,7 @@
                 <a class="user" routerLink="/show-profile"><i class="far fa-user-circle bag"></i></a>
             </div>
             <a class="categories" *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{category.name}}</a>
-            <a class="categories" routerLink="/about-us">About Us</a>
+            <a class="categories">About Us</a>
             <a class="categories" routerLink="/login">Sign In</a>
             <a class="categories" routerLink="/register">Sign Up</a>
         </div>
@@ -49,7 +49,6 @@
                     <a (click)="logout()">Log Out</a>
                 </div>
             </div>
-            <a href="/cart" class="cart"><span class="custom-badge">1</span><i class="fa fa-cart-plus fa-2x"></i></a>
         </div>
     </div>
 </div>
