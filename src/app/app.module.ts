@@ -59,6 +59,7 @@ import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
 import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
 import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
+import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { ResetPasswordComponent } from './Customer/Components/reset-password/res
     LandingCategoryComponent,
     SpinnerComponent,
     ViewAllComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AboutUsComponent,
 
   ],
   imports: [

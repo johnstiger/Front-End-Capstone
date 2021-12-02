@@ -53,7 +53,7 @@ export class ProductSelectComponent implements OnInit {
         this.avail_unit_measure = this.product.sizes[0].pivot.avail_unit_measure;
         this.sizes = this.product.sizes[0].pivot.size;
       } else {
-        this.avail_unit_measure=0;
+        this.avail_unit_measure = 0;
         this.sizes="";
         // this.unit_measure = 0;
       }
@@ -76,6 +76,6 @@ export class ProductSelectComponent implements OnInit {
   }
 
   async checkOut(product:any){
-    this.router.navigate(["check-out"])
+    this.router.navigate(["/order-page"]);
   }
 }
