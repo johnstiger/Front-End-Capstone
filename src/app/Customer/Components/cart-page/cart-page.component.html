@@ -5,16 +5,10 @@
   <div class="row">
     <div class="col-12 col-s-12 pageheader">
       <div class="row">
-        <div class="col-5 col-s-5">
-          <label class="container768">Select All
-            <input type="checkbox" name="" (click)="selectAll(products)" id="selectAll">
-            <span class="checkmark select"></span>
-          </label>
-        </div>
-        <div class="col-3 col-s-3">
+        <div class="col-6 col-s-6">
           <p id="product">Product</p>
         </div>
-        <div class="col-4 col-s-4">
+        <div class="col-6 col-s-6">
           <p id="price">Price</p>
         </div>
       </div>
@@ -23,25 +17,25 @@
       <hr id="headerhr">
     </div>
     <div class="col-12 col-s-12 content">
-      <div class="row" *ngFor="let product of products">
+      <div class="row">
         <div class="col-4 col-s-4">
           <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="">
         </div>
         <div class="col-4 col-s-4">
-          <p class="productname">{{product.name || ''}}</p>
+          <p class="productname">Product Name</p>
           <button class="removebtn">Remove</button>
         </div>
         <div class="col-4 col-s-4 details">
-          <p class="amount">Php {{product.price || ''}}</p>
+          <p class="amount">Php 100.00</p>
           <label class="quantity">Quantity</label>
           <input class="input" type="number" min="0" value="0">
-          <p id="total">Total: Php {{product.pivot.total}}</p>
+          <p id="total">Total: Php 200.00</p>
         </div>
       </div>
     </div>
     <div class="col-12 col-s-12 box">
       <label class="container768 ">
-        <input type="checkbox" (click)="selectById(product, products)" [id]="product.id" class="selectId">
+        <input type="checkbox" checked="checked">
         <span class="checkmark subselect"></span>
       </label>
     </div>
@@ -49,7 +43,7 @@
       <hr class="hr2">
     </div>
     <div class="col-12 col-s-12 buttons">
-      <p>Subtotal Php {{total}}</p>
+      <p>Subtotal Php 200.00</p>
       <button class="btn">Continue Shopping</button><br>
       <button class="btn">Update</button><br>
       <button class="btn">Check Out</button>
@@ -57,7 +51,6 @@
   </div>
 </div>
 
-<!-- MEDIA 768 -->
 <div class="col-11 col-s-11 media768">
   <div class="row">
     <div class="col-12 col-s-12 headers768">

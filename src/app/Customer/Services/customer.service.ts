@@ -91,7 +91,7 @@ export class CustomerService {
   }
 
   async addtoCart(id:any, quantity:any, token:any){
-    const response = await axios.post(this.url+"cart/add/"+id, {quantity: quantity},{headers: {Authorization:token}});
+    const response = await axios.post(this.url+"cart/add/"+id, quantity,{headers: {Authorization:token}});
     return response;
   }
 

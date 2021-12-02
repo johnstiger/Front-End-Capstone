@@ -41,9 +41,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register() {  
+    this.service.showLoading();
     this.service.register(this.registerForm.value).then((res) => {
       if(res.data.error){
         this.error = res.data.message;
+        console.log(res.data.data)
       }else {
         console.log(res.data)
         window.localStorage.setItem('customer_token',"Bearer "+ res.data.access_token);

@@ -33,7 +33,7 @@ export class CartPageComponent implements OnInit {
   async getProduct() {
     await this.service.getProducts(this.token).then(result => {
       if (!result.data.error) {
-        // console.log(result.data);
+        console.log(result.data);
         this.products = result.data.data
         this.products.map(res => {
           this.total += res.pivot.total;
