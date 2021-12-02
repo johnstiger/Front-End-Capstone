@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
 
   getPendingOrders(){
     this.service.loading();
-    this.service.pendingOrders(this.token).then((result) =>{
+    this.service.getNotification(this.token).then((result) =>{
       if(result.data.error){
         this.service.ShowErrorMessage(result.data.message)
       }else{
@@ -66,7 +66,14 @@ export class HeaderComponent implements OnInit {
   }
 
   notification(){
-    this.router.navigate(['/admin/pending-orders'])
+    this.service.updateViewOrders(this.token).then((res)=>{
+      if(res.data.error){
+        this.service.ShowErrorMessage(res.data.message);
+      }else{
+        this.ngOnInit();
+        this.router.navigate(['/admin/pending-orders']);
+      }
+    })
   }
 
 }

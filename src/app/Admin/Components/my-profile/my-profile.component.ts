@@ -91,8 +91,10 @@ export class MyProfileComponent implements OnInit {
     this.service.updateAdmin(data.id, data, this.token).then(async (result)=>{
     if(result.data.error){
       this.error = result.data.message
+      this.service.closeLoading();
+
     }else{
-      this.service.showMessage(result.data.message);
+      this.service.ShowSuccessMessage(result.data.message);
       setTimeout(() => {
         this.ngOnInit();
       }, 2000);

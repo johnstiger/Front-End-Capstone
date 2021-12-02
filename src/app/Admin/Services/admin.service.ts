@@ -3,6 +3,7 @@ import axios from 'axios';
 import { UrlService } from 'src/app/Url/url.service';
 import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
+import { timeInterval } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -207,8 +208,18 @@ export class AdminService {
   }
 
   //get all pending orders
+  async getNotification(token : any){
+    const response = await axios.get(this.url+"order/notification", {headers: {Authorization:token}});
+    return response;
+  }
+
   async pendingOrders(token : any){
-    const response = await axios.get(this.url+"order/pending", {headers: {Authorization:token}});
+    const response = await axios.get(this.url+"order/pending",{headers:{Authorization:token}});
+    return response;
+  }
+
+  async updateViewOrders(token : any){
+    const response = await axios.get(this.url+"order/updateView",{headers:{Authorization:token}});
     return response;
   }
 

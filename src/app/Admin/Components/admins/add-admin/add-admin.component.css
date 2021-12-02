@@ -1,6 +1,7 @@
 .con {
     padding: 70px;
     border-radius: 10px;
+    max-height: 100vh;
     background: #F6F2EF;
 }
 
@@ -31,6 +32,10 @@
 
 .col {
     text-align: center;
+}
+
+.col-md-4{
+  max-height: 63vh;
 }
 
 .btn {

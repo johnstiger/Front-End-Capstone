@@ -23,6 +23,10 @@ export class LandingComponent implements OnInit {
   products! : Products[];
   salesItem : Array<any> = [];
   categories : Array<any> = [];
+  maxSaleDisplay : number = 3;
+  maxProductDisplay : number = 8;
+  displayViewAllSales : boolean = false;
+  displayViewAllProduct : boolean = false;
 
   constructor(
     private router: Router,
@@ -40,6 +44,9 @@ export class LandingComponent implements OnInit {
 
     }else{
       this.products = result.data.data;
+      if(this.products.length > this.maxProductDisplay){
+        this.displayViewAllProduct = true;
+      }
       this.products = this.products.map(res=>{
         const sizes = res.sizes.map((element:any)=>{
             return element.size
@@ -72,12 +79,17 @@ export class LandingComponent implements OnInit {
 
       }else{
         this.salesItem = res.data.data;
-        console.log(this.salesItem);
+        if(this.salesItem.length > this.maxSaleDisplay){
+          this.displayViewAllSales = true;
+        }
 
       }
     })
   }
 
+  viewAll(param:any){
+    this.router.navigate(['/view=?/'+param])
+  }
 
   selectCategory(name:any){
     this.service.getCategories().then((res)=>{
