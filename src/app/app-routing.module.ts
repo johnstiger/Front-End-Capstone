@@ -38,6 +38,7 @@ import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
 import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
 import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
+import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
@@ -72,6 +73,7 @@ const routes: Routes = [
   { path: 'choose?=/:id', component: LandingCategoryComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'login', component:LoginComponent },
+  { path: 'reset-password=?/:id',component:ResetPasswordComponent },
   { path: 'search-result', component: SearchResultComponent },
   { path: 'all-orders', component:AllOrdersComponent, canActivate: [CustomerGuard] },
   { path: 'cart', component:CartPageComponent, canActivate: [CustomerGuard] },

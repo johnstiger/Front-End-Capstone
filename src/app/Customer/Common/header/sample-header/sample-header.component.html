@@ -14,7 +14,7 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn categories" (click)="closeNav()">&times;</a>
             <div class="users">
-              <a href="#" class="cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag bag"></i></a>
+              <a routerLink="/cart" class="cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag bag"></i></a>
                 <a class="user" routerLink="/show-profile"><i class="far fa-user-circle bag"></i></a>
             </div>
             <a class="categories" *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{category.name}}</a>
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="icons">
-          <a href="#" class="cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag bag"></i></a>
+          <a routerLink="/cart" class="cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag bag"></i></a>
             <div class="dropdown" *ngIf="authorized">
                 <a class="user" routerLink="/show-profile"><i class="far fa-user-circle bag"></i></a>
                 <div class="dropdown-content" >

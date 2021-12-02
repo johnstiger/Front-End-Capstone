@@ -22,6 +22,8 @@ export class ViewAllComponent implements OnInit {
   showSuggestProducts : boolean = false;
   cp : number = 0;
   salesPage : number = 0;
+  maxSaleDisplay : number = 6;
+  maxProductDisplay : number = 12;
 
   ngOnInit(): void {
 
@@ -66,6 +68,8 @@ export class ViewAllComponent implements OnInit {
         const sizes = res.sizes.map((element:any)=>{
             return element.size
         })
+        console.log(sizes);
+
         if(sizes.length > 1){
           res.availableSize = sizes[0]+'-'+sizes[sizes.length - 1];
         }else if(sizes.length == 1){
@@ -79,8 +83,6 @@ export class ViewAllComponent implements OnInit {
   }
 
   select(product:any){
-    console.log(product);
-
     this.route.navigate(['/selected/'+product.id],{
       state: {
         data: product

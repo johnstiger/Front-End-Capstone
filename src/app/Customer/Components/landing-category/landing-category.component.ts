@@ -37,18 +37,18 @@ export class LandingCategoryComponent implements OnInit {
         this.products = res.data.data;
         this.categoryName = res.data.data[0].name;
         this.products = this.products.map((res, indx)=>{
-          const sizes = res.products.map((element:any)=>{
-            return element.sizes.map((test:any)=>{
+          const sizes = res.products.map((element:any, index : any)=>{
+            const el = element.sizes.map((test:any)=>{
               return test.size
             })
+            if(el.length > 1){
+              element.size = el[0]+'-'+el[el.length -1]
+            }else if(el.length == 1){
+              element.size = el[0]
+            }else{
+              element.size = []
+            }
           })
-          if(sizes.length > 1){
-            res.products[indx].size = sizes[0]+'-'+sizes[sizes.length -1];
-          }else if(sizes.length == 1){
-            res.products[indx].size = sizes[0];
-          }else{
-            res.products[indx].size = [];
-          };
           return res.products;
         })
         this.products = this.products[0];

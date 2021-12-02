@@ -95,6 +95,21 @@ export class CustomerService {
     return response;
   }
 
+  async sendEmail(data:any){
+    const response = await axios.post(this.url+"forgot-password", data);
+    return response;
+  }
+
+
+  async resetPassword(id:any,data : any){
+    const response = await axios.post(this.url+"reset-password/"+id, data);
+    return response;
+  }
+
+  async newPassword(id : any, data:any){
+    const response = await axios.post(this.url+"new-password/"+id,data);
+    return response;
+  }
 
   //Message
   ShowSuccessMessage(message : any){
