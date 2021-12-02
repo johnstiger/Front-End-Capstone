@@ -58,3 +58,7 @@ textarea {
     background: #21C607;
     border: none;
 }
+
+input[name=size] {
+  pointer-events: none;
+}

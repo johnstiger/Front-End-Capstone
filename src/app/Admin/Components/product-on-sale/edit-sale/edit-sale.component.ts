@@ -35,7 +35,7 @@ export class EditSaleComponent implements OnInit {
   category : any;
   description : any;
   errors : any;
-
+  sizes: Array<any> = [];
   newId : any;
 
   ngOnInit(): void {
@@ -57,8 +57,6 @@ export class EditSaleComponent implements OnInit {
         this.http.ShowErrorMessage(result.data.message);
       }else{
         this.salesItem = result.data.data;
-        console.log(this.salesItem);
-
         this.name = this.salesItem.products.name;
         this.percent_off = this.salesItem.percent_off
         this.unit_measure = this.salesItem.unit_measure
@@ -70,7 +68,10 @@ export class EditSaleComponent implements OnInit {
         this.category = this.salesItem.category
         this.description = this.salesItem.description
         this.image = this.salesItem.products.image
+        this.sizes = this.salesItem.products.sizes
         this.http.closeLoading();
+        console.log(this.sizes);
+
       }
     });
   }
@@ -81,10 +82,13 @@ export class EditSaleComponent implements OnInit {
     this.http.updateSalesItem(this.newId, form, this.token).then((result)=>{
       if(result.data.error){
         this.errors = result.data.message;
+        this.http.closeLoading();
       }else{
-        this.location.back();
+        this.http.ShowSuccessMessage(result.data.message);
+        setTimeout(()=>{
+          this.location.back();
+        },1500)
       }
-      this.http.closeLoading();
     });
   }
 
