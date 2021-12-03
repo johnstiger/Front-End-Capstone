@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/admin/dashboard']);
     }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
+      localStorage.setItem('customer',result.data.data.id);
       this.router.navigate(['']);
       this.service.closeLoading();
     }

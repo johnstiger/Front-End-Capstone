@@ -10,18 +10,31 @@ hr {
     background-color: white;
 }
 
+.container{
+  max-width: 1000px;
+}
+
+
+.container{
+  max-width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .card {
-    margin: auto;
-    width: 20em;
-    margin-top: 2em;
+  margin: auto;
+  width: 20em;
+  margin-top: 2em;
 }
 
-.card-img-top {
-    width: unset;
-    height: 19em;
-    object-fit: cover;
-    margin-left: -0.813rem;
-    margin-right: -0.813rem;
-    margin-top: -0.063rem;
+
+.card{
+  box-shadow: 6px 6px 7px dimgrey;
 }
 
+
+.paginator{
+  text-align: center;
+  margin-top: 70px;
+}

@@ -2,6 +2,10 @@ body {
   background-color: #c7988e;
 }
 
+.topnav{
+  margin-bottom: 75px;
+}
+
 .custom-badge{
   display: none;
 }
@@ -371,6 +375,9 @@ body {
 }
 
 @media screen and (max-width: 375px) and (min-width: 280px) {
+  .topnav{
+    margin-bottom: -18px;
+  }
   .search input[type="text"] {
     width: 230px !important;
     padding: 5px;

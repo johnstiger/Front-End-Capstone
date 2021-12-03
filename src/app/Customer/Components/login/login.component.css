@@ -231,6 +231,9 @@ form {
 }
 
 @media screen and (min-width:133px) and (max-width:485px) {
+    .container-fluid{
+      height: 128vh;
+    }
     .logo {
         margin-left: -22px;
         max-width: 100%;
