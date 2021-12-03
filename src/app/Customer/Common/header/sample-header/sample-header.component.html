@@ -1,54 +1,58 @@
 <div class="topnav">
-    <div class="grid">
-        <div class="left">
-             <a routerLink="/">
-            <img src="../assets/imgs/logo.jpg" alt="">
-          </a>
-        </div>
-        <div class="right" (click)="openNav()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+  <div class="grid">
+      <div class="left">
+           <a routerLink="/">
+          <img src="../assets/imgs/logo.jpg" alt="">
+        </a>
+      </div>
+      <div class="right" (click)="openNav()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+      </div>
 
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn categories" (click)="closeNav()">&times;</a>
-            <div class="users">
-              <a href="#" class="cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag bag"></i></a>
-                <a class="user" routerLink="/show-profile"><i class="far fa-user-circle bag"></i></a>
-            </div>
-            <a class="categories" *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{category.name}}</a>
-            <a class="categories">About Us</a>
-            <a class="categories" routerLink="/login">Sign In</a>
-            <a class="categories" routerLink="/register">Sign Up</a>
-        </div>
-    </div>
-    <div class="titles">
-      <ul>
+      <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn categories" (click)="closeNav()">&times;</a>
+          <div class="responsive">
+            <a class="responsive-user" *ngIf="authorized" routerLink="/show-profile"><i class="far fa-user-circle responsive-bag"></i></a>
+            <a routerLink="/cart" class="responsive-cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag responsive-bag"></i></a>
+          </div>
+          <a class="categories" *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{category.name}}</a>
+          <a class="categories" routerLink="/about-us">About Us</a>
+          <a class="categories" routerLink="/login" *ngIf="!authorized">Sign In</a>
+          <a class="categories" routerLink="/register" *ngIf="!authorized">Sign Up</a>
+          <a class="categories" routerLink="/show-profile" *ngIf="authorized">My Profile</a>
+          <a class="categories" routerLink="/all-orders" *ngIf="authorized">My Orders</a>
+      </div>
+  </div>
+  <div class="titles">
+    <ul>
 
-        <li *ngFor="let category of categories"><a (click)="LinkThisCategory(category)">{{ category.name}}</a></li>
-        <li><a routerLink="#">About Us</a></li>
-        <li><a routerLink="/login" *ngIf="!authorized">Log In</a></li>
-        <li><a routerLink="/register" *ngIf="!authorized">Register</a></li>
-      </ul>
-    </div>
-    <hr class="line">
-    <div class="grid">
-        <div class="search">
-            <div id="input-search-wrapper">
-                <input type="text" name="data" placeholder="Search Products...">
-                <a href="#"><i class="fa fa-search fa-2x"></i></a>
-            </div>
-        </div>
-        <div class="icons">
-          <a routerLink="/cart" class="cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag bag"></i></a>
-            <div class="dropdown" *ngIf="authorized">
-                <a class="user" routerLink="/show-profile"><i class="far fa-user-circle bag"></i></a>
-                <div class="dropdown-content" >
-                    <a routerLink="/show-profile">My Profile</a>
-                    <a (click)="logout()">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </div>
+      <li *ngFor="let category of categories"><a (click)="LinkThisCategory(category)">{{ category.name}}</a></li>
+      <li><a routerLink="/about-us">About Us</a></li>
+      <li><a routerLink="/login" *ngIf="!authorized">Log In</a></li>
+      <li><a routerLink="/register" *ngIf="!authorized">Register</a></li>
+    </ul>
+  </div>
+  <hr class="line">
+  <div class="grid">
+      <div class="search">
+          <div id="input-search-wrapper">
+            <form [formGroup]="form" (ngSubmit)="searchProducts()">
+              <input type="text" name="data" formControlName="data" placeholder="Search Products...">
+              <button type="submit" class="searchBtn"><i class="fa fa-search fa-2x"></i></button>
+            </form>
+          </div>
+      </div>
+      <div class="icons">
+        <a routerLink="/cart" class="cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag bag"></i></a>
+          <div class="dropdown" *ngIf="authorized">
+              <a class="user" routerLink="/show-profile"><i class="far fa-user-circle bag"></i></a>
+              <div class="dropdown-content" >
+                  <a routerLink="/show-profile">My Profile</a>
+                  <a (click)="logout()">Log Out</a>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

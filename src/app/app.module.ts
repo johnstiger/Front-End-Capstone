@@ -44,10 +44,10 @@ import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/ad
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component';
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
-import { SearchResultComponent } from './Customer/Components/search-result/search-result.component'
+import { SearchResultComponent } from './Customer/Components/search-result/search-result.component';
+import { CongratsComponent } from './Customer/Components/congrats/congrats.component';
 
-// Spinner
-import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
@@ -56,9 +56,10 @@ import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-p
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
-import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
-import { CongratsComponent } from './customer/components/congrats/congrats.component';
 import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
+import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
+import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
+import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -103,10 +104,11 @@ import { ViewAllComponent } from './Customer/Components/view-all/view-all.compon
     MyProfileComponent,
     EditSaleComponent,
     LandingCategoryComponent,
-    SpinnerComponent,
+    ViewAllComponent,
+    ResetPasswordComponent,
     AboutUsComponent,
-    CongratsComponent,
-    ViewAllComponent
+    NewPasswordComponent,
+    CongratsComponent
 
   ],
   imports: [
@@ -120,7 +122,8 @@ import { ViewAllComponent } from './Customer/Components/view-all/view-all.compon
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

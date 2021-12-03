@@ -30,6 +30,7 @@ export class ProductsComponent implements OnInit {
   display = 'none';
   products!: Products[];
   productName: any;
+  filterTerm! : string;
 
   constructor(
     private service: AdminService,

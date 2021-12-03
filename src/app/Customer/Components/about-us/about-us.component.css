@@ -4,7 +4,9 @@
     border-radius: 5px;
     font-family: 'Rufina';
     margin-left: 4vw;
-    height: 110vh;
+    height: 100vh;
+    padding-top: 18px;
+
   }
   .logo320{
     width: 100%;
@@ -32,7 +34,7 @@
     text-align: center;
     margin-top: 5vw;
     font-size: 5vw;
-    
+
   }
   #dagomtxt1{text-align: center;}
   .btn{
@@ -40,7 +42,7 @@
     box-sizing: border-box;
     float: right;
     background-color: #F6F2EF;
-    color: #C7988E;
+    color: #C7988E !important;
     padding: 1vw;
     font-size: 4vw;
     width: 25vw;
@@ -83,10 +85,8 @@
   }
   @media screen and (min-width:768px){
     .media320{display: none;}
-    .media768{
-      margin-left: 4vw;
-      height: 100vh;
-    }
+    .media768{margin-left: 4vw;
+      height: 100vh;}
     .logo768{
       width: 95%;
       height: auto;

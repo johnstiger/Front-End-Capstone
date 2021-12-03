@@ -18,7 +18,8 @@ export class SearchResultComponent implements OnInit {
 
   message = "";
   search = "";
-  datas : any;
+  cp : number = 0;
+  products : any;
   path = 'http://santafe-dagom.herokuapp.com/img/';
 
 
@@ -30,10 +31,22 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   recieveMessage($event:any){
     this.message = $event.message
-    this.datas = $event.data;
+    this.products = $event.data;
+    console.log($event);
+
   }
+
+
+  select(product:any){
+    this.router.navigate(['/selected/'+product.id],{
+      state: {
+        data: product
+      }
+    })
+  }
+
 
 }

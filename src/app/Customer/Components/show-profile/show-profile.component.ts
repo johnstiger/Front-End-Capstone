@@ -9,7 +9,13 @@ import { CustomerService } from 'src/app/Customer/Services/customer.service';
 })
 export class ShowProfileComponent implements OnInit {
 
-  showProfile: Customers[] = [];
+  firstname : any;
+  lastname : any;
+  email : any;
+  contact_number : any;
+  image : any;
+  address : any;
+  details : any;
 
   token = localStorage.getItem('customer_token');
 
@@ -18,16 +24,19 @@ export class ShowProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log('jj', this.getCustomersDetails(this.showProfile))
-    // this.getCustomersDetails(customer: Customer)
+    this.getCustomersDetails();
   }
 
-  async getCustomersDetails(customer: Customers) {
-    console.log(customer)
-    await this.customerService.getCustomerProfile(customer.id, this.token).then((result)=>{
-      console.log('id', customer.id);
-      this.showProfile = result.data.data;
-      console.log('logggg', this.showProfile)
+  async getCustomersDetails() {
+    let customerId = localStorage.getItem('customer');
+    await this.customerService.getCustomerProfile(customerId, this.token).then((result)=>{
+      this.details = result.data.data
+      this.firstname = this.details.firstname
+      this.lastname = this.details.lastname
+      this.email = this.details.email
+      this.image = this.details.image
+      this.contact_number = this.details.contact_number
+      this.address = result.data.address.municipality+", "+result.data.address.province
     });
   }
 

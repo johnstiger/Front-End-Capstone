@@ -100,6 +100,20 @@ export class CustomerService {
     return response;
   }
 
+  async sendEmail(data:any){
+    const response = await axios.post(this.url+"forgot-password", data);
+    return response;
+  }
+
+  async resetPassword(id:any,data : any){
+    const response = await axios.post(this.url+"reset-password/"+id, data);
+    return response;
+  }
+
+  async newPassword(id : any, data:any){
+    const response = await axios.post(this.url+"new-password/"+id,data);
+    return response;
+  }
   async checkOut(data:any, token:any) {
     const response = await axios.get(this.url+"order/checkout",{headers: {Authorization:token}});
     return response;
@@ -118,6 +132,16 @@ export class CustomerService {
   async getCustomerProfile(id:any, token:any) {
     const response = await axios.get(this.url+"customer/myProfile/"+id, {headers: {Authorization:token}});
     return response
+  }
+
+  async customerChangePassword(data:any, token :any){
+    const response = await axios.post(this.url+"customer/reset-password",data,{headers:{Authorization:token}});
+    return response;
+  }
+
+  async editCustomerAccount(data:any, token:any){
+    const response = await axios.put(this.url+"customer/information",data,{headers:{Authorization:token}});
+    return response;
   }
 
 

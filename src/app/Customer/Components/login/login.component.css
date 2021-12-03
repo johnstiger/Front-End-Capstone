@@ -4,6 +4,34 @@
     width: 100%;
 }
 
+.mt-3{
+  cursor: pointer;
+}
+
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+
+.modal-dialog{
+  top: 15%;
+}
+
+.modal-content{
+  padding: 15px;
+  text-align: center;
+}
+
+.mt-3:hover{
+  color: rgb(202, 194, 194);
+}
+
 form {
     margin-top: 3rem!important;
 }
@@ -50,8 +78,11 @@ form {
     color: black;
 }
 
+.form-group{
+  margin-bottom: 35px;
+}
+
 .form-control {
-    margin-bottom: 10%;
     padding: 10px;
 }
 
@@ -60,7 +91,11 @@ form {
     margin-left: -2%;
     width: 9em;
     font-size: 20px;
-    color: white;
+    color: white !important;
+}
+
+#emailForm{
+  margin-top: 0rem!important;
 }
 
 .loginbottom {
@@ -196,6 +231,9 @@ form {
 }
 
 @media screen and (min-width:133px) and (max-width:485px) {
+    .container-fluid{
+      height: 128vh;
+    }
     .logo {
         margin-left: -22px;
         max-width: 100%;

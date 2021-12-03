@@ -9,6 +9,11 @@ body .mat-typography{
   margin-right: auto;
 }
 
+.paginator{
+  text-align: center;
+  margin-top: 70px;
+}
+
 .card {
   margin: auto;
   width: 20em;

@@ -28,6 +28,7 @@ export class SampleHeaderComponent implements OnInit {
   token = localStorage.getItem('customer_token')
 
   @Output() messageEvent  = new EventEmitter<string>();
+  @Output() categoryEvent  = new EventEmitter<string>();
 
   constructor(private router: Router, private service : CustomerService) { }
 
@@ -44,19 +45,23 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   searchProducts(){
+    this.service.showLoading()
     this.service.searchProducts(this.form.value).then((result)=>{
       this.messageEvent.emit(result.data);
+      this.router.navigate(['/search-result']);
+      this.service.closeLoading();
     })
   }
 
   countProductsInCart(){
     this.service.countProductsInCart(this.token).then((res)=>{
-      $('.custom-badge').css('display','block');
-      $('.custom-badge').html(res.data);
+      if(res.data > 1){
+        $('.custom-badge').css('display','block');
+        $('.custom-badge').html(res.data);
+      }
     })
 
   }
-
 
   openNav() {
     $('#mySidenav').css('width','100%');
@@ -66,12 +71,16 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   LinkThisCategory(category : any){
+    this.service.showLoading();
+    this.closeNav();
+    this.categoryEvent.emit(category.id);
     this.router.navigate(['/choose?=/'+category.id],{
       state: {
         data: category
       }
     })
   }
+
 
   async logout(){
     this.service.loading();
@@ -81,23 +90,14 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   async getCategories(){
+    this.service.showLoading();
     const result = await this.service.getCategories();
     if(result.data.error){
 
     }else{
       this.categories = result.data.data;
-      console.log(this.categories);
-
     }
+    this.service.closeLoading();
   }
-  // async getCustomers(customer: Customers) {
-  //   const result = await this.service.getCustomerProfile(customer.id, this.token)
-  //   if(result.data.error) {
-
-  //   } else{
-  //     this.customers = result.data.data
-  //     console.log(this.customers)
-  //   }
-  // }
 
 }

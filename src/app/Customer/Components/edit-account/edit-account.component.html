@@ -3,60 +3,246 @@
 <div class="col-11 col-s-11 media320">
   <div class="row">
     <div class="col-12 col-s-12 profile">
-      <img class="proimg" src="../../../../assets/imgs/profile.jpg" alt=""><br>
-      <button class="btn" id="chooseFile">Choose File</button><br>
-      <input type="text" name="" id="fname" placeholder = "First Name">
-      <input type="text" name="" id="lname" placeholder = "Last Name">
-      <input type="text" name="" id="phoneNumber" placeholder="Phone Number">
-      <input type="text" name="" id="email" placeholder="Email Adress">
-      <input type="text" name="" id="address" placeholder="Address">
-      <button class="btn" id="restpass">Reset Password</button><br>
-      <button class="btn" id = "cancel">Cancel</button><br>
-      <button class="btn" id = "edit">Edit</button>
+      <form [formGroup]="editAccount" (ngSubmit)="submit()">
+        <img class="proimg" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
+        <ng-template #default>
+          <img class="proimg" [src]="image" alt="">
+        </ng-template>
+        <br>
+        <label class="custom-file-upload" class="btn" id="chooseFile">
+          <input type="file"
+          accept="image/*"
+          formControlName="image"
+          [ngModel] ="image"
+          name="image"
+          (change)="onFileChange($event,'small')"
+          />
+          Choose File
+      </label>
+        <span
+        class="text-danger form-text"
+        *ngIf="error && error.image">
+        {{ error.image }}
+      </span>
+        <!-- <button class="btn" id="chooseFile">Choose File</button><br> -->
+
+        <input
+        type="text"
+        [ngModel]="firstname"
+        formControlName="firstname"
+        name="firstname"
+        id="fname"
+        [ngClass]="{ 'border-danger': error && error.firstname }"
+        placeholder = "First Name">
+        <span
+        class="text-danger form-text"
+        *ngIf="error && error.firstname">
+        {{ error.firstname }}
+      </span>
+
+        <input type="text"
+         [ngModel]="lastname"
+         formControlName="lastname"
+         name="lastname" id="lname"
+        [ngClass]="{ 'border-danger': error && error.lastname }"
+         placeholder = "Last Name">
+         <span
+         class="text-danger form-text"
+         *ngIf="error && error.lastname">
+         {{ error.lastname }}
+       </span>
+
+        <input type="text"
+        [ngModel]="contact_number"
+        formControlName="contact_number"
+        name="contact_number"
+        id="phoneNumber"
+        [ngClass]="{ 'border-danger': error && error.contact_number }"
+        placeholder="Phone Number">
+        <span
+         class="text-danger form-text"
+         *ngIf="error && error.contact_number">
+         {{ error.contact_number }}
+       </span>
+
+        <a class="btn" id="restpass" (click)="openModal()">Reset Password</a><br>
+        <a class="btn" id = "cancel" (click)="return()">Cancel</a><br>
+        <button class="btn" id = "edit" type="submit">Edit</button>
+      </form>
     </div>
   </div>
 </div>
 <div class="col-11 col-s-11 media768">
   <div class="row">
     <div class="col-3 col-s-3 account">
-      <img class="profileimg" src="../../../../assets/imgs/profile.jpg" alt="">
-      <a href="#"><p>Customer Namssse</p></a>
-      <a href=""><p>Edit Account</p></a>
-      <a href=""><p>My Orders</p></a>
+        <img class="profileimg" [src]="image" alt="">
+      <a><p>{{ firstname }} {{lastname}}</p></a>
+      <a routerLink="/edit-account"><p>Edit Account</p></a>
+      <a routerLink="/all-orders"><p>My Orders</p></a>
     </div>
+    <form [formGroup]="editAccount" (ngSubmit)="submit()">
     <div class="col-8 col-s-8 editpanel">
       <div class="col-12 col-s-12">
         <div class="row">
           <div class="col-5 col-s-5">
-            <img class="editprofileimg" src="../../../../assets/imgs/profile.jpg" alt=""><br>
+          <img class="editprofileimg" [src]="bigImageSrc" *ngIf="bigImageSrc; else fault" alt="product-image">
+          <ng-template #fault>
+            <img class="editprofileimg" [src]="image" alt=""><br>
+          </ng-template>
           </div>
           <div class="col-7 col-s-7">
-            <input type="text" name="" id="fname" placeholder = "Firsssst Name">
-            <input type="text" name="" id="lname" placeholder = "Last Name">
-            <input type="text" name="" id="phoneNumber" placeholder = "Phone Number">
-            <button class="btn" id="restpass">Reset Password</button>
+            <input
+            type="text"
+            name="firstname"
+            id="fname"
+            [ngModel]="firstname"
+            formControlName="firstname"
+            placeholder = "Firsssst Name">
+            <span
+            class="text-danger form-text"
+            *ngIf="error && error.firstname">
+            {{ error.firstname }}
+          </span>
+
+            <input
+            type="text"
+            name="lastname"
+            formControlName="lastname"
+            id="lname"
+            [ngModel]="lastname"
+            placeholder = "Last Name">
+            <span
+            class="text-danger form-text"
+            *ngIf="error && error.lastname">
+            {{ error.lastname }}
+          </span>
+
+            <input
+            type="text"
+            name="contact_number"
+            formControlName="contact_number"
+            [ngModel]="contact_number"
+            id="phoneNumber"
+            placeholder = "Phone Number">
+            <span
+            class="text-danger form-text"
+            *ngIf="error && error.contact_number">
+            {{ error.contact_number }}
+          </span>
+
+            <a class="btn" id="restpass" (click)="openModal()">Reset Password</a>
           </div>
         </div>
       </div>
       <div class="col-12 col-s-12">
         <div class="row">
           <div class="col-6 col-s-6">
-            <button class="btn" id="selectimgbtn">Select Image</button>
+            <label class="custom-file-upload" class="btn" id="selectimgbtn">
+              <input type="file"
+              accept="image/*"
+              formControlName="image"
+              [ngModel] ="image"
+              name="image"
+              (change)="onFileChange($event, 'big')"
+              />
+              Choose File
+          </label>
+            <!-- <button class="btn" id="selectimgbtn">Select Image</button> -->
           </div>
           <div class="col-6 col-s-6">
             <div class="row">
               <div class="col-6">
-                <button class="btn" id="cancelbtn">Cancel</button>
+                <a class="btn" id="cancelbtn" (click)="return()">Cancel</a>
               </div>
               <div class="col-6">
-                <button class="btn" id="savebtn">Save</button>
+                <button class="btn" id="savebtn" type="submit">Save</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </form>
   </div>
 </div>
 <hr class="hr">
 <app-cus-footer></app-cus-footer>
+
+
+<!-- Reset Password Modal -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Reset Your Password</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form [formGroup]="newPasswordForm" (ngSubmit)="resetPassword()">
+                <div class="modal-body">
+                    <label for="currentPassword">Current Password:</label>
+                    <span
+                    class="text-danger form-text"
+                    *ngIf="error && !error.password && !error.password_confirmation">
+                    {{ error }}
+                  </span>
+                    <div class="input-group mb-3">
+                        <input type="password"
+                         id="currentPassword"
+                        class="form-control passwordField"
+                        formControlName="current_password"
+                        name="current_password"
+                        placeholder="********"
+                        aria-label="Recipient's username"
+                        [ngClass]="{ 'border-danger': error && error.current_password }"
+                        aria-describedby="basic-addon2">
+                    </div>
+                    <label for="newPassword">New Password:</label>
+                    <div class="input-group mb-3">
+                      <span
+                    class="text-danger form-text"
+                    *ngIf="error && error.password">
+                    {{ error.password }}
+                  </span>
+                    <div class="input-group mb-3">
+                        <input type="password"
+                        class="form-control passwordField"
+                        formControlName="password"
+                        name="password"
+                        placeholder="********"
+                        aria-label="Recipient's username"
+                        [ngClass]="{ 'border-danger': error && error.password }"
+                        aria-describedby="basic-addon2">
+                    </div>
+                    </div>
+                    <p class="info">Password must contain of 8 characters.</p>
+                    <label for="confirmPassword">Confirmed Password:</label>
+                    <div class="input-group mb-3">
+                      <span
+                      class="text-danger form-text"
+                      *ngIf="error && error.password_confirmation">
+                      {{ error.password }}
+                    </span>
+                      <div class="input-group mb-3">
+                          <input type="password"
+                          class="form-control passwordField"
+                          formControlName="password_confirmation"
+                          name="password"
+                          placeholder="********"
+                          aria-label="Recipient's username"
+                          [ngClass]="{ 'border-danger': error && error.password_confirmation }"
+                          aria-describedby="basic-addon2">
+                      </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Reset Password</button>
+                    <button type="button" class="btn btn-secondary" (click)="onCloseHandled()">Close</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal !-->

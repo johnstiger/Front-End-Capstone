@@ -12,12 +12,13 @@ export interface Product {
 
 export interface Customers {
   id : number,
-  email : string,
-  firstname : string,
-  lastname : string,
-  contact_number : number,
-  password : string,
+  email : any,
+  firstname : any,
+  lastname : any,
+  contact_number : any,
+  password : any,
   addresses : any,
+  image : any,
 }
 
 

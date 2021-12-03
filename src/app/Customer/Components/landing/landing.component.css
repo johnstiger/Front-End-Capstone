@@ -2,6 +2,11 @@ body{
   background-color: #C7988E !important;
 }
 
+.loader{
+  width: 100%;
+  position: relative;
+}
+
 .whole-wrapper{
   background-color: #C7988E !important;
 }
@@ -24,7 +29,7 @@ p {
   margin-bottom: 0rem;
 }
 .container1 {
-  margin-top: 8%;
+  margin-top: 5%;
   max-width: 1000px;
   display: block;
   margin-left: auto;
@@ -102,7 +107,7 @@ img {
 }
 
 .parallax {
-  background-image: url("https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-6/p526x296/220142484_187577836677717_1685348265597263347_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHmCH5zE485Y--n4GZaZG4wft8ylKVVypN-3zKUpVXKk1nqjGwYpXjb0bC8O5ikxklPf3Vz5VbRf38iZ1ZIwH2R&_nc_ohc=eDgWZFGJj3QAX97XGlK&_nc_ht=scontent.fceb1-2.fna&oh=c56c584ddf21f743efb767818589669b&oe=61A4C6E6");
+  background-image: url("../../../../assets/imgs/parallax.jpg");
   min-height: 275px;
   background-attachment: fixed;
   background-position: center;
@@ -111,7 +116,7 @@ img {
 }
 
 
-@media screen and  (min-width:400px) and (max-width:600px){
+/* @media screen and  (min-width:400px) and (max-width:600px){
   .container1{
     margin-top: 14%;
   }
@@ -121,7 +126,7 @@ img {
   .container1{
     margin-top: 0%;
   }
-}
+} */
 
 .image{
   width: 100%;

@@ -2,6 +2,10 @@ body {
   background-color: #c7988e;
 }
 
+.topnav{
+  margin-bottom: 75px;
+}
+
 .custom-badge{
   display: none;
 }
@@ -238,6 +242,18 @@ body {
   color: #c7988e;
 }
 
+
+.responsive-bag{
+  font-size: 3rem;
+  margin-left: 30px;
+  color: black;
+}
+
+.searchBtn{
+  border: none;
+  background: none;
+}
+
 .searchButton {
   margin-left: 5px;
 }
@@ -336,7 +352,7 @@ body {
   }
 }
 
-@media screen and (max-width: 620px) and (min-width: 460px) {
+@media screen and (max-width: 900px) and (min-width: 460px) {
   .user,
   .cart,
   ul {
@@ -359,6 +375,9 @@ body {
 }
 
 @media screen and (max-width: 375px) and (min-width: 280px) {
+  .topnav{
+    margin-bottom: -18px;
+  }
   .search input[type="text"] {
     width: 230px !important;
     padding: 5px;
