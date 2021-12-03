@@ -3,11 +3,11 @@
   <div class="row">
     <div class="col-12 col-s-12 profile">
       <img class="proimg" [src]="image" alt=""><br>
-      <input type="text" readonly name="" [value]="firstname" id="fname" placeholder = "First Name">
-      <input type="text" readonly name="" [value]="lastname" id="lname" placeholder = "Last Name">
-      <input type="text" readonly name="" [value]="contact_number" id="phoneNumber" placeholder="Phone Number">
-      <input type="text" readonly name="" [value]="email" id="email" placeholder="Email Adress">
-      <input type="text" readonly name="" [value]="address" id="address" placeholder="Address">
+      <input type="text" readonly name="" [ngModel]="firstname" id="fname" placeholder = "First Name">
+      <input type="text" readonly name="" [ngModel]="lastname" id="lname" placeholder = "Last Name">
+      <input type="text" readonly name="" [ngModel]="contact_number" id="phoneNumber" placeholder="Phone Number">
+      <input type="text" readonly name="" [ngModel]="email" id="email" placeholder="Email Adress">
+      <input type="text" readonly name="" [ngModel]="address" id="address" placeholder="Address">
       <button class="btn" id = "edit" routerLink="/edit-account">Edit</button>
     </div>
   </div>
@@ -27,11 +27,11 @@
             <img class="editprofileimg" [src]="image" alt=""><br>
           </div>
           <div class="col-7 col-s-7">
-            <input type="text" name="" readonly [value]="firstname" id="fname" placeholder = "First Name" >
-            <input type="text" name="" readonly [value]="lastname" id="lname" placeholder = "Last Name">
-            <input type="text" name="" readonly [value]="contact_number" id="phoneNumber" placeholder = "Phone Number">
-            <input type="text" name="" readonly [value]="email" id="emailaddress" placeholder = "Email Address">
-            <input type="text" name="" readonly [value]="address" id="address" placeholder = "Address">
+            <input type="text" name="" readonly [ngModel]="firstname" id="fname" placeholder = "First Name" >
+            <input type="text" name="" readonly [ngModel]="lastname" id="lname" placeholder = "Last Name">
+            <input type="text" name="" readonly [ngModel]="contact_number" id="phoneNumber" placeholder = "Phone Number">
+            <input type="text" name="" readonly [ngModel]="email" id="emailaddress" placeholder = "Email Address">
+            <input type="text" name="" readonly [ngModel]="address" id="address" placeholder = "Address">
           </div>
         </div>
       </div>

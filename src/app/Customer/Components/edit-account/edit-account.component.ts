@@ -22,13 +22,6 @@ export class EditAccountComponent implements OnInit {
     contact_number : new FormControl(''),
   })
 
-  editNotResponsive = new FormGroup({
-    image : new FormControl(''),
-    firstname : new FormControl(''),
-    lastname : new FormControl(''),
-    contact_number : new FormControl(''),
-  })
-
   constructor(
     private location : Location,
     private service : CustomerService
@@ -47,6 +40,9 @@ export class EditAccountComponent implements OnInit {
   image : any;
   address : any;
   email : any;
+  filedata:any;
+  imageSrc:any;
+  bigImageSrc : any;
 
   resetPassword(){
     this.service.customerChangePassword(this.newPasswordForm.value, this.token).then((res)=>{
@@ -61,24 +57,38 @@ export class EditAccountComponent implements OnInit {
     })
   }
 
-  newInformation(){
-    this.service.showLoading();
-    this.service.editCustomerAccount(this.editNotResponsive.value, this.token).then((res)=>{
-      console.log(this.editNotResponsive.value, res.data);
-      if(res.data.error){
-        this.error = res.data.message;
-        this.service.closeLoading();
-      }else{
-        this.service.ShowSuccessMessage(res.data.message);
-        setTimeout(()=>{
-          this.location.back();
-        },1500)
-      }
-    })
+
+  onFileChange(event:any, text : any){
+    const reader = new FileReader();
+
+    if(event.target.files && event.target.files.length){
+      const [file] = event.target.files;
+      this.filedata = file;
+
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+
+        if(text == 'big'){
+          this.bigImageSrc = reader.result as string;
+        }else{
+          this.imageSrc = reader.result as string;
+        }
+
+        this.editAccount.patchValue({
+          fileSource : reader.result
+        });
+      };
+    }
   }
 
   submit(){
     this.service.showLoading();
+    if(this.imageSrc != '' && this.bigImageSrc == undefined){
+      this.editAccount.value.image = this.imageSrc
+    }else if (this.bigImageSrc != '' && this.imageSrc == undefined){
+      this.editAccount.value.image = this.bigImageSrc
+    }
     this.service.editCustomerAccount(this.editAccount.value, this.token).then((res)=>{
       console.log(this.editAccount.value, res.data);
       if(res.data.error){
@@ -93,6 +103,7 @@ export class EditAccountComponent implements OnInit {
     })
 
   }
+
 
   async getCustomersDetails() {
     this.service.showLoading();
