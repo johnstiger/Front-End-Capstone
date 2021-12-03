@@ -17,7 +17,7 @@ import { LandingComponent } from './Customer/Components/landing/landing.componen
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
 import { LoginComponent } from './Customer/Components/login/login.component';
 import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component';
-import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
+import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
 import { ToPayComponent } from './Customer/Components/to-pay/to-pay.component';
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
 import { EditAccountComponent } from './Customer/Components/edit-account/edit-account.component';
@@ -38,6 +38,9 @@ import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/
 import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
 import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
 import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
+import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
+import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
+import { ResetPasswordGuard } from './Authorization/reset-password.guard';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
@@ -72,10 +75,12 @@ const routes: Routes = [
   { path: 'choose?=/:id', component: LandingCategoryComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'login', component:LoginComponent },
+  { path: 'reset-password=?/:id',component:ResetPasswordComponent, canActivate:[ResetPasswordGuard] },
+  { path: 'new-password=?/:id',component:NewPasswordComponent },
+  { path: 'about-us', component:AboutUsComponent },
   { path: 'search-result', component: SearchResultComponent },
   { path: 'all-orders', component:AllOrdersComponent, canActivate: [CustomerGuard] },
   { path: 'cart', component:CartPageComponent, canActivate: [CustomerGuard] },
-  { path: 'check-out', component:CheckOutComponent, canActivate: [CustomerGuard] },
   { path: 'delivery-page', component:DeliveryPageComponent, canActivate: [CustomerGuard] },
   { path: 'edit-account', component:EditAccountComponent, canActivate: [CustomerGuard] },
   { path: 'order-page', component:MyOrderPageComponent, canActivate: [CustomerGuard] },

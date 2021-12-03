@@ -1,0 +1,147 @@
+.media320{
+    box-sizing: border-box;
+    /* background-color: #F6F2EF; */
+    border: none;
+    border-radius: 5px;
+    font-family: 'Rufina';
+    margin-left: 4vw;
+    height: 100vh;
+    padding-top: 18px;
+
+  }
+  .logo320{
+    width: 100%;
+    height: auto;
+    margin-top: 6vw;
+  }
+  .dagomlogo{
+    background-color: #C7988E;
+    height: 55vw;
+    width: 75vw;
+    margin-left: 8vw;
+    margin-top: 9vw;
+  }
+  .meaning{
+    color: #C7988E;
+    background-color: #F6F2EF;
+    font-size: 4vw;
+  }
+  .div{
+    border: 2px solid #C7988E;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+  }
+  .title{
+    text-align: center;
+    margin-top: 5vw;
+    font-size: 5vw;
+
+  }
+  #dagomtxt1{text-align: center;}
+  .btn{
+    border: none;
+    box-sizing: border-box;
+    float: right;
+    background-color: #F6F2EF;
+    color: #C7988E !important;
+    padding: 1vw;
+    font-size: 4vw;
+    width: 25vw;
+  }
+  @media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+  @media screen and (max-width:767px){
+    .media768{display: none;}
+  }
+  @media screen and (min-width:768px){
+    .media320{display: none;}
+    .media768{margin-left: 4vw;
+      height: 100vh;}
+    .logo768{
+      width: 95%;
+      height: auto;
+      margin-top: 15vw;
+    }
+    .meaning{
+      font-size: 2vw;
+      margin-top: 3vw;
+      padding: 3vw;
+    }
+    .div{
+      margin-top: 1vw;
+      margin-bottom: 1vw;
+      border-radius: 5px;
+    }
+    .btn{
+      font-size: 2vw;
+      width: 12vw;
+      margin-top: 10vw;
+      padding: 0.9vw;
+    }
+    title{font-size: 3vw;}
+  }
+  @media screen and (min-width:1024px){
+    .btn, .meaning{
+      font-size: 1.3vw;
+    }
+    .title{
+      font-size: 2vw;
+      margin-top: 3vw;
+    }
+    .meaning{
+      width: 35%;
+      margin-left: 5vw;
+      margin-top: 5vw;
+      padding: 3vw;
+    }
+    .logo768{
+      width: 75%;
+      margin-top: 13vw;
+      margin-left: 5vw;
+    }
+    .btn{
+      margin-right: 5vw;
+      padding: 0.7vw;
+      margin-top: 7vw;
+    }
+    .div{
+      margin-top: 0vw;
+      margin-bottom: 0vw;
+    }
+    .txt{margin-left: 1vw;}
+  }
+  @media screen and (min-width:1440px){
+    .btn{
+      margin-top: 4vw;
+    }
+    .meaning{margin-top: 3vw;}
+    .logo768{margin-top: 10vw;}
+  }

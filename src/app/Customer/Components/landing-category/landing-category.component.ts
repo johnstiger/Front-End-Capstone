@@ -25,32 +25,32 @@ export class LandingCategoryComponent implements OnInit {
         this.id = params.get('id');
       }
     );
-    this.getCategory();
+    this.getCategory(this.id);
   }
 
-
-  getCategory(){
-    this.service.getCategoryWithProducts(this.id).then((res)=>{
+  getCategory(id : any){
+    this.service.getCategoryWithProducts(id).then((res)=>{
       if(res.data.error){
 
       }else{
         this.products = res.data.data;
         this.categoryName = res.data.data[0].name;
         this.products = this.products.map((res, indx)=>{
-          const sizes = res.products.map((element:any)=>{
-            return element.sizes.map((test:any)=>{
+          const sizes = res.products.map((element:any, index : any)=>{
+            const el = element.sizes.map((test:any)=>{
               return test.size
             })
+            if(el.length > 1){
+              element.size = el[0]+'-'+el[el.length -1]
+            }else if(el.length == 1){
+              element.size = el[0]
+            }else{
+              element.size = []
+            }
           })
-          if(sizes.length > 1){
-            res.products[indx].size = sizes[0]+'-'+sizes[sizes.length -1];
-          }else if(sizes.length == 1){
-            res.products[indx].size = sizes[0];
-          }else{
-            res.products[indx].size = [];
-          };
           return res.products;
         })
+        this.service.closeLoading();
         this.products = this.products[0];
         console.log(this.products, this.categoryName);
 

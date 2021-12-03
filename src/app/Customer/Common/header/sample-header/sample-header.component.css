@@ -112,8 +112,8 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
-  right: 30px;
-  top: 40px;
+  right: 25px;
+  top: 30px;
 }
 
 .dropdown-content a {
@@ -238,6 +238,18 @@ body {
   color: #c7988e;
 }
 
+
+.responsive-bag{
+  font-size: 3rem;
+  margin-left: 30px;
+  color: black;
+}
+
+.searchBtn{
+  border: none;
+  background: none;
+}
+
 .searchButton {
   margin-left: 5px;
 }
@@ -336,7 +348,7 @@ body {
   }
 }
 
-@media screen and (max-width: 620px) and (min-width: 460px) {
+@media screen and (max-width: 900px) and (min-width: 460px) {
   .user,
   .cart,
   ul {

@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { CustomerService } from 'src/app/Customer/Services/customer.service';
+import { Customers } from '../../../../Admin/Common/model/admin-model';
 
 @Component({
   selector: 'app-sample-header',
@@ -18,6 +19,7 @@ export class SampleHeaderComponent implements OnInit {
   unAuthorized = true;
   authorized = false;
   categories : Array<any> = [];
+  customers: Array<any> = [];
   change = false;
   productsInCart: any;
 
@@ -26,6 +28,7 @@ export class SampleHeaderComponent implements OnInit {
   token = localStorage.getItem('customer_token')
 
   @Output() messageEvent  = new EventEmitter<string>();
+  @Output() categoryEvent  = new EventEmitter<string>();
 
   constructor(private router: Router, private service : CustomerService) { }
 
@@ -44,17 +47,19 @@ export class SampleHeaderComponent implements OnInit {
   searchProducts(){
     this.service.searchProducts(this.form.value).then((result)=>{
       this.messageEvent.emit(result.data);
+      this.router.navigate(['/search-result']);
     })
   }
 
   countProductsInCart(){
     this.service.countProductsInCart(this.token).then((res)=>{
-      $('.custom-badge').css('display','block');
-      $('.custom-badge').html(res.data);
+      if(res.data > 1){
+        $('.custom-badge').css('display','block');
+        $('.custom-badge').html(res.data);
+      }
     })
 
   }
-
 
   openNav() {
     $('#mySidenav').css('width','100%');
@@ -64,12 +69,16 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   LinkThisCategory(category : any){
+    this.service.showLoading();
+    this.closeNav();
+    this.categoryEvent.emit(category.id);
     this.router.navigate(['/choose?=/'+category.id],{
       state: {
         data: category
       }
     })
   }
+
 
   async logout(){
     this.service.loading();
@@ -84,8 +93,6 @@ export class SampleHeaderComponent implements OnInit {
 
     }else{
       this.categories = result.data.data;
-      console.log(this.categories);
-
     }
   }
 

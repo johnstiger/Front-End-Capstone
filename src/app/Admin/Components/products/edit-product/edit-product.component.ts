@@ -113,13 +113,13 @@ export class EditProductComponent implements OnInit {
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
+       this.service.closeLoading();
     }else{
-      this.service.showMessage(result.data.message);
+      this.service.ShowSuccessMessage(result.data.message);
       setTimeout(() => {
         this.location.back();
-      }, 2000);
+      }, 1500);
     }
-    this.service.closeLoading();
    });
   }
 

@@ -61,3 +61,8 @@ body .mat-typography{
   text-align: center;
   margin-top: 70px;
 }
+
+.oldPrice{
+  float: left;
+    color: #696969c4;
+}

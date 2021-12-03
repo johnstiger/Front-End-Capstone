@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  register() {
+  register() {  
     this.service.register(this.registerForm.value).then((res) => {
       if(res.data.error){
         this.error = res.data.message;

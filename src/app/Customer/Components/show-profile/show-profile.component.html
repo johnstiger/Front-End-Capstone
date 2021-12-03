@@ -18,7 +18,7 @@
     <div class="col-3 col-s-3 account">
       <img class="profileimg" src="../../../../assets/imgs/profile.jpg" alt="">
       <a href="#"><p>Customer Name</p></a>
-      <a href=""><p>Edit Account</p></a>
+      <a routerLink="/edit-account"><p>Edit Account</p></a>
       <a href=""><p>My Orders</p></a>
     </div>
     <div class="col-8 col-s-8 editpanel">
@@ -28,7 +28,7 @@
             <img class="editprofileimg" src="../../../../assets/imgs/profile.jpg" alt=""><br>
           </div>
           <div class="col-7 col-s-7">
-            <input type="text" name="" id="fname" placeholder = "First Name">
+            <input type="text" name="" id="fname" placeholder = "First Name" >
             <input type="text" name="" id="lname" placeholder = "Last Name">
             <input type="text" name="" id="phoneNumber" placeholder = "Phone Number">
             <input type="text" name="" id="emailaddress" placeholder = "Email Address">
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="col-12 col-s-12">
-          <button class="btn" id="editbtn">Edit</button>
+          <button class="btn" id="editbtn" routerLink="/edit-account">Edit</button>
       </div>
     </div>
   </div>
