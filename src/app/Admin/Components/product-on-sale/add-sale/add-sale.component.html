@@ -79,7 +79,7 @@
                             *{{ error.percent_off[0] }}
                         </div>
                         <label for="">Promo</label>
-                        <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" placeholder="Promo price">
+                        <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" min="1" placeholder="Promo price">
                     </div>
                     <div class="col">
                       <div *ngIf="error && error.promo_type" class="alert alert-danger">

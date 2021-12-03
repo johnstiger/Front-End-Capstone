@@ -34,6 +34,7 @@ export class PendingOrdersComponent implements OnInit {
   total : number = 0;
   error : any;
   displayModalTracking = 'none'
+  filterTerm! : string;
 
   ngOnInit(): void {
     this.getPendingOrders();

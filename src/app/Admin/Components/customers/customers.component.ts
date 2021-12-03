@@ -29,6 +29,7 @@ export class CustomersComponent implements OnInit {
   customerName : any;
   contactNumber : any;
   cp : number = 1;
+  filterTerm! : string;
 
   ngOnInit(): void {
     this.getCustomers();

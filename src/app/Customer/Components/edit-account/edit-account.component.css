@@ -1,3 +1,45 @@
+.file-upload {
+  display: inline-block;
+  padding: 9px 28px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #C7988E;
+  color: #fff;
+}
+
+form{
+  margin-block-end: 0rem !important;
+  display: contents;
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+
+.modal-dialog{
+  top: 5%;
+}
+
+.modal-content{
+  padding: 15px;
+  text-align: center;
+}
+
+.passwordField{
+  background:none !important;
+  border: 1px solid black;
+  color: black;
+}
+
+.passwordField::placeholder{
+  color: dimgray;
+}
 
 .media320, .media768 {
   background-color: #F6F2EF;
@@ -23,7 +65,7 @@ hr{height: 0.2vw;}
   margin-top: 7%;
   border-radius: 8px;
   width: 60%;
-
+  color: white !important;
 }
 input{
   border: none;
@@ -36,7 +78,7 @@ input{
 }
 input, .btn, input::placeholder{color: #F6F2EF;}
 #edit{margin-bottom: 15%;}
-#restpass{background-color: #0B5CFA;}
+#restpass{background-color: #0B5CFA;color: white!important;}
 #restpass:hover{background-color: #598cf0;}
 .profileimg{
   width: 60%;

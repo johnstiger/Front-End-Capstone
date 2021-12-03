@@ -27,6 +27,7 @@ export class AdminsComponent implements OnInit {
   success! : any;
   userEmail! : any;
   cp : number = 1;
+  filterTerm! : string;
 
   constructor(
     private http : AdminService,

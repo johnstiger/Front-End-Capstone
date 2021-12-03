@@ -39,9 +39,9 @@ export class LandingComponent implements OnInit {
   }
 
   async getProducts() {
+    this.service.showLoading();
     const result = await this.service.products(this.token);
     if(result.data.error){
-
     }else{
       this.products = result.data.data;
       if(this.products.length > this.maxProductDisplay){
@@ -60,8 +60,8 @@ export class LandingComponent implements OnInit {
         }
         return res;
       })
-
     }
+    this.service.closeLoading();
   }
 
   select(product:any){

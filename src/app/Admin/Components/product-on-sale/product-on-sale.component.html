@@ -8,7 +8,7 @@
                         <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" formControlName="data" [(ngModel)]="filterTerm" placeholder="Search product name.....">
                             </div>
                         </div>
                     </form>
@@ -32,7 +32,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let product of sales | paginate : {itemsPerPage:5, currentPage:cp}">
+                                <tr *ngFor="let product of sales | filter:filterTerm | paginate : {itemsPerPage:5, currentPage:cp}">
                                     <td> {{ product.products.name }} </td>
                                     <td> {{ product.products.category.name }} </td>
                                     <td>{{ product.price }}</td>

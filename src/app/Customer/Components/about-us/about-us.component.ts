@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-about-us',
@@ -13,6 +14,7 @@ export class AboutUsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
   }
 
   previous(){

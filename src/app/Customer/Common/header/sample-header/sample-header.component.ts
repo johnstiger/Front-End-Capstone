@@ -45,9 +45,11 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   searchProducts(){
+    this.service.showLoading()
     this.service.searchProducts(this.form.value).then((result)=>{
       this.messageEvent.emit(result.data);
       this.router.navigate(['/search-result']);
+      this.service.closeLoading();
     })
   }
 
@@ -88,12 +90,14 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   async getCategories(){
+    this.service.showLoading();
     const result = await this.service.getCategories();
     if(result.data.error){
 
     }else{
       this.categories = result.data.data;
     }
+    this.service.closeLoading();
   }
 
 }

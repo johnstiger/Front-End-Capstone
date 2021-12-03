@@ -47,8 +47,7 @@ import { ShowProfileComponent } from './Customer/Components/show-profile/show-pr
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
 import { SearchResultComponent } from './Customer/Components/search-result/search-result.component'
 
-// Spinner
-import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
@@ -106,7 +105,6 @@ import { NewPasswordComponent } from './Customer/Components/new-password/new-pas
     MyProfileComponent,
     EditSaleComponent,
     LandingCategoryComponent,
-    SpinnerComponent,
     ViewAllComponent,
     ResetPasswordComponent,
     AboutUsComponent,
@@ -124,7 +122,8 @@ import { NewPasswordComponent } from './Customer/Components/new-password/new-pas
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

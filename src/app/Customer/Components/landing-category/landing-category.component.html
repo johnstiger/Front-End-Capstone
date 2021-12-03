@@ -9,7 +9,8 @@
   <hr class="outerLine">
   <div class="container1">
     <div class="row">
-      <div class="col" *ngFor="let product of products">
+      <div class="col" *ngFor="let product of products | paginate : {
+        itemsPerPage: 6, currentPage: cp } ">
         <div class="card" style="width: 18rem;" (click)="select(product)">
           <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
           <div class="card-body text-center">
@@ -21,6 +22,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div *ngIf="products" class="paginator">
+      <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
   </div>
   <hr class="outerLine">
