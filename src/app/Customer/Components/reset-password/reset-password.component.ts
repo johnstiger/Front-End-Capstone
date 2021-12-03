@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,8 @@ export class ResetPasswordComponent implements OnInit {
   constructor(
     private service : CustomerService,
     private router : ActivatedRoute,
-    private route : Router
+    private route : Router,
+    private location : Location
   ) { }
     id : any;
   ngOnInit(): void {
@@ -43,6 +45,11 @@ export class ResetPasswordComponent implements OnInit {
       this.service.closeLoading();
     })
 
+  }
+
+  return(){
+    sessionStorage.clear();
+    this.location.back();
   }
 
   resetPassword(){
