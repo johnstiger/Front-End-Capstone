@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { SearchService } from 'src/app/Common/search.service';
 import { CustomerService } from 'src/app/Customer/Services/customer.service';
 import { Customers } from '../../../../Admin/Common/model/admin-model';
 
@@ -30,7 +31,7 @@ export class SampleHeaderComponent implements OnInit {
   @Output() messageEvent  = new EventEmitter<string>();
   @Output() categoryEvent  = new EventEmitter<string>();
 
-  constructor(private router: Router, private service : CustomerService) { }
+  constructor(private router: Router, private service : CustomerService, private oberver : SearchService) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -46,11 +47,10 @@ export class SampleHeaderComponent implements OnInit {
 
   searchProducts(){
     this.service.showLoading()
-    this.service.searchProducts(this.form.value).then((result)=>{
-      this.messageEvent.emit(result.data);
+      sessionStorage.setItem('data', this.form.value.data);
       this.router.navigate(['/search-result']);
-      this.service.closeLoading();
-    })
+      this.oberver.sendTriggeredEvent(this.form.value);
+
   }
 
   countProductsInCart(){
@@ -60,7 +60,6 @@ export class SampleHeaderComponent implements OnInit {
         $('.custom-badge').html(res.data);
       }
     })
-
   }
 
   openNav() {
