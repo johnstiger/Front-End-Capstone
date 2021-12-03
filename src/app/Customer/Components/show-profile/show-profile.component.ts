@@ -15,6 +15,7 @@ export class ShowProfileComponent implements OnInit {
   contact_number : any;
   image : any;
   address : any;
+  details : any;
 
   token = localStorage.getItem('customer_token');
 
@@ -29,11 +30,13 @@ export class ShowProfileComponent implements OnInit {
   async getCustomersDetails() {
     let customerId = localStorage.getItem('customer');
     await this.customerService.getCustomerProfile(customerId, this.token).then((result)=>{
-      this.firstname = result.data.data.firstname
-      this.lastname = result.data.data.lastname
-      this.email = result.data.data.email
-      this.image = result.data.data.image
-      this.contact_number = result.data.data.contact_number
+      this.details = result.data.data
+      this.firstname = this.details.firstname
+      this.lastname = this.details.lastname
+      this.email = this.details.email
+      this.image = this.details.image
+      this.contact_number = this.details.contact_number
+      this.address = result.data.address.municipality+", "+result.data.address.province
     });
   }
 

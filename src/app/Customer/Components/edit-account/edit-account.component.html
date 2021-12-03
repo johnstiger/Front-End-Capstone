@@ -4,17 +4,21 @@
   <div class="row">
     <div class="col-12 col-s-12 profile">
       <form [formGroup]="editAccount" (ngSubmit)="submit()">
-        <img class="proimg" [src]="image" alt=""><br>
-        <label for="file" class="btn" id="chooseFile">
-          <input
+        <img class="proimg" [src]="imageSrc" *ngIf="imageSrc; else default" alt="product-image">
+        <ng-template #default>
+          <img class="proimg" [src]="image" alt="">
+        </ng-template>
+        <br>
+        <label class="custom-file-upload" class="btn" id="chooseFile">
+          <input type="file"
           accept="image/*"
-          type="file"
-          style="display: none;"
           formControlName="image"
+          [ngModel] ="image"
           name="image"
-          id="">
+          (change)="onFileChange($event,'small')"
+          />
           Choose File
-        </label>
+      </label>
         <span
         class="text-danger form-text"
         *ngIf="error && error.image">
@@ -24,7 +28,7 @@
 
         <input
         type="text"
-        [value]="firstname"
+        [ngModel]="firstname"
         formControlName="firstname"
         name="firstname"
         id="fname"
@@ -37,7 +41,7 @@
       </span>
 
         <input type="text"
-         [value]="lastname"
+         [ngModel]="lastname"
          formControlName="lastname"
          name="lastname" id="lname"
         [ngClass]="{ 'border-danger': error && error.lastname }"
@@ -49,7 +53,7 @@
        </span>
 
         <input type="text"
-        [value]="contact_number"
+        [ngModel]="contact_number"
         formControlName="contact_number"
         name="contact_number"
         id="phoneNumber"
@@ -71,24 +75,27 @@
 <div class="col-11 col-s-11 media768">
   <div class="row">
     <div class="col-3 col-s-3 account">
-      <img class="profileimg" [src]="image" alt="">
+        <img class="profileimg" [src]="image" alt="">
       <a><p>{{ firstname }} {{lastname}}</p></a>
       <a routerLink="/edit-account"><p>Edit Account</p></a>
       <a routerLink="/all-orders"><p>My Orders</p></a>
     </div>
-    <form [formGroup]="editNotResponsive" (ngSubmit)="newInformation()">
+    <form [formGroup]="editAccount" (ngSubmit)="submit()">
     <div class="col-8 col-s-8 editpanel">
       <div class="col-12 col-s-12">
         <div class="row">
           <div class="col-5 col-s-5">
+          <img class="editprofileimg" [src]="bigImageSrc" *ngIf="bigImageSrc; else fault" alt="product-image">
+          <ng-template #fault>
             <img class="editprofileimg" [src]="image" alt=""><br>
+          </ng-template>
           </div>
           <div class="col-7 col-s-7">
             <input
             type="text"
             name="firstname"
             id="fname"
-            [value]="firstname"
+            [ngModel]="firstname"
             formControlName="firstname"
             placeholder = "Firsssst Name">
             <span
@@ -102,7 +109,7 @@
             name="lastname"
             formControlName="lastname"
             id="lname"
-            [value]="lastname"
+            [ngModel]="lastname"
             placeholder = "Last Name">
             <span
             class="text-danger form-text"
@@ -114,7 +121,7 @@
             type="text"
             name="contact_number"
             formControlName="contact_number"
-            [value]="contact_number"
+            [ngModel]="contact_number"
             id="phoneNumber"
             placeholder = "Phone Number">
             <span
@@ -130,10 +137,16 @@
       <div class="col-12 col-s-12">
         <div class="row">
           <div class="col-6 col-s-6">
-            <label for="" id="selectimgbtn"  class="btn">
-              <input type="file" name="" style="display: none;" id="">
-              Select Image
-            </label>
+            <label class="custom-file-upload" class="btn" id="selectimgbtn">
+              <input type="file"
+              accept="image/*"
+              formControlName="image"
+              [ngModel] ="image"
+              name="image"
+              (change)="onFileChange($event, 'big')"
+              />
+              Choose File
+          </label>
             <!-- <button class="btn" id="selectimgbtn">Select Image</button> -->
           </div>
           <div class="col-6 col-s-6">
