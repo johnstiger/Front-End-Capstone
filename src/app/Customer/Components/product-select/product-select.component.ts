@@ -90,7 +90,7 @@ export class ProductSelectComponent implements OnInit {
     }
   }
 
-  async checkOut(product: any) {
-    this.router.navigate(['/order-page']);
+  async checkOut() {
+    this.router.navigate(['order-page']);
   }
 }
