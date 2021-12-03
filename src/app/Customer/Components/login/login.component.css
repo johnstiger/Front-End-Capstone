@@ -78,8 +78,11 @@ form {
     color: black;
 }
 
+.form-group{
+  margin-bottom: 35px;
+}
+
 .form-control {
-    margin-bottom: 10%;
     padding: 10px;
 }
 

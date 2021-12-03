@@ -238,6 +238,18 @@ body {
   color: #c7988e;
 }
 
+
+.responsive-bag{
+  font-size: 3rem;
+  margin-left: 30px;
+  color: black;
+}
+
+.searchBtn{
+  border: none;
+  background: none;
+}
+
 .searchButton {
   margin-left: 5px;
 }
@@ -336,7 +348,7 @@ body {
   }
 }
 
-@media screen and (max-width: 620px) and (min-width: 460px) {
+@media screen and (max-width: 900px) and (min-width: 460px) {
   .user,
   .cart,
   ul {

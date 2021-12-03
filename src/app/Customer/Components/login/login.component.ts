@@ -73,9 +73,10 @@ export class LoginComponent implements OnInit {
         this.emailError = res.data.message
         this.service.closeLoading();
       }else{
+        this.service.closeLoading();
+        sessionStorage.setItem('user_email',res.data.data.email);
         this.router.navigate(['reset-password=?/'+res.data.data.id]);
       }
-
     })
   }
 

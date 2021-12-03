@@ -30,10 +30,12 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   recieveMessage($event:any){
     this.message = $event.message
     this.datas = $event.data;
+    console.log($event);
+
   }
 
 }

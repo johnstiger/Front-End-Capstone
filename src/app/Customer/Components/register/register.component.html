@@ -51,12 +51,14 @@
 <div class="col-12 col-s-12 media768">
   <div class="row">
     <div class="col-4 col-s-4 dagomdiv">
-      <img class="img768" src="../../../../assets/imgs/logo1.png" alt="" />
+      <a routerLink="/">
+        <img class="img768" src="../../../../assets/imgs/logo1.png" alt="" />
+      </a>
       <p class="meaning">
         Dagom is an online thrift shop that offers brand-new and preloved
         blouses, dresses, trousers, and other clothing needs.
       </p>
-      <button class="aboutus">About Us</button>
+      <button class="aboutus" routerLink="/about-us">About Us</button>
     </div>
     <div class="col-6 col-s-6 registerdiv">
       <form [formGroup]="registerForm" (ngSubmit)="register()">

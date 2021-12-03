@@ -60,6 +60,7 @@ import { LandingCategoryComponent } from './Customer/Components/landing-category
 import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
 import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
 import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
+import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { AboutUsComponent } from './Customer/Components/about-us/about-us.compon
     ViewAllComponent,
     ResetPasswordComponent,
     AboutUsComponent,
+    NewPasswordComponent,
 
   ],
   imports: [

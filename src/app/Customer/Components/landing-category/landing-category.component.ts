@@ -25,12 +25,11 @@ export class LandingCategoryComponent implements OnInit {
         this.id = params.get('id');
       }
     );
-    this.getCategory();
+    this.getCategory(this.id);
   }
 
-
-  getCategory(){
-    this.service.getCategoryWithProducts(this.id).then((res)=>{
+  getCategory(id : any){
+    this.service.getCategoryWithProducts(id).then((res)=>{
       if(res.data.error){
 
       }else{
@@ -51,6 +50,7 @@ export class LandingCategoryComponent implements OnInit {
           })
           return res.products;
         })
+        this.service.closeLoading();
         this.products = this.products[0];
         console.log(this.products, this.categoryName);
 

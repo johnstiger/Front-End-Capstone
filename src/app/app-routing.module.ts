@@ -39,6 +39,8 @@ import { LandingCategoryComponent } from './Customer/Components/landing-category
 import { SpinnerComponent } from './Customer/Common/spinner/spinner.component';
 import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
 import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
+import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
+import { ResetPasswordGuard } from './Authorization/reset-password.guard';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
@@ -73,7 +75,8 @@ const routes: Routes = [
   { path: 'choose?=/:id', component: LandingCategoryComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'login', component:LoginComponent },
-  { path: 'reset-password=?/:id',component:ResetPasswordComponent },
+  { path: 'reset-password=?/:id',component:ResetPasswordComponent, canActivate:[ResetPasswordGuard] },
+  { path: 'new-password=?/:id',component:NewPasswordComponent },
   { path: 'about-us', component:AboutUsComponent },
   { path: 'search-result', component: SearchResultComponent },
   { path: 'all-orders', component:AllOrdersComponent, canActivate: [CustomerGuard] },
