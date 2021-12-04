@@ -40,7 +40,13 @@ export class AddProductComponent implements OnInit {
     token = localStorage.getItem('admin_token')
 
 
-  ngOnInit(): void {
+    ngOnInit(): void {
+    $("input[type=number]").on("keydown",function(e){
+      var invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+          e.preventDefault();
+      }
+    })
     this.productCategories();
     this.getSizes();
   }
@@ -69,11 +75,8 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-
   submit(){
     this.http.loading();
-    console.log(this.AddProductForm.value);
-
     if(this.stockSizes.length == 0){
       if(this.AddProductForm.value.sizes == '' || this.AddProductForm.value.unit_measure == ''){
         this.stockSizes = [];

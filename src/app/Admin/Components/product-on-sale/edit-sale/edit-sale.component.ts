@@ -39,6 +39,12 @@ export class EditSaleComponent implements OnInit {
   newId : any;
 
   ngOnInit(): void {
+    $("input[type=number]").on("keydown",function(e){
+      var invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+          e.preventDefault();
+      }
+    })
     this.router.paramMap.subscribe(
       params=>{
         this.newId = params.get('id');

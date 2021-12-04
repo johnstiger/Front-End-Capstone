@@ -46,6 +46,12 @@ export class AddSaleComponent implements OnInit {
   name : string = ''
 
   ngOnInit(): void {
+    $("input[type=number]").on("keydown",function(e){
+      var invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+          e.preventDefault();
+      }
+    })
     this.router.paramMap.subscribe(
       params=>{
         this.newId = params.get('id');

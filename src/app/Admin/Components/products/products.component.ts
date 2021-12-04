@@ -45,6 +45,12 @@ export class ProductsComponent implements OnInit {
   product: any;
 
   ngOnInit(): void {
+    $("input[type=number]").on("keydown",function(e){
+      var invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+          e.preventDefault();
+      }
+    })
     this.getProducts();
   }
 
