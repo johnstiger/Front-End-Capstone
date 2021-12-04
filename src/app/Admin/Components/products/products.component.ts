@@ -153,23 +153,23 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  addToSale(product: any) {
-    this.sizeId.forEach(element => {
-      let select = document.getElementById('' + element.id + '') as HTMLInputElement
-      element.pivot.sales_item = parseInt(select.value);
-      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
-    })
-    if (this.sizeId.length > 0) {
-      this.router.navigate(['/admin/add-sales/' + product.id], {
-        state: {
-          data: product,
-          productSize: this.sizeId
-        }
-      })
-    } else {
-      this.service.ShowErrorMessage('Please Select Product Sizes');
-    }
-  }
+  // addToSale(product: any) {
+  //   this.sizeId.forEach(element => {
+  //     let select = document.getElementById('' + element.id + '') as HTMLInputElement
+  //     element.pivot.sales_item = parseInt(select.value);
+  //     element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+  //   })
+  //   if (this.sizeId.length > 0) {
+  //     this.router.navigate(['/admin/add-sales/' + product.id], {
+  //       state: {
+  //         data: product,
+  //         productSize: this.sizeId
+  //       }
+  //     })
+  //   } else {
+  //     this.service.ShowErrorMessage('Please Select Product Sizes');
+  //   }
+  // }
 
   openModal(product: any) {
     this.productName = product.name;
