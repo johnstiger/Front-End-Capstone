@@ -38,14 +38,12 @@ export class LoginComponent implements OnInit {
       this.service.closeLoading();
     }else if(result.data.data.is_admin){
       window.localStorage.setItem('admin_token', "Bearer "+result.data.access_token);
+      window.localStorage.setItem('user_id', result.data.data.id);
       this.router.navigate(['/admin/dashboard']);
     }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
+      window.localStorage.setItem('user_id', result.data.data.id);
       this.router.navigate(['']);
     }
   }
-
-
-
-
 }

@@ -220,3 +220,55 @@
   @media screen and (min-width:2560px){
     .account{margin-bottom: 33%;}
   }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 250px;
+    overflow-x: hidden;
+  }
+
+  .nav-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 15px;
+  }
+
+  .nav-inner-wrap {
+    text-align: center;
+    padding: 12px 0px;
+    border-bottom: solid 1px #C7988E;
+  }
+
+  .active-nav {
+    border-bottom: solid 2px #C7988E;
+  }
+
+  .second-nav-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    text-align: center;
+  }
+  .contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    color: #C7988E;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .content-wrapper {
+    overflow-y: auto;
+    height: 400px;
+  }
+
+  .btn {
+    background: #C7988E;
+    outline: #C7988E;
+    color: white;
+  }
+
+  .product-cont-collapse {
+    grid-column: 1/5;
+  }

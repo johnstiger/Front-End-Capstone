@@ -254,3 +254,19 @@ a, p{
       width: 59vw;
     }
 }
+
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 15px;
+}
+
+.nav-inner-wrap {
+  text-align: center;
+  padding: 12px 0px;
+  border-bottom: solid 1px #C7988E;
+}
+
+.active-nav {
+  border-bottom: solid 2px #C7988E;
+}

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -111,7 +112,8 @@ import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
