@@ -4,22 +4,21 @@
         <div class="contain">
             <div class="row">
                 <div class="col-9">
-                    <!-- <form name="form" [formGroup]="form" (ngSubmit)="searchCustomers()">
+                    <form name="form" [formGroup]="form" (ngSubmit)="searchCustomers()">
                         <div class="form-group row">
-                            <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" formControlName="data" placeholder="Search...">
+                                <input type="text" class="form-control search" [(ngModel)]="filterTerm" formControlName="data" placeholder="Search...">
                             </div>
                         </div>
-                    </form> -->
-                   
-                        <div class="form-group row">
+                    </form>
+
+                        <!-- <div class="form-group row">
                             <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
                                 <input type="text" id="search" class="form-control search" formControlName="data" placeholder="Search...">
                             </div>
-                        </div>
-                    
+                        </div> -->
+
 
                 </div>
                 <div class="col-12 mt-5">
@@ -34,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let customer of customers | paginate: {itemsPerPage:5, currentPage:cp}">
+                                <tr *ngFor="let customer of customers | filter:filterTerm | paginate: {itemsPerPage:5, currentPage:cp}">
                                     <td>{{ customer.firstname }} </td>
                                     <td>{{ customer.lastname }} </td>
                                     <td>{{ customer.email }} </td>

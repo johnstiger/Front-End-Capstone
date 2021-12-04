@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { SearchService } from 'src/app/Common/search.service';
 import { CustomerService } from 'src/app/Customer/Services/customer.service';
 import { Customers } from '../../../../Admin/Common/model/admin-model';
 
@@ -28,8 +29,9 @@ export class SampleHeaderComponent implements OnInit {
   token = localStorage.getItem('customer_token')
 
   @Output() messageEvent  = new EventEmitter<string>();
+  @Output() categoryEvent  = new EventEmitter<string>();
 
-  constructor(private router: Router, private service : CustomerService) { }
+  constructor(private router: Router, private service : CustomerService, private oberver : SearchService) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -44,19 +46,21 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   searchProducts(){
-    this.service.searchProducts(this.form.value).then((result)=>{
-      this.messageEvent.emit(result.data);
-    })
+    this.service.showLoading()
+      sessionStorage.setItem('data', this.form.value.data);
+      this.router.navigate(['/search-result']);
+      this.oberver.sendTriggeredEvent(this.form.value);
+
   }
 
   countProductsInCart(){
     this.service.countProductsInCart(this.token).then((res)=>{
-      $('.custom-badge').css('display','block');
-      $('.custom-badge').html(res.data);
+      if(res.data > 1){
+        $('.custom-badge').css('display','block');
+        $('.custom-badge').html(res.data);
+      }
     })
-
   }
-
 
   openNav() {
     $('#mySidenav').css('width','100%');
@@ -66,12 +70,16 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   LinkThisCategory(category : any){
+    this.service.showLoading();
+    this.closeNav();
+    this.categoryEvent.emit(category.id);
     this.router.navigate(['/choose?=/'+category.id],{
       state: {
         data: category
       }
     })
   }
+
 
   async logout(){
     this.service.loading();
@@ -81,23 +89,14 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   async getCategories(){
+    this.service.showLoading();
     const result = await this.service.getCategories();
     if(result.data.error){
 
     }else{
       this.categories = result.data.data;
-      console.log(this.categories);
-
     }
+    this.service.closeLoading();
   }
-  // async getCustomers(customer: Customers) {
-  //   const result = await this.service.getCustomerProfile(customer.id, this.token)
-  //   if(result.data.error) {
-
-  //   } else{
-  //     this.customers = result.data.data
-  //     console.log(this.customers)
-  //   }
-  // }
 
 }

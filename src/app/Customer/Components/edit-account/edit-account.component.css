@@ -1,3 +1,55 @@
+.file-upload {
+  display: inline-block;
+  padding: 9px 28px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #C7988E;
+  color: #fff;
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+form{
+  margin-block-end: 0rem !important;
+  display: contents;
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+
+.modal-dialog{
+  top: 5%;
+}
+
+.modal-content{
+  padding: 15px;
+  text-align: center;
+}
+
+.passwordField{
+  background:none !important;
+  border: 1px solid black;
+  color: black;
+}
+
+.passwordField::placeholder{
+  color: dimgray;
+}
 
 .media320, .media768 {
   background-color: #F6F2EF;
@@ -15,7 +67,8 @@ hr{height: 0.2vw;}
   width: 65%;
   height: 25%;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 50%;
+  margin-top: 20px;
 }
 .btn{
   background-color: #C7988E;
@@ -23,7 +76,7 @@ hr{height: 0.2vw;}
   margin-top: 7%;
   border-radius: 8px;
   width: 60%;
-
+  color: white !important;
 }
 input{
   border: none;
@@ -36,8 +89,7 @@ input{
 }
 input, .btn, input::placeholder{color: #F6F2EF;}
 #edit{margin-bottom: 15%;}
-#restpass{
-  background-color: #0B5CFA;}
+#restpass{background-color: #0B5CFA;color: white!important;}
 #restpass:hover{background-color: #598cf0;}
 .profileimg{
   width: 60%;
@@ -104,7 +156,7 @@ p, a{
     padding: 1.5vw;
     padding-left: 3vw;
   }
-  .media320{margin-left: 4.5vw;}
+  .media320{margin-left: 4.5vw;margin-top: -65px;}
 }
 
 @media screen and (max-width:767px){
@@ -114,7 +166,8 @@ p, a{
   .media320{display: none;}
   .media768{
     background-color: transparent;
-    margin-bottom: -15vw;
+    margin-bottom: -8vw;
+    margin-top: -67px;
     margin-left: 3vw;
   }
   .account{

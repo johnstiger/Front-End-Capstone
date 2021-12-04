@@ -39,9 +39,9 @@ export class LandingComponent implements OnInit {
   }
 
   async getProducts() {
+    this.service.showLoading();
     const result = await this.service.products(this.token);
     if(result.data.error){
-
     }else{
       this.products = result.data.data;
       if(this.products.length > this.maxProductDisplay){
@@ -60,9 +60,8 @@ export class LandingComponent implements OnInit {
         }
         return res;
       })
-      console.log(this.products);
-
     }
+    this.service.closeLoading();
   }
 
   select(product:any){
@@ -92,6 +91,7 @@ export class LandingComponent implements OnInit {
   }
 
   selectCategory(name:any){
+    this.service.showLoading();
     this.service.getCategories().then((res)=>{
       this.categories = res.data.data;
       let test = this.categories.map(res=>{
@@ -102,9 +102,7 @@ export class LandingComponent implements OnInit {
       var ambotLang = test.filter(res=>{
         return res;
       })[0];
-      console.log(ambotLang);
       this.router.navigate(['/choose?=/'+ambotLang])
-
     });
 
   }

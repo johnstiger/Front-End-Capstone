@@ -4,7 +4,7 @@
             <div class="col-md-4">
                 <img class="image" *ngIf="image; else default" src="{{ image }}" alt="product-image">
                 <ng-template #default>
-                    <img class="image" src="/assets/imgs/product.jpg" alt="product-image">
+                    <img class="image" src="../../../../../assets/imgs/product.jpg" alt="product-image">
                 </ng-template>
             </div>
             <div class="col-md-8 nameSelect">
@@ -79,7 +79,7 @@
                             *{{ error.percent_off[0] }}
                         </div>
                         <label for="">Promo</label>
-                        <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" placeholder="Promo price">
+                        <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" min="1" placeholder="Promo price">
                     </div>
                     <div class="col">
                       <div *ngIf="error && error.promo_type" class="alert alert-danger">
