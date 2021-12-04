@@ -30,31 +30,28 @@ export class LandingCategoryComponent implements OnInit {
   }
 
   getCategory(id : any){
+    this.service.showLoading();
     this.service.getCategoryWithProducts(id).then((res)=>{
       if(res.data.error){
 
       }else{
-        this.products = res.data.data;
-        this.categoryName = res.data.data[0].name;
-        this.products = this.products.map((res, indx)=>{
-          const sizes = res.products.map((element:any, index : any)=>{
-            const el = element.sizes.map((test:any)=>{
-              return test.size
-            })
-            if(el.length > 1){
-              element.size = el[0]+'-'+el[el.length -1]
-            }else if(el.length == 1){
-              element.size = el[0]
-            }else{
-              element.size = []
-            }
+        console.log(res.data);
+        this.categoryName = res.data.category;
+        this.products = res.data.products;
+        this.products = this.products.map((element)=>{
+          const el = element.sizes.map((test:any)=>{
+            return test.size
           })
-          return res.products;
-        })
+          if(el.length > 1){
+            element.size = el[0]+'-'+el[el.length -1]
+          }else if(el.length == 1){
+            element.size = el[0]
+          }else{
+            element.size = []
+          }
+          return element;
+      })
         this.service.closeLoading();
-        this.products = this.products[0];
-        console.log(this.products, this.categoryName);
-
       }
     });
   }

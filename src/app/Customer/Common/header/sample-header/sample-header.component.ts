@@ -70,7 +70,6 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   LinkThisCategory(category : any){
-    this.service.showLoading();
     this.closeNav();
     this.categoryEvent.emit(category.id);
     this.router.navigate(['/choose?=/'+category.id],{
@@ -89,14 +88,12 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   async getCategories(){
-    this.service.showLoading();
     const result = await this.service.getCategories();
     if(result.data.error){
 
     }else{
       this.categories = result.data.data;
     }
-    this.service.closeLoading();
   }
 
 }
