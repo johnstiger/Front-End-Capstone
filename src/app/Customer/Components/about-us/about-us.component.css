@@ -1,6 +1,5 @@
 .media320{
     box-sizing: border-box;
-    /* background-color: #F6F2EF; */
     border: none;
     border-radius: 5px;
     font-family: 'Rufina';
@@ -78,6 +77,9 @@
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
   }
+  @media screen and (min-width: 425px){
+    .media320{height: 120vh;}
+  }
   @media screen and (max-width:767px){
     .media768{display: none;}
   }
@@ -103,7 +105,7 @@
     .btn{
       font-size: 2vw;
       width: 12vw;
-      margin-top: 10vw;
+      margin-top: 7vw;
       padding: 0.9vw;
     }
     title{font-size: 3vw;}
