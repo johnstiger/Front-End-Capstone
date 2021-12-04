@@ -162,6 +162,24 @@ p,
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
+@media screen and (min-width:320px) and (max-width:767px){
+  .container768{
+    margin-top: 5.5vw;
+    font-size: 4vw;
+  }
+  .select{
+    top: 0vw;
+    left: -1vw;
+  }
+  .subselect{
+    margin-left: 2vw;
+    margin-top: -4vw;
+  }
+  .headertitle{
+    margin-top: -18vw;
+  }
+
+}
 @media screen and (min-width:320px) {
   .media320{margin-left: 4vw;}
   #price{float: right;}
@@ -202,6 +220,17 @@ p,
     width: 91.8vw;
     margin-left: -4vw;
   }
+  .checkmark{
+    width: 6vw;
+    height: 5vw;
+  }
+  .container768 .checkmark:after {
+    top: -0.5vw;
+    width: 2vw;
+    height: 4.9vw;
+    left: 2vw;
+  }
+
 }
 @media screen and (min-width:425px){
   .hr2, #headerhr{

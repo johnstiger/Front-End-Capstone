@@ -28,7 +28,6 @@
   </div>
   <div class="titles">
     <ul>
-
       <li *ngFor="let category of categories"><a (click)="LinkThisCategory(category)">{{ category.name}}</a></li>
       <li><a routerLink="/about-us">About Us</a></li>
       <li><a routerLink="/login" *ngIf="!authorized">Sign In</a></li>
