@@ -4,7 +4,6 @@
 html,
 body {
     height: 100%;
-    overflow-x: hidden;
 }
 
 body {
@@ -12,5 +11,5 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 hr{
-  border: 1px solid #C7988E ;
+  border: 1px solid #C7988E;
 }

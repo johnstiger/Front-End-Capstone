@@ -21,6 +21,7 @@ export class CategoryComponent implements OnInit {
     ])
   });
 
+  filterTerm! : string;
 
   constructor(
     private http : AdminService,

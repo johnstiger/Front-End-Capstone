@@ -14,9 +14,8 @@
                 <div class="col-9">
                     <form name="form" [formGroup]="form" (ngSubmit)="searchProducts()">
                         <div class="form-group row">
-                            <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" formControlName="data" name="data" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" formControlName="data" [(ngModel)]="filterTerm" name="data" placeholder="Search product name.....">
                             </div>
                         </div>
                     </form>
@@ -40,7 +39,7 @@
                                     </tr>
                                 </thead>
                                 <tbody *ngIf="products">
-                                    <tr *ngFor="let product of products | paginate : {
+                                    <tr *ngFor="let product of products | filter:filterTerm | paginate : {
                                       itemsPerPage: 5, currentPage: cp } ">
                                         <div class="thumb">
                                             <th><img src="{{ product.image}}" alt=""></th>
@@ -93,7 +92,6 @@
               <tr>
                 <th scope="col" class="thead">
                   <input type="checkbox" name="" (click)="selectAll(stockSizes)" id="selectAll">
-
                 </th>
                 <th scope="col" class="thead">Product Size</th>
                 <th scope="col" class="thead">Product Quantity</th>

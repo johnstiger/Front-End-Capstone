@@ -47,7 +47,12 @@ export class EditProductComponent implements OnInit {
     fileSource : any;
 
   ngOnInit(): void {
-
+    $("input[type=number]").on("keydown",function(e){
+      var invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+          e.preventDefault();
+      }
+    })
     this.router.paramMap.subscribe(
       params=>{
         this.id = params.get('id');
@@ -113,13 +118,13 @@ export class EditProductComponent implements OnInit {
    this.service.updateProduct( data, this.id, this.token ).then(async (result)=>{
      if(result.data.error){
        this.errors = result.data.message;
+       this.service.closeLoading();
     }else{
-      this.service.showMessage(result.data.message);
+      this.service.ShowSuccessMessage(result.data.message);
       setTimeout(() => {
         this.location.back();
-      }, 2000);
+      }, 1500);
     }
-    this.service.closeLoading();
    });
   }
 

@@ -43,8 +43,15 @@ export class AddSaleComponent implements OnInit {
   selectName : boolean = false;
   unitErrors : Array<any> = [];
   currentPage = true;
+  name : string = ''
 
   ngOnInit(): void {
+    $("input[type=number]").on("keydown",function(e){
+      var invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+          e.preventDefault();
+      }
+    })
     this.router.paramMap.subscribe(
       params=>{
         this.newId = params.get('id');
@@ -85,9 +92,9 @@ export class AddSaleComponent implements OnInit {
         this.selectName = true;
         this.image = this.product.image
         this.price = this.product.price
+        this.name = this.product.name
         this.description = this.product.description;
         this.allSize = this.product.sizes
-
         this.size = this.product.sizes.length > 0 ? this.product.sizes[0].id : 0;
         this.unit_measure = this.size > 0 ? this.product.sizes[0].pivot.avail_unit_measure : 0;
       }
@@ -107,29 +114,33 @@ export class AddSaleComponent implements OnInit {
 
 submit(data : any){
   this.service.loading();
-  if(!this.currentPage){
-    data.size = this.selectedSizes;
-    data.unit_measure = 0;
-    this.addToSale(data);
+  if($('#selected').val() == null && $('#productname').val() == null){
+    this.service.ShowErrorMessage('Please Choose Product')
   }else{
-    this.allSize.forEach((element)=>{
-      let select = document.getElementById(''+element.id+'') as HTMLInputElement
-      console.log(element, select.value);
-      if(parseInt(select.value) > element.pivot.avail_unit_measure){
-        this.unitErrors.push(element.size)
-      }else{
-        element.pivot.sales_item = parseInt(select.value);
-        element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
-      }
-    })
-
-    if(this.unitErrors.length > 0){
-      this.service.ShowErrorMessage('number selected is out of range to this Sizes: '+this.unitErrors)
-      this.unitErrors = [];
-    }else{
-      data.size = this.allSize
+    if(!this.currentPage){
+      data.size = this.selectedSizes;
       data.unit_measure = 0;
       this.addToSale(data);
+    }else{
+      this.allSize.forEach((element)=>{
+        let select = document.getElementById(''+element.id+'') as HTMLInputElement
+        console.log(element, select.value);
+        if(parseInt(select.value) > element.pivot.avail_unit_measure){
+          this.unitErrors.push(element.size)
+        }else{
+          element.pivot.sales_item = parseInt(select.value);
+          element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+        }
+      })
+
+      if(this.unitErrors.length > 0){
+        this.service.ShowErrorMessage('number selected is out of range to this Sizes: '+this.unitErrors)
+        this.unitErrors = [];
+      }else{
+        data.size = this.allSize
+        data.unit_measure = 0;
+        this.addToSale(data);
+      }
     }
   }
 
@@ -139,10 +150,13 @@ submit(data : any){
     this.service.getSalesProduct(this.id, data, this.token).then((result)=>{
       if(result.data.error){
         this.error = result.data.message;
+        this.service.closeLoading();
       }else{
-        this.route.navigate(['/admin/product-on-sale'])
+        this.service.ShowSuccessMessage(result.data.message);
+        setTimeout(()=>{
+          this.route.navigate(['/admin/product-on-sale'])
+        },1500)
       }
-      this.service.closeLoading();
     }).catch(err => {
       console.log(err);
     })

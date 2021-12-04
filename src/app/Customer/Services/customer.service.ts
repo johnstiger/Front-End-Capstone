@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import axios from 'axios';
 import { UrlService } from 'src/app/Url/url.service';
 import { environment } from 'src/environments/environment';
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class CustomerService {
 
-  constructor(private http : HttpClient, private link : UrlService) { }
+  constructor(private http : HttpClient, private link : UrlService, private router : Router) { }
 
   response: any;
   // url = this.link.setUrl();
@@ -46,8 +47,18 @@ export class CustomerService {
     return response;
   }
 
+  async countProductsInCart(token:any){
+    const response = await axios.get(this.url+"cart/count",{headers:{Authorization:token}});
+    return response;
+  }
+
   async getCategories(){
-    const response = await axios.get(this.url+"categories");
+    const response = await axios.get(this.url+"allCategory");
+    return response;
+  }
+
+  async getCategoryWithProducts(id:any){
+    const response = await axios.get(this.url+"getCategory/"+id);
     return response;
   }
 
@@ -56,8 +67,13 @@ export class CustomerService {
     return response;
   }
 
-  async getProducts(id:any, token:any) {
-    const response = await axios.get(this.url+"product/show/"+id, { headers: { Authorization: token } });
+  // async getProducts(id:any, token:any) {
+  //   const response = await axios.get(this.url+"product/show/"+id, { headers: { Authorization: token } });
+  //   return response;
+  // }
+
+  async getProducts(token:any) {
+    const response = await axios.get(this.url+"cart/show", { headers: { Authorization: token } });
     return response;
   }
 
@@ -86,6 +102,51 @@ export class CustomerService {
     return response;
   }
 
+  async sendEmail(data:any){
+    const response = await axios.post(this.url+"forgot-password", data);
+    return response;
+  }
+
+  async resetPassword(id:any,data : any){
+    const response = await axios.post(this.url+"reset-password/"+id, data);
+    return response;
+  }
+
+  async newPassword(id : any, data:any){
+    const response = await axios.post(this.url+"new-password/"+id,data);
+    return response;
+  }
+  async checkOut(data:any, token:any) {
+    const response = await axios.get(this.url+"order/checkout",{headers: {Authorization:token}});
+    return response;
+  }
+
+  async showProducts(data:any, token:any){
+    const response = await axios.get(this.url+"order/show", {headers: {Authorization:token}});
+    return response;
+  }
+
+  async deleteProduct(id:any, token:any) {
+    const response = await axios.delete(this.url+"cart/delete/"+id, {headers: {Authorizatiion:token}});
+    return response;
+  }
+
+  async getCustomerProfile(id:any, token:any) {
+    const response = await axios.get(this.url+"customer/myProfile/"+id, {headers: {Authorization:token}});
+    return response
+  }
+
+  async customerChangePassword(data:any, token :any){
+    const response = await axios.post(this.url+"customer/reset-password",data,{headers:{Authorization:token}});
+    return response;
+  }
+
+  async editCustomerAccount(data:any, token:any){
+    const response = await axios.put(this.url+"customer/information",data,{headers:{Authorization:token}});
+    return response;
+  }
+
+
 
   //Message
   ShowSuccessMessage(message : any){
@@ -95,6 +156,19 @@ export class CustomerService {
       title: message,
       showConfirmButton: false,
       timer: 1500
+    })
+  }
+
+  showMessage(message : string){
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: message,
+      confirmButtonText: "Okay thank you!"
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.router.navigate(['/'])
+      }
     })
   }
 

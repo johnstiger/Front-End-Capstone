@@ -4,18 +4,15 @@
         <div class="contain">
             <div class="row">
                 <div class="col-9">
-                    <form name="form" (ngSubmit)="searchProducts()">
                         <div class="form-group row">
-                            <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" class="form-control search" id="myInput" (keyup)="filterTable()" placeholder="Search customer name.....">
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="col-12 mt-5">
                     <div class="table-responsive-lg">
-                        <table class="table">
+                        <table class="table" id="pendingOrders">
                             <thead>
                                 <tr>
                                     <th scope="col">Customer Name</th>
@@ -23,7 +20,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of orders | paginate:{itemsPerPage:5, currentPage: cp}">
+                            <tbody *ngFor="let order of orders | filter:filterTerm | paginate:{itemsPerPage:5, currentPage: cp}">
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td>
@@ -34,7 +31,7 @@
                                     <td>
                                         <button *ngIf="order.tracking_code === null && order.status === 1" type="button" (click)="trackingCode(order)" class="btn btn-primary tracking"><i class="fas fa-truck-loading"></i> Tracking Code</button>
                                         <button *ngIf="order.status == 0" type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i> Preview</button>
-                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
+                                        <button *ngIf="order.tracking_code === null && order.status === 0" type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
                                     </td>
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">

@@ -1,0 +1,32 @@
+<app-sample-header (categoryEvent)="getCategory($event)"></app-sample-header>
+<div class="container">
+  <hr class="outerLine response">
+  <div class="title">
+    <div class="result">
+      <h2>{{ categoryName }}</h2>
+    </div>
+  </div>
+  <hr class="outerLine">
+  <div class="container1">
+    <div class="row">
+      <div class="col" *ngFor="let product of products | paginate : {
+        itemsPerPage: 6, currentPage: cp } ">
+        <div class="card" style="width: 18rem;" (click)="select(product)">
+          <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ product.name }} </h5>
+              <p><span class="badge badge-pill badge-success">Size: {{product.size }}</span></p>
+                <p class="card-text">₱ {{ product.price }}.00
+                <i class="fas fa-cart-plus"></i>
+                </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="products" class="paginator">
+      <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+    </div>
+  </div>
+  <hr class="outerLine">
+</div>
+<app-cus-footer></app-cus-footer>

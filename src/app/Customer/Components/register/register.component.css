@@ -24,20 +24,16 @@
 .register{
   font-size: 6vw;
   margin-top: 6vw;
-  margin-left: 4vw;
+  margin-left: 7vw;
+  text-align: center;
 }
 .input{
   box-sizing: border-box;
   border: 1px solid #C4C4C4;
   background-color: #F3EFEF;
   margin-bottom: 5vw;
-  width: 75vw;
-  margin-left: 4vw;
-  font-size: 4vw;
-  padding: 1.5vw;
   border-radius: 8px;
 }
-.input::placeholder{background-color: F3EFEF;}
 .registerdiv{
   background-color: #FFFFFF;
   box-sizing: border-box;
@@ -45,6 +41,7 @@
   border: none;
   border-radius: 15px;
   margin-bottom: 13vw;
+  margin-left: 1vw;
 }
 .aboutusdiv{
   text-align: center;
@@ -102,19 +99,29 @@ a{text-decoration: none;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
+@media screen and (min-width:375px){
+  .input{
+    width: 75vw;
+    margin-left: 2vw;
+  }
+  .registerdiv{margin-left: 0vw;}
+}
+@media screen and (min-width:375px){
+  .input{margin-left: 5vw;}
+}
 @media screen and (max-width: 767px) {
   .media768{display: none;}
 }
 @media screen and (min-width: 768px){
   .media320{display: none;}
-  /* .media768{margin-left: 2vw;} */
   .media768{
     overflow-y: hidden;
+    height: 100vh;
   }
   .img768{
     width: 108%;
     height: 30%;
-    margin-top: 8vw;
+    margin-top: 18vw;
     margin-left: 2vw;
   }
   .input{
@@ -130,7 +137,7 @@ a{text-decoration: none;}
     border: none;
     background-color: #F4F2F3;
     margin-left: 9vw;
-    margin-top: 7vw;
+    margin-top: 16vw;
     border-radius: 5px;
   }
   .registertxt{
@@ -145,9 +152,12 @@ a{text-decoration: none;}
     font-size: 1.8vw;
     color: #E5E5E5;
     font-family: 'Rufina';
-    margin-left: 5vw;
+    margin-left: 7vw;
   }
-  .txt{font-size: 1.6vw;}
+  .txt{
+    font-size: 1.6vw;
+    text-align: center;
+  }
   .aboutus{
     width: 22vw;
     padding: 0.9vw;
@@ -179,7 +189,7 @@ a{text-decoration: none;}
   .registerdiv{
     width: 40%;
     margin-left: 15vw;
-    margin-top: 5vw;
+    margin-top: 10vw;
   }
   .right{margin-left: -0.5vw;}
   .btn{
@@ -191,6 +201,7 @@ a{text-decoration: none;}
     width: 97%;
     height: 27%;
     margin-left: 7vw;
+    margin-top: 15vw;
   }
   .meaning{
     margin-left: 11vw;

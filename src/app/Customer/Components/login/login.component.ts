@@ -21,12 +21,22 @@ export class LoginComponent implements OnInit {
     ])
   });
 
+  emailForm = new FormGroup({
+    email : new FormControl('',[
+      Validators.required,
+      Validators.email
+    ])
+  });
+
+
   error : any;
+  emailError : any;
+  display = 'none';
 
   constructor(private router : Router, private service : CustomerService, private message : AdminService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   async login(){
@@ -43,7 +53,34 @@ export class LoginComponent implements OnInit {
     }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
       window.localStorage.setItem('user_id', result.data.data.id);
+      localStorage.setItem('customer',result.data.data.id);
       this.router.navigate(['']);
+      this.service.closeLoading();
     }
   }
+
+  forgetPassword(){
+    this.display = 'block'
+  }
+
+  onCloseHandled(){
+    this.display = 'none'
+  }
+
+
+  sendEmail(){
+    this.service.showLoading();
+    this.service.sendEmail(this.emailForm.value).then((res)=>{
+      console.log(res);
+      if(res.data.error){
+        this.emailError = res.data.message
+        this.service.closeLoading();
+      }else{
+        this.service.closeLoading();
+        sessionStorage.setItem('user_email',res.data.data.email);
+        this.router.navigate(['reset-password=?/'+res.data.data.id]);
+      }
+    })
+  }
+
 }

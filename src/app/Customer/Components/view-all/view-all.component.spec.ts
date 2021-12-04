@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SampleHeaderComponent } from './sample-header.component';
+import { ViewAllComponent } from './view-all.component';
 
-describe('SampleHeaderComponent', () => {
-  let component: SampleHeaderComponent;
-  let fixture: ComponentFixture<SampleHeaderComponent>;
+describe('ViewAllComponent', () => {
+  let component: ViewAllComponent;
+  let fixture: ComponentFixture<ViewAllComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SampleHeaderComponent ]
+      declarations: [ ViewAllComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SampleHeaderComponent);
+    fixture = TestBed.createComponent(ViewAllComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

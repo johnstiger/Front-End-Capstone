@@ -4,7 +4,7 @@
             <div class="col-md-4">
                 <img class="image" *ngIf="image; else default" src="{{ image }}" alt="product-image">
                 <ng-template #default>
-                    <img class="image" src="/assets/imgs/product.jpg" alt="product-image">
+                    <img class="image" src="../../../../../assets/imgs/product.jpg" alt="product-image">
                 </ng-template>
             </div>
             <div class="col-md-8 nameSelect">
@@ -12,7 +12,8 @@
                     *{{ error.name[0] }}
                 </div>
               <label for="">Product Name</label>
-              <select name="name" (change)="onChange($event)" id="selected" class="options field form-control" formControlName="name">
+              <input type="text" class="form-control" id="productname" *ngIf='!currentPage' [value]="name" disabled>
+              <select *ngIf='currentPage' name="name" (change)="onChange($event)" id="selected" class="options field form-control" formControlName="name">
                 <option value="0" hidden>Product Name</option>
                 <option *ngFor="let product of products" [value]="product.id" id="{{ product.id }}">{{product.name}}</option>
               </select>
@@ -51,7 +52,7 @@
                       <div class="col">
                         <input type="number" class="form-control" id="{{ size.id }}" value="{{ size.pivot.avail_unit_measure }}" name="unit_measure" min="1" max="{{ size.pivot.avail_unit_measure  }}" id="" placeholder="Unit">
                       </div>
-                      <div class="col">
+                      <div class="col" *ngIf="allSize.length > 1">
                         <button type="button" class="btn btn-danger" (click)="delete(size)"><i class="far fa-trash-alt"></i> Remove Size</button>
                       </div>
                   </div>
@@ -78,7 +79,7 @@
                             *{{ error.percent_off[0] }}
                         </div>
                         <label for="">Promo</label>
-                        <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" placeholder="Promo">
+                        <input type="number" class="form-control" name="percent_off" [ngModel]="percent_off" id="" min="1" placeholder="Promo price">
                     </div>
                     <div class="col">
                       <div *ngIf="error && error.promo_type" class="alert alert-danger">

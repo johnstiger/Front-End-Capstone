@@ -25,7 +25,7 @@
 <div class=" col-11 col-s-11 media768">
   <div class="row">
     <div class="col-5 col-s-5 img768">
-      <img id="psimg" src="{{image }}" alt="this is an image" *ngIf="image">
+      <img id="img768" src="{{image }}" alt="this is an image" *ngIf="image">
       <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!image">
     </div>
     <div class="col-1 col-s-1"></div>
@@ -47,8 +47,6 @@
     </div>
   </div>
 </div>
-<a href="home">
-  <button type="button" id="backbtn" class="btn">Back</button>
-</a>
+<button type="button" id="backbtn" class="btn" routerLink="/home">Back</button>
 <hr class="hr">
 <app-cus-footer></app-cus-footer>

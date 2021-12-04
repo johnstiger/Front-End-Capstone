@@ -4,7 +4,7 @@ export const environment = {
   url :"https://santafe-dagom.herokuapp.com/api/",
 //   url : "http://localhost:8000/api/",
   socket: {
-    url: 'https://dagom-notif.herokuapp.com/',
+    url: 'wss://dagom-notif.herokuapp.com/',
     topic: 'notification',
   }
 };

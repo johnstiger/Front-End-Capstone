@@ -40,7 +40,13 @@ export class AddProductComponent implements OnInit {
     token = localStorage.getItem('admin_token')
 
 
-  ngOnInit(): void {
+    ngOnInit(): void {
+    $("input[type=number]").on("keydown",function(e){
+      var invalidChars = ["-", "+", "e"];
+      if (invalidChars.includes(e.key)) {
+          e.preventDefault();
+      }
+    })
     this.productCategories();
     this.getSizes();
   }
@@ -50,7 +56,6 @@ export class AddProductComponent implements OnInit {
   categories! : Categories[];
   allSize! : Sizes[];
   stockSizes: Array<any> = [];
-  sizes : number = 0;
 
   onFileChange(event:any){
     const reader = new FileReader();
@@ -70,24 +75,28 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-
   submit(){
     this.http.loading();
     if(this.stockSizes.length == 0){
-      this.stockSizes.push({
-        size_id : this.AddProductForm.value.sizes,
-        unit_measure : this.AddProductForm.value.unit_measure,
-      })
+      if(this.AddProductForm.value.sizes == '' || this.AddProductForm.value.unit_measure == ''){
+        this.stockSizes = [];
+      }else{
+        this.stockSizes.push({
+          size_id : this.AddProductForm.value.sizes,
+          unit_measure : this.AddProductForm.value.unit_measure,
+        })
+      }
     }
     this.AddProductForm.value.sizes = this.stockSizes
     this.http.addProduct(this.AddProductForm.value, this.token).then(async (result)=>{
       if(result.data.error){
         this.errors = result.data.message;
+        this.http.closeLoading();
       }else{
-        this.http.showMessage(result.data.message);
-      setTimeout(() => {
-        this.location.back();
-      }, 1000);
+        this.http.ShowSuccessMessage(result.data.message);
+        setTimeout(()=>{
+          this.location.back();
+        },1500)
       }
     }).catch((e)=>{
       console.log(e);
@@ -98,6 +107,8 @@ export class AddProductComponent implements OnInit {
 
   async productCategories(){
     const result = await this.http.getCategories(this.token);
+    console.log(result.data);
+
     this.categories = result.data.error ? false : result.data.data;
   }
 

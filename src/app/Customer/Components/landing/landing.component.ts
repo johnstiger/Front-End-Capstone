@@ -22,6 +22,11 @@ export class LandingComponent implements OnInit {
 
   products! : Products[];
   salesItem : Array<any> = [];
+  categories : Array<any> = [];
+  maxSaleDisplay : number = 3;
+  maxProductDisplay : number = 8;
+  displayViewAllSales : boolean = false;
+  displayViewAllProduct : boolean = false;
 
   constructor(
     private router: Router,
@@ -34,24 +39,29 @@ export class LandingComponent implements OnInit {
   }
 
   async getProducts() {
+    this.service.showLoading();
     const result = await this.service.products(this.token);
     if(result.data.error){
-
     }else{
       this.products = result.data.data;
+      if(this.products.length > this.maxProductDisplay){
+        this.displayViewAllProduct = true;
+      }
       this.products = this.products.map(res=>{
         const sizes = res.sizes.map((element:any)=>{
             return element.size
         })
-        if(sizes.length > 0){
-          res.end = sizes[sizes.length - 1];
-          res.first = sizes[0];
+        if(sizes.length > 1){
+          res.availableSize = sizes[0]+'-'+sizes[sizes.length - 1];
+        }else if(sizes.length == 1){
+          res.availableSize = sizes[0];
+        }else{
+          res.availableSize = [];
         }
         return res;
       })
-      console.log(this.products);
-
     }
+    this.service.closeLoading();
   }
 
   select(product:any){
@@ -68,11 +78,33 @@ export class LandingComponent implements OnInit {
 
       }else{
         this.salesItem = res.data.data;
-        console.log(this.salesItem);
+        if(this.salesItem.length > this.maxSaleDisplay){
+          this.displayViewAllSales = true;
+        }
 
       }
     })
   }
 
+  viewAll(param:any){
+    this.router.navigate(['/view=?/'+param])
+  }
+
+  selectCategory(name:any){
+    this.service.showLoading();
+    this.service.getCategories().then((res)=>{
+      this.categories = res.data.data;
+      let test = this.categories.map(res=>{
+        if(res.name == name.target.id){
+          return res.id;
+        }
+      })
+      var ambotLang = test.filter(res=>{
+        return res;
+      })[0];
+      this.router.navigate(['/choose?=/'+ambotLang])
+    });
+
+  }
 
 }

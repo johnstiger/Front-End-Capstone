@@ -4,6 +4,10 @@ body {
     background-color: #fff !important;
 }
 
+.main-content{
+  background-color: #fff !important;
+}
+
 .container {
     margin-top: 34px;
 }
@@ -69,7 +73,7 @@ body {
 }
 
 .activeLink {
-    background-color: red;
+    color: darkolivegreen !important;
 }
 @media (min-width: 1400px) {
     .container {

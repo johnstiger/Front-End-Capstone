@@ -2,7 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { SearchService } from 'src/app/Common/search.service';
 import { CustomerService } from 'src/app/Customer/Services/customer.service';
+import { Customers } from '../../../../Admin/Common/model/admin-model';
 
 @Component({
   selector: 'app-sample-header',
@@ -18,19 +20,23 @@ export class SampleHeaderComponent implements OnInit {
   unAuthorized = true;
   authorized = false;
   categories : Array<any> = [];
+  customers: Array<any> = [];
   change = false;
+  productsInCart: any;
 
   data : string = "test";
 
   token = localStorage.getItem('customer_token')
 
   @Output() messageEvent  = new EventEmitter<string>();
+  @Output() categoryEvent  = new EventEmitter<string>();
 
-  constructor(private router: Router, private service : CustomerService) { }
+  constructor(private router: Router, private service : CustomerService, private oberver : SearchService) { }
 
   ngOnInit(): void {
     this.getCategories();
     if (window.localStorage.getItem('customer_token')) {
+      this.countProductsInCart()
       this.unAuthorized = false;
       this.authorized = true;
     }else {
@@ -40,11 +46,21 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   searchProducts(){
-    this.service.searchProducts(this.form.value).then((result)=>{
-      this.messageEvent.emit(result.data);
-    })
+    this.service.showLoading()
+      sessionStorage.setItem('data', this.form.value.data);
+      this.router.navigate(['/search-result']);
+      this.oberver.sendTriggeredEvent(this.form.value);
+
   }
 
+  countProductsInCart(){
+    this.service.countProductsInCart(this.token).then((res)=>{
+      if(res.data > 1){
+        $('.custom-badge').css('display','block');
+        $('.custom-badge').html(res.data);
+      }
+    })
+  }
 
   openNav() {
     $('#mySidenav').css('width','100%');
@@ -54,10 +70,15 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   LinkThisCategory(category : any){
-    this.change = !this.change;
-    const value = $("#dropdown");
-    this.change == true ? value.css('display','block') : value.css('display','none');
+    this.closeNav();
+    this.categoryEvent.emit(category.id);
+    this.router.navigate(['/choose?=/'+category.id],{
+      state: {
+        data: category
+      }
+    })
   }
+
 
   async logout(){
     this.service.loading();

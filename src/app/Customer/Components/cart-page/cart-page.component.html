@@ -1,53 +1,60 @@
 <app-sample-header></app-sample-header>
+<br><br><br>
 <p class="headertitle">Your Cart</p>
 <div class="col-11 col-s-11 media320">
-    <div class="row">
-        <div class="col-12 col-s-12 pageheader">
-            <div class="row">
-                <div class="col-6 col-s-6">
-                    <p id="product">Product</p>
-                </div>
-                <div class="col-6 col-s-6">
-                    <p id="price">Price</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-s-12">
-          <hr id="headerhr">
-        </div>
-        <div class="col-12 col-s-12 content">
-          <div class="row">
-            <div class="col-4 col-s-4">
-              <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-          </div>
-          <div class="col-4 col-s-4">
-              <p class="productname">Product Name</p>
-              <button class="removebtn">Remove</button>
-          </div>
-          <div class="col-4 col-s-4 details">
-              <p class="amount">Php 100.00</p>
-              <label class="quantity">Quantity</label>
-              <input class="input" type="number" min="0" value="0">
-              <p id="total">Total: Php 200.00</p>
-          </div>
-          </div>
-        </div>
-        <div class="col-12 col-s-12 box">
-          <label class="container768 ">
-            <input type="checkbox" checked="checked">
-            <span class="checkmark subselect"></span>
+  <div class="row">
+    <div class="col-12 col-s-12 pageheader">
+      <div class="row">
+        <div class="col-5 col-s-5">
+          <label class="container768">Select All
+            <input type="checkbox" name="" (click)="selectAll(products)" id="selectAll">
+            <span class="checkmark select"></span>
           </label>
         </div>
-        <div class="col-12 col-s-12">
-          <hr class="hr2">
+        <div class="col-3 col-s-3">
+          <p id="product">Product</p>
         </div>
-        <div class="col-12 col-s-12 buttons">
-          <p>Subtotal  Php 200.00</p>
-          <button class="btn">Continue Shopping</button><br>
-          <button class="btn">Update</button><br>
-          <button class="btn">Check Out</button>
+        <div class="col-4 col-s-4">
+          <p id="price">Price</p>
         </div>
+      </div>
     </div>
+    <div class="col-12 col-s-12">
+      <hr id="headerhr">
+    </div>
+    <div class="col-12 col-s-12 content">
+      <div class="row">
+        <div class="col-4 col-s-4">
+          <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="">
+        </div>
+        <div class="col-4 col-s-4">
+          <p class="productname">Product Name</p>
+          <button class="removebtn">Remove</button>
+        </div>
+        <div class="col-4 col-s-4 details">
+          <p class="amount">Php 100.00</p>
+          <label class="quantity">Quantity</label>
+          <input class="input" type="number" min="0" value="0">
+          <p id="total">Total: Php 200.00</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-s-12 box">
+      <label class="container768 ">
+        <input type="checkbox" checked="checked">
+        <span class="checkmark subselect"></span>
+      </label>
+    </div>
+    <div class="col-12 col-s-12">
+      <hr class="hr2">
+    </div>
+    <div class="col-12 col-s-12 buttons">
+      <p>Subtotal Php 200.00</p>
+      <button class="btn">Continue Shopping</button><br>
+      <button class="btn">Update</button><br>
+      <button class="btn">Check Out</button>
+    </div>
+  </div>
 </div>
 
 <div class="col-11 col-s-11 media768">
@@ -56,56 +63,78 @@
       <div class="row">
         <div class="col-3 col-s-3">
           <label class="container768">Select All
-            <input type="checkbox" checked="checked">
+            <input type="checkbox" name="" (click)="selectAll(products)" id="selectAll">
             <span class="checkmark select"></span>
           </label>
         </div>
-        <div class="col-2 col-s-2"><p class="producthd">Product</p></div>
+        <div class="col-2 col-s-2">
+          <p class="producthd">Product</p>
+        </div>
         <div class="col-1 col-s-1"></div>
-        <div class="col-1 col-s-1"><p class="sizehd">Size</p></div>
-        <div class="col-2 col-s-2"><p class="pricehd">Price</p></div>
-        <div class="col-1 col-s-1"> <p class="quantityhd">Quantity</p></div>
-        <div class="col-2 col-s-2"> <p class="totalhd">Total</p></div>
+        <div class="col-1 col-s-1">
+          <p class="sizehd">Size</p>
+        </div>
+        <div class="col-2 col-s-2">
+          <p class="pricehd">Price</p>
+        </div>
+        <div class="col-1 col-s-1">
+          <p class="quantityhd">Quantity</p>
+        </div>
+        <div class="col-2 col-s-2">
+          <p class="totalhd">Total</p>
+        </div>
       </div>
     </div>
     <div class="col-12 col-s-12">
       <hr class="hr768">
     </div>
-    <div class="col-12 col-s-12">
-      <div class="row">
-        <div class="col-2 col-s-2">
-          <label class="container768 ">
-            <input type="checkbox" checked="checked">
-            <span class="checkmark subselect"></span>
-          </label>
+    <form name="form" #Checkout="ngForm">
+      <div class="col-12 col-s-12">
+        <div class="row" *ngFor="let product of products">
+          <div class="col-2 col-s-2">
+            <label class="container768">
+              <input type="checkbox" (click)="selectById(product, products)" [id]="product.id" class="selectId">
+              <span class="checkmark subselect"></span>
+            </label>
+          </div>
+          <div class="col-2 col-s-2"><img class="img768" [src]="product.image || '../../../../assets/imgs/dag.jpg'" alt=""></div>
+          <div class="col-2 col-s-2">
+            <p class="productname">{{product.name || ''}}</p>
+            <button class="removebtn" (click)="confirmRemove(product)">Remove</button>
+          </div>
+          <div class="col-1 col-s-1">
+            <p class="size">S</p>
+          </div>
+          <div class="col-2 col-s-2">
+            <p class="amount768">Php {{product.price || ''}}</p>
+          </div>
+          <div class="col-1"><input class="input" type="text" name="quantityvalue" onchange="changeQuantity(product)" id="quantityvalue" value="{{product.pivot.quantity}}"></div>
+          <div class="col-2 col-s-2">
+            <p class="total768">Php {{product.pivot.total}} </p>
+          </div>
         </div>
-        <div class="col-2 col-s-2"><img class="img768" src="../../../../assets/imgs/dag.jpg" alt=""></div>
-        <div class="col-2 col-s-2">
-          <p class="productname">Product Name</p>
-          <button class="removebtn">Remove</button>
+      </div>
+      <div class="col-12 col-s-12">
+        <hr class="hr768" style="margin-top: 2%;">
+      </div>
+      <div class="col-12 col-s-12">
+        <div class="row">
+          <div class="col-9 col-s-9"></div>
+          <div class="col-1 col-s-1">
+            <p class="subtotal">Subtotal</p>
+          </div>
+          <div class="col-2 col-s-2" style="text-align: center;">
+            <p class="subtotalamount">Php {{ total }}</p>
+          </div>
         </div>
-        <div class="col-1 col-s-1"><p class="size">S</p></div>
-        <div class="col-2 col-s-2"><p class="amount768">Php 100.00</p></div>
-        <div class="col-1"><input class="input" type="text" name="quantityvalue" id="quantityvalue" value="2"></div>
-        <div class="col-2 col-s-2"><p class="total768">Php 200.00</p></div>
-    </div>
+      </div>
+      <div class="col-12 col-s-12 buttons">
+        <button class="btn cntshopping" routerLink="/home">Continue Shopping</button>
+        <button class="btn updatebtn">Update</button>
+        <button type="button" (click)="checkout(Checkout.value)" class="btn checkoutbtn">Check Out</button>
+      </div>
+    </form>
   </div>
-  <div class="col-12 col-s-12">
-    <hr class="hr768" style="margin-top: 2%;">
-  </div>
-  <div class="col-12 col-s-12">
-    <div class="row">
-      <div class="col-9 col-s-9"></div>
-      <div class="col-1 col-s-1"><p class="subtotal">Subtotal</p></div>
-      <div class="col-2 col-s-2" style="text-align: center;"><p class="subtotalamount">Php 200.00</p></div>
-    </div>
-  </div>
-  <div class="col-12 col-s-12 buttons">
-    <button class="btn cntshopping">Continue Shopping</button>
-    <button class="btn updatebtn">Update</button>
-    <button class="btn checkoutbtn">Check Out</button>
-  </div>
- </div>
 </div>
 <hr class="hr">
 <app-cus-footer></app-cus-footer>

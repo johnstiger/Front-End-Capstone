@@ -6,9 +6,8 @@
                 <div class="col-9">
                     <form [formGroup]="form" (ngSubmit)="searchAdmins()">
                         <div class="form-group row">
-                            <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" formControlName="data" class="form-control search" placeholder="Search product name.....">
+                                <input type="text" formControlName="data" [(ngModel)]="filterTerm" class="form-control search" placeholder="Search name.....">
                             </div>
                         </div>
                     </form>
@@ -29,7 +28,7 @@
                                 </tr>
                             </thead>
                             <tbody *ngIf="admins">
-                                <tr *ngFor="let admin of admins | paginate:{itemsPerPage:5, currentPage:cp}">
+                                <tr *ngFor="let admin of admins | filter:filterTerm | paginate:{itemsPerPage:5, currentPage:cp}">
                                     <td> {{ admin.firstname }} </td>
                                     <td>{{ admin.lastname }}</td>
                                     <td> {{ admin.contact_number }} </td>

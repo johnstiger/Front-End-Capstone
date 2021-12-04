@@ -48,6 +48,7 @@ import { ShowProfileComponent } from './Customer/Components/show-profile/show-pr
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
 import { SearchResultComponent } from './Customer/Components/search-result/search-result.component'
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { EditProductComponent } from './Admin/Components/products/edit-product/edit-product.component';
 import { EditAdminComponent } from './Admin/Components/admins/edit-admin/edit-admin.component';
@@ -55,6 +56,11 @@ import { EditCategoryComponent } from './Admin/Components/category/edit-category
 import { NotFoundPageComponent } from './NotFoundPage/not-found-page/not-found-page.component';
 import { MyProfileComponent } from './Admin/Components/my-profile/my-profile.component';
 import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/edit-sale.component';
+import { LandingCategoryComponent } from './Customer/Components/landing-category/landing-category.component';
+import { ViewAllComponent } from './Customer/Components/view-all/view-all.component';
+import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
+import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
+import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +105,11 @@ import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/
     NotFoundPageComponent,
     MyProfileComponent,
     EditSaleComponent,
+    LandingCategoryComponent,
+    ViewAllComponent,
+    ResetPasswordComponent,
+    AboutUsComponent,
+    NewPasswordComponent
 
   ],
   imports: [
@@ -113,7 +124,8 @@ import { EditSaleComponent } from './Admin/Components/product-on-sale/edit-sale/
     MatPaginatorModule,
     MatIconModule,
     NgxPaginationModule,
-    CollapseModule
+    CollapseModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

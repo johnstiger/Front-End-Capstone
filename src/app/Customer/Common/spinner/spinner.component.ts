@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-spinner',
@@ -12,4 +13,11 @@ export class SpinnerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  click(){
+    Swal.fire({
+      imageUrl: 'https://unsplash.it/400/200',
+      imageWidth: 1000,
+    })
+  }
 }

@@ -17,6 +17,9 @@ export class OrdersComponent implements OnInit {
       Validators.required
     ])
   });
+
+  filterTerm! : string;
+
   token = localStorage.getItem('admin_token');
   constructor(private http : AdminService) { }
 

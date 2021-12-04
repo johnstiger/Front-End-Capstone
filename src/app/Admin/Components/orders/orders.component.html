@@ -6,9 +6,8 @@
                 <div class="col-9">
                     <form name="form" [formGroup]="form" (ngSubmit)="searchProducts()">
                         <div class="form-group row">
-                            <button type="submit" class="col-sm-2 btn btn-primary">Search</button>
                             <div class="col-sm-10">
-                                <input type="text" formControlName="data" class="form-control search" id="myInput" placeholder="Search.....">
+                                <input type="text" formControlName="data" [(ngModel)]="filterTerm" class="form-control search" id="myInput" placeholder="Search.....">
                             </div>
                         </div>
                     </form>
@@ -26,7 +25,7 @@
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of orders | paginate:{itemsPerPage:5, currentPage:cp}" id="myTable">
+                            <tbody *ngFor="let order of orders | filter:filterTerm | paginate:{itemsPerPage:5, currentPage:cp}" id="myTable">
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td>
