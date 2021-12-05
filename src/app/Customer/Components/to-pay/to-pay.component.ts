@@ -16,6 +16,7 @@ export class ToPayComponent implements OnInit {
   customerName : any;
   status : any;
   img : any;
+  subtotal : any;
   async ngOnInit() {
     this.getUser();
     const  response = await this._customerService.getOrders(this.token)
@@ -23,6 +24,7 @@ export class ToPayComponent implements OnInit {
     this.selectedOrderId = this.orders[0].id
     this.products = this.orders[0].products
     this.status = this.orders[0].status
+    this.subtotal = this.orders[0].total
     console.log(this.products, this.orders);
 
   }
@@ -30,8 +32,7 @@ export class ToPayComponent implements OnInit {
   selectOrder() {
     this.products = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].products
     this.status = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].status
-    console.log(this.status);
-
+    this.subtotal = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].total
   }
 
   async getUser(){
@@ -41,6 +42,19 @@ export class ToPayComponent implements OnInit {
     this.img = response.data.data.image
   }
 
+  async removeItem(orderId : any, productId:any){
+    this._customerService.showLoading();
+    let data = {data:productId};
+    const response = await this._customerService.removeProductOrder(orderId, data, this.token);
+    if(response.data.error){
+
+    }else{
+      this._customerService.ShowSuccessMessage(response.data.message);
+      setTimeout(()=>{
+        this.ngOnInit();
+      },1500)
+    }
+  }
 
 
 }

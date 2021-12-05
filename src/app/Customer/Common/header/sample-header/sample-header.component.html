@@ -22,6 +22,7 @@
           <a class="categories" routerLink="/login" *ngIf="!authorized">Sign In</a>
           <a class="categories" routerLink="/register" *ngIf="!authorized">Sign Up</a>
           <a class="categories" routerLink="/show-profile" *ngIf="authorized">My Profile</a>
+          <a class="categories" routerLink="/edit-account" *ngIf="authorized">Edit Account</a>
           <a class="categories" routerLink="/all-orders" *ngIf="authorized">My Orders</a>
           <a class="categories" (click)="logout()" *ngIf="authorized">Log Out</a>
       </div>
