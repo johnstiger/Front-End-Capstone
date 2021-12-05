@@ -1,7 +1,4 @@
 <app-sample-header></app-sample-header>
-<br>
-<br>
-<br>
 <div class="col-11 col-s-11 media320">
   <div class="row">
     <div class="col-12 col-s-12 headers">
@@ -51,16 +48,13 @@
   </div>
 </div>
 
-
-
-
 <div class="col-12 col-s-12 media768">
   <div class="row">
     <div class="col-3 col-s-3 account">
-      <img class="profileimg" src="../../../../assets/imgs/profile.jpg" alt="">
-      <a href="#"><p>Customer Name</p></a>
-      <a href=""><p>Edit Account</p></a>
-      <a href=""><p>My Orders</p></a>
+      <img class="profileimg" [src]="img" alt="">
+      <a><p>{{ customerName }}</p></a>
+      <a routerLink="/edit-account"><p>Edit Account</p></a>
+      <a routerLink="/all-orders"><p>My Orders</p></a>
     </div>
     <div class="col-8 col-s-8 deliverypanel">
       <div class="row">
@@ -77,7 +71,7 @@
           <div class="nav-inner-wrap">
             <a href="/received">Received</a>
           </div>
-        </div>  
+        </div>
         <div class="col-12 col-s-12">
           <hr id="hr768">
         </div>
@@ -88,44 +82,22 @@
           </select>
         </div>
         <div class="col-12 col-s-12" style="margin-top: 5%; margin-bottom: 2%;">
-          <div class="row">
+          <div class="row listOfProducts">
             <div class="col-6 col-s-6 subdiv" *ngFor="let product of products">
               <div class="row">
                 <div class="col-6 col-s-6 imgdiv">
-                  <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
+                  <img id="img768" src="{{ product.image }}" alt="">
                 </div>
                 <div class="col-6 col-s-6 details">
-                  <p id="prodname">Product Name</p>
-                  <p id ="amount">Php 100.00</p>
-                  <p id="quant">2</p>
+                  <p id="prodname">{{ product.name }}</p>
+                  <p id ="amount">Php {{ product.price }}</p>
+                  <p id="quant">{{ product.pivot.quantity }}</p>
                   <hr id = "hr1">
-                  <p id="total">Php 200.00</p>
+                  <p id="total">Php {{ product.pivot.subtotal }}</p>
                 </div>
-                <p id="confirmed">Confirmed</p>
-              </div>
-            </div>
-            <div class="col-6 col-s-6 subdiv">
-              <div class="row">
-                <div class="col-6 col-s-6 imgdiv">
-                  <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
-                </div>
-                <div class="col-6 col-s-6 details">
-                  <p id="prodname">Product Name</p>
-                  <p id ="amount">Php 100.00</p>
-                  <p id="quant">2</p>
-                  <hr id = "hr1">
-                  <p id="total">Php 200.00</p>
-                </div>
-                <div class="col-12 col-s-12">
-                  <div class="row">
-                    <div class="col-6 col-s-6 removebutton">
-                      <button class="btn" id="rmvbtn">Remove</button>
-                    </div>
-                    <div class="col-6 col-s-6">
-                      <p id="pending">Pending</p>
-                    </div>
-                  </div>
-                </div>
+                <p id="confirmed" *ngIf="status == 1">Confirmed</p>
+                <p id="pending" *ngIf="status == 0">Pending</p>
+                <p id="declined" *ngIf="status == 2">Declined</p>
               </div>
             </div>
           </div>

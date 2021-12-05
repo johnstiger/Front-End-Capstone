@@ -6,6 +6,12 @@
   color: #C7988E;
   font-family: 'Roboto';
 }
+
+.listOfProducts{
+  overflow-y: auto;
+  height: 230px;
+}
+
 hr{height: 0.2vw;}
 .hr{background-color: #F6F2EF;}
 a{

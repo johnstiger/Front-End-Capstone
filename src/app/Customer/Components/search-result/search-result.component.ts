@@ -54,9 +54,9 @@ export class SearchResultComponent implements OnInit {
   searchProducts(text:any){
     this.service.showLoading()
     this.service.searchProducts(text).then((result)=>{
-      console.log(result.data);
+      console.log(result.data.found);
       this.message = result.data.message;
-      this.products = result.data.data;
+      this.products = result.data.found ? result.data.data : [];
       this.service.closeLoading();
     })
 

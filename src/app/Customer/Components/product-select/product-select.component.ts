@@ -4,6 +4,7 @@ import { CustomerService } from '../../Services/customer.service';
 import { Categories, Products, Sizes } from 'src/app/Customer/Common/model/customer-model';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-product-select',
@@ -24,12 +25,13 @@ export class ProductSelectComponent implements OnInit {
   token= localStorage.getItem('customer_token');
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private service: CustomerService,
     private activatedRoute: ActivatedRoute,
+    private location : Location
   ) { }
 
- 
+
 
 
   ngOnInit(): void {
@@ -40,6 +42,10 @@ export class ProductSelectComponent implements OnInit {
     );
     this.getProduct();
 
+  }
+
+  return(){
+    this.location.back();
   }
 
   async getProduct() {

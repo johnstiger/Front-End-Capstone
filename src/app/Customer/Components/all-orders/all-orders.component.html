@@ -1,5 +1,4 @@
 <app-sample-header></app-sample-header>
-<br><br><br>
 <div class="col-11 col-s-11 media320">
   <div class="row">
       <div class="nav-wrapper">
@@ -31,7 +30,7 @@
                 <p id="total">Php {{ product.price }}</p>
               </div>
             </div>
-          </div>      
+          </div>
         </div>
       </div>
   </div>
@@ -40,10 +39,10 @@
 <div class="col-12 col-s-12 media768">
   <div class="row">
     <div class="col-3 col-s-3 account">
-      <img class="profileimg" src="../../../../assets/imgs/profile.jpg" alt="">
-      <a href="#"><p class="customername">Customer Name</p></a>
-      <a href=""><p class="editaccount">Edit Account</p></a>
-      <a href=""><p class="myorders">My Orders</p></a>
+      <img class="profileimg" [src]="img" alt="">
+      <a><p class="customername">{{ customerName }}</p></a>
+      <a routerLink="/edit-account"><p class="editaccount">Edit Account</p></a>
+      <a routerLink="/all-orders"><p class="myorders">My Orders</p></a>
     </div>
     <div class="col-8 col-s-8 deliverypanel">
       <div class="row">

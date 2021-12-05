@@ -87,9 +87,11 @@ export class CategoryComponent implements OnInit {
     }).then((result)=>{
       if(result.value){
         this.deleteCategory(category.id).then(()=>{
-          this.ngOnInit();
+          this.http.ShowSuccessMessage("SuccessFully Deleted "+category.name+"!");
+          setTimeout(()=>{
+            this.ngOnInit();
+          },1500)
         });
-        this.http.ShowSuccessMessage("SuccessFully Deleted "+category.name+"!");
       }else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',

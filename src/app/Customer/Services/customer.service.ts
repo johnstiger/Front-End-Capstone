@@ -37,7 +37,7 @@ export class CustomerService {
   }
 
   async getOrders(token:any){
-    const user_id = localStorage.getItem('user_id');
+    const user_id = localStorage.getItem('customer');
     const response = await axios.get(this.url+"orders/?user_id="+user_id, { headers: { Authorization: token} });
     return response;
   }
@@ -143,6 +143,11 @@ export class CustomerService {
 
   async editCustomerAccount(data:any, token:any){
     const response = await axios.put(this.url+"customer/information",data,{headers:{Authorization:token}});
+    return response;
+  }
+
+  async receivedOrders(token:any){
+    const response = await axios.get(this.url+"orders/receivedOrders",{headers:{Authorization:token}});
     return response;
   }
 
