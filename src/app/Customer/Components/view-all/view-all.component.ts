@@ -59,6 +59,7 @@ export class ViewAllComponent implements OnInit {
   }
 
   async getProducts() {
+    this.service.showLoading();
     const result = await this.service.products('token');
     if(result.data.error){
 
@@ -79,6 +80,7 @@ export class ViewAllComponent implements OnInit {
         }
         return res;
       })
+      this.service.closeLoading();
     }
   }
 

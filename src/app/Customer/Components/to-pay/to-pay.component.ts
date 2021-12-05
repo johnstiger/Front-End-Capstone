@@ -17,6 +17,7 @@ export class ToPayComponent implements OnInit {
   status : any;
   img : any;
   subtotal : any;
+
   async ngOnInit() {
     this.getUser();
     const  response = await this._customerService.getOrders(this.token)
@@ -25,8 +26,6 @@ export class ToPayComponent implements OnInit {
     this.products = this.orders[0].products
     this.status = this.orders[0].status
     this.subtotal = this.orders[0].total
-    console.log(this.products, this.orders);
-
   }
 
   selectOrder() {
