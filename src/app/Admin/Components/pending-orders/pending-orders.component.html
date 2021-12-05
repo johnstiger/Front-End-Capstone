@@ -77,7 +77,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: cp}">
+              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: firstModal}">
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
@@ -92,7 +92,7 @@
             </tbody>
           </table>
           <div *ngIf="customerOrders">
-            <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+            <pagination-controls (pageChange)="firstModal = $event"></pagination-controls>
           </div>
           <div class="row">
             <div class="col">
@@ -128,7 +128,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: cp}">
+              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: secondModal}">
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
@@ -143,7 +143,7 @@
             </tbody>
           </table>
           <div *ngIf="customerOrders">
-            <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+            <pagination-controls (pageChange)="secondModal = $event"></pagination-controls>
           </div>
           <div class="def">
             <form name="form" [formGroup]="TrackingCodeForm" (ngSubmit)="addTrackingCode(customerId,orderId)">

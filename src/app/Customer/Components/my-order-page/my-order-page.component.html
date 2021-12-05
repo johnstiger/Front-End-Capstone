@@ -1,61 +1,60 @@
 <app-sample-header></app-sample-header>
-<br><br><br>
-<p class="headertxt"> Your Orders</p>
+<p class="headertxt">Your Orders</p>
 <div class="col-11 col-s-11 media320">
   <div class="row">
-      <div class="col-12 col-s-12 pageheader">
-          <div class="row">
-              <div class="col-6 col-s-6">
-                  <p id="product">Product</p>
-              </div>
-              <div class="col-6 col-s-6">
-                  <p id="price">Price</p>
-              </div>
-          </div>
-      </div>
-      <hr id="headerhr">
-      <div class="col-12 col-s-12 content">
-        <div class="row">
-          <div class="col-4 col-s-4">
-              <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-          </div>
-          <div class="col-4 col-s-4">
-              <p class="productname">Product Name</p>
-              <button class="removebtn">Remove</button>
-          </div>
-          <div class="col-4 col-s-4 details">
-              <p class="amount">Php 100.00</p>
-              <label class="quantity">Quantity</label>
-              <input class="input" type="number" min="0" value="0">
-              <p id="total">Total: Php 200.00</p>
-          </div>
+    <div class="col-12 col-s-12 pageheader">
+      <div class="row">
+        <div class="col-6 col-s-6">
+          <p id="product">Product</p>
+        </div>
+        <div class="col-6 col-s-6">
+          <p id="price">Price</p>
         </div>
       </div>
-      <div class="col-12 col-s-12 content">
-        <div class="row">
-          <div class="col-4 col-s-4">
-              <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-          </div>
-          <div class="col-4 col-s-4">
-              <p class="productname">Product Name</p>
-              <button class="removebtn">Remove</button>
-          </div>
-          <div class="col-4 col-s-4 details">
-              <p class="amount">Php 100.00</p>
-              <label class="quantity">Quantity</label>
-              <input class="input" type="number" min="0" value="0">
-              <p id="total">Total: Php 200.00</p>
-          </div>
+    </div>
+    <hr id="headerhr" />
+    <div class="col-12 col-s-12 content">
+      <div class="row">
+        <div class="col-4 col-s-4">
+          <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="" />
+        </div>
+        <div class="col-4 col-s-4">
+          <p class="productname">Product Name</p>
+          <button class="removebtn">Remove</button>
+        </div>
+        <div class="col-4 col-s-4 details">
+          <p class="amount">Php 100.00</p>
+          <label class="quantity">Quantity</label>
+          <input class="input" type="number" min="0" value="0" />
+          <p id="total">Total: Php 200.00</p>
         </div>
       </div>
-      <hr class="hr2">
-      <div class="col-12 col-s-12 buttons">
-        <p id="subtotal">Subtotal: Php 200.00</p>
-        <p id="shippingfee">Shipping Fee: Php 70.00</p>
-        <p id="alltotal">Total: 270.00</p>
-        <button class="btn" id="cancel">Cancel</button><br>
-        <button class="btn" id="placeorder">Place Order</button>
+    </div>
+    <div class="col-12 col-s-12 content">
+      <div class="row">
+        <div class="col-4 col-s-4">
+          <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="" />
+        </div>
+        <div class="col-4 col-s-4">
+          <p class="productname">Product Name</p>
+          <button class="removebtn">Remove</button>
+        </div>
+        <div class="col-4 col-s-4 details">
+          <p class="amount">Php 100.00</p>
+          <label class="quantity">Quantity</label>
+          <input class="input" type="number" min="0" value="0" />
+          <p id="total">Total: Php 200.00</p>
+        </div>
       </div>
+    </div>
+    <hr class="hr2" />
+    <div class="col-12 col-s-12 buttons">
+      <p id="subtotal">Subtotal: Php 200.00</p>
+      <p id="shippingfee">Shipping Fee: Php 70.00</p>
+      <p id="alltotal">Total: 270.00</p>
+      <button class="btn" id="cancel">Cancel</button><br />
+      <button class="btn" id="placeorder">Place Order</button>
+    </div>
   </div>
 </div>
 
@@ -73,45 +72,66 @@
     <div class="col-4 col-s-4">
       <button class="btn mngpayment">Manage Payment</button>
     </div>
-    <hr id="headerid">
+    <hr id="headerid" />
     <div class="col-12 col-s-12 headers">
       <div class="row">
-          <div class="col-3 col-s-3 "><p class="product">Product</p></div>
-          <div class="col-3 col-s-3"></div>
-          <div class="col-2 col-s-2"><p id="headerprice">Price</p></div>
-          <div class="col-2 col-s-2"><p id="headerquantity">Quantity</p></div>
-          <div class="col-2 col-s-2"><p id="headertotal">Total</p></div>
+        <div class="col-3 col-s-3 "><p class="product">Product</p></div>
+        <div class="col-3 col-s-3"></div>
+        <div class="col-2 col-s-2"><p id="headerprice">Price</p></div>
+        <div class="col-2 col-s-2"><p id="headerquantity">Quantity</p></div>
+        <div class="col-2 col-s-2"><p id="headertotal">Total</p></div>
       </div>
     </div>
     <div class="col-12 col-s-12 prodside">
-      <div class="row">
-        <div class="col-2 col-s-2">
-          <img class="img768" src="../../../../assets/imgs/dag.jpg" alt="">
+      <div *ngFor="let product of products">
+        <div class="row">
+          <div class="col-2 col-s-2">
+            <img class="img768" src="{{ product.image }}" alt="" />
+          </div>
+          <div class="col-3 col-s-3">
+            <p class="productname">{{ product.name }}</p>
+            <button class="removebtn">Remove</button>
+          </div>
+          <div class="col-1 col-s-1"></div>
+          <div class="col-2 col-s-2">
+            <p id="product">{{ product.price }}.00</p>
+          </div>
+          <div class="col-2 col-s-2">
+            <input
+              class="input"
+              type="number"
+              readonly
+              min="0"
+              value="{{ product.pivot.quantity }}"
+            />
+          </div>
+          <div class="col-2 col-s-2">
+            <p id="total">Php {{ product.pivot.total }}.00</p>
+          </div>
         </div>
-        <div class="col-3 col-s-3">
-          <p class="productname">Product Name</p>
-          <button class="removebtn">Remove</button>
-        </div>
-        <div class="col-1 col-s-1"></div>
-        <div class="col-2 col-s-2"><p id="product">100.00</p></div>
-        <div class="col-2 col-s-2"> <input class="input" type="number" min="0" value="2"></div>
-        <div class="col-2 col-s-2"><p id="total">Php 200.00</p></div>
       </div>
-      <hr class="hr2">
+      <hr class="hr2" />
       <div class="col-12 col-s-12 buttons">
-        <p style="margin-bottom: 0px;">Subtotal: Php 200.00</p>
-        <p style="margin-bottom: 0px; margin-right: 1%;">Shipping Fee: Php 70.00</p>
-        <p style="margin-left: 14%;">Total: 270.00</p>
+        <p style="margin-bottom: 0px;">Subtotal: Php {{ totalAmount }}.00</p>
+        <p style="margin-bottom: 0px; margin-right: 1%;">
+          Shipping Fee: Php 70.00
+        </p>
+        <p style="margin-left: 14%;">Total: {{ totalAmount + 70 }}.00</p>
       </div>
       <div class="col-12 col-s-12 bottomdiv">
         <div class="row">
           <div class="col-6 col-s-6"></div>
-          <div class="col-3 col-s-3"><button class="btn" id="cancel" click="cancel()">Cancel</button><br></div>
-          <div class="col-3 col-s-3"> <button class="btn" id="placeorder">Place Order</button></div>
+          <div class="col-3 col-s-3">
+            <button class="btn" id="cancel" click="cancel()">Cancel</button
+            ><br />
+          </div>
+          <div class="col-3 col-s-3">
+            <button class="btn" id="placeorder">Place Order</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<hr class="hr" style="margin-top: 5vw;">
+<hr class="hr" style="margin-top: 5vw;" />
 <app-cus-footer></app-cus-footer>

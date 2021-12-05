@@ -48,11 +48,13 @@ export class LoginComponent implements OnInit {
       this.service.closeLoading();
     }else if(result.data.data.is_admin){
       window.localStorage.setItem('admin_token', "Bearer "+result.data.access_token);
+      window.localStorage.setItem('user_id', result.data.data.id);
       this.router.navigate(['/admin/dashboard']);
     }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
       localStorage.setItem('customer',result.data.data.id);
-      this.router.navigate(['']);
+      // this.router.navigate(['']);
+      this.checkLocalStorage();
       this.service.closeLoading();
     }
   }
@@ -80,5 +82,19 @@ export class LoginComponent implements OnInit {
       }
     })
   }
+
+  checkLocalStorage() {
+    if(localStorage.getItem('products')) {
+      this.router.navigate(['/order-page'])
+    }else if(localStorage.getItem('addToCart')){
+      this.router.navigate(['/cart'])
+    }else{
+      this.router.navigate([''])
+    }
+  }
+
+
+
+
 
 }

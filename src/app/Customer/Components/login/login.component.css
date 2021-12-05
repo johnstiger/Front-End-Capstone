@@ -163,7 +163,6 @@ form {
 
 @media screen and (min-width: 1024px) and (max-width:1300px) {
     .form {
-        margin-top: -43%;
         width: 35%;
         margin-right: 4%;
     }

@@ -35,6 +35,8 @@ export class PendingOrdersComponent implements OnInit {
   error : any;
   displayModalTracking = 'none'
   filterTerm! : string;
+  firstModal : number = 1;
+  secondModal : number = 1;
 
   ngOnInit(): void {
     this.getPendingOrders();
@@ -55,7 +57,7 @@ export class PendingOrdersComponent implements OnInit {
           } else {
            tr[i].style.display = "none";
          }
-        }       
+        }
       }
   }
 
@@ -88,7 +90,7 @@ export class PendingOrdersComponent implements OnInit {
       if(res.data.error){
         this.error = res.data.message;
       }else{
-        this.http.showMessage(res.data.message);
+        this.http.ShowSuccessMessage(res.data.message);
         this.onCloseHandled();
         setTimeout(()=>{
           window.location.reload();

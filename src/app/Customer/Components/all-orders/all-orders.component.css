@@ -35,8 +35,8 @@
   }
   .deliverypanel{margin-left: 7%;}
   .submedia{margin-bottom: 7vw;}
-  #allorders, #topay{padding-right: 4vw;}
-  #deliverydate{padding-right: 5vw;}
+  /* #allorders, #topay{padding-right: 4vw;} */
+  /* #deliverydate{padding-right: 5vw;} */
 
   @media only screen and (min-width: 600px) {
     /* For tablets: */
@@ -149,7 +149,7 @@
       margin-left: 1vw;
     }
     .right768{text-align: center;}
-    #toPay, #deliverydate{ padding-right: 11vw;}
+    /* #toPay, #deliverydate{ padding-right: 11vw;} */
     #hr768{
       width: 70vw;
       margin-left: 0vw;
@@ -215,3 +215,25 @@
     #total{margin-top: 0vw;}
   }
 
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 400px;
+    overflow-x: auto;
+  }
+
+  .nav-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 15px;
+  }
+
+  .nav-inner-wrap {
+    text-align: center;
+    padding: 12px 0px;
+    border-bottom: solid 1px;
+  }
+
+  .active-nav {
+    border-bottom: solid 2px;
+  }

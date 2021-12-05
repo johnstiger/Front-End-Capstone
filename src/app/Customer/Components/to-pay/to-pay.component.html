@@ -2,113 +2,107 @@
 <div class="col-11 col-s-11 media320">
   <div class="row">
     <div class="col-12 col-s-12 headers">
-      <a id="allorders" href="#">All Orders</a>
-      <a id="topay" href="#">To Pay</a>
-      <a id="deliverydate" href="#">Delivery Date</a>
-      <a id="received" href="#">Received</a>
-    </div>
-    <hr id="headerhr">
-    <div class="col-6 col-s-6">
-      <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-    </div>
-    <div class="col-6 col-s-6 right">
-      <p id="prodname">Product Name</p>
-      <p id="amount">Php 100.00</p>
-      <p id="quant">2</p>
-      <hr id = "hr1">
-      <p id="total" >Php 200.00</p>
-    </div>
-    <div class="col-6 col-s-6 status">
-      <button class="btn" id="rmvbtn">Remove</button>
-    </div>
-    <div class="col-6 col-s-6 status">
-      <p id="pending">Pending</p>
-    </div>
-
-    <div class="col-6 col-s-6">
-      <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-    </div>
-    <div class="col-6 col-s-6 right">
-      <p id="prodname">Product Name</p>
-      <p id ="amount">Php 100.00</p>
-      <p id="quant">2</p>
-      <hr id = "hr1">
-      <p id="total">Php 200.00</p>
-    </div>
-    <div class="col-6 col-s-6 status"></div>
-    <div class="col-6 status">
-      <p id="confirmed">Confirmed</p>
-    </div>
-    <hr id="hr2">
-    <div class="col-12 col-s-12 buttons">
-      <p style="margin-bottom: 0px;">Subtotal: Php 200.00</p>
-      <p style="margin-bottom: 0px; margin-right: 16%;">Shipping Fee: Php 70.00</p>
-      <p style="margin-left: 19%;">Total: 270.00</p>
+      <a id="allorders" routerLink="/all-orders">All Orders</a>
+      <a id="topay" routerLink="/pay">To Pay</a>
+      <a id="deliverydate" routerLink="/delivery-page">Delivery Date</a>
+      <a id="received" routerLink="/received">Received</a>
     </div>
   </div>
+  <hr id="headerhr">
+  <label for="">To Pay Order List</label>
+  <select name="" width="90" [(ngModel)]="selectedOrderId" (change)="selectOrder()" class="form-control" id="">
+    <option *ngFor="let order of orders; let i = index" value="{{ order.id }}">Order {{ i + 1 }}</option>
+  </select>
+  <div class="test">
+    <div class="row" *ngFor="let product of products">
+      <div class="col-6 col-s-6">
+        <img id="img320" src="{{ product.image }}" alt="">
+      </div>
+      <div class="col-6 col-s-6 right">
+        <p id="prodname">{{product.name}}</p>
+        <p id="amount">Php {{product.price}}</p>
+        <p id="quant">{{ product.pivot.quantity }}</p>
+        <hr id = "hr1">
+        <p id="total" >Php {{ product.pivot.subtotal }}</p>
+      </div>
+      <div class="col-6 col-s-6 status" *ngIf="status == 0">
+        <button class="btn" id="rmvbtn" (click)="removeItem(product.pivot.order_id, product.id)">Remove</button>
+      </div>
+      <div class="col-6 col-s-6 status" *ngIf="status == 0">
+        <p id="pending">Pending</p>
+      </div>
+      <div class="col-6 col-s-6 status" *ngIf="status == 1"></div>
+      <div class="col-6 status" *ngIf="status == 1">
+        <p id="confirmed">Confirmed</p>
+      </div>
+    </div>
+  </div>
+  <hr id="hr2">
+  <div class="col-12 col-s-12 buttons">
+    <p style="margin-bottom: 0px;">Subtotal: Php {{subtotal}}</p>
+    <p style="margin-bottom: 0px; margin-right: 16%;">Shipping Fee: Php 70.00</p>
+    <p style="margin-left: 19%;">Total: {{subtotal+70}}</p>
+  </div>
 </div>
-
-
-
 
 <div class="col-12 col-s-12 media768">
   <div class="row">
     <div class="col-3 col-s-3 account">
-      <img class="profileimg" src="../../../../assets/imgs/profile.jpg" alt="">
-      <a href="#"><p>Customer Name</p></a>
-      <a href=""><p>Edit Account</p></a>
-      <a href=""><p>My Orders</p></a>
+      <img class="profileimg" [src]="img" alt="">
+      <a><p>{{ customerName }}</p></a>
+      <a routerLink="/edit-account"><p>Edit Account</p></a>
+      <a routerLink="/all-orders"><p>My Orders</p></a>
     </div>
     <div class="col-8 col-s-8 deliverypanel">
       <div class="row">
-        <div class="col-12 col-s-12 header768">
-          <a class="allorder768" href="#">All Orders</a>
-          <a id="toPay" href="#">To Pay</a>
-          <a id="deliverydate" href="#">Delivery Date</a>
-          <a id="recieved" href="#">Received</a>
+        <div class="nav-wrapper">
+          <div class="nav-inner-wrap">
+            <a href="/all-orders">All Orders</a>
+          </div>
+          <div class="nav-inner-wrap active-nav">
+            <a href="/pay">To Pay</a>
+          </div>
+          <div class="nav-inner-wrap">
+            <a href="/delivery-page">Delivery Date</a>
+          </div>
+          <div class="nav-inner-wrap">
+            <a href="/received">Received</a>
+          </div>
         </div>
         <div class="col-12 col-s-12">
           <hr id="hr768">
         </div>
+        <div width="50">
+          <label for="">To Pay Order List</label>
+          <select name="" width="90" [(ngModel)]="selectedOrderId" (change)="selectOrder()" class="form-control" id="">
+            <option *ngFor="let order of orders; let i = index" value="{{ order.id }}">Order {{ i + 1 }}</option>
+          </select>
+        </div>
         <div class="col-12 col-s-12" style="margin-top: 5%; margin-bottom: 2%;">
-          <div class="row">
-            <div class="col-6 col-s-6 subdiv">
+          <div class="row listOfProducts">
+            <div class="col-6 col-s-6 subdiv" *ngFor="let product of products">
               <div class="row">
                 <div class="col-6 col-s-6 imgdiv">
-                  <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
+                  <img id="img768" src="{{ product.image }}" alt="">
                 </div>
                 <div class="col-6 col-s-6 details">
-                  <p id="prodname">Product Name</p>
-                  <p id ="amount">Php 100.00</p>
-                  <p id="quant">2</p>
+                  <p id="prodname">{{ product.name }}</p>
+                  <p id ="amount">Php {{ product.price }}</p>
+                  <p id="quant">{{ product.pivot.quantity }}</p>
                   <hr id = "hr1">
-                  <p id="total">Php 200.00</p>
+                  <p id="total">Php {{ product.pivot.subtotal }}</p>
                 </div>
-                <p id="confirmed">Confirmed</p>
-              </div>
-            </div>
-            <div class="col-6 col-s-6 subdiv">
-              <div class="row">
-                <div class="col-6 col-s-6 imgdiv">
-                  <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
-                </div>
-                <div class="col-6 col-s-6 details">
-                  <p id="prodname">Product Name</p>
-                  <p id ="amount">Php 100.00</p>
-                  <p id="quant">2</p>
-                  <hr id = "hr1">
-                  <p id="total">Php 200.00</p>
-                </div>
-                <div class="col-12 col-s-12">
+                <div class="col-12 col-s-12" *ngIf="status == 0">
                   <div class="row">
                     <div class="col-6 col-s-6 removebutton">
-                      <button class="btn" id="rmvbtn">Remove</button>
+                      <button class="btn" id="rmvbtn" (click)="removeItem(product.pivot.order_id, product.id)">Remove</button>
                     </div>
                     <div class="col-6 col-s-6">
                       <p id="pending">Pending</p>
                     </div>
                   </div>
                 </div>
+                <p id="confirmed" *ngIf="status == 1">Confirmed</p>
               </div>
             </div>
           </div>
@@ -117,9 +111,9 @@
           <hr id="hr2">
         </div>
          <div class="col-12 col-s-12 buttons">
-          <p id="subtotal">Subtotal: Php 200.00</p>
+          <p id="subtotal">Subtotal: Php {{subtotal}}</p>
           <p id="shippingfee">Shipping Fee: Php 70.00</p>
-          <p id="alltotal">Total: 270.00</p>
+          <p id="alltotal">Total: {{subtotal+70}}</p>
         </div>
       </div>
     </div>

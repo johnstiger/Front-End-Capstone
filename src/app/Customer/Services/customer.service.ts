@@ -36,8 +36,9 @@ export class CustomerService {
     return response;
   }
 
-  async getOrders(data:any, token:any){
-    const response = await axios.get(this.url+"order", { headers: { Authorization: token} });
+  async getOrders(token:any){
+    const user_id = localStorage.getItem('customer');
+    const response = await axios.get(this.url+"orders/?user_id="+user_id, { headers: { Authorization: token} });
     return response;
   }
 
@@ -97,7 +98,7 @@ export class CustomerService {
   }
 
   async addtoCart(id:any, quantity:any, token:any){
-    const response = await axios.post(this.url+"cart/add/"+id, {quantity: quantity},{headers: {Authorization:token}});
+    const response = await axios.post(this.url+"cart/add/"+id, quantity,{headers: {Authorization:token}});
     return response;
   }
 
@@ -120,7 +121,7 @@ export class CustomerService {
     return response;
   }
 
-  async showProducts(data:any, token:any){
+  async showProducts(token:any){
     const response = await axios.get(this.url+"order/show", {headers: {Authorization:token}});
     return response;
   }
@@ -144,6 +145,18 @@ export class CustomerService {
     const response = await axios.put(this.url+"customer/information",data,{headers:{Authorization:token}});
     return response;
   }
+
+  async receivedOrders(token:any){
+    const response = await axios.get(this.url+"orders/receivedOrders",{headers:{Authorization:token}});
+    return response;
+  }
+
+
+  async removeProductOrder(orderId:any, data:any, token:any){
+    const  response = await axios.post(this.url+"orders/removeOrder/"+orderId, data, {headers:{Authorization:token}});
+    return response;
+  }
+
 
   //Message
   ShowSuccessMessage(message : any){
@@ -200,6 +213,11 @@ export class CustomerService {
   closeLoading(){
     Swal.close();
   }
+
+
+  // cart to order information
+
+  orderProducts!: any;
 }
 
 
