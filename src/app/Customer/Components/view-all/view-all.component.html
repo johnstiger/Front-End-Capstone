@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div *ngIf="salesItem" class="paginator">
+    <div *ngIf="salesItem.length > 6" class="paginator">
       <pagination-controls (pageChange)="salesPage = $event"></pagination-controls>
     </div>
 
@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="products" class="paginator">
+    <div *ngIf="products.length > 12" class="paginator">
       <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
   </div>
@@ -77,7 +77,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="products" class="paginator">
+  <div *ngIf="products.length > 12" class="paginator">
     <pagination-controls (pageChange)="cp = $event"></pagination-controls>
   </div>
 </div>

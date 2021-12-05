@@ -27,6 +27,9 @@ export class DeliveryPageComponent implements OnInit {
       }else{
         order.delivery_date = "Not Yet Set";
       }
+      if(!order.tracking_code){
+        order.tracking_code = "Not Yet Set"
+      }
       order.isShow = true
       order.btnText = 'More'
       return order

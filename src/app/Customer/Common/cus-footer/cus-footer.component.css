@@ -21,7 +21,6 @@ a{
 .owners{padding-top: 4vw;}
 .category{padding-bottom: 4vw;}
 #footerhr{
-  margin-left: -9vw;
   width: 99.9vw;
   border: 1px solid #F6F2EF;
 }
@@ -85,10 +84,15 @@ a{
 @media screen and (min-width: 768px){
   .footer320{display: none;}
   .footer768{
+    max-width: 1000px;
     color: #F6F2EF;
     font-family: 'Rufina';
     text-align: center;
     padding-top: 2vw;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .dagom p, .contactdiv p, .categories p, a, #reserved{font-size: 1.8vw;}
   .subtxt {font-size: 1.6vw;}
@@ -106,7 +110,7 @@ a{
   .fb,.messenger, .instagram{
     width: 70%;
   }
-  #footerhr{width: 106.6vw;}
+  #footerhr{width: 106.6vw;max-width: 1000px}
   #reserved{margin-left: 8vw;}
 }
 @media screen and (min-width: 1024px) {

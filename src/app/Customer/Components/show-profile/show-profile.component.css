@@ -111,7 +111,7 @@ p, a{
   .media320{height: 85vh;}
 }
 @media screen and (min-width:425px){
-  .media320{height: 97vh;}
+  .media320{height: 71vh;}
 }
 
 @media screen and (max-width:767px){
