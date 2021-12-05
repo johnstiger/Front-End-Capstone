@@ -145,8 +145,6 @@ export class CustomerService {
     return response;
   }
 
-
-
   //Message
   ShowSuccessMessage(message : any){
     Swal.fire({
