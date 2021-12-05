@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
   error!: any;
   page: Number = 1;
   display = 'none';
-  products!: Products[];
+  products: Products[] = [];
   productName: any;
   filterTerm! : string;
 
@@ -42,7 +42,7 @@ export class ProductsComponent implements OnInit {
   sizeId = new Array();
   cp: number = 1;
   stockSizes: Array<any> = [];
-  product: any;
+  product: Array<any> = [];
 
   ngOnInit(): void {
     $("input[type=number]").on("keydown",function(e){
@@ -71,17 +71,21 @@ export class ProductsComponent implements OnInit {
         this.service.ShowErrorMessage(res.data.message);
       } else {
         this.products = res.data.data;
-        this.products = this.products.map(res => {
-          const size = res.sizes.map((size: any, ndx: any) => {
-            return size.pivot.avail_unit_measure
+        if(res.data.data == undefined){
+          this.products = [];
+        }else{
+          this.products = this.products.map(res => {
+            const size = res.sizes.map((size: any, ndx: any) => {
+              return size.pivot.avail_unit_measure
+            })
+            let total_avail_unit_measure = 0
+            if (size.length) {
+              total_avail_unit_measure = size.reduce((total: any, num: any) => total + num)
+            }
+            res['total_avail_unit_measure'] = total_avail_unit_measure
+            return res
           })
-          let total_avail_unit_measure = 0
-          if (size.length) {
-            total_avail_unit_measure = size.reduce((total: any, num: any) => total + num)
-          }
-          res['total_avail_unit_measure'] = total_avail_unit_measure
-          return res
-        })
+        }
       }
       this.service.closeLoading();
     });
@@ -160,7 +164,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  
+
   // Pop Up Modal
   openModal(product : any){
     this.productName = product.name;

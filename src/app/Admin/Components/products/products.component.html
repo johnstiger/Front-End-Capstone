@@ -63,7 +63,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="Unathorized" *ngIf="!products">
+                        <div class="Unathorized" *ngIf="products.length == 0">
                             <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
                         </div>
                     </div>
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="products">
+    <div *ngIf="products.length > 5">
       <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
 </div>
