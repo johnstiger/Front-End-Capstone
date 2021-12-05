@@ -36,7 +36,7 @@
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                                    <td> Not set </td>
+                                    <td> No Product Ordered </td>
                                     <td>
                                         <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i>Preview</button>
                                         <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
