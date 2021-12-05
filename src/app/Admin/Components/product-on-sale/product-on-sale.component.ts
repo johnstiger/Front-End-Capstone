@@ -24,7 +24,7 @@ export class ProductOnSaleComponent implements OnInit {
   filterTerm! : string;
   token = localStorage.getItem('admin_token');
 
-  sales! : SalesProduct[];
+  sales : SalesProduct[] = [];
   cp : number = 1;
 
   ngOnInit(): void {
@@ -46,7 +46,7 @@ export class ProductOnSaleComponent implements OnInit {
           } else {
            tr[i].style.display = "none";
          }
-        }       
+        }
       }
   }
 
