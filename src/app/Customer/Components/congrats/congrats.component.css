@@ -1,0 +1,26 @@
+.container{
+    text-align: center;
+    height: 100%;
+}
+
+.congrats {
+    background-color:#f3efef;
+    padding-top: 10%;
+    margin-top: 12%;
+    padding-bottom: 10%;
+}
+
+.message {
+    font-size: 4vh;
+}
+
+h2 {
+    font-size: 5vh;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .congrats{
+        margin-top: 35%;
+    }
+}
+

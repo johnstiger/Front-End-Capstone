@@ -98,7 +98,7 @@ export class CustomerService {
   }
 
   async addtoCart(id:any, quantity:any, token:any){
-    const response = await axios.post(this.url+"cart/add/"+id, {quantity: quantity},{headers: {Authorization:token}});
+    const response = await axios.post(this.url+"cart/add/"+id, quantity,{headers: {Authorization:token}});
     return response;
   }
 
@@ -121,7 +121,7 @@ export class CustomerService {
     return response;
   }
 
-  async showProducts(data:any, token:any){
+  async showProducts(token:any){
     const response = await axios.get(this.url+"order/show", {headers: {Authorization:token}});
     return response;
   }
@@ -208,6 +208,11 @@ export class CustomerService {
   closeLoading(){
     Swal.close();
   }
+
+
+  // cart to order information
+
+  orderProducts!: any;
 }
 
 
