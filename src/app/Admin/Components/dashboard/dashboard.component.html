@@ -68,7 +68,7 @@
                     <th>Total</th>
                 </tr>
             </thead>
-            <tbody *ngIf="pendingOrders">
+            <tbody *ngIf="pendingOrders.length > 0">
                 <tr *ngFor="let pending of pendingOrders | paginate:{ itemsPerPage : 5, currentPage: cp}">
                     <td>{{ pending.customer.firstname }} {{ pending.customer.lastname }}</td>
                     <td>

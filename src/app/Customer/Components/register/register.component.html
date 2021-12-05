@@ -197,7 +197,7 @@
                 [ngClass]="{ 'border-danger': error && error.lastname }"
               />
             </div>
-            <span class="text-danger form-text mt-0" *ngIf="error && error.lastname">
+            <span class="text-danger form-text" *ngIf="error && error.lastname">
               {{ error.lastname }}
             </span>
 
@@ -231,12 +231,6 @@
                 {{ error.password_confirmation[0] }}
               </span>
             </div>
-            <!-- <input
-              class="input"
-              type="password"
-              placeholder="Confirm Password"
-              formControlName="password_confirmation"
-            /> -->
           </div>
           <button class="btn">Submit</button>
           <p class="txt">

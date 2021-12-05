@@ -62,13 +62,36 @@ export class OrdersComponent implements OnInit {
         this.message = result.data.message
       }else{
         this.orders = result.data.data;
+        console.log(this.orders.map(res=>{
+          const products = res.products.map((result:any)=>{
+            return result.pivot.subtotal;
+          })
+          let total = 0;
+          if(products.length > 0){
+            total = products.reduce((total: any, num: any) => total + num)
+          }
+          res["overAllTotal"] = total;
+          return res
+        }));
+
       }
       this.http.closeLoading();
     });
   }
 
 
-
-
+  orderReceived(order:any){
+    this.http.loading();
+    this.http.receivedCustomerOrder(order.id, this.token).then((res)=>{
+      if(res.data.error){
+        this.http.ShowErrorMessage(res.data.message)
+      }else{
+        this.http.ShowSuccessMessage(res.data.message)
+        setTimeout(() => {
+          this.ngOnInit();
+        }, 1500);
+      }
+    })
+  }
 
 }

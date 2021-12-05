@@ -2,7 +2,6 @@
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #F6F2EF;
-  margin-bottom: 10%;
   font-family: 'Roboto';
 }
 .hr{background-color: #F6F2EF;}
@@ -59,7 +58,8 @@ a, p{
 
 
 @media screen and (min-width: 320px){
-  .media320{margin-left: 4.5vw;}
+  .media320{margin-left: 4.5vw;overflow-y: auto;
+    height: 600px;}
   .headers{margin-top: 7%;}
   .headers a, .received320 p{font-size: 4vw;}
  p{font-size: 5vw;}
@@ -104,7 +104,6 @@ a, p{
   .media320{display: none;}
   .media768{
     background-color: transparent;
-    margin-bottom: -8vw;
   }
   #img768{
     margin-left: 15%;
@@ -197,11 +196,13 @@ a, p{
   .content{
     margin-top: 2%;
     padding-bottom: 1vw;
+    overflow-y: auto;
+    height: 370px;
+    overflow-x: hidden;
   }
 }
 
 @media screen and (min-width:1024px) {
-  .media768{margin-bottom: -19vw;}
   .account{
     width: 16.66%;
     margin-left: 8vw;
@@ -253,4 +254,20 @@ a, p{
     #hr768{
       width: 59vw;
     }
+}
+
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-bottom: 15px;
+}
+
+.nav-inner-wrap {
+  text-align: center;
+  padding: 12px 0px;
+  border-bottom: solid 1px #C7988E;
+}
+
+.active-nav {
+  border-bottom: solid 2px #C7988E;
 }

@@ -1,22 +1,45 @@
 <app-sample-header></app-sample-header>
-<br><br><br>
 <div class=" col-11 col-s-11 media320">
   <div class="row">
     <div class="col-12 col-s-12 img320">
-      <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
+      <img id="img320" src="{{ image }}" alt="this is an image" *ngIf="image" />
+      <img
+        class="card-img-top"
+        src="../../../../assets/imgs/unnamed.png"
+        alt="Card image cap"
+        *ngIf="!image"
+      />
     </div>
     <div class="col-12 col-s-12">
       <div class="text320">
-        <p id="prodname">{{product.name}}</p>
-        <p id="amount">Php {{product.price}}</p>
-        <label id="quantity">Quantity </label>
-        <input id="inputQuantity" class="input" type="number" min="0" placeholder="0"><br>
-        <label id="size" class="size">Size: </label>
-        <button type="button" id="mbtn" class="btn">{{sizes}}</button>
-        <!-- <button type="button" id="sbtn" class="btn">S</button> -->
-        <p id="avialable">Available: {{avail_unit_measure}} pcs.</p>
-        <button type="button" id="addtocartbtn" class="btn">Add to Cart</button><br>
-        <button type="button" id="buyitbtn" class="btn">Buy It Now</button>
+        <form
+          name="form"
+          #AddCart="ngForm"
+          (ngSubmit)="submit(product.id, AddCart.value)"
+        >
+          <p id="prodname">{{ product.name }}</p>
+          <p id="amount">Php {{ product.price }}</p>
+          <label id="quantity">Quantity </label>
+          <input
+            id="inputQuantity"
+            [ngModel]="unit_measure"
+            name="unit_measure"
+            class="input"
+            type="number"
+            min="1"
+            placeholder="0"
+          /><br />
+          <label id="size" class="size">Size: </label>
+          <button type="button" id="mbtn" class="btn">{{ sizes }}</button>
+          <!-- <button type="button" id="sbtn" class="btn">S</button> -->
+          <p id="avialable">Available: {{ avail_unit_measure }} pcs.</p>
+          <button type="submit" id="addtocartbtn" class="btn">
+            Add to Cart</button
+          ><br />
+          <button type="button" id="buyitbtn" class="btn" click="(checkOut)">
+            Buy It Now
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -25,28 +48,74 @@
 <div class=" col-11 col-s-11 media768">
   <div class="row">
     <div class="col-5 col-s-5 img768">
-      <img id="img768" src="{{image }}" alt="this is an image" *ngIf="image">
-      <img class="card-img-top" src="../../../../assets/imgs/unnamed.png" alt="Card image cap" *ngIf="!image">
+      <img id="img768" src="{{ image }}" alt="this is an image" *ngIf="image" />
+      <img
+        class="card-img-top"
+        src="../../../../assets/imgs/unnamed.png"
+        alt="Card image cap"
+        *ngIf="!image"
+      />
     </div>
     <div class="col-1 col-s-1"></div>
     <div class="col-4 col-s-4">
       <div class="text768">
-        <form name="form" #AddCart="ngForm" (ngSubmit)="submit(product.id, AddCart.value)">
-          <p id="prodname">{{product.name}}</p>
-          <p id="amount">Php {{product.price}}</p>
+        <form name="form" #AddCart="ngForm">
+          <p id="prodname">{{ product.name }}</p>
+          <p id="amount">Php {{ product.price }}</p>
           <label id="quantity">Quantity </label>
-          <input id="inputQuantity" [ngModel]="unit_measure" name="unit_measure" class="input" type="number" min="0" placeholder="0"><br>
+          <input
+            id="inputQuantity"
+            [(ngModel)]="unit_measure"
+            name="unit_measure"
+            class="input"
+            type="number"
+            min="1"
+            [max]="maxPerSize"
+            (change)="checkQuantity()"
+            placeholder="0"
+          /><br />
           <label id="size" class="size">Size: </label>
-          <button type="button" id="mbtn" class="btn">{{sizes}}</button>
+
+          <div class="dropdown" *ngIf="sizes.length > 1">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{ selectedSize }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button
+                *ngFor="let productSizes of sizes"
+                class="dropdown-item"
+                (click)="selectSize(productSizes)"
+              >
+                {{ productSizes.size }}
+              </button>
+            </div>
+          </div>
+          <button type="button" id="mbtn" class="btn" *ngIf="sizes.length == 1">{{sizes[0].size}}</button>
           <!-- <button type="button" id="sbtn" class="btn">S</button> -->
-          <p id="avialable">Available: {{avail_unit_measure}} pcs.</p>
-          <button type="submit" id="addtocartbtn" class="btn">Add to Cart</button><br>
-          <button type="button" id="buyitbtn" class="btn" click="(checkOut)">Buy It Now</button>
+          <p id="avialable">Available: {{ avail_unit_measure }} pcs.</p>
+          <button
+            type="submit"
+            id="addtocartbtn"
+            class="btn"
+            (click)="submit(product.id, AddCart.value)"
+          >
+            Add to Cart</button
+          ><br />
+          <button type="button" id="buyitbtn" class="btn" (click)="checkout(AddCart.value)">
+            Buy It Now
+          </button>
         </form>
       </div>
     </div>
   </div>
 </div>
-<button type="button" id="backbtn" class="btn" routerLink="/home">Back</button>
+<button type="button" id="backbtn" class="btn" (click)="return()">Back</button>
 <hr class="hr">
 <app-cus-footer></app-cus-footer>

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
-import { Categories, Orders } from 'src/app/Customer/Common/model/customer-model';
+import {
+  Categories,
+  Orders
+} from 'src/app/Customer/Common/model/customer-model';
 import { UrlService } from 'src/app/Url/url.service';
 import { SalesProduct } from '../../Common/model/admin-model';
 import { AdminService } from '../../Services/admin.service';
@@ -14,68 +17,58 @@ import { AdminService } from '../../Services/admin.service';
 
 // Kulang kay pag retrieve sang value para sa chart
 // back end ani kay wala pa nahuman
-
 export class DashboardComponent implements OnInit {
-
-  constructor(
-    private http : AdminService,
-    private link : UrlService
-    ) { }
+  constructor(private http: AdminService, private link: UrlService) {}
 
   // token = this.link.getToken();
-  token = localStorage.getItem('admin_token')
+  token = localStorage.getItem('admin_token');
 
-
-  countProducts : any;
-  countSales : any;
-  categories! : Categories[];
-  pendingOrders! : Orders[];
-  annually! : number[];
-  onSales! : SalesProduct[];
-  countOrders : any;
-  countCustomers : any;
-  cp : number = 1;
-  onsale : number = 1;
+  countProducts: any;
+  countSales: any;
+  categories!: Categories[];
+  pendingOrders!: Orders[];
+  annually!: number[];
+  onSales!: SalesProduct[];
+  countOrders: any;
+  countCustomers: any;
+  cp: number = 1;
+  onsale: number = 1;
 
   ngOnInit(): void {
     this.getDashboard();
-    if(this.pendingOrders === undefined){
+    if (this.pendingOrders === undefined) {
       this.pendingOrders = [];
+      console.log('dashboard', this.pendingOrders);
     }
 
-    if(this.onSales === undefined){
+    if (this.onSales === undefined) {
       this.onSales = [];
     }
-    
   }
-
 
   //Chart JS
   lineChartData: ChartDataSets[] = [
     {
-      data: [
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-      ],
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       label: "Monthly Customer's Order",
-      lineTension: 0.3,
-      },
+      lineTension: 0.3
+    }
   ];
 
   lineChartLabels: Label[] = [
     'Jan',
-     'Feb',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'Aug',
-      'Sept',
-      'Oct',
-      'Nov',
-      'Dec'
-    ];
-
+    'Feb',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
 
   ChartOptions: ChartOptions = {
     responsive: true,
@@ -90,61 +83,58 @@ export class DashboardComponent implements OnInit {
       labels: {
         fontColor: '#fff',
         fontSize: 15,
-        padding : 30
-      },
+        padding: 30
+      }
     },
-    scales : {
-      yAxes: [{
-        ticks:{
-          min: 0,
-          fontColor:'#fff',
-          fontSize:15
-        },
-        gridLines:{
-          color: 'rgb(255,255,255,0.1)',
-        },
-      }],
-      xAxes: [{
-        ticks:{
-          min: 0,
-          fontColor : "#fff",
-          fontSize:15
-        },
-        gridLines:{
-          color: 'rgb(255,255,255,0.1)',
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            min: 0,
+            fontColor: '#fff',
+            fontSize: 15
+          },
+          gridLines: {
+            color: 'rgb(255,255,255,0.1)'
+          }
         }
-      }]
+      ],
+      xAxes: [
+        {
+          ticks: {
+            min: 0,
+            fontColor: '#fff',
+            fontSize: 15
+          },
+          gridLines: {
+            color: 'rgb(255,255,255,0.1)'
+          }
+        }
+      ]
     }
-
   };
-
 
   lineChartColors: Color[] = [
     {
-      backgroundColor: [
-        'rgba(255, 255, 255, 0.2)',
-      ],
-      borderColor: [
-        'rgb(255, 255, 255)'
-      ],
+      backgroundColor: ['rgba(255, 255, 255, 0.2)'],
+      borderColor: ['rgb(255, 255, 255)'],
       pointBorderColor: '#fff',
-      borderWidth: 3,
-    },
+      borderWidth: 3
+    }
   ];
 
   lineChartLegend = true;
   lineChartPlugins = [];
   lineChartType: ChartType = 'line';
 
-
-
-   getDashboard(){
+  getDashboard() {
     this.http.loading();
     var dateObj = new Date();
-    var month = dateObj.getUTCMonth() + 1
-     this.http.dashboard(this.token).then((result)=>{
+    var month = dateObj.getUTCMonth() + 1;
+    this.http.dashboard(this.token).then(result => {
       this.categories = result.data.categories;
       this.pendingOrders = result.data.pendingOrders;
+      console.log(this.pendingOrders);
       this.countCustomers = result.data.customers;
       this.onSales = result.data.productSales;
       this.countOrders = result.data.orders;
@@ -152,10 +142,7 @@ export class DashboardComponent implements OnInit {
       this.countProducts = result.data.products;
       this.annually = result.data.annuallyOrders;
       this.http.closeLoading();
-      this.lineChartData[0].data = Object.values(this.annually)
+      this.lineChartData[0].data = Object.values(this.annually);
     });
   }
-
-
-
 }

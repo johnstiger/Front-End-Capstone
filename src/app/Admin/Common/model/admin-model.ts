@@ -30,7 +30,8 @@ export interface Orders {
   user_id : any,
   customer : any,
   products : any,
-  tracking_code : any
+  tracking_code : any,
+  overAllTotal : any
 }
 
 

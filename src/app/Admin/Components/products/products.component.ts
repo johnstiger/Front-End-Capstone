@@ -160,44 +160,47 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  addToSale(product: any) {
-    this.sizeId.forEach(element => {
-      let select = document.getElementById('' + element.id + '') as HTMLInputElement
-      element.pivot.sales_item = parseInt(select.value);
-      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
-    })
-    if (this.sizeId.length > 0) {
-      this.router.navigate(['/admin/add-sales/' + product.id], {
-        state: {
-          data: product,
-          productSize: this.sizeId
-        }
-      })
-    } else {
-      this.service.ShowErrorMessage('Please Select Product Sizes');
-    }
-  }
-
-  openModal(product: any) {
+  
+  // Pop Up Modal
+  openModal(product : any){
     this.productName = product.name;
     this.stockSizes = product.sizes
     let check = this.stockSizes.map(res => {
-      if (res.size === 'N/A') {
+      if(res.size === 'N/A'){
         return true;
       }
       return false;
     })
     this.product = product;
-    if (check[0]) {
+    if(check[0]){
       this.sizeId = product.sizes
       this.addToSale(product);
-    } else {
+    }else{
       this.display = 'block';
     }
   }
 
-   // Close Pop Up Modal
-   onCloseHandled(){
+  // Submit Modal To Sales Page
+  addToSale(product : any){
+    this.sizeId.forEach(element=>{
+      let select = document.getElementById(''+element.id+'') as HTMLInputElement
+      element.pivot.sales_item = parseInt(select.value) > element.pivot.avail_unit_measure ? element.pivot.avail_unit_measure : parseInt(select.value)
+      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+    })
+    if(this.sizeId.length > 0){
+      this.router.navigate(['/admin/add-sales/'+product.id],{
+          state: {
+            data: product,
+            productSize : this.sizeId
+          }
+      })
+    }else{
+      this.service.ShowErrorMessage('Please Select Product Sizes');
+    }
+  }
+
+  // Close Pop Up Modal
+  onCloseHandled(){
     this.display = 'none'
     window.location.reload()
   }

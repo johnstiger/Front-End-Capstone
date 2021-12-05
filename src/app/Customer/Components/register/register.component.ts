@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
     this.service.register(this.registerForm.value).then((res) => {
       if(res.data.error){
         this.error = res.data.message;
+        this.service.closeLoading();
       }else {
         // console.log(res.data)
         // window.localStorage.setItem('customer_token',"Bearer "+ res.data.access_token);

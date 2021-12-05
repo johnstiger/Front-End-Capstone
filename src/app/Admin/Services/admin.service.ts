@@ -247,6 +247,11 @@ export class AdminService {
     return response;
   }
 
+  async receivedCustomerOrder(orderId : any,token:any){
+    const response = await axios.get(this.url+"order/received/"+orderId, {headers:{Authorization:token}});
+    return response;
+  }
+
   //Message
   ShowSuccessMessage(message : any){
     Swal.fire({

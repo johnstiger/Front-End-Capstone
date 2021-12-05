@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,6 @@ import { CartPageComponent } from './Customer/Components/cart-page/cart-page.com
 import { ProductSelectComponent } from './Customer/Components/product-select/product-select.component';
 import { MyOrderPageComponent } from './Customer/Components/my-order-page/my-order-page.component';
 import { AllOrdersComponent } from './Customer/Components/all-orders/all-orders.component';
-import { CheckOutComponent } from './Customer/Components/check-out/check-out.component';
 import { ReceivedComponent } from './Customer/Components/received/received.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -45,7 +45,8 @@ import { AddSaleComponent } from './Admin/Components/product-on-sale/add-sale/ad
 import { AddCategoryComponent } from './Admin/Components/category/add-category/add-category.component';
 import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component';
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
-import { SearchResultComponent } from './Customer/Components/search-result/search-result.component'
+import { SearchResultComponent } from './Customer/Components/search-result/search-result.component';
+import { CongratsComponent } from './Customer/Components/congrats/congrats.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -82,7 +83,6 @@ import { NewPasswordComponent } from './Customer/Components/new-password/new-pas
     TableComponent,
     ProductsComponent,
     AllOrdersComponent,
-    CheckOutComponent,
     ToPayComponent,
     ReceivedComponent,
     SampleHeaderComponent,
@@ -123,6 +123,7 @@ import { NewPasswordComponent } from './Customer/Components/new-password/new-pas
     MatPaginatorModule,
     MatIconModule,
     NgxPaginationModule,
+    CollapseModule,
     Ng2SearchPipeModule
   ],
   providers: [],

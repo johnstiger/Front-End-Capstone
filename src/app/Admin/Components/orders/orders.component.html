@@ -44,12 +44,15 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <ul>
-                                            <li *ngFor="let product of order.products">{{product.pivot.subtotal}} </li>
-                                        </ul>
+                                      {{order.overAllTotal}}
+                                    </td>
+                                    <td *ngIf="order.status == 3" class="done">
+                                      Order already received
                                     </td>
                                     <td *ngIf="order.status == 1" class="done">
                                         Confirmed
+                                        <br>
+                                        <button class="btn btn-primary receivedBtn" (click)="orderReceived(order)">Order Received</button>
                                     </td>
                                     <td *ngIf="order.status == 0" class="pending">
                                         Pending

@@ -43,7 +43,7 @@ export class LandingComponent implements OnInit {
     const result = await this.service.products(this.token);
     if(result.data.error){
     }else{
-      this.products = result.data.data;
+      this.products = result.data.message == "No data yet!" ? [] : result.data.data
       if(this.products.length > this.maxProductDisplay){
         this.displayViewAllProduct = true;
       }
@@ -77,7 +77,7 @@ export class LandingComponent implements OnInit {
       if(res.data.error){
 
       }else{
-        this.salesItem = res.data.data;
+        this.salesItem = res.data.message == "No data yet!" ? [] : res.data.data
         if(this.salesItem.length > this.maxSaleDisplay){
           this.displayViewAllSales = true;
         }
