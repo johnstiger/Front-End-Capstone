@@ -63,6 +63,7 @@ p, a{
 .editpanel{padding-top: 30px;}
 
 
+
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   .col-s-1 {width: 8.33%;}
@@ -101,7 +102,16 @@ p, a{
     padding: 1.5vw;
     padding-left: 3vw;
   }
-  .media320{margin-left: 4.5vw;}
+  .media320{
+    margin-left: 4.5vw;
+    height: 75vh;
+  }
+}
+@media screen and (min-width:375px){
+  .media320{height: 85vh;}
+}
+@media screen and (min-width:425px){
+  .media320{height: 71vh;}
 }
 
 @media screen and (max-width:767px){
@@ -133,6 +143,7 @@ p, a{
   .btn{
     padding-top: 0.4vw;
     font-size: 2vw;
+    margin-bottom: 3vw;
   }
   input{
     width: 95%;
@@ -152,7 +163,6 @@ p, a{
     width: 16.66%;
     margin-left: 8vw;
     margin-bottom: 35%;
-    max-height: 260px;
   }
   .editpanel{
     margin-bottom: 22%;

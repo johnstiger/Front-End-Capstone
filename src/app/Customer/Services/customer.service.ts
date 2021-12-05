@@ -152,6 +152,11 @@ export class CustomerService {
   }
 
 
+  async removeProductOrder(orderId:any, data:any, token:any){
+    const  response = await axios.post(this.url+"orders/removeOrder/"+orderId, data, {headers:{Authorization:token}});
+    return response;
+  }
+
 
   //Message
   ShowSuccessMessage(message : any){

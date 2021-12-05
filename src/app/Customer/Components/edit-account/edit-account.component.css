@@ -156,7 +156,7 @@ p, a{
     padding: 1.5vw;
     padding-left: 3vw;
   }
-  .media320{margin-left: 4.5vw;margin-top: -65px;}
+  .media320{margin-left: 4.5vw;margin-top: -65px;height: 710px;}
 }
 
 @media screen and (max-width:767px){

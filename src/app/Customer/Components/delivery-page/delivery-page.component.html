@@ -24,8 +24,8 @@
     <div class="content-wrapper">
       <div class="contents" style="font-size: x-small; text-align: left; padding: 15px;" *ngFor="let order of orders">
         <div>{{ order.tracking_code }}</div>
-        <div>{{ order.delivery.delivery_date }}</div>
-        <div>Php 100.00</div>
+        <div>{{ order.delivery_date }}</div>
+        <div>Php {{order.total}}</div>
         <div>
           <button class="btn" (click)="toggleCollapse(order)">{{ order.btnText }}</button>
         </div>
@@ -34,12 +34,12 @@
             <div *ngFor="let product of order.products">
               <div class="row">
                 <div class="col-6 col-s-6">
-                  <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
+                  <img id="img320" src="{{ product.image }}" alt="">
                 </div>
                 <div class="col-6 col-s-6 right">
                   <p id="prodname">{{ product.name }}</p>
                   <p id ="amount">Php {{ product.price }}</p>
-                  <p id="quant">2</p>
+                  <p id="quant">{{ product.pivot.quantity }}</p>
                   <hr id = "hr1">
                   <p id="total">Php {{ product.price }}</p>
                 </div>
@@ -49,35 +49,7 @@
         </div>
       </div>
     </div>
-    <!-- <hr id="headerhr"> -->
-    <!-- <div class="col-6 col-s-6">
-      <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-    </div>
-    <div class="col-6 col-s-6 right">
-      <p id="prodname">Product Name</p>
-      <p id="amount">Php 100.00</p>
-      <p id="quant">2</p>
-      <hr id = "hr1">
-      <p id="total" >Php 200.00</p>
-    </div>
-    <div class="col-12 col-s-12 delivery320">
-      <p id="deliverydate1">Delivery Date: December 25 2021</p>
-      <p id="prepareamount">Prepare Amount: Php 270.00</p>
-    </div>
-      <div class="col-6 col-s-6">
-        <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-      </div>
-      <div class="col-6 col-s-6 right">
-        <p id="prodname">Product Name</p>
-        <p id ="amount">Php 100.00</p>
-        <p id="quant">2</p>
-        <hr id = "hr1">
-        <p id="total">Php 200.00</p>
-      </div>
-      <div class="col-12 col-s-12 delivery320">
-        <p id="deliverydate1">Delivery Date: December 25 2021</p>
-        <p id="prepareamount">Prepare Amount: Php 270.00</p>
-      </div> -->
+
     </div>
 </div>
 
@@ -115,8 +87,8 @@
         <div class="content-wrapper">
           <div class="contents" *ngFor="let order of orders">
             <div>{{ order.tracking_code }}</div>
-            <div>{{ order.delivery.delivery_date }}</div>
-            <div>Php 100.00</div>
+            <div>{{ order.delivery_date}}</div>
+            <div>Php {{ order.total }}</div>
             <div>
               <button class="btn" (click)="toggleCollapse(order)">{{ order.btnText }}</button>
             </div>
@@ -125,14 +97,14 @@
                 <div *ngFor="let product of order.products">
                   <div class="row">
                     <div class="col-6">
-                      <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
+                      <img id="img768" src="{{ product.image }}" alt="">
                     </div>
                     <div class="col-6 col-s-6 right768">
                       <p id="prodname">{{ product.name }}</p>
                       <p id ="amount">Php {{ product.price }}</p>
-                      <p id="quant">2</p>
+                      <p id="quant">{{ product.pivot.quantity }}</p>
                       <hr id="hr1">
-                      <p id="total">Php {{ product.price }}</p>
+                      <p id="total">Php {{ product.pivot.subtotal }}</p>
                     </div>
                   </div>
                 </div>

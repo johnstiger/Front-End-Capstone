@@ -6,6 +6,7 @@ import {
   Products,
   Sizes
 } from 'src/app/Customer/Common/model/customer-model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-my-order-page',
@@ -13,7 +14,10 @@ import {
   styleUrls: ['./my-order-page.component.css']
 })
 export class MyOrderPageComponent implements OnInit {
-  constructor(private router: Router, private service: CustomerService) {}
+  constructor(private router: Router,
+     private service: CustomerService,
+     private location : Location
+     ) {}
 
   token = localStorage.getItem('customer_token');
   products!: [any];
@@ -37,7 +41,7 @@ export class MyOrderPageComponent implements OnInit {
     });
   }
 
-  async cancel() {
-    this.router.navigate(['/cart']);
+ cancel() {
+    this.location.back();
   }
 }

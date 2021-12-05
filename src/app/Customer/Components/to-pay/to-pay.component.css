@@ -7,6 +7,12 @@
   font-family: 'Roboto';
 }
 
+.test{
+  overflow-y: auto;
+  height: 500px;
+  overflow-x: hidden;
+}
+
 .listOfProducts{
   overflow-y: auto;
   height: 230px;
