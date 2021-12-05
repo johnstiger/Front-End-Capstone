@@ -17,7 +17,7 @@ export class CartPageComponent implements OnInit {
   errors!: any;
   success!: any;
   product: any;
-  quantity!: number
+  quantity!: number;
 
   Products = new Array();
 
@@ -30,6 +30,8 @@ export class CartPageComponent implements OnInit {
       if (!result.data.error) {
         console.log(result.data);
         this.products = result.data.data;
+        console.log(this.products);
+        // this.productSize(this.products[0].sizes, this.products[0].pivot.sizeId)
         this.products.map(res => {
           this.total += res.pivot.total;
           return res;
@@ -39,15 +41,23 @@ export class CartPageComponent implements OnInit {
     });
   }
 
+  productSize(sizes: [any], sizeId: number) {
+    const size = sizes.find(size => size.id === sizeId);
+    console.log('size', size.size)
+    return size.size;
+  }
+
   async checkout(data: any) {
     console.log('Checkout');
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;
       } else {
-        localStorage.removeItem('products')
-        localStorage.setItem('products', JSON.stringify(this.Products))
+        localStorage.removeItem('products');
+        localStorage.setItem('products', JSON.stringify(this.Products));
         this.service.orderProducts = this.Products;
+        console.log(this.service.orderProducts);
+
         this.router.navigate(['/order-page']);
       }
       // console.log(result.data.data);

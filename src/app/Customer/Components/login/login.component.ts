@@ -52,7 +52,8 @@ export class LoginComponent implements OnInit {
     }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
       localStorage.setItem('customer',result.data.data.id);
-      this.router.navigate(['']);
+      // this.router.navigate(['']);
+      this.checkLocalStorage();
       this.service.closeLoading();
     }
   }
@@ -80,5 +81,19 @@ export class LoginComponent implements OnInit {
       }
     })
   }
+
+  checkLocalStorage() {
+    if(localStorage.getItem('products')) {
+      this.router.navigate(['/order-page'])
+    }else if(localStorage.getItem('addToCart')){
+      this.router.navigate(['/cart'])
+    }else{
+      this.router.navigate([''])
+    }
+  }
+
+
+
+
 
 }

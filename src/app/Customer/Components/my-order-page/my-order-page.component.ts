@@ -25,7 +25,7 @@ export class MyOrderPageComponent implements OnInit {
       console.log(product.pivot.total)
       this.totalAmount += product.pivot.total
     });
-    console.log(this.totalAmount)
+    console.log(this.products)
   }
 
   async showProducts() {

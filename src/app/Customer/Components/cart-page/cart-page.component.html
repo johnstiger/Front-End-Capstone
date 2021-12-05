@@ -115,7 +115,7 @@
             </button>
           </div>
           <div class="col-1 col-s-1">
-            <p class="size">{{ product.sizes[0].size }}</p>
+            <p class="size">{{ product.sizes ? productSize(product.sizes, product.pivot.sizeId) : '' }}</p>
           </div>
           <div class="col-2 col-s-2">
             <p class="amount768">Php {{ product.price || "" }}</p>

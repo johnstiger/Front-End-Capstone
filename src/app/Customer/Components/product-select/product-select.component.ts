@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./product-select.component.css']
 })
 export class ProductSelectComponent implements OnInit {
-  product!: Products;
+  product!: any;
   unit_measure!: number;
   avail_unit_measure: number = 0;
   sizes!: any;
@@ -51,9 +51,9 @@ export class ProductSelectComponent implements OnInit {
       console.log('Selected product', this.product);
       this.sizes = this.product.sizes;
       if (this.sizes.length == 1) {
-        this.avail_unit_measure = this.sizes[0].pivot.unit_measure
-        this.selectedSizeId = this.sizes[0].id
-        console.log(this.sizes[0].unit_measure)
+        this.avail_unit_measure = this.sizes[0].pivot.unit_measure;
+        this.selectedSizeId = this.sizes[0].id;
+        console.log(this.sizes[0].unit_measure);
       }
     });
     // this.service.closeLoading();
@@ -75,7 +75,7 @@ export class ProductSelectComponent implements OnInit {
   async submit(id: any, data: any) {
     data.unit_measure = this.unit_measure;
     data.sizeId = this.selectedSizeId;
-    console.log('submit', data);
+    // console.log('submit', data);
     if (this.token) {
       await this.service.addtoCart(id, data, this.token).then(result => {
         if (result.data.error) {
@@ -86,11 +86,33 @@ export class ProductSelectComponent implements OnInit {
         }
       });
     } else {
+      localStorage.setItem('addToCart', JSON.stringify([this.product]));
       this.router.navigate(['login']);
     }
   }
 
-  async checkOut() {
-    this.router.navigate(['order-page']);
+  async checkout(data: any) {
+    const index = this.product.sizes.findIndex(
+      (size: any) => size.id == this.selectedSizeId
+    );
+    this.product.sizes[index].pivot.quantity = this.unit_measure;
+    this.product.pivot = this.product.sizes[index].pivot;
+    this.product.pivot.total = this.product.price * this.unit_measure;
+    console.log('Checkout', this.product);
+    await this.service.checkOut(data, this.token).then(result => {
+      if (result.data.error) {
+        this.errors = result.data.message;
+      } else {
+        localStorage.removeItem('products');
+        localStorage.setItem('products', JSON.stringify([this.product]));
+        this.router.navigate(['/order-page']);
+      }
+    }).catch(error => {
+      if (!this.token) {
+        localStorage.removeItem('products');
+        localStorage.setItem('products', JSON.stringify([this.product]));
+        this.router.navigate(['/login']);
+      }
+    });
   }
 }
