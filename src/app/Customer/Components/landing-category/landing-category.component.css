@@ -9,6 +9,10 @@ body .mat-typography{
   margin-right: auto;
 }
 
+.Unathorized{
+  text-align: center;
+}
+
 .paginator{
   text-align: center;
   margin-top: 70px;

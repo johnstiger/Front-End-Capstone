@@ -75,7 +75,7 @@
    .headers a{
      font-size: 4vw;
   }
-  p{font-size: 5vw;}
+  /* p{font-size: 5vw;} */
   #prodname{font-weight: bold;}
   .right{text-align: center;}
   #prodname, #amount{margin-bottom: 1vw;}

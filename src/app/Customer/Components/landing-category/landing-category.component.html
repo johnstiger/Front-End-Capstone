@@ -23,7 +23,10 @@
         </div>
       </div>
     </div>
-    <div *ngIf="products" class="paginator">
+    <div class="Unathorized" *ngIf="products.length == 0">
+      <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+  </div>
+    <div *ngIf="products.length > 6" class="paginator">
       <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
   </div>
