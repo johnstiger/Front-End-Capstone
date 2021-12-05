@@ -10,6 +10,9 @@ import { CustomerService } from '../../Services/customer.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public passwordType: string = 'password';
+  public Password: boolean = false;
+  public passwordHidden: boolean = false;
 
   form = new FormGroup({
     email : new FormControl('',[
@@ -54,6 +57,18 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('customer',result.data.data.id);
       this.router.navigate(['']);
       this.service.closeLoading();
+    }
+  }
+
+  showPassword() {
+    if(this.Password){
+      this.Password = false;
+      this.passwordType = 'password';
+      this.passwordHidden = !this.passwordHidden;
+    }else{
+      this.Password = true;
+      this.passwordType = 'text';
+      this.passwordHidden = !this.passwordHidden;
     }
   }
 
