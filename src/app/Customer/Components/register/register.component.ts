@@ -47,10 +47,10 @@ export class RegisterComponent implements OnInit {
         this.error = res.data.message;
         console.log(res.data.data)
       }else {
-        console.log(res.data)
-        window.localStorage.setItem('customer_token',"Bearer "+ res.data.access_token);
-        window.localStorage.setItem('customer_id',res.data.customer_id);
-        this.router.navigate(['/home']);
+        // console.log(res.data)
+        // window.localStorage.setItem('customer_token',"Bearer "+ res.data.access_token);
+        // window.localStorage.setItem('customer_id',res.data.customer_id);
+        this.service.showMessage(res.data.message);
       }
     }).catch(err => {
       console.log(err);

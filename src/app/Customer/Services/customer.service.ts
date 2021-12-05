@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import axios from 'axios';
 import { UrlService } from 'src/app/Url/url.service';
 import { environment } from 'src/environments/environment';
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class CustomerService {
 
-  constructor(private http : HttpClient, private link : UrlService) { }
+  constructor(private http : HttpClient, private link : UrlService, private router : Router) { }
 
   response: any;
   // url = this.link.setUrl();
@@ -154,6 +155,19 @@ export class CustomerService {
       title: message,
       showConfirmButton: false,
       timer: 1500
+    })
+  }
+
+  showMessage(message : string){
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: message,
+      confirmButtonText: "Okay thank you!"
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.router.navigate(['/'])
+      }
     })
   }
 

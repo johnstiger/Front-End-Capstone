@@ -107,8 +107,7 @@ import { NewPasswordComponent } from './Customer/Components/new-password/new-pas
     ViewAllComponent,
     ResetPasswordComponent,
     AboutUsComponent,
-    NewPasswordComponent,
-    CongratsComponent
+    NewPasswordComponent
 
   ],
   imports: [

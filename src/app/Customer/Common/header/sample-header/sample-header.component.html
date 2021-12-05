@@ -23,15 +23,15 @@
           <a class="categories" routerLink="/register" *ngIf="!authorized">Sign Up</a>
           <a class="categories" routerLink="/show-profile" *ngIf="authorized">My Profile</a>
           <a class="categories" routerLink="/all-orders" *ngIf="authorized">My Orders</a>
+          <a class="categories" (click)="logout()" *ngIf="authorized">Log Out</a>
       </div>
   </div>
   <div class="titles">
     <ul>
-
       <li *ngFor="let category of categories"><a (click)="LinkThisCategory(category)">{{ category.name}}</a></li>
       <li><a routerLink="/about-us">About Us</a></li>
-      <li><a routerLink="/login" *ngIf="!authorized">Log In</a></li>
-      <li><a routerLink="/register" *ngIf="!authorized">Register</a></li>
+      <li><a routerLink="/login" *ngIf="!authorized">Sign In</a></li>
+      <li><a routerLink="/register" *ngIf="!authorized">Sign Up</a></li>
     </ul>
   </div>
   <hr class="line">
