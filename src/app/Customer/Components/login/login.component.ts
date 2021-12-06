@@ -53,6 +53,13 @@ export class LoginComponent implements OnInit {
     }else {
       window.localStorage.setItem('customer_token', "Bearer "+result.data.access_token);
       localStorage.setItem('customer',result.data.data.id);
+      const token = localStorage.getItem('customer_token')
+      if (localStorage.getItem('addToCart')) {
+        const cart = JSON.parse(localStorage.getItem('addToCart') || '')
+        this.service.addtoCart(cart.id, cart.data, token).then(() => {
+          console.log(cart)
+        })
+      }
       // this.router.navigate(['']);
       this.checkLocalStorage();
       this.service.closeLoading();

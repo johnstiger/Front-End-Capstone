@@ -90,10 +90,6 @@ export class CartPageComponent implements OnInit {
     });
   }
 
-  changeQuantity(product: any) {
-    console.log(product);
-  }
-
   selectById(product: any, products: Array<any>) {
     let selectall = document.getElementById('selectAll') as HTMLInputElement;
     let test = document.getElementsByClassName('selectId') as HTMLCollectionOf<
