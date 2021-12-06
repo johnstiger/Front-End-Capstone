@@ -15,28 +15,54 @@
         <form
           name="form"
           #AddCart="ngForm"
-          (ngSubmit)="submit(product.id, AddCart.value)"
         >
-          <p id="prodname">{{ product.name }}</p>
-          <p id="amount">Php {{ product.price }}</p>
-          <label id="quantity">Quantity </label>
-          <input
-            id="inputQuantity"
-            [ngModel]="unit_measure"
-            name="unit_measure"
-            class="input"
-            type="number"
-            min="1"
-            placeholder="0"
-          /><br />
-          <label id="size" class="size">Size: </label>
-          <button type="button" id="mbtn" class="btn">{{sizes[0].size}}</button>
-          <!-- <button type="button" id="sbtn" class="btn">S</button> -->
-          <p id="avialable">Available: {{ avail_unit_measure }} pcs.</p>
-          <button type="submit" id="addtocartbtn" class="btn">
+        <p id="prodname">{{ product.name }}</p>
+        <p id="amount">Php {{ product.price }}</p>
+        <label id="quantity">Quantity </label>
+        <input
+          id="inputQuantity"
+          [(ngModel)]="unit_measure"
+          name="unit_measure"
+          class="input"
+          type="number"
+          min="1"
+          [max]="maxPerSize"
+          (change)="checkQuantity()"
+          placeholder="0"
+        /><br />
+        <label id="size" class="size">Size: </label>
+
+        <div class="dropdown" *ngIf="sizes.length > 1">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{ selectedSize }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button
+              *ngFor="let productSizes of sizes"
+              class="dropdown-item"
+              (click)="selectSize(productSizes)"
+            >
+              {{ productSizes.size }}
+            </button>
+          </div>
+        </div>
+        <button type="button" id="mbtn" class="btn" *ngIf="sizes.length == 1">{{sizes[0].size}}</button>
+        <!-- <button type="button" id="sbtn" class="btn">S</button> -->
+        <p id="avialable">Available: {{ avail_unit_measure }} pcs.</p>
+          <button type="submit"
+          id="addtocartbtn"
+          class="btn"
+          (click)="submit(product.id, AddCart.value)">
             Add to Cart</button
           ><br />
-          <button type="button" id="buyitbtn" class="btn" click="(checkOut)">
+          <button type="button" id="buyitbtn" class="btn" (click)="checkout(AddCart.value)">
             Buy It Now
           </button>
         </form>
@@ -107,7 +133,7 @@
             (click)="submit(product.id, AddCart.value)"
           >
             Add to Cart</button
-          ><br />
+          ><br/>
           <button type="button" id="buyitbtn" class="btn" (click)="checkout(AddCart.value)">
             Buy It Now
           </button>

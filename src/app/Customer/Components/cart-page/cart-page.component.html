@@ -1,4 +1,4 @@
-<app-sample-header></app-sample-header>
+<app-sample-header></app-sample-header> <br /><br /><br />
 <p class="headertitle">Your Cart</p>
 <div class="col-11 col-s-11 media320">
   <div class="row">
@@ -15,50 +15,52 @@
     <div class="col-12 col-s-12">
       <hr id="headerhr" />
     </div>
-    <div class="col-12 col-s-12 content">
-      <div class="row" *ngFor="let product of products">
-        <div class="col-4 col-s-4">
-          <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="" />
-        </div>
-        <div class="col-4 col-s-4">
-          <p class="productname">{{ product.name || "" }}</p>
-          <button class="removebtn" (click)="confirmRemove(product)">Remove</button>
-        </div>
-        <div class="col-4 col-s-4 details">
-          <p class="amount">Php {{ product.price || "" }}</p>
-          <label class="quantity">Quantity</label>
-          <input class="input"
-          type="text"
-          name="quantityvalue"
-          onchange="changeQuantity(product)"
-          id="quantityvalue"
-          value="{{ product.pivot.quantity }}"/>
-          <p id="total">Php {{ product.pivot.total }}</p>
+    <form name="form" #Checkout="ngForm">
+      <div class="col-12 col-s-12 content">
+        <div class="row" *ngFor="let product of products">
+          <div class="col-4 col-s-4">
+            <img class="img320" [src]="product.image || '../../../../assets/imgs/dag.jpg'" alt="" />
+          </div>
+          <div class="col-4 col-s-4">
+            <p class="productname">{{ product.name || "" }}</p>
+            <button class="removebtn" (click)="confirmRemove(product)">Remove</button>
+          </div>
+          <div class="col-4 col-s-4 details">
+            <p class="amount">Php {{ product.price || "" }}</p>
+            <label class="quantity">Quantity</label>
+            <input class="input"
+            type="text"
+            name="quantityvalue"
+            onchange="changeQuantity(product)"
+            id="quantityvalue"
+            value="{{ product.pivot.quantity }}" />
+            <p id="total">Total: Php 200.00</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-s-12 box">
-      <label class="container768 ">
-        <input type="checkbox"
-        (click)="selectById(product, products)"
-        [id]="product.id"
-        class="selectId" />
-        <span class="checkmark subselect"></span>
-      </label>
-    </div>
-    <div class="col-12 col-s-12">
-      <hr class="hr2" />
-    </div>
-    <div class="col-12 col-s-12 buttons">
-      <p>Php {{ total }}</p>
-      <button class="btn">Continue Shopping</button><br />
-      <button class="btn">Update</button><br />
-      <button class="btn">Check Out</button>
-    </div>
+      <div class="col-12 col-s-12 box">
+        <label class="container768 ">
+          <input type="checkbox" checked="checked" />
+          <span class="checkmark subselect"></span>
+        </label>
+      </div>
+      <div class="col-12 col-s-12">
+        <hr class="hr2" />
+      </div>
+      <div class="col-12 col-s-12 buttons">
+        <p>Subtotal Php {{ total }}</p>
+        <button class="btn" routerLink="/home">Continue Shopping</button><br />
+        <button class="btn">Update</button><br />
+        <button type="button"
+        (click)="checkout(Checkout.value)"
+        class="btn checkoutbtn">Check Out</button>
+      </div>
+    </form>
   </div>
 </div>
 
-<div class="col-11 col-s-11 media768">
+<!-- MEDIA 768 -->
+<div class="col-11 col-s-11 media768"> 
   <div class="row">
     <div class="col-12 col-s-12 headers768">
       <div class="row">
@@ -123,7 +125,13 @@
             </button>
           </div>
           <div class="col-1 col-s-1">
-            <p class="size">{{ product.sizes ? productSize(product.sizes, product.pivot.sizeId) : '' }}</p>
+            <p class="size">
+              {{
+                product.sizes
+                  ? productSize(product.sizes, product.pivot.sizeId)
+                  : ""
+              }}
+            </p>
           </div>
           <div class="col-2 col-s-2">
             <p class="amount768">Php {{ product.price || "" }}</p>
@@ -172,6 +180,6 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
 <hr class="hr" />
 <app-cus-footer></app-cus-footer>
