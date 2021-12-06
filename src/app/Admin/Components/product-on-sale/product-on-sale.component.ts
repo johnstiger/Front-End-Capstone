@@ -70,7 +70,9 @@ export class ProductOnSaleComponent implements OnInit {
         this.http.ShowErrorMessage(result.data.message)
       }else{
         this.http.ShowSuccessMessage(result.data.message);
-        this.ngOnInit();
+        setTimeout(()=>{
+          window.location.reload();
+        },1500)
       }
     });
   }

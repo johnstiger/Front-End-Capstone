@@ -134,7 +134,19 @@ export class DashboardComponent implements OnInit {
     this.http.dashboard(this.token).then(result => {
       this.categories = result.data.categories;
       this.pendingOrders = result.data.pendingOrders;
+      this.pendingOrders = this.pendingOrders.map(res=>{
+        const subtotal = res.products.map((result:any)=>{
+          return result.pivot.subtotal;
+        })
+        let overAll = 0;
+        if(subtotal.length > 0){
+          overAll = subtotal.reduce((total: any, num: any) => total + num)
+        }
+        res["overAllTotal"] = overAll;
+        return res;
+      })
       console.log(this.pendingOrders);
+
       this.countCustomers = result.data.customers;
       this.onSales = result.data.productSales;
       this.countOrders = result.data.orders;
