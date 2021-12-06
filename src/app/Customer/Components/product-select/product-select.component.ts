@@ -23,6 +23,7 @@ export class ProductSelectComponent implements OnInit {
   selectedSize: string = 'Select';
   maxPerSize: number = 1;
   selectedSizeId!: number;
+  comments : Array<any> = [];
   image!: string;
 
   errors!: any;
@@ -55,6 +56,9 @@ export class ProductSelectComponent implements OnInit {
     // this.service.loading();
     await this.service.getProduct(this.id).then(result => {
       this.product = result.data.data;
+      this.comments = result.data.comments
+      console.log(this.comments);
+
       this.image = this.product.image;
       this.id = this.product.id;
       console.log('Selected product', this.product);

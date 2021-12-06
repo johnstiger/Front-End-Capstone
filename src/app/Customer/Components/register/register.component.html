@@ -19,6 +19,16 @@
         <div class="col-12 col-s-12">
           <p class="register">Register</p>
         </div>
+        <div class="alert alert-danger" role="alert" *ngIf="error
+          && !error.email
+          && !error.password
+          && !error.firstname
+          && !error.lastname
+          && !error.contact_number
+          && !error.password_confirmation
+          ">
+            Sorry there is something wrong please try again.
+          </div>
         <form [formGroup]="registerForm" (ngSubmit)="register()">
           <div class="col-12 col-s-12">
           <span
@@ -27,14 +37,17 @@
         >
           {{ error.firstname }}
         </span>
-          <input
+          <div class="form-group">
+            <input
           class="input"
           type="text"
           name="firstname"
           formControlName="firstname"
           [ngClass]="{ 'border-danger': error && error.firstname }"
           placeholder="Firstname" />
+          </div>
         </div>
+
         <div class="col-12 col-s-12">
           <span
           class="text-danger form-text"
@@ -42,14 +55,17 @@
         >
           {{ error.lastname }}
         </span>
-          <input
+          <div class="form-group">
+            <input
           class="input"
           type="text"
           formControlName="lastname"
           name="lastname"
           [ngClass]="{ 'border-danger': error && error.lastname }"
           placeholder="Lastname" />
+          </div>
         </div>
+
         <div class="col-12 col-s-12">
           <span
           class="text-danger form-text"
@@ -57,14 +73,17 @@
         >
           {{ error.email }}
         </span>
-          <input
+          <div class="form-group">
+            <input
           class="input"
           type="text"
           formControlName="email"
           name="email"
           [ngClass]="{ 'border-danger': error && error.email }"
           placeholder="Email Address" />
+          </div>
         </div>
+
         <div class="col-12 col-s-12">
           <span
           class="text-danger form-text"
@@ -72,14 +91,17 @@
         >
           {{ error.contact_number }}
         </span>
-          <input
+          <div class="form-group">
+            <input
           class="input"
           type="text"
           formControlName="contact_number"
           name="contact_number"
           [ngClass]="{ 'border-danger': error && error.contact_number }"
           placeholder="Contact Number" />
+          </div>
         </div>
+
         <div class="col-12 col-s-12">
           <span
           class="text-danger form-text"
@@ -87,14 +109,23 @@
         >
           {{ error.password }}
         </span>
-          <input
+          <div class="mob-form">
+            <input
           class="input"
-          type="password"
+          [type]="passwordType"
           formControlName="password"
           name="password"
           [ngClass]="{ 'border-danger': error && error.password }"
           placeholder="Password" />
+          <i class="material-icons visibility"
+                (click)="showPassword()"
+                [hidden]="passwordHidden">visibility_off</i>
+          <i class="material-icons visibility"
+                (click)="showPassword()"
+                [hidden]="!passwordHidden">visibility</i>
+          </div>
         </div>
+        <div class="info-responsive"><span class="infoText">Must contain at least 8 characters including the following :(!@#$%^&*()_+,[A-Z])</span></div>
         <div class="col-12 col-s-12">
           <span
           class="text-danger form-text"
@@ -102,13 +133,21 @@
         >
           {{ error.password_confirmation }}
         </span>
-          <input
+          <div class="mob-form">
+            <input
           class="input"
-          type="password"
+          [type]="confirmationType"
           formControlName="password_confirmation"
           name="password_confirmation"
           [ngClass]="{ 'border-danger': error && error.password_confirmation }"
           placeholder="Confirm Password" />
+          <i class="material-icons visibility"
+                 (click)="showConfirmationPassword()"
+                 [hidden]="confirmationPasswordHidden">visibility_off</i>
+          <i class="material-icons visibility"
+                 (click)="showConfirmationPassword()"
+                 [hidden]="!confirmationPasswordHidden">visibility</i>
+          </div>
         </div>
         <div class="col-12 col-s-12" style="text-align: center;">
           <button class="btn" type="submit">Submit</button>
@@ -122,6 +161,7 @@
   </div>
 </div>
 
+<!-- web  -->
 <div class="col-12 col-s-12 media768">
   <div class="row">
     <div class="col-4 col-s-4 dagomdiv">
@@ -138,6 +178,16 @@
       <form [formGroup]="registerForm" (ngSubmit)="register()">
         <div class="row">
           <p class="registertxt">Register</p>
+          <div class="alert alert-danger" role="alert" *ngIf="error
+          && !error.email
+          && !error.password
+          && !error.firstname
+          && !error.lastname
+          && !error.contact_number
+          && !error.password_confirmation
+          ">
+            Sorry there is something wrong please try again.
+          </div>
           <div class="col-6 col-s-6">
             <div class="form-group">
               <input
@@ -147,13 +197,13 @@
                 formControlName="firstname"
                 [ngClass]="{ 'border-danger': error && error.firstname }"
               />
-              <span
-                class="text-danger form-text"
-                *ngIf="error && error.firstname"
-              >
-                {{ error.firstname }}
-              </span>
             </div>
+            <span
+              class="text-danger form-text"
+              *ngIf="error && error.firstname"
+            >
+              {{ error.firstname }}
+            </span>
 
             <div class="form-group">
               <input
@@ -163,28 +213,34 @@
                 formControlName="contact_number"
                 [ngClass]="{ 'border-danger': error && error.firstname }"
               />
-              <span
-                class="text-danger form-text"
-                *ngIf="error && error.contact_number"
-              >
-                {{ error.contact_number }}
-              </span>
             </div>
+            <span
+              class="text-danger form-text"
+              *ngIf="error && error.contact_number"
+            >
+              {{ error.contact_number }}
+            </span>
             <div class="form-group">
               <input
                 class="form-control"
-                type="password"
+                [type]="passwordType"
                 placeholder="Password"
                 formControlName="password"
                 [ngClass]="{ 'border-danger': error && error.password }"
               />
+              <i class="material-icons visibility"
+                (click)="showPassword()"
+                [hidden]="passwordHidden">visibility_off</i>
+                <i class="material-icons visibility"
+                (click)="showPassword()"
+                [hidden]="!passwordHidden">visibility</i>
+              </div>
               <span
                 class="text-danger form-text"
                 *ngIf="error && error.password"
               >
-                {{ error.password[0] }}
+                {{ error.password }}
               </span>
-            </div>
 
           </div>
           <div class="col-6 col-s-6 right">
@@ -209,29 +265,42 @@
                 formControlName="email"
                 [ngClass]="{ 'border-danger': error && error.email }"
               />
-              <span class="text-danger form-text" *ngIf="error && error.email">
-                {{ error.email }}
-              </span>
             </div>
+            <span class="text-danger form-text" *ngIf="error && error.email">
+              {{ error.email }}
+            </span>
 
             <div class="form-group">
               <input
                 class="form-control "
-                type="password"
+                [type]="confirmationType"
                 placeholder="Confirm Password"
                 formControlName="password_confirmation"
                 [ngClass]="{
                   'border-danger': error && error.password_confirmation
                 }"
               />
-              <span
-                class="text-danger form-text"
-                *ngIf="error && error.password_confirmation"
-              >
-                {{ error.password_confirmation[0] }}
-              </span>
-            </div>
+              <i class="material-icons visibility"
+                 (click)="showConfirmationPassword()"
+                 [hidden]="confirmationPasswordHidden">visibility_off</i>
+              <i class="material-icons visibility"
+                 (click)="showConfirmationPassword()"
+                 [hidden]="!confirmationPasswordHidden">visibility</i>
+                </div>
+                <span
+                  class="text-danger form-text"
+                  *ngIf="error && error.password_confirmation"
+                >
+                  {{ error.password_confirmation }}
+                </span>
+            <!-- <input
+              class="input"
+              type="password"
+              placeholder="Confirm Password"
+              formControlName="password_confirmation"
+            /> -->
           </div>
+          <div class="info"><span class="infoText">Must contain at least 8 characters including the following :(!@#$%^&*()_+,[A-Z])</span></div>
           <button class="btn">Submit</button>
           <p class="txt">
             Do you already have an account? <a routerLink="/login">Sign In</a>

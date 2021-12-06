@@ -146,11 +146,14 @@
             <p class="total768">Php {{ product.pivot.total }}</p>
           </div>
         </div>
+        <div class="Unathorized" *ngIf="products.length == 0">
+          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+        </div>
       </div>
       <div class="col-12 col-s-12">
         <hr class="hr768" style="margin-top: 2%;" />
       </div>
-      <div class="col-12 col-s-12">
+      <div class="col-12 col-s-12" *ngIf="products.length > 0">
         <div class="row">
           <div class="col-9 col-s-9"></div>
           <div class="col-1 col-s-1">
@@ -165,11 +168,12 @@
         <button class="btn cntshopping" routerLink="/home">
           Continue Shopping
         </button>
-        <button class="btn updatebtn">Update</button>
+        <button class="btn updatebtn" *ngIf="products.length > 0">Update</button>
         <button
           type="button"
           (click)="checkout(Checkout.value)"
           class="btn checkoutbtn"
+          *ngIf="products.length > 0"
         >
           Check Out
         </button>

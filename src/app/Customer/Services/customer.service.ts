@@ -157,6 +157,12 @@ export class CustomerService {
     return response;
   }
 
+  // Comment section
+  async comment(productId:any, data:any, token:any){
+    const response = await axios.post(this.url+"comment/create/"+productId, data, {headers:{Authorization:token}});
+    return response;
+  }
+
 
   //Message
   ShowSuccessMessage(message : any){
