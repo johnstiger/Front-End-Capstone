@@ -9,11 +9,16 @@
     </div>
   </div>
   <hr id="headerhr">
-  <label for="">To Pay Order List</label>
-  <select name="" width="90" [(ngModel)]="selectedOrderId" (change)="selectOrder()" class="form-control" id="">
-    <option *ngFor="let order of orders; let i = index" value="{{ order.id }}">Order {{ i + 1 }}</option>
-  </select>
-  <div class="test">
+  <div class="Unathorized" *ngIf="display">
+    <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+  </div>
+  <div *ngIf="!display">
+    <label for="">To Pay Order List</label>
+    <select name="" width="90" [(ngModel)]="selectedOrderId" (change)="selectOrder()" class="form-control" id="">
+      <option *ngFor="let order of orders; let i = index" value="{{ order.id }}">Order {{ i + 1 }}</option>
+    </select>
+  </div>
+  <div class="test" *ngIf="!display">
     <div class="row" *ngFor="let product of products">
       <div class="col-6 col-s-6">
         <img id="img320" src="{{ product.image }}" alt="">
@@ -38,7 +43,7 @@
     </div>
   </div>
   <hr id="hr2">
-  <div class="col-12 col-s-12 buttons">
+  <div class="col-12 col-s-12 buttons" *ngIf="!display">
     <p style="margin-bottom: 0px;">Subtotal: Php {{subtotal}}</p>
     <p style="margin-bottom: 0px; margin-right: 16%;">Shipping Fee: Php 70.00</p>
     <p style="margin-left: 19%;">Total: {{subtotal+70}}</p>
@@ -72,13 +77,16 @@
         <div class="col-12 col-s-12">
           <hr id="hr768">
         </div>
-        <div width="50">
+        <div class="Unathorized" *ngIf="display">
+          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="image">
+        </div>
+        <div width="50" *ngIf="!display">
           <label for="">To Pay Order List</label>
           <select name="" width="90" [(ngModel)]="selectedOrderId" (change)="selectOrder()" class="form-control" id="">
             <option *ngFor="let order of orders; let i = index" value="{{ order.id }}">Order {{ i + 1 }}</option>
           </select>
         </div>
-        <div class="col-12 col-s-12" style="margin-top: 5%; margin-bottom: 2%;">
+        <div class="col-12 col-s-12" style="margin-top: 5%; margin-bottom: 2%;" *ngIf="!display">
           <div class="row listOfProducts">
             <div class="col-6 col-s-6 subdiv" *ngFor="let product of products">
               <div class="row">
@@ -107,10 +115,10 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-s-12">
+        <div class="col-12 col-s-12" *ngIf="!display">
           <hr id="hr2">
         </div>
-         <div class="col-12 col-s-12 buttons">
+         <div class="col-12 col-s-12 buttons" *ngIf="!display">
           <p id="subtotal">Subtotal: Php {{subtotal}}</p>
           <p id="shippingfee">Shipping Fee: Php 70.00</p>
           <p id="alltotal">Total: {{subtotal+70}}</p>
