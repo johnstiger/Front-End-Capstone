@@ -276,7 +276,7 @@ p,
       font-weight: 500;
       font-family: 'Philosopher';
   }
-  p, .btn, .removebtn, .productname, .container768{font-size: 2vw;}
+  p, .btn, .removebtn, .productname, .container768, .updatebtn{font-size: 2vw;}
   .checkmark{
     height: 2.5vw;
     width: 3.3vw;
@@ -336,11 +336,17 @@ p,
     margin-right: -23vw;
   }
   .buttons button{
-    margin-left: 2.3vw;
+    margin-left: 3vw;
     border-radius: 5px;
   }
-  .updatebtn{width: 18vw;}
+  .updatebtn{
+    width: 9vw;
+    padding: 0.3vw;
+    border-radius: 5px;
+  }
   .buttons{margin-bottom: -1vw;}
+  .cntshopping{margin-left: 16vw}
+
 }
 @media screen and (min-width: 1024px) {
   p, .btn, .removebtn, .productname, .container768, #quantityvalue{font-size: 1.3vw;}

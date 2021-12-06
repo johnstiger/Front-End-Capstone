@@ -88,7 +88,7 @@ export class ProductSelectComponent implements OnInit {
   async submit(id: any, data: any) {
     data.unit_measure = this.unit_measure;
     data.sizeId = this.selectedSizeId;
-    // console.log('submit', data);
+    console.log('submit', data);
     if (this.token) {
       await this.service.addtoCart(id, data, this.token).then(result => {
         if (result.data.error) {
@@ -99,7 +99,8 @@ export class ProductSelectComponent implements OnInit {
         }
       });
     } else {
-      localStorage.setItem('addToCart', JSON.stringify([this.product]));
+      const cart = {id: id, data: data}
+      localStorage.setItem('addToCart', JSON.stringify(cart));
       this.router.navigate(['login']);
     }
   }
