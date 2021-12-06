@@ -83,6 +83,8 @@ export class SampleHeaderComponent implements OnInit {
   async logout(){
     this.service.loading();
     const result = await this.service.logoutUser(this.token);
+    console.log(result.data);
+
     if(result.data.error){
 
     }else{

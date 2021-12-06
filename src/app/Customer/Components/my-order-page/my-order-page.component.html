@@ -1,7 +1,7 @@
 <app-sample-header></app-sample-header>
 <p class="headertxt">Your Orders</p>
 <div class="col-11 col-s-11 media320">
-  <div class="row">
+  <div class="row" *ngFor="let product of products">
     <div class="col-12 col-s-12 pageheader">
       <div class="row">
         <div class="col-6 col-s-6">
@@ -16,43 +16,33 @@
     <div class="col-12 col-s-12 content">
       <div class="row">
         <div class="col-4 col-s-4">
-          <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="" />
+          <img class="img320" src="{{ product.image }}" alt="" />
         </div>
         <div class="col-4 col-s-4">
-          <p class="productname">Product Name</p>
+          <p class="productname">{{ product.name }}</p>
           <button class="removebtn">Remove</button>
         </div>
         <div class="col-4 col-s-4 details">
-          <p class="amount">Php 100.00</p>
+          <p class="amount">Php {{ product.price }}.00</p>
           <label class="quantity">Quantity</label>
-          <input class="input" type="number" min="0" value="0" />
-          <p id="total">Total: Php 200.00</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-s-12 content">
-      <div class="row">
-        <div class="col-4 col-s-4">
-          <img class="img320" src="../../../../assets/imgs/dag.jpg" alt="" />
-        </div>
-        <div class="col-4 col-s-4">
-          <p class="productname">Product Name</p>
-          <button class="removebtn">Remove</button>
-        </div>
-        <div class="col-4 col-s-4 details">
-          <p class="amount">Php 100.00</p>
-          <label class="quantity">Quantity</label>
-          <input class="input" type="number" min="0" value="0" />
-          <p id="total">Total: Php 200.00</p>
+          <input
+            class="input"
+            type="number"
+            min="0"
+            value="0"
+            readonly
+            value="{{ product.pivot.quantity }}"
+          />
+          <p id="total">Total: Php {{ product.pivot.total }}.00</p>
         </div>
       </div>
     </div>
     <hr class="hr2" />
     <div class="col-12 col-s-12 buttons">
-      <p id="subtotal">Subtotal: Php 200.00</p>
+      <p id="subtotal">Subtotal: Php {{ totalAmount }}.00</p>
       <p id="shippingfee">Shipping Fee: Php 70.00</p>
-      <p id="alltotal">Total: 270.00</p>
-      <button class="btn" id="cancel">Cancel</button><br />
+      <p id="alltotal">Total: {{ totalAmount + 70 }}.00</p>
+      <button class="btn" id="cancel" (click)="cancel()">Cancel</button><br />
       <button class="btn" id="placeorder">Place Order</button>
     </div>
   </div>
@@ -60,17 +50,24 @@
 
 <div class="col-11 col-s-11 media768">
   <div class="row">
-    <div class="col-4 col-s-4 head">
-      <p class="side">First Name Last Name</p>
+
+    <div class="col-12 mt-3">
+      <h6>Personal info</h6>
+      <p class="side">Fullname: {{ user?.firstname }} {{ user?.lastname}} Email: {{ user?.email}}</p>
     </div>
-    <div class="col-4 col-s-4 head"><p>Contact Number</p></div>
-    <div class="col-4 col-s-4 head">
-      <button class="btn mngadress">Manage Address</button>
+    <div class="col-12">
+      <h6>Addresss</h6>
+      <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let i = index">
+        <input type="radio" class="custom-control-input" [id]="i" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
+        <label class="custom-control-label" [for]="i">({{ address.contact_number }}) {{ address.province }}</label>
+      </div>
     </div>
-    <div class="col-4 col-s-4 headp"><p class="side">Address</p></div>
-    <div class="col-4 col-s-4 headp"><p>Payment Type</p></div>
-    <div class="col-4 col-s-4">
-      <button class="btn mngpayment">Manage Payment</button>
+    <div class="col-12">
+      <h6>Payment</h6>
+      <div class="custom-control custom-radio" *ngFor="let payment of payments;let i = index">
+        <input type="radio" class="custom-control-input" [id]="'payment' + i" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
+        <label class="custom-control-label" [for]="'payment' + i">{{ payment.display }}</label>
+      </div>
     </div>
     <hr id="headerid" />
     <div class="col-12 col-s-12 headers">
@@ -94,7 +91,7 @@
           </div>
           <div class="col-1 col-s-1"></div>
           <div class="col-2 col-s-2">
-            <p id="product">{{ product.price }}.00</p>
+            <p id="product">Php{{ product.price }}.00</p>
           </div>
           <div class="col-2 col-s-2">
             <input
@@ -126,7 +123,7 @@
             ><br />
           </div>
           <div class="col-3 col-s-3">
-            <button class="btn" id="placeorder">Place Order</button>
+            <button class="btn" id="placeorder" (click)="placeOrder()" [disabled]="(order.address_id==0)">Place Order</button>
           </div>
         </div>
       </div>
