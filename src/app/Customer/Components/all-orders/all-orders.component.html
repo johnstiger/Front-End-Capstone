@@ -43,10 +43,18 @@
   <div class="row">
     <div class="col-3 col-s-3 account">
       <img class="profileimg" [src]="img" alt="">
-      <a><p class="customername">{{ customerName }}</p></a>
-      <a routerLink="/edit-account"><p class="editaccount">Edit Account</p></a>
-      <a routerLink="/all-orders"><p class="myorders">My Orders</p></a>
-      <a routerLink="/addresses"><p class="myorders">Addreses</p></a>
+      <a routerLink="/show-profile">
+        <p class="customername">{{ customerName }}</p>
+      </a>
+      <a routerLink="/edit-account">
+        <p class="editaccount">Edit Account</p>
+      </a>
+      <a routerLink="/all-orders">
+        <p class="myorders">My Orders</p>
+      </a>
+      <a routerLink="/addresses">
+        <p class="myorders">Addresses</p>
+      </a>
     </div>
     <div class="col-8 col-s-8 deliverypanel">
       <div class="row">

@@ -50,7 +50,6 @@
 
 <div class="col-11 col-s-11 media768">
   <div class="row">
-
     <div class="col-12 mt-3">
       <h6>Personal info</h6>
       <p class="side">Fullname: {{ user?.firstname }} {{ user?.lastname}} Email: {{ user?.email}}</p>
@@ -119,7 +118,7 @@
         <div class="row">
           <div class="col-6 col-s-6"></div>
           <div class="col-3 col-s-3">
-            <button class="btn" id="cancel" click="cancel()">Cancel</button
+            <button class="btn" id="cancel" (click)="cancel()">Cancel</button
             ><br />
           </div>
           <div class="col-3 col-s-3">
