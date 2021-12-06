@@ -1,3 +1,5 @@
+import { UpdateAddressComponent } from './Customer/Components/update-address/update-address.component';
+import { AddAddressesComponent } from './Customer/Components/add-addresses/add-addresses.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAdminComponent } from './Admin/Components/admins/add-admin/add-admin.component';
@@ -41,17 +43,18 @@ import { ViewAllComponent } from './Customer/Components/view-all/view-all.compon
 import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
 import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
 import { ResetPasswordGuard } from './Authorization/reset-password.guard';
+import { AddressesComponent } from './Customer/Components/addresses/addresses.component';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
   {
-    path: 'admin', component: NavigationComponent , canActivate : [AdminGuard],
+    path: 'admin', component: NavigationComponent, canActivate: [AdminGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'myProfile', component: MyProfileComponent },
       { path: 'orders', component: OrdersComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'add-product', component: AddProductComponent},
+      { path: 'add-product', component: AddProductComponent },
       { path: 'edit-product/:id', component: EditProductComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'admins', component: AdminsComponent },
@@ -63,7 +66,7 @@ const routes: Routes = [
       { path: 'add-sales/:id', component: AddSaleComponent },
       { path: 'edit-sales/:id', component: EditSaleComponent },
 
-      { path: 'categories', component:CategoryComponent },
+      { path: 'categories', component: CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'edit-category/:id', component: EditCategoryComponent }
 
@@ -73,27 +76,30 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: LandingComponent },
   { path: 'choose?=/:id', component: LandingCategoryComponent },
-  { path: 'register', component:RegisterComponent },
-  { path: 'login', component:LoginComponent },
-  { path: 'reset-password=?/:id',component:ResetPasswordComponent, canActivate:[ResetPasswordGuard] },
-  { path: 'new-password=?/:id',component:NewPasswordComponent },
-  { path: 'about-us', component:AboutUsComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'reset-password=?/:id', component: ResetPasswordComponent, canActivate: [ResetPasswordGuard] },
+  { path: 'new-password=?/:id', component: NewPasswordComponent },
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'search-result', component: SearchResultComponent },
-  { path: 'all-orders', component:AllOrdersComponent, canActivate: [CustomerGuard] },
-  { path: 'cart', component:CartPageComponent, canActivate: [CustomerGuard] },
-  { path: 'delivery-page', component:DeliveryPageComponent, canActivate: [CustomerGuard] },
-  { path: 'edit-account', component:EditAccountComponent, canActivate: [CustomerGuard] },
-  { path: 'order-page', component:MyOrderPageComponent, canActivate: [CustomerGuard] },
-  { path: 'product-select', component:ProductSelectComponent, canActivate: [CustomerGuard] },
-  { path: 'received', component:ReceivedComponent, canActivate: [CustomerGuard]},
-  { path: 'search-result', component:SearchResultComponent, canActivate: [CustomerGuard] },
-  { path: 'show-profile', component:ShowProfileComponent, canActivate: [CustomerGuard] },
-  { path: 'product', component:ProductSelectComponent, canActivate: [CustomerGuard] },
-  { path: 'pay', component:ToPayComponent, canActivate: [CustomerGuard] },
+  { path: 'all-orders', component: AllOrdersComponent, canActivate: [CustomerGuard] },
+  { path: 'cart', component: CartPageComponent, canActivate: [CustomerGuard] },
+  { path: 'delivery-page', component: DeliveryPageComponent, canActivate: [CustomerGuard] },
+  { path: 'edit-account', component: EditAccountComponent, canActivate: [CustomerGuard] },
+  { path: 'order-page', component: MyOrderPageComponent, canActivate: [CustomerGuard] },
+  { path: 'product-select', component: ProductSelectComponent, canActivate: [CustomerGuard] },
+  { path: 'received', component: ReceivedComponent, canActivate: [CustomerGuard] },
+  { path: 'search-result', component: SearchResultComponent, canActivate: [CustomerGuard] },
+  { path: 'show-profile', component: ShowProfileComponent, canActivate: [CustomerGuard] },
+  { path: 'product', component: ProductSelectComponent, canActivate: [CustomerGuard] },
+  { path: 'pay', component: ToPayComponent, canActivate: [CustomerGuard] },
   { path: 'selected/:id', component: ProductSelectComponent },
-  { path: 'view=?/:id', component:ViewAllComponent },
+  { path: 'view=?/:id', component: ViewAllComponent },
+  { path: 'addresses', component: AddressesComponent },
+  { path: 'addresses/add', component: AddAddressesComponent },
+  { path: 'addresses/:id/update', component: UpdateAddressComponent },
 
-  {path:'spinner',component:SpinnerComponent},
+  { path: 'spinner', component: SpinnerComponent },
 
   { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '/404' },

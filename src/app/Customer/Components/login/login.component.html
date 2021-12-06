@@ -48,13 +48,13 @@
                   <i class="material-icons visibility"
                   (click)="showPassword()"
                   [hidden]="!passwordHidden">visibility</i>
-                  <span
+                </div>
+                <span
                     class="text-danger form-text"
                     *ngIf="error && error.password"
                   >
                     {{ error.password }}
                   </span>
-                </div>
                       <div class="loginbottom">
                           <button type="submit" class="btn submitbtn mt-3 login">Log In</button>
                           <p class="mt-3" (click)="forgetPassword()">Forget Password?</p>

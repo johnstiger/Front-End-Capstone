@@ -61,6 +61,9 @@ import { ViewAllComponent } from './Customer/Components/view-all/view-all.compon
 import { ResetPasswordComponent } from './Customer/Components/reset-password/reset-password.component';
 import { AboutUsComponent } from './Customer/Components/about-us/about-us.component';
 import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
+import { AddressesComponent } from './Customer/Components/addresses/addresses.component';
+import { AddAddressesComponent } from './Customer/Components/add-addresses/add-addresses.component';
+import { UpdateAddressComponent } from './Customer/Components/update-address/update-address.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +111,10 @@ import { NewPasswordComponent } from './Customer/Components/new-password/new-pas
     ViewAllComponent,
     ResetPasswordComponent,
     AboutUsComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
+    AddressesComponent,
+    AddAddressesComponent,
+    UpdateAddressComponent
 
   ],
   imports: [

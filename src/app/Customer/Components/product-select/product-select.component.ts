@@ -77,6 +77,7 @@ export class ProductSelectComponent implements OnInit {
     this.selectedSizeId = size.id;
     this.maxPerSize = size.pivot.unit_measure;
     this.avail_unit_measure = size.pivot.unit_measure;
+    this.unit_measure = 0
   }
 
   checkQuantity() {

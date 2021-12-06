@@ -26,6 +26,9 @@
     <div *ngIf="products" class="paginator">
       <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
+    <div class="Unathorized" *ngIf="display">
+      <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+  </div>
 </div>
 <hr>
 <app-cus-footer></app-cus-footer>

@@ -15,7 +15,10 @@
           <a id="recieved" href="/received">Received</a>
         </div>
       </div>
-      <div class="wrapper" style="grid-template-columns: 1fr !important;">
+      <div class="Unathorized" *ngIf="display">
+        <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="image">
+      </div>
+      <div class="wrapper" style="grid-template-columns: 1fr !important;" *ngIf="!display">
         <div *ngFor="let product of products">
           <div class="col-12 col-s-12 submedia">
             <div class="row">
@@ -43,6 +46,7 @@
       <a><p class="customername">{{ customerName }}</p></a>
       <a routerLink="/edit-account"><p class="editaccount">Edit Account</p></a>
       <a routerLink="/all-orders"><p class="myorders">My Orders</p></a>
+      <a routerLink="/addresses"><p class="myorders">Addreses</p></a>
     </div>
     <div class="col-8 col-s-8 deliverypanel">
       <div class="row">

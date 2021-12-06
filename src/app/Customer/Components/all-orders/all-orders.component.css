@@ -226,6 +226,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-bottom: 15px;
+
+    font-size: 15px;
+
   }
 
   .nav-inner-wrap {
