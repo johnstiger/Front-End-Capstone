@@ -19,31 +19,31 @@ export interface Products {
 }
 
 export interface Admins {
-  id : number,
-  email : string,
-  firstname : string,
-  lastname : string,
-  contact_number : number,
-  password : string,
-  image : string
+  id: number,
+  email: string,
+  firstname: string,
+  lastname: string,
+  contact_number: number,
+  password: string,
+  image: string
 }
 
 export interface Categories {
-  id : number,
-  name : string
+  id: number,
+  name: string
 }
 
 export interface Sizes {
-  id : number,
-  size : string,
-  pivot : any
+  id: number,
+  size: string,
+  pivot: any
 }
 
 export interface Comments {
-  id : number,
-  user_id : number,
-  product_id : number,
-  message : string
+  id: number,
+  user_id: number,
+  product_id: number,
+  message: string
 }
 
 export interface Orders {
@@ -60,21 +60,52 @@ export interface Orders {
 }
 
 export interface Address {
-  id : number,
-  user_id : number,
-  contact_number : string,
-  postal_code : number,
-  region : string,
-  province : string,
-  city : string,
-  municipality : string,
-  barangay : string
+  id?: number,
+  user_id?: number,
+  contact_number: string,
+  postal_code: number,
+  region: string,
+  province: string,
+  city: string,
+  municipality: string,
+  barangay: string,
+  active?: number
 }
 
 export interface Size {
-  id : number,
-  product_id : number,
+  id: number,
+  product_id: number,
   size: string,
-  unit_measure : number,
-  price : number
+  unit_measure: number,
+  price: number
+}
+
+export interface AddressesResponse {
+  data: Address[],
+  error: boolean,
+  message: string
+}
+
+
+export interface AddressByIdResponse {
+  data: Address,
+  error: boolean,
+  message: string
+}
+
+export interface Payment {
+  value: string,
+  display: string
+}
+
+export interface ProductRequestDto {
+  product_id: number,
+  quantity: number,
+  subtotal: number,
+  size_id: number
+}
+export interface OrderRequest {
+  data: ProductRequestDto[],
+  payment_method:string,
+  address_id: number
 }
