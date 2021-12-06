@@ -55,7 +55,8 @@ export interface Orders {
   customer : any,
   products : any,
   price : any,
-  created_at : any;
+  created_at : any,
+  overAllTotal : any
 }
 
 export interface Address {
