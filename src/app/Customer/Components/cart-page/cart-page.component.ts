@@ -29,9 +29,9 @@ export class CartPageComponent implements OnInit {
     await this.service.getProducts(this.token).then(result => {
       if (!result.data.error) {
         console.log();
-        if(result.data.data == undefined){
+        if (result.data.data == undefined) {
           this.products = [];
-        }else{
+        } else {
           this.products = result.data.data;
           this.products.map(res => {
             this.total += res.pivot.total;
@@ -45,8 +45,19 @@ export class CartPageComponent implements OnInit {
 
   productSize(sizes: [any], sizeId: number) {
     const size = sizes.find(size => size.id === sizeId);
-    console.log('size', size.size)
+    console.log('size', size.size);
     return size.size;
+  }
+
+  async update(quantity: any, product: any) {
+    product.pivot.quantity = parseInt(quantity)
+    this.service.updateCartProduct(product.id, product, this.token).then(result => {
+      if (result.data.error) {
+        this.errors = result.data.message
+      }else {
+        this.getProduct();
+      }
+    })
   }
 
   async checkout(data: any) {

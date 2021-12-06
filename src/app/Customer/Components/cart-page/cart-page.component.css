@@ -344,8 +344,10 @@ p,
     padding: 0.3vw;
     border-radius: 5px;
   }
-  .buttons{margin-bottom: -1vw;}
-  .cntshopping{margin-left: 16vw}
+  .buttons{
+    margin-left: 10vw;
+    margin-bottom: -1vw;}
+  .cntshopping{margin-left: 20vw}
 
 }
 @media screen and (min-width: 1024px) {
