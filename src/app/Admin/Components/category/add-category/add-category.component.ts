@@ -39,13 +39,13 @@ export class AddCategoryComponent implements OnInit {
     this.http.addCategory(this.AddCategoryForm.value, this.token).then((result)=>{
       if(result.data.error){
         this.errors = result.data.message;
+        this.http.closeLoading();
       }else{
-        this.http.showMessage(result.data.message);
+        this.http.ShowSuccessMessage(result.data.message);
         setTimeout(() => {
           this.location.back();
-        }, 2000);
+        }, 1500);
       }
-      this.http.closeLoading();
     });
   }
 }
