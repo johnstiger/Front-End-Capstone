@@ -90,3 +90,20 @@ export interface AddressByIdResponse {
   error: boolean,
   message: string
 }
+
+export interface Payment {
+  value: string,
+  display: string
+}
+
+export interface ProductRequestDto {
+  product_id: number,
+  quantity: number,
+  subtotal: number,
+  size_id: number
+}
+export interface OrderRequest {
+  data: ProductRequestDto[],
+  payment_method:string,
+  address_id: number
+}

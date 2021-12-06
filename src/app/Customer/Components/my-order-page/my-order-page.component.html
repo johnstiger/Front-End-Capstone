@@ -60,17 +60,24 @@
 
 <div class="col-11 col-s-11 media768">
   <div class="row">
-    <div class="col-4 col-s-4 head">
-      <p class="side">First Name Last Name</p>
+
+    <div class="col-12 mt-3">
+      <h6>Personal info</h6>
+      <p class="side">Fullname: {{ user?.firstname }} {{ user?.lastname}} Email: {{ user?.email}}</p>
     </div>
-    <div class="col-4 col-s-4 head"><p>Contact Number</p></div>
-    <div class="col-4 col-s-4 head">
-      <button class="btn mngadress">Manage Address</button>
+    <div class="col-12">
+      <h6>Addresss</h6>
+      <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let i = index">
+        <input type="radio" class="custom-control-input" [id]="i" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
+        <label class="custom-control-label" [for]="i">({{ address.contact_number }}) {{ address.province }}</label>
+      </div>
     </div>
-    <div class="col-4 col-s-4 headp"><p class="side">Address</p></div>
-    <div class="col-4 col-s-4 headp"><p>Payment Type</p></div>
-    <div class="col-4 col-s-4">
-      <button class="btn mngpayment">Manage Payment</button>
+    <div class="col-12">
+      <h6>Payment</h6>
+      <div class="custom-control custom-radio" *ngFor="let payment of payments;let i = index">
+        <input type="radio" class="custom-control-input" [id]="'payment' + i" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
+        <label class="custom-control-label" [for]="'payment' + i">{{ payment.display }}</label>
+      </div>
     </div>
     <hr id="headerid" />
     <div class="col-12 col-s-12 headers">
@@ -126,7 +133,7 @@
             ><br />
           </div>
           <div class="col-3 col-s-3">
-            <button class="btn" id="placeorder">Place Order</button>
+            <button class="btn" id="placeorder" (click)="placeOrder()" [disabled]="(order.address_id==0)">Place Order</button>
           </div>
         </div>
       </div>
