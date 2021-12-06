@@ -3,6 +3,25 @@
   width: 100%;
   height: 100%;
 }
+
+.info, .info-responsive{
+  margin-top: -13px;
+  margin-bottom: 10px;
+  color: green;
+}
+
+.alert{
+  text-align: center;
+}
+
+.info-responsive{
+  margin-left: 12px;
+}
+
+.infoText{
+  font-size: 13px;
+}
+
 .dagomtxt{
   color: #F6F2EF;
   font-family: 'Rufina';

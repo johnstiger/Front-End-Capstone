@@ -19,6 +19,16 @@
         <div class="col-12 col-s-12">
           <p class="register">Register</p>
         </div>
+        <div class="alert alert-danger" role="alert" *ngIf="error
+          && !error.email
+          && !error.password
+          && !error.firstname
+          && !error.lastname
+          && !error.contact_number
+          && !error.password_confirmation
+          ">
+            Sorry there is something wrong please try again.
+          </div>
         <form [formGroup]="registerForm" (ngSubmit)="register()">
           <div class="col-12 col-s-12">
           <span
@@ -115,7 +125,7 @@
                 [hidden]="!passwordHidden">visibility</i>
           </div>
         </div>
-
+        <div class="info-responsive"><span class="infoText">Must contain at least 8 characters including the following :(!@#$%^&*()_+,[A-Z])</span></div>
         <div class="col-12 col-s-12">
           <span
           class="text-danger form-text"
@@ -168,6 +178,16 @@
       <form [formGroup]="registerForm" (ngSubmit)="register()">
         <div class="row">
           <p class="registertxt">Register</p>
+          <div class="alert alert-danger" role="alert" *ngIf="error
+          && !error.email
+          && !error.password
+          && !error.firstname
+          && !error.lastname
+          && !error.contact_number
+          && !error.password_confirmation
+          ">
+            Sorry there is something wrong please try again.
+          </div>
           <div class="col-6 col-s-6">
             <div class="form-group">
               <input
@@ -280,6 +300,7 @@
               formControlName="password_confirmation"
             /> -->
           </div>
+          <div class="info"><span class="infoText">Must contain at least 8 characters including the following :(!@#$%^&*()_+,[A-Z])</span></div>
           <button class="btn">Submit</button>
           <p class="txt">
             Do you already have an account? <a routerLink="/login">Sign In</a>

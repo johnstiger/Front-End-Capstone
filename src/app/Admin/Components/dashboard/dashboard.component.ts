@@ -138,7 +138,7 @@ export class DashboardComponent implements OnInit {
       this.countCustomers = result.data.customers;
       this.onSales = result.data.productSales;
       this.countOrders = result.data.orders;
-      this.countSales = result.data.sales;
+      this.countSales = Math.ceil(result.data.sales);
       this.countProducts = result.data.products;
       this.annually = result.data.annuallyOrders;
       this.http.closeLoading();
