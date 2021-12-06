@@ -156,7 +156,12 @@ p, a{
     padding: 1.5vw;
     padding-left: 3vw;
   }
-  .media320{margin-left: 4.5vw;margin-top: -65px;height: 710px;}
+  .media320{margin-left: 4.5vw;margin-top: -65px;height: 102vh;}
+}
+@media screen and (min-width: 375px){
+  .media320{
+    height: 115vh;
+  }
 }
 
 @media screen and (max-width:767px){
@@ -203,13 +208,16 @@ p, a{
     margin-left: 2vw;
   }
   #selectimgbtn{
-    margin-left: 4vw;
+    margin-left: 2vw;
     width: 16vw;
   }
   #cancelbtn, #savebtn{
     width: 14vw;
     margin-top: 2.4vw;
+    margin-bottom: 3vw;
   }
+  #cancelbtn{margin-left: -4vw;}
+  #savebtn{margin-left: -2vw;}
 }
 @media screen and (min-width:1024px) {
   .media768{margin-bottom: -19vw;}
@@ -253,7 +261,7 @@ p, a{
 }
 @media screen and (min-width:1440px) {
   .account{margin-bottom: 33%;}
-  #cancelbtn, #savebtn{margin-left: 2vw;}
+  #cancelbtn, #savebtn{margin-left: -1vw;}
   .account p, .deliverypanel p, .btn, input{font-size: 1.5vw;}
   .account{width: 16.66%;}
   .deliverypanel{
