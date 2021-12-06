@@ -4,10 +4,22 @@
   <div class="row">
     <div class="col-12 col-s-12 pageheader">
       <div class="row">
-        <div class="col-6 col-s-6">
+        <div class="col-5">
+          <label class="container768"
+          >Select All
+          <input
+            type="checkbox"
+            name=""
+            (click)="selectAll(products)"
+            id="selectAll"
+          />
+          <span class="checkmark select"></span>
+        </label>
+        </div>
+        <div class="col-3 col-s-3">
           <p id="product">Product</p>
         </div>
-        <div class="col-6 col-s-6">
+        <div class="col-4 col-s-4">
           <p id="price">Price</p>
         </div>
       </div>
