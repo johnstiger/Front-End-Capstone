@@ -6,7 +6,6 @@
       <div class="row">
         <div class="col-5">
           <label class="container768"
-<<<<<<< HEAD
             >Select All
             <input
               type="checkbox"
@@ -18,19 +17,6 @@
           </label>
         </div>
         <div class="col-6 col-s-6">
-=======
-          >Select All
-          <input
-            type="checkbox"
-            name=""
-            (click)="selectAll(products)"
-            id="selectAll"
-          />
-          <span class="checkmark select"></span>
-        </label>
-        </div>
-        <div class="col-3 col-s-3">
->>>>>>> 71d5b07e1cbd78c1f2711187e72306b5e9c5dc5b
           <p id="product">Product</p>
         </div>
         <div class="col-4 col-s-4">
@@ -57,6 +43,7 @@
               <button class="removebtn" (click)="confirmRemove(product)">
                 Remove
               </button>
+              <button class="updatebtn">Update</button>
             </div>
             <div class="col-4 col-s-4 details">
               <p class="amount">Php {{ product.price || "" }}</p>
@@ -84,21 +71,12 @@
             <span class="checkmark subselect"></span>
           </label>
         </div>
-<<<<<<< HEAD
         <div class="col-12 col-s-12">
           <hr class="hr2" />
-=======
-        <div class="col-4 col-s-4">
-          <p class="productname">Product Name</p>
-          <button class="removebtn">Remove</button>
-          <button class="updatebtn">Update</button>
->>>>>>> 71d5b07e1cbd78c1f2711187e72306b5e9c5dc5b
         </div>
         <div class="col-12 col-s-12 buttons">
           <p>Subtotal Php {{ total }}</p>
-          <button class="btn" routerLink="/home">Continue Shopping</button
-          ><br />
-          <button class="btn">Update</button><br />
+          <button class="btn" routerLink="/home">Continue Shopping</button><br />
           <button
             type="button"
             (click)="checkout(Checkout.value)"
@@ -108,25 +86,7 @@
           </button>
         </div>
       </div>
-<<<<<<< HEAD
     </form>
-=======
-    </div>
-    <div class="col-12 col-s-12 box">
-      <label class="container768 ">
-        <input type="checkbox" checked="checked" />
-        <span class="checkmark subselect"></span>
-      </label>
-    </div>
-    <div class="col-12 col-s-12">
-      <hr class="hr2" />
-    </div>
-    <div class="col-12 col-s-12 buttons">
-      <p>Subtotal Php 200.00</p>
-      <button class="btn">Continue Shopping</button><br />
-      <button class="btn">Check Out</button>
-    </div>
->>>>>>> 71d5b07e1cbd78c1f2711187e72306b5e9c5dc5b
   </div>
 </div>
 
