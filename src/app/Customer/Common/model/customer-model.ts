@@ -14,7 +14,8 @@ export interface Products {
   total_avail_unit_measure : any,
   end : any,
   first : any,
-  availableSize : any
+  availableSize : any,
+  over_all_total : any
 }
 
 export interface Admins {

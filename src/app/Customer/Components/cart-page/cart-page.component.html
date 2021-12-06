@@ -6,6 +6,7 @@
       <div class="row">
         <div class="col-5">
           <label class="container768"
+<<<<<<< HEAD
             >Select All
             <input
               type="checkbox"
@@ -17,9 +18,22 @@
           </label>
         </div>
         <div class="col-6 col-s-6">
+=======
+          >Select All
+          <input
+            type="checkbox"
+            name=""
+            (click)="selectAll(products)"
+            id="selectAll"
+          />
+          <span class="checkmark select"></span>
+        </label>
+        </div>
+        <div class="col-3 col-s-3">
+>>>>>>> 71d5b07e1cbd78c1f2711187e72306b5e9c5dc5b
           <p id="product">Product</p>
         </div>
-        <div class="col-6 col-s-6">
+        <div class="col-4 col-s-4">
           <p id="price">Price</p>
         </div>
       </div>
@@ -70,8 +84,15 @@
             <span class="checkmark subselect"></span>
           </label>
         </div>
+<<<<<<< HEAD
         <div class="col-12 col-s-12">
           <hr class="hr2" />
+=======
+        <div class="col-4 col-s-4">
+          <p class="productname">Product Name</p>
+          <button class="removebtn">Remove</button>
+          <button class="updatebtn">Update</button>
+>>>>>>> 71d5b07e1cbd78c1f2711187e72306b5e9c5dc5b
         </div>
         <div class="col-12 col-s-12 buttons">
           <p>Subtotal Php {{ total }}</p>
@@ -87,7 +108,25 @@
           </button>
         </div>
       </div>
+<<<<<<< HEAD
     </form>
+=======
+    </div>
+    <div class="col-12 col-s-12 box">
+      <label class="container768 ">
+        <input type="checkbox" checked="checked" />
+        <span class="checkmark subselect"></span>
+      </label>
+    </div>
+    <div class="col-12 col-s-12">
+      <hr class="hr2" />
+    </div>
+    <div class="col-12 col-s-12 buttons">
+      <p>Subtotal Php 200.00</p>
+      <button class="btn">Continue Shopping</button><br />
+      <button class="btn">Check Out</button>
+    </div>
+>>>>>>> 71d5b07e1cbd78c1f2711187e72306b5e9c5dc5b
   </div>
 </div>
 
@@ -155,6 +194,7 @@
             <button class="removebtn" (click)="confirmRemove(product)">
               Remove
             </button>
+            <button class="btn updatebtn" *ngIf="products.length > 0">Update</button>
           </div>
           <div class="col-1 col-s-1">
             <p class="size">
@@ -181,11 +221,14 @@
             <p class="total768">Php {{ product.pivot.total }}</p>
           </div>
         </div>
+        <div class="Unathorized" *ngIf="products.length == 0">
+          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+        </div>
       </div>
       <div class="col-12 col-s-12">
         <hr class="hr768" style="margin-top: 2%;" />
       </div>
-      <div class="col-12 col-s-12">
+      <div class="col-12 col-s-12" *ngIf="products.length > 0">
         <div class="row">
           <div class="col-9 col-s-9"></div>
           <div class="col-1 col-s-1">
@@ -200,11 +243,11 @@
         <button class="btn cntshopping" routerLink="/home">
           Continue Shopping
         </button>
-        <button class="btn updatebtn">Update</button>
         <button
           type="button"
           (click)="checkout(Checkout.value)"
           class="btn checkoutbtn"
+          *ngIf="products.length > 0"
         >
           Check Out
         </button>

@@ -28,14 +28,16 @@ export class CartPageComponent implements OnInit {
   async getProduct() {
     await this.service.getProducts(this.token).then(result => {
       if (!result.data.error) {
-        console.log(result.data);
-        this.products = result.data.data;
-        console.log(this.products);
-        // this.productSize(this.products[0].sizes, this.products[0].pivot.sizeId)
-        this.products.map(res => {
-          this.total += res.pivot.total;
-          return res;
-        });
+        console.log();
+        if(result.data.data == undefined){
+          this.products = [];
+        }else{
+          this.products = result.data.data;
+          this.products.map(res => {
+            this.total += res.pivot.total;
+            return res;
+          });
+        }
         this.total = Math.ceil(this.total);
       }
     });
