@@ -13,6 +13,7 @@ export class LandingCategoryComponent implements OnInit {
   products : Array<any> = [];
   categoryName : String = '';
   cp : number = 0;
+  display : boolean = false;
 
   constructor(
     private service : CustomerService,
