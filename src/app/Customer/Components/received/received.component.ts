@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Products } from '../../Common/model/customer-model';
 import { CustomerService } from '../../Services/customer.service';
 
 @Component({
@@ -7,7 +9,9 @@ import { CustomerService } from '../../Services/customer.service';
   styleUrls: ['./received.component.css']
 })
 export class ReceivedComponent implements OnInit {
-
+  commentForm = new FormGroup({
+    message : new FormControl('')
+  })
   constructor(
     private _customerService: CustomerService
   ) { }
@@ -16,6 +20,12 @@ export class ReceivedComponent implements OnInit {
     img : any;
     products : Array<any> = [];
     temporary : Array<any> = [];
+    error : any;
+    productName : any;
+    productImg : any;
+    productId : any;
+    display = "none";
+    product! : Products
 
   ngOnInit(): void {
     this.getUser();
@@ -51,6 +61,33 @@ export class ReceivedComponent implements OnInit {
     })
   }
 
+  comment(product : any){
+    this.display = "block";
+    this.productName = product.name;
+    this.productImg = product.image;
+    this.productId = product.id;
+    console.log(product);
+  }
 
+  async submit(){
+    this._customerService.showLoading();
+    const response = await this._customerService.comment(this.productId, this.commentForm.value, this.token);
+    console.log(response);
+    if(response.data.error){
+      this.error = response.data.message;
+      this._customerService.closeLoading();
+    }else{
+      this._customerService.ShowSuccessMessage(response.data.message);
+      setTimeout(()=>{
+        this.onCloseHandled();
+        this.ngOnInit();
+      },1500)
+    }
+
+  }
+
+  onCloseHandled(){
+    this.display = "none"
+  }
 
 }

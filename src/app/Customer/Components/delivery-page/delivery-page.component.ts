@@ -18,7 +18,18 @@ export class DeliveryPageComponent implements OnInit {
   async ngOnInit() {
     this.getUser()
     const response = await this._customerService.getOrders(this.token)
+    console.log(response.data);
+
     this.orders = response.data.data.map((order:any) => {
+      if(order.delivery){
+        var date_test = new Date(order.delivery.delivery_date.replace(/-/g,"/"));
+        order.delivery_date = date_test.toLocaleDateString("en",{month:'long',day:"numeric",year:"numeric"});
+      }else{
+        order.delivery_date = "Not Yet Set";
+      }
+      if(!order.tracking_code){
+        order.tracking_code = "Not Yet Set"
+      }
       order.isShow = true
       order.btnText = 'More'
       return order

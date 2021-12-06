@@ -25,9 +25,9 @@
               <div class="col-6 col-s-6 right">
                 <p id="prodname">{{ product.name }}</p>
                 <p id ="amount">Php {{ product.price }}</p>
-                <p id="quant">2</p>
+                <p id="quant">{{ product.pivot.quantity }}</p>
                 <hr id = "hr1">
-                <p id="total">Php {{ product.price }}</p>
+                <p id="total">Php {{ product.pivot.subtotal }}</p>
               </div>
             </div>
           </div>
@@ -71,9 +71,9 @@
               <div class="col-6 col-s-6 right768">
                 <p id="prodname">{{ product.name }}</p>
                 <p id ="amount">Php {{ product.price }}</p>
-                <p id="quant">2</p>
+                <p id="quant">{{ product.pivot.quantity }}</p>
                 <hr id="hr1">
-                <p id="total">Php {{ product.price }}</p>
+                <p id="total">Php {{ product.pivot.subtotal }}</p>
               </div>
             </div>
           </div>

@@ -83,8 +83,11 @@ export class SampleHeaderComponent implements OnInit {
   async logout(){
     this.service.loading();
     const result = await this.service.logoutUser(this.token);
-    localStorage.clear();
-    window.location.reload();
+    if(result.data.error){
+
+    }else{
+      this.router.navigate(['/'])
+    }
   }
 
   async getCategories(){

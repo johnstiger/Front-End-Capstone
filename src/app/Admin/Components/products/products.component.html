@@ -1,14 +1,6 @@
 <div class="container">
     <div class="wrapper">
         <p>Products</p>
-        <!-- <div *ngIf="error">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>{{ error }}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-            </div>
-        </div> -->
         <div class="contain">
             <div class="row">
                 <div class="col-9">
@@ -47,7 +39,7 @@
                                         <td>{{ product.name }}</td>
                                         <td>{{ product.category.name }}</td>
                                         <td>{{ product.price }}</td>
-                                        <td *ngIf="product.sizes[0]">{{ product.sizes[0].pivot.unit_measure }}</td>
+                                        <td *ngIf="product.sizes[0]">{{ product.over_all_total }}</td>
                                         <td *ngIf="product.sizes[0]"> {{ product.total_avail_unit_measure }}</td>
                                         <td *ngIf="!product.sizes[0]">0</td>
                                         <td *ngIf="!product.sizes[0]">0</td>
@@ -63,7 +55,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="Unathorized" *ngIf="!products">
+                        <div class="Unathorized" *ngIf="products.length == 0">
                             <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
                         </div>
                     </div>
@@ -71,7 +63,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="products">
+    <div *ngIf="products.length > 5">
       <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
 </div>

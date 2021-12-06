@@ -4,6 +4,10 @@
     width: 100%;
 }
 
+.subBtn{
+  margin-top: 20px;
+}
+
 .mt-3{
   cursor: pointer;
 }
@@ -80,6 +84,18 @@ form {
 
 .form-group{
   margin-bottom: 35px;
+}
+
+.form-password{
+    display: flex;
+    align-items: center;
+    border: 1px solid #aaa
+}
+.form-password input {
+    border: 0;
+}
+i {
+    margin: 5px;
 }
 
 .form-control {

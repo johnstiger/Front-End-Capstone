@@ -36,7 +36,7 @@ export class ShowProfileComponent implements OnInit {
       this.email = this.details.email
       this.image = this.details.image
       this.contact_number = this.details.contact_number
-      this.address = result.data.address.municipality+", "+result.data.address.province
+      this.address = result.data.address ? result.data.address.municipality+", "+result.data.address.province : [];
     });
   }
 

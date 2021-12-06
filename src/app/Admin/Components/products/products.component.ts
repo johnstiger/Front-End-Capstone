@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
   error!: any;
   page: Number = 1;
   display = 'none';
-  products!: Products[];
+  products: Products[] = [];
   productName: any;
   filterTerm! : string;
 
@@ -42,7 +42,7 @@ export class ProductsComponent implements OnInit {
   sizeId = new Array();
   cp: number = 1;
   stockSizes: Array<any> = [];
-  product: any;
+  product: Array<any> = [];
 
   ngOnInit(): void {
     $("input[type=number]").on("keydown",function(e){
@@ -67,21 +67,35 @@ export class ProductsComponent implements OnInit {
   async getProducts() {
     this.service.loading();
     const result = await this.service.products(this.token).then((res) => {
+      console.log(res.data);
       if (res.data.error) {
         this.service.ShowErrorMessage(res.data.message);
       } else {
         this.products = res.data.data;
-        this.products = this.products.map(res => {
-          const size = res.sizes.map((size: any, ndx: any) => {
-            return size.pivot.avail_unit_measure
+
+        if(res.data.data == undefined){
+          this.products = [];
+        }else{
+          this.products = this.products.map(res => {
+            const size = res.sizes.map((size: any, ndx: any) => {
+              return size.pivot.avail_unit_measure
+            })
+            let total_avail_unit_measure = 0
+            if (size.length) {
+              total_avail_unit_measure = size.reduce((total: any, num: any) => total + num)
+            }
+            const totalUnit = res.sizes.map((total:any)=>{
+              return total.pivot.unit_measure;
+            })
+            let totalProduct = 0;
+            if(totalUnit.length > 0){
+              totalProduct = totalUnit.reduce((total: any, num: any) => total + num)
+            }
+            res["over_all_total"] = totalProduct;
+            res['total_avail_unit_measure'] = total_avail_unit_measure
+            return res
           })
-          let total_avail_unit_measure = 0
-          if (size.length) {
-            total_avail_unit_measure = size.reduce((total: any, num: any) => total + num)
-          }
-          res['total_avail_unit_measure'] = total_avail_unit_measure
-          return res
-        })
+        }
       }
       this.service.closeLoading();
     });
@@ -160,11 +174,18 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  
+
   // Pop Up Modal
   openModal(product : any){
     this.productName = product.name;
-    this.stockSizes = product.sizes
+    this.stockSizes = [];
+    product.sizes.map((res:any)=>{
+      if(res.pivot.status != 0){
+        this.stockSizes.push(res)
+      }
+      return res;
+    })
+
     let check = this.stockSizes.map(res => {
       if(res.size === 'N/A'){
         return true;

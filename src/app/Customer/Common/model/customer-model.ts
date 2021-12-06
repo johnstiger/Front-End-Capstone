@@ -1,20 +1,21 @@
 export interface Products {
-  id: number,
-  name: string,
-  price: string,
-  image: string,
-  part: string,
-  status: boolean,
-  category_id: number,
-  description: any,
-  sizes: any,
-  unit_measure: number,
-  category: any,
-  percent_off: any,
-  total_avail_unit_measure: any,
-  end: any,
-  first: any,
-  availableSize: any
+  id : number,
+  name : string,
+  price : string,
+  image : string,
+  part : string,
+  status : boolean,
+  category_id : number,
+  description : any,
+  sizes : any,
+  unit_measure : number,
+  category : any,
+  percent_off : any,
+  total_avail_unit_measure : any,
+  end : any,
+  first : any,
+  availableSize : any,
+  over_all_total : any
 }
 
 export interface Admins {
@@ -46,15 +47,16 @@ export interface Comments {
 }
 
 export interface Orders {
-  id: number,
-  user_id: number,
-  total: number,
-  status: boolean,
-  payment_method: string,
-  customer: any,
-  products: any,
-  price: any,
-  created_at: any;
+  id : number,
+  user_id : number,
+  total : number,
+  status : boolean,
+  payment_method : string,
+  customer : any,
+  products : any,
+  price : any,
+  created_at : any,
+  overAllTotal : any
 }
 
 export interface Address {
