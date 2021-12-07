@@ -82,24 +82,22 @@ export class SampleHeaderComponent implements OnInit {
     })
   }
 
-  async logout(){
-    this.service.loading()
-    const result = await this._test.logoutUser(this.token);
-    localStorage.clear();
-    window.location.reload();
-  }
-
   // async logout(){
-  //   this.service.loading();
-  //   const result = await this.service.logoutUser(this.token);
-  //   console.log(result.data);
-
-  //   if(result.data.error){
-
-  //   }else{
-  //     this.router.navigate(['/'])
-  //   }
+  //   this.service.loading()
+  //   const result = await this._test.logoutUser(this.token);
+  //   localStorage.clear();
+  //   window.location.reload();
   // }
+
+  async logout(){
+    this.service.loading();
+    const result = await this.service.logoutUser(this.token);
+    if(result.data.error){
+    }else{
+      localStorage.clear();
+      window.location.reload();
+    }
+  }
 
   async getCategories(){
     const result = await this.service.getCategories();
