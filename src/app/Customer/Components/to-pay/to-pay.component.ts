@@ -31,6 +31,9 @@ export class ToPayComponent implements OnInit {
       this.products = this.orders[0].products
       this.status = this.orders[0].status
       this.subtotal = this.orders[0].total
+      if(this.products.length == 0){
+        this.display = true
+      }
     }
 
   }
