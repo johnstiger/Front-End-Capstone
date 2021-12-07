@@ -4,6 +4,25 @@
   <div class="row" *ngFor="let product of products">
     <div class="col-12 col-s-12 pageheader">
       <div class="row">
+        <div class="col-12 col-s-12" style="margin-top: 5vw;">
+          <p class="label">Personal Information:</p>
+          <p class="data">Test Data</p>
+          <p class="label">Addresss</p>
+          <p class="data">Test Data</p>
+        </div>
+        <div class="col-12 col-s-12">
+          <p class="label">Payment Method</p>
+          <!-- <input type="radio" value="palawan">
+          <label class="cash" for="palawan">Palawan</label>
+          <input type="radio" value="gcash">
+          <label class="cash" for="gcash">Gcash</label> -->
+          <div class="custom-control custom-radio" *ngFor="let payment of payments;let i = index">
+            <input type="radio" class="custom-control-input" [id]="'payment' + i" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
+            <label class="custom-control-label cash" [for]="'payment' + i">{{ payment.display }}</label>
+          </div>
+        </div>
+       
+        <hr>
         <div class="col-6 col-s-6">
           <p id="product">Product</p>
         </div>
@@ -23,7 +42,7 @@
           <button class="removebtn">Remove</button>
         </div>
         <div class="col-4 col-s-4 details">
-          <p class="amount">Php {{ product.price }}.00</p>
+          <p class="amount">Php {{ product.price }}</p>
           <label class="quantity">Quantity</label>
           <input
             class="input"
@@ -33,15 +52,15 @@
             readonly
             value="{{ product.pivot.quantity }}"
           />
-          <p id="total">Total: Php {{ product.pivot.total }}.00</p>
+          <p id="total">Total: Php {{ product.pivot.total }}</p>
         </div>
       </div>
     </div>
     <hr class="hr2" />
     <div class="col-12 col-s-12 buttons">
-      <p id="subtotal">Subtotal: Php {{ totalAmount }}.00</p>
+      <p id="subtotal">Subtotal: Php {{ totalAmount }}</p>
       <p id="shippingfee">Shipping Fee: Php 70.00</p>
-      <p id="alltotal">Total: {{ totalAmount + 70 }}.00</p>
+      <p id="alltotal">Total: {{ totalAmount + 70 }}</p>
       <button class="btn" id="cancel" (click)="cancel()">Cancel</button><br />
       <button class="btn" id="placeorder">Place Order</button>
     </div>
@@ -50,22 +69,31 @@
 
 <div class="col-11 col-s-11 media768">
   <div class="row">
-    <div class="col-12 mt-3">
-      <h6>Personal info</h6>
-      <p class="side">Fullname: {{ user?.firstname }} {{ user?.lastname}} Email: {{ user?.email}}</p>
+    <div class="col-11 col-s-11 info">
+    <div class="row">
+      <div class="col-6 col-s-6">
+        <p class="label">Personal Information</p>
+        <p class="side">Fullname: {{ user?.firstname }} {{ user?.lastname}}</p>
+        <p class="side"> Email: {{ user?.email}}</p>
+      </div>
+      <div class="col-6 col-s-6 mngadress">
+        <button class="btn-group-sm mngbtn">Manage Address</button>
+      </div>
     </div>
-    <div class="col-12">
-      <h6>Addresss</h6>
+     
+    </div>
+    <div class="col-12 col-s-12 " style="margin-left: 3vw;">
+      <p class="label">Addresss</p>
       <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let i = index">
         <input type="radio" class="custom-control-input" [id]="i" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
         <label class="custom-control-label" [for]="i">({{ address.contact_number }}) {{ address.province }}</label>
       </div>
     </div>
-    <div class="col-12">
-      <h6>Payment</h6>
+    <div class="col-12 col-s-12" style="margin-left: 3vw;">
+      <p class="label">Payment</p>
       <div class="custom-control custom-radio" *ngFor="let payment of payments;let i = index">
         <input type="radio" class="custom-control-input" [id]="'payment' + i" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
-        <label class="custom-control-label" [for]="'payment' + i">{{ payment.display }}</label>
+        <label class="custom-control-label cash" [for]="'payment' + i">{{ payment.display }}</label>
       </div>
     </div>
     <hr id="headerid" />
@@ -96,7 +124,7 @@
           </div>
           <div class="col-1 col-s-1"></div>
           <div class="col-2 col-s-2">
-            <p id="product">Php{{ product.price }}.00</p>
+            <p id="product">Php{{ product.price }}</p>
           </div>
           <div class="col-2 col-s-2">
             <input
@@ -108,17 +136,17 @@
             />
           </div>
           <div class="col-2 col-s-2">
-            <p id="total">Php {{ product.pivot.total }}.00</p>
+            <p id="total">Php {{ product.pivot.total }}</p>
           </div>
         </div>
       </div>
       <hr class="hr2" />
       <div class="col-12 col-s-12 buttons">
-        <p style="margin-bottom: 0px;">Subtotal: Php {{ totalAmount }}.00</p>
+        <p style="margin-bottom: 0px;">Subtotal: Php {{ totalAmount }}</p>
         <p style="margin-bottom: 0px; margin-right: 1%;">
           Shipping Fee: Php 70.00
         </p>
-        <p style="margin-left: 14%;">Total: {{ totalAmount + 70 }}.00</p>
+        <p style="margin-left: 14%;">Total: {{ totalAmount + 70 }}</p>
       </div>
       <div class="col-12 col-s-12 bottomdiv">
         <div class="row">
