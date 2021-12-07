@@ -73,6 +73,7 @@ export class PendingOrdersComponent implements OnInit {
         this.orders = result.data.data;
         console.log(this.orders);
 
+
       }
       this.http.closeLoading();
     })
@@ -197,8 +198,10 @@ export class PendingOrdersComponent implements OnInit {
 
   // Close Pop Up Modal
   onCloseHandled(){
+    this.http.loading();
     this.display='none';
     this.displayModalTracking = 'none';
+    window.location.reload();
   }
 
 }
