@@ -11,7 +11,10 @@ hr{
   background-color: #C7988E;
 }
 .hr{background-color: #F6F2EF;}
-p{color: #C7988E;}
+p{
+  color: #C7988E;
+  margin-bottom: 1vw;
+}
 .headertxt{
   color: #F6F2EF;
   text-align: center;
@@ -89,27 +92,30 @@ p{color: #C7988E;}
     margin-left: -1vw;
     background-color: #C7988E;
   }
-  p,.removebtn, .quantity, #cancel, #placeorder{font-size: 4vw;}
+  p,.removebtn, .quantity, #cancel, #placeorder, .cash{font-size: 4vw;}
   .productname{
     font-size: 4vw;
     margin-left: -4vw;
     margin-top: 5%;
   }
   #product, #price{
-    font-size: 5vw;
-    margin-top: 5vw;
+    font-size: 4.4vw;
+    margin-top: -3vw;
     margin-bottom: 1vw;
   }
   .quantity{
     color: #C7988E;
     margin-left: -2vw;
-    margin-bottom: 5vw;
+    margin-bottom: 2vw;
   }
   #total{
-    margin-left: -9vw;
+    margin-left: -13vw;
     margin-bottom: 5vw;
   }
-  .amount{margin-top: 5%;}
+  .amount{
+    margin-top: 5%;
+    margin-left: -3vw;
+  }
   #cancel, #placeorder{
     width: 50vw;
     padding: 2vw;
@@ -123,6 +129,16 @@ p{color: #C7988E;}
   }
   #alltotal{margin-left: 14vw;}
   .buttons{margin-bottom: 5vw;}
+  .removebtn{margin-left: -4vw;}
+  .data{
+    font-weight: 400;
+    margin-left: 2vw;
+  }
+  .cash{
+    font-weight: 400;
+    margin-left: 3vw;
+  }
+
 }
 @media screen and (min-width: 375px) {
   #headerhr{width: 85vw;}
@@ -162,11 +178,7 @@ p{color: #C7988E;}
     font-size: 3vw;
   }
   .head{margin-top: 3vw;}
-  .mngadress, .mngpayment{
-    padding: 0.5vw;
-    width: 20vw;
-    margin-left: 5vw;
-  }
+ 
   .side{margin-left: 3vw;}
   #headerid{
     width: 88.6vw;
@@ -206,21 +218,35 @@ p{color: #C7988E;}
   #cancel{margin-left: -3vw;}
   .prodside{margin-top: 1.5vw;}
   .headers{margin-top: 1vw;}
+  .label{
+    font-weight: bold;
+  }
+  .cash{
+    font-weight: 400;
+    font-size: 2vw;
+    color: #C7988E;
+    margin-left: 3vw;
+  }
+  .mngbtn{
+    border: none;
+    background-color: #C7988E;
+    box-sizing: border-box;
+    font-size: 2vw;
+    width: 20vw;
+    padding: 0.5vw;
+    border-radius: 5px;
+    margin-left: 22vw;
+    color: #F6F2EF;
+  }
+  .info{
+    margin-left: 3vw;
+    margin-top: 3vw;
+  }
 }
 @media screen and (min-width:1024px){
-  p,.removebtn, .quantity, #cancel, #placeorder, .productname, #price, .input, #product, .mngadress, .mngpayment{font-size: 1.3vw;}
+  p,.removebtn, .quantity, #cancel, #placeorder, .productname, #price, .input, #product, .mngbtn, .cash{font-size: 1.3vw;}
   .headertxt{font-size: 2vw;}
-  .mngadress, .mngpayment{
-    width: 15vw;
-    margin-left: 12vw;
-  }
-  .mngadress{
-    margin-top: -2%;
-  }
-  #headerid{
-    width: 89.5vw;
-    margin-left: -0.3vw;
-  }
+ 
   .productname{margin-left: 2vw;}
   .removebtn{
     margin-left: 2vw;
@@ -249,6 +275,10 @@ p{color: #C7988E;}
     width: 91.8vw;
     margin-left: -1.6vw;
   }
+  .mngbtn{
+    width: 14vw;
+    margin-left: 28vw;
+  }
 }
 @media screen and (min-width: 1440px){
   #headerid{
@@ -261,9 +291,6 @@ p{color: #C7988E;}
   }
   #cancel, #placeorder{
     border-radius: 8px;
-  }
-  .mngadress{
-    margin-top: -3%;
   }
 }
 @media screen and (min-width:2560px){
