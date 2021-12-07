@@ -37,7 +37,8 @@
                                             <th><img src="{{ product.image}}" alt=""></th>
                                         </div>
                                         <td>{{ product.name }}</td>
-                                        <td>{{ product.category.name }}</td>
+                                        <td *ngIf="product.category">{{ product.category.name }}</td>
+                                        <td *ngIf="!product.category">No Category</td>
                                         <td>{{ product.price }}</td>
                                         <td *ngIf="product.sizes[0]">{{ product.over_all_total }}</td>
                                         <td *ngIf="product.sizes[0]"> {{ product.total_avail_unit_measure }}</td>

@@ -25,10 +25,10 @@ export class DeliveryPageComponent implements OnInit {
         var date_test = new Date(order.delivery.delivery_date.replace(/-/g,"/"));
         order.delivery_date = date_test.toLocaleDateString("en",{month:'long',day:"numeric",year:"numeric"});
       }else{
-        order.delivery_date = "Not Yet Set";
+        order.delivery_date = false;
       }
       if(!order.tracking_code){
-        order.tracking_code = "Not Yet Set"
+        order.tracking_code = false;
       }
       order.isShow = true
       order.btnText = 'More'

@@ -23,13 +23,13 @@
     </div>
     <div class="content-wrapper">
       <div class="contents" style="font-size: x-small; text-align: left; padding: 15px;" *ngFor="let order of orders">
-        <div>{{ order.tracking_code }}</div>
-        <div>{{ order.delivery_date }}</div>
-        <div>Php {{order.total}}</div>
-        <div>
+        <div *ngIf="order.delivery_date">{{ order.tracking_code }}</div>
+        <div *ngIf="order.delivery_date">{{ order.delivery_date }}</div>
+        <div *ngIf="order.delivery_date">Php {{order.total}}</div>
+        <div *ngIf="order.delivery_date">
           <button class="btn" (click)="toggleCollapse(order)">{{ order.btnText }}</button>
         </div>
-        <div class="product-cont-collapse" [collapse]="order.isShow">
+        <div class="product-cont-collapse" [collapse]="order.isShow" *ngIf="order.delivery_date">
           <div class="wrapper" style="grid-template-columns: 1fr !important;">
             <div *ngFor="let product of order.products">
               <div class="row">
@@ -86,13 +86,13 @@
         </div>
         <div class="content-wrapper">
           <div class="contents" *ngFor="let order of orders">
-            <div>{{ order.tracking_code }}</div>
-            <div>{{ order.delivery_date}}</div>
-            <div>Php {{ order.total }}</div>
-            <div>
+            <div *ngIf="order.delivery_date">{{ order.tracking_code }}</div>
+            <div *ngIf="order.delivery_date">{{ order.delivery_date}}</div>
+            <div *ngIf="order.delivery_date">Php {{ order.total }}</div>
+            <div *ngIf="order.delivery_date">
               <button class="btn" (click)="toggleCollapse(order)">{{ order.btnText }}</button>
             </div>
-            <div class="product-cont-collapse" [collapse]="order.isShow">
+            <div class="product-cont-collapse" [collapse]="order.isShow" *ngIf="order.delivery_date">
               <div class="wrapper">
                 <div *ngFor="let product of order.products">
                   <div class="row">

@@ -83,7 +83,7 @@
         <div width="50" *ngIf="!display">
           <label for="">To Pay Order List</label>
           <select name="" width="90" [(ngModel)]="selectedOrderId" (change)="selectOrder()" class="form-control" id="">
-            <option *ngFor="let order of orders; let i = index" value="{{ order.id }}">Order {{ i + 1 }}</option>
+            <option *ngFor="let order of orders" value="{{ order.id }}">Order {{ order.id }}</option>
           </select>
         </div>
         <div class="col-12 col-s-12" style="margin-top: 5%; margin-bottom: 2%;" *ngIf="!display">

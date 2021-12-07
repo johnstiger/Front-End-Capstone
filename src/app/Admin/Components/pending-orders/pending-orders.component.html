@@ -16,18 +16,30 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Customer Name</th>
-                                    <th scope="col">Product</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Contact Number</th>
+                                    <th scope="col">Payment Method</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody *ngFor="let order of orders | filter:filterTerm | paginate:{itemsPerPage:5, currentPage: cp}">
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                                    <td>
-                                        <ul>
-                                            <li *ngFor="let product of order.products">{{ product.name }}</li>
-                                        </ul>
+                                    <td *ngIf="order.address" class="text-success">
+                                      Postal code : {{ order.address.postal_code }} : {{ order.address.barangay }}, {{ order.address.municipality }}, {{ order.address.province }}
                                     </td>
+                                    <td *ngIf="order.address" class="text-success">
+                                      {{ order.address.contact_number }}
+                                   </td>
+                                   <td *ngIf="order.address == null" class="text-danger">
+                                       This order is no address provided
+                                    </td>
+                                    <td *ngIf="order.address == null" class="text-danger">
+                                      This order is no contact number provided
+                                    </td>
+                                   <td class="text-success">
+                                      {{ order.payment_method }}
+                                   </td>
                                     <td>
                                         <button *ngIf="order.tracking_code === null && order.status === 1" type="button" (click)="trackingCode(order)" class="btn btn-primary tracking"><i class="fas fa-truck-loading"></i> Tracking Code</button>
                                         <button *ngIf="order.status == 0" type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i> Preview</button>
@@ -36,10 +48,18 @@
                                 </tr>
                                 <tr *ngIf="order.products.length == 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
-                                    <td> No Product Ordered </td>
+                                    <td class="text-danger">
+                                      This order has no products
+                                   </td>
+                                   <td class="text-danger">
+                                      This order has no products
+                                   </td>
+                                   <td class="text-danger">
+                                     This order has no products
+                                  </td>
                                     <td>
-                                        <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i>Preview</button>
-                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn"><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
+                                        <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn" disabled><i id="cpIcon" class="far fa-eye"></i>Preview</button>
+                                        <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn" disabled><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>
                                     </td>
                                 </tr>
                             </tbody>
