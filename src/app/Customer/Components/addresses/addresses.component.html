@@ -1,42 +1,93 @@
 <app-sample-header></app-sample-header>
 <div class="col-11 col-s-11 media320">
   <div class="row">
-    <div class="col-12 col-s-12 headers">
-      <a id="allorders" routerLink="/all-orders">All Orders</a>
-      <a id="topay" routerLink="/pay">To Pay</a>
-      <a id="deliverydate" routerLink="/delivery-page">Delivery Date</a>
-      <a id="received" routerLink="/received">Received</a>
-    </div>
-    <hr id="headerhr">
-    <div class="col-12 col-s-12 submedia">
+    <div class="col-12 col-s-12">
       <div class="row">
         <div class="col-6 col-s-6">
-          <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
+          <p class="address320">Addresses</p>
         </div>
-        <div class="col-6 col-s-6 right">
-          <p id="prodname">Product Name</p>
-          <p id="amount">Php 100.00</p>
-          <p id="quant">2</p>
-          <hr id="hr1">
-          <p id="total">Php 200.00</p>
+        <div class="col-6 col-s-6">
+          <button class="addbtn">Add</button>
         </div>
       </div>
     </div>
-    <div class="col-12 col-s-12 submedia">
-      <div class="row">
-        <div class="col-6 col-s-6">
-          <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
-        </div>
-        <div class="col-6 col-s-6 right">
-          <p id="prodname">Product Name</p>
-          <p id="amount">Php 100.00</p>
-          <p id="quant">2</p>
-          <hr id="hr1">
-          <p id="total">Php 200.00</p>
-        </div>
+    <hr style = "margin-left: -1vw;">
+    <div class="col-12 col-s-12"  style="overflow-y: scroll;">
+      <div class="col-12 col-s-12" >
+        <table>
+          <tr>
+            <td class="label">Contact Number:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Postal Code:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Region:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Province:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">City:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Municipality:</td>
+            <td class="data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Barangay:</td>
+            <td class="data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Active:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+        </table>
+        <button class="editbtn">Edit</button>
+      </div>
+      <div class="col-12 col-s-12" >
+        <table>
+          <tr>
+            <td class="label">Contact Number:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Postal Code:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Region:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Province:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">City:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Municipality:</td>
+            <td class="data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Barangay:</td>
+            <td class="data">Test Data</td>
+          </tr>
+          <tr>
+            <td class = "label">Active:</td>
+            <td class = "data">Test Data</td>
+          </tr>
+        </table>
+        <button class="editbtn">Edit</button>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -54,49 +105,76 @@
         <p class="myorders">My Orders</p>
       </a>
       <a routerLink="/addresses">
-        <p class="myorders">Addresses</p>
+        <p class="addressacc">Addresses</p>
       </a>
     </div>
     <div class="col-8 col-s-8 deliverypanel">
       <div class="row">
-        <div class="col-12 col-s-12 header768 d-flex justify-content-between align-items-center">
+        <div class="col-12">
+          <p class="address">Addresses</p>
+          <button routerLink="/addresses/add" class="addbtn">Add</button>
+        </div>
+        <!-- <div class="col-12 col-s-12 header768 d-flex justify-content-between align-items-center">
           Addresses
-          <button routerLink="/addresses/add" class="btn btn-primary">Add</button>
+          <button routerLink="/addresses/add" class="addbtn">Add</button>
+        </div> -->
+        <hr class="hr768">
+        <div class="col-12 col-s-12">
+          <div style="overflow-x: auto; margin-bottom: 2vw;">
+            <table>
+              <tr>
+                <th>Contact Number</th>
+                <th>Postal Code</th>
+                <th>Region</th>
+                <th>Province</th>
+                <th>City</th>
+                <th>Municipality</th>
+                <th>Barangay</th>
+                <th>Active</th>
+                <th>Actions</th>
+              </tr>
+              <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <button class="editbtn">Edit</button>
+              </tr>
+              <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+              </tr>
+              <tbody>
+                <tr *ngFor="let address of addresses">
+                  <td>{{ address.contact_number}}</td>
+                  <td>{{ address.postal_code}}</td>
+                  <td>{{ address.region}}</td>
+                  <td>{{ address.province}}</td>
+                  <td>{{ address.city}}</td>
+                  <td>{{ address.municipality}}</td>
+                  <td>{{ address.barangay}}</td>
+                  <td>{{ address.active }}</td>
+                  <td>
+                    <button class="btn btn-sm btn-success" [routerLink]="['/addresses',address.id, 'update']">edit</button>
+                  </td>
+              </tbody>
+            </table>
+          </div>
 
         </div>
-        <hr id="hr768">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <th>Contact number</th>
-              <th>Postal code</th>
-              <th>Region</th>
-              <th>Province</th>
-              <th>City</th>
-              <th>Municipality</th>
-              <th>Barangay</th>
-              <th>Active</th>
-              <th>Actions</th>
-            </thead>
-            <tbody *ngIf="addresses.length > 0">
-              <tr *ngFor="let address of addresses">
-                <td>{{ address.contact_number}}</td>
-                <td>{{ address.postal_code}}</td>
-                <td>{{ address.region}}</td>
-                <td>{{ address.province}}</td>
-                <td>{{ address.city}}</td>
-                <td>{{ address.municipality}}</td>
-                <td>{{ address.barangay}}</td>
-                <td>{{ address.active }}</td>
-                <td>
-                  <button class="btn btn-sm btn-success" [routerLink]="['/addresses',address.id, 'update']">edit</button>
-                </td>
-            </tbody>
-          </table>
-        </div>
-        <div class="Unathorized" *ngIf="addresses.length == 0">
-          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
-        </div>
+
+
       </div>
     </div>
   </div>

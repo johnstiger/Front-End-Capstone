@@ -12,57 +12,65 @@
     </div>
     <div class="col-12 col-s-12">
       <div class="text320">
-        <form
-          name="form"
-          #AddCart="ngForm"
-        >
-        <p id="prodname">{{ product.name }}</p>
-        <p id="amount">Php {{ product.price }}</p>
-        <label id="quantity">Quantity </label>
-        <input
-          id="inputQuantity"
-          [(ngModel)]="unit_measure"
-          name="unit_measure"
-          class="input"
-          type="number"
-          min="1"
-          [max]="maxPerSize"
-          (change)="checkQuantity()"
-          placeholder="0"
-        /><br />
-        <label id="size" class="size">Size: </label>
+        <form name="form" #AddCart="ngForm">
+          <p id="prodname">{{ product.name }}</p>
+          <p id="amount">Php {{ product.price }}</p>
+          <label id="quantity">Quantity </label>
+          <input
+            id="inputQuantity"
+            [(ngModel)]="unit_measure"
+            name="unit_measure"
+            class="input"
+            type="number"
+            min="1"
+            [max]="maxPerSize"
+            (change)="checkQuantity()"
+            placeholder="0"
+          /><br />
+          <label id="size" class="size">Size: </label>
 
-        <div class="dropdown" *ngIf="sizes.length > 1">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            {{ selectedSize }}
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown" *ngIf="sizes.length > 1">
             <button
-              *ngFor="let productSizes of sizes"
-              class="dropdown-item"
-              (click)="selectSize(productSizes)"
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-              {{ productSizes.size }}
+              {{ selectedSize }}
             </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button
+                *ngFor="let productSizes of sizes"
+                class="dropdown-item"
+                (click)="selectSize(productSizes)"
+              >
+                {{ productSizes.size }}
+              </button>
+            </div>
           </div>
-        </div>
-        <button type="button" id="mbtn" class="btn" *ngIf="sizes.length == 1">{{sizes[0].size}}</button>
-        <!-- <button type="button" id="sbtn" class="btn">S</button> -->
-        <p id="avialable">Available: {{ avail_unit_measure }} pcs.</p>
-          <button type="submit"
-          id="addtocartbtn"
-          class="btn"
-          (click)="submit(product.id, AddCart.value)">
+          <button type="button" id="mbtn" class="btn" *ngIf="sizes.length == 1">
+            {{ sizes[0].size }}
+          </button>
+          <!-- <button type="button" id="sbtn" class="btn">S</button> -->
+          <p id="avialable">Available: {{ avail_unit_measure }} pcs.</p>
+          <button
+            type="submit"
+            id="addtocartbtn"
+            class="btn"
+            (click)="submit(product.id, AddCart.value)"
+            [disabled]="!unit_measure || !selectedSizeId"
+          >
             Add to Cart</button
           ><br />
-          <button type="button" id="buyitbtn" class="btn" (click)="checkout(AddCart.value)">
+          <button
+            type="button"
+            id="buyitbtn"
+            class="btn"
+            (click)="checkout(AddCart.value)"
+            [disabled]="!unit_measure || !selectedSizeId"
+          >
             Buy It Now
           </button>
         </form>
@@ -123,7 +131,9 @@
               </button>
             </div>
           </div>
-          <button type="button" id="mbtn" class="btn" *ngIf="sizes.length == 1">{{sizes[0].size}}</button>
+          <button type="button" id="mbtn" class="btn" *ngIf="sizes.length == 1">
+            {{ sizes[0].size }}
+          </button>
           <!-- <button type="button" id="sbtn" class="btn">S</button> -->
           <p id="avialable">Available: {{ avail_unit_measure }} pcs.</p>
           <button
@@ -131,10 +141,17 @@
             id="addtocartbtn"
             class="btn"
             (click)="submit(product.id, AddCart.value)"
+            [disabled]="!unit_measure || !selectedSizeId"
           >
             Add to Cart</button
-          ><br/>
-          <button type="button" id="buyitbtn" class="btn" (click)="checkout(AddCart.value)">
+          ><br />
+          <button
+            type="button"
+            id="buyitbtn"
+            class="btn"
+            (click)="checkout(AddCart.value)"
+            [disabled]="!unit_measure || !selectedSizeId"
+          >
             Buy It Now
           </button>
         </form>
@@ -145,33 +162,34 @@
 
 <!-- Comment Section -->
 <div class="container" *ngIf="comments.length > 0">
-<div class="be-comment-block">
-	<h1 class="comments-title">Comments ({{ comments.length }})</h1>
+  <div class="be-comment-block">
+    <h1 class="comments-title">Comments ({{ comments.length }})</h1>
 
-	<div class="be-comment" *ngFor="let comment of comments">
-		<div class="be-img-comment">
-			<a href="blog-detail-2.html">
-				<img src="{{ comment.user.image }}" alt="" class="be-ava-comment">
-			</a>
-		</div>
-		<div class="be-comment-content">
+    <div class="be-comment" *ngFor="let comment of comments">
+      <div class="be-img-comment">
+        <a href="blog-detail-2.html">
+          <img src="{{ comment.user.image }}" alt="" class="be-ava-comment" />
+        </a>
+      </div>
+      <div class="be-comment-content">
+        <span class="be-comment-name">
+          <a href="blog-detail-2.html"
+            >{{ comment.user.firstname }} {{ comment.user.lastname }}</a
+          >
+        </span>
+        <span class="be-comment-time">
+          <i class="fa fa-clock-o"></i>
+          {{ comment.created_at }}
+        </span>
 
-				<span class="be-comment-name">
-					<a href="blog-detail-2.html">{{ comment.user.firstname }} {{ comment.user.lastname }}</a>
-					</span>
-				<span class="be-comment-time">
-					<i class="fa fa-clock-o"></i>
-					{{ comment.created_at }}
-				</span>
-
-			<p class="be-comment-text">
-			{{ comment.message }}
-			</p>
-		</div>
-	</div>
-</div>
+        <p class="be-comment-text">
+          {{ comment.message }}
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <button type="button" id="backbtn" class="btn" (click)="return()">Back</button>
-<hr class="hr">
+<hr class="hr" />
 <app-cus-footer></app-cus-footer>

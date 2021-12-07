@@ -21,28 +21,27 @@ a{
   background-color: #F6F2EF;
   border-radius: 5px;
 }
-#img320{
-  width: 90%;
-  height: 100%;
-  margin-left: 14%;
-  box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
-}
 .profileimg{
   width: 60%;
   height: 28%;
   border-radius: 50%;
   margin-top: 20%;
 }
-#headerhr{
-  width: 85vw;
-  margin-top: 2%;
-  margin-left: -1vw;
+.addbtn{
+  box-sizing: border-box;
+  border: none;
+  float: right;
+  margin-top: 4vw;
+  background-color: rgb(19, 153, 231);
+  border-radius: 3px;
+  width: 20vw;
+  color: #F6F2EF;
+}
+.address320{
+  margin-top: 5vw;
 }
 .deliverypanel{margin-left: 7%;}
 .submedia{margin-bottom: 7vw;}
-#allorders, #topay{padding-right: 4vw;}
-#deliverydate{padding-right: 5vw;}
-
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   .col-s-1 {width: 8.33%;}
@@ -74,37 +73,40 @@ a{
   .col-12 {width: 100%;}
 }
 @media screen and (min-width: 320px) {
-  .headers{
-    font-size: 4vw;
-    margin-top: 7%;
+  table{width: 100%;}
+  td{
+    border: 1px solid #bb5b45;
   }
-  #prodname{
+  .label{
     font-weight: bold;
-    padding-top: 2vw;
-  }
-  .right{
-    text-align: center;
-    margin-left: -2%;
-  }
-  .right p, #prodname{
-    font-size: 4.5vw;
-    margin-bottom: 7%;
-  }
-  #quant{margin-left: 20vw;}
-  #hr1{
-    margin-top: 5%;
+    margin-left: 2vw;
+    font-size: 4vw;
     width: 33vw;
-    margin-left: 3vw;
+  }
+  .data{
+    padding-left: 3vw;
+    font-size: 4vw;
+  }
+  .editbtn{
+    background-color: #C7988E;
+    color: #F6F2EF;
+    width: 20vw;
+    margin-bottom: 8vw;
+    border-radius: 5px;
+    border: none;
+    padding: 1vw;
+    font-size: 4vw;
+    margin-top: 3vw;
+    float: right;
   }
   .media320{margin-left: 4.5vw;}
+  td, th{font-size: 4vw;}
 }
 @media screen and (min-width:375px){
-  #headerhr{
-    width: 87vw;
-  }
+  
 }
 @media screen and (min-width:420px){
-  #hr1{margin-left: 4vw;}
+ 
 }
 @media screen and (max-width: 767px){
   .media768{display: none;}
@@ -122,101 +124,101 @@ a{
   .deliverypanel{
     margin-left: 3%;
     width: 72%;
-    margin-bottom: 10%;
+    margin-bottom: 35%;
   }
-  .header768{margin-top: 3%;}
-  .header768, .account p, p, .right768 p, #prodname{font-size: 2vw;}
-  .allorder768{
-    margin-left: 1%;
-    padding-right: 10vw;
-  }
+  .header768, .account p, p, .address{font-size: 2vw;}
   .account{
     text-align: center;
-    margin-bottom: 35%;
+    /* margin-bottom: 49%; */
     margin-left: 2.6vw;
     width: 20%;
+    height: 35vw;
   }
   .account p{
     margin-bottom: 0%;
     padding-top: 2vw;
   }
-  #img768{
-    margin-left: 15%;
-    width: 90%;
-    height: 90%;
-    box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
+  table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 3px solid #bb5b45;
+    margin-top: 2vw;
   }
-  #quant{margin-left: 9vw;}
-  #prodname, #amount{margin-bottom: 0vw;}
-  #total{margin-top: -1vw;}
-  #hr1{
-    width: 13vw;
-    margin-left: 1vw;
+  th, td {
+    text-align: left;
+    padding-right: 10vw;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    font-size: 2vw;
   }
-  .right768{text-align: center;}
-  #toPay, #deliverydate{ padding-right: 11vw;}
-  #hr768{
-    width: 70vw;
-    margin-left: 0vw;
-    margin-bottom: 5vw;
+  th{
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-size: 2vw;
+    background-color: #C7988E;
+    border: 1px solid #C7988E;
+  }
+  td{
+    margin-top: 2vw;
+    font-size: 2vw;
+  }
+  tr:nth-child(odd){background-color: #c0b2af}
+  .address{
+    margin-top: 2vw;
+  }
+  .hr768{
     margin-top: 1vw;
+  }
+  .editbtn{
+    width: 10vw;
+    padding: 0.5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    font-size: 2vw;
+    margin-right: 4vw;
+  }
+  .addbtn{
+    margin-top: -5vw;
+    width: 11vw;
   }
   .col-6{
     margin-bottom: 2vw;
   }
+  .hr768{
+    margin-top: 0vw;
+  }
+  .profileimg{
+    width: 63%;
+    height: 24%;
+  }
 }
 @media screen and (min-width: 1024px) {
   .media768{margin-bottom: -19vw;}
-  #hr768{
-    /* width: 57vw; */
-    margin-bottom: 4vw;
-  }
-  #hr1{
-    width: 15vw;
-  }
-  .account p, .header768 a, .right768 p, #prodname{
-    font-size: 1.3vw;
-  }
   .account{
     width: 16.66%;
     margin-left: 8vw;
-    margin-bottom: 35%;
+    height: 28vw;
   }
+  .account p, .editbtn, .addbtn, td, th, .address, .header768{font-size: 1.3vw;}
   .deliverypanel{
     margin-bottom: 22%;
     margin-left: 8%;
     width: 60%;
   }
-  #img768{
-    height: 90%;
-    width: 80%;
-    margin-left: 2.8vw;
+  .addbtn{
+    width: 8vw;
+    padding: 0.5vw;
+    margin-top: -4vw;
   }
-  #hr1{
-    margin-left: -0.1vw;
-    width: 9.3vw;
+  .deliverypanel{
+    height: 40vw;
   }
-  #prodname{
-    padding-top: 0.5vw;
-    margin-bottom: 5%;}
-  #quant{
-    margin-bottom: 5%;
-    margin-left: 7vw;
-  }
-  .right768{text-align: left;}
-  #amount, #total{margin-left: 1vw;}
 }
 @media screen and (min-width:1440px) {
   .account{margin-bottom: 33%;}
   #hr768{width: 58vw;}
 }
 @media screen and (min-width: 2560px) {
-  #hr768{
-    width: 59vw;
-  }
-  .allorder768{
-    margin-left: 3%;
-  }
-  #total{margin-top: 0vw;}
 }
 
