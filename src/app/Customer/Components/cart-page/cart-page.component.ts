@@ -45,19 +45,20 @@ export class CartPageComponent implements OnInit {
 
   productSize(sizes: [any], sizeId: number) {
     const size = sizes.find(size => size.id === sizeId);
-    console.log('size', size.size);
     return size.size;
   }
 
   async update(quantity: any, product: any) {
-    product.pivot.quantity = parseInt(quantity)
-    this.service.updateCartProduct(product.id, product, this.token).then(result => {
-      if (result.data.error) {
-        this.errors = result.data.message
-      }else {
-        this.getProduct();
-      }
-    })
+    product.pivot.quantity = parseInt(quantity);
+    this.service
+      .updateCartProduct(product.id, product, this.token)
+      .then(result => {
+        if (result.data.error) {
+          this.errors = result.data.message;
+        } else {
+          this.getProduct();
+        }
+      });
   }
 
   async checkout(data: any) {
@@ -103,11 +104,13 @@ export class CartPageComponent implements OnInit {
     });
   }
 
-  selectById(product: any, products: Array<any>) {
-    let selectall = document.getElementById('selectAll') as HTMLInputElement;
-    let test = document.getElementsByClassName('selectId') as HTMLCollectionOf<
-      HTMLInputElement
-    >;
+  selectById(product: any, products: Array<any>, device: string) {
+    let selectall = document.getElementById(
+      device == 'mobile' ? 'selectAllMobile' : 'selectAllDesktop'
+    ) as HTMLInputElement;
+    let test = document.getElementsByClassName(
+      device == 'mobile' ? 'selectIdMobile' : 'selectIdDesktop'
+    ) as HTMLCollectionOf<HTMLInputElement>;
     let hasUnchecked: Array<boolean> = [];
     products.forEach((element, index) => {
       if (!test[index].checked) {
@@ -131,15 +134,18 @@ export class CartPageComponent implements OnInit {
     }
   }
 
-  selectAll(products: Array<any> = []) {
-    let selectall = document.getElementById('selectAll') as HTMLInputElement;
+  selectAll(products: Array<any> = [], device: string) {
+    let selectall = document.getElementById(
+      device == 'mobile' ? 'selectAllMobile' : 'selectAllDesktop'
+    ) as HTMLInputElement;
     this.Products = [];
     products.forEach((element, index) => {
-      let test = document.getElementsByClassName('selectId')[
-        index
-      ] as HTMLInputElement;
+      let test = document.getElementsByClassName(
+        device == 'mobile' ? 'selectIdMobile' : 'selectIdDesktop'
+      )[index] as HTMLInputElement;
       if (selectall.checked) {
         this.Products.push(element);
+        console.log(this.Products);
         test.checked = true;
       } else {
         test.checked = false;
