@@ -10,8 +10,8 @@
             <input
               type="checkbox"
               name=""
-              (click)="selectAll(products)"
-              id="selectAll"
+              (click)="selectAll(products, 'mobile')"
+              id="selectAllMobile"
             />
             <span class="checkmark select"></span>
           </label>
@@ -64,9 +64,9 @@
           <label class="container768 ">
             <input
               type="checkbox"
-              (click)="selectById(product, products)"
+              (click)="selectById(product, products, 'mobile')"
               id="product.id"
-              class="selectId"
+              class="selectIdMobile"
             />
             <span class="checkmark subselect"></span>
           </label>
@@ -76,11 +76,13 @@
         </div>
         <div class="col-12 col-s-12 buttons">
           <p>Subtotal Php {{ total }}</p>
-          <button class="btn" routerLink="/home">Continue Shopping</button><br />
+          <button class="btn" routerLink="/home">Continue Shopping</button
+          ><br />
           <button
             type="button"
             (click)="checkout(Checkout.value)"
             class="btn checkoutbtn"
+            [disabled]="Products.length < 1"
           >
             Check Out
           </button>
@@ -99,10 +101,10 @@
           <label class="container768"
             >Select All
             <input
-            type="checkbox"
-            name=""
-            (click)="selectAll(products)"
-            id="selectAll"
+              type="checkbox"
+              name=""
+              (click)="selectAll(products, 'desktop')"
+              id="selectAllDesktop"
             />
             <span class="checkmark select"></span>
           </label>
@@ -134,10 +136,10 @@
           <div class="col-2 col-s-2">
             <label class="container768">
               <input
-              type="checkbox"
-              (click)="selectById(product, products)"
-              id="product.id"
-              class="selectId"
+                type="checkbox"
+                (click)="selectById(product, products, 'desktop')"
+                id="product.id"
+                class="selectIdDesktop"
               />
               <span class="checkmark subselect"></span>
             </label>
@@ -154,7 +156,12 @@
             <button class="removebtn" (click)="confirmRemove(product)">
               Remove
             </button>
-            <button class="btn updatebtn" (click)="update(quantity.value, product)">Update</button>
+            <button
+              class="btn updatebtn"
+              (click)="update(quantity.value, product)"
+            >
+              Update
+            </button>
           </div>
           <div class="col-1 col-s-1">
             <p class="size">
@@ -183,7 +190,11 @@
           </div>
         </div>
         <div class="Unathorized" *ngIf="products.length == 0">
-          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+          <img
+            src="https://financialadvisors.com/media/no-images/nodata-found.png"
+            alt=""
+            class="responsive-image"
+          />
         </div>
       </div>
       <div class="col-12 col-s-12">
@@ -209,6 +220,7 @@
           (click)="checkout(Checkout.value)"
           class="btn checkoutbtn"
           *ngIf="products.length > 0"
+          [disabled]="Products.length < 1"
         >
           Check Out
         </button>
