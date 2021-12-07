@@ -78,7 +78,7 @@
               <th>Active</th>
               <th>Actions</th>
             </thead>
-            <tbody>
+            <tbody *ngIf="addresses.length > 0">
               <tr *ngFor="let address of addresses">
                 <td>{{ address.contact_number}}</td>
                 <td>{{ address.postal_code}}</td>
@@ -94,7 +94,9 @@
             </tbody>
           </table>
         </div>
-
+        <div class="Unathorized" *ngIf="addresses.length == 0">
+          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+        </div>
       </div>
     </div>
   </div>

@@ -78,7 +78,7 @@ export class CategoryComponent implements OnInit {
   async confirmDelete(category:any){
     Swal.fire({
       title: 'Are you sure?',
-      text: "You want to DELETE "+category.name+"?",
+      text: "You want to DELETE "+category.name+"? This might affect the products.",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',

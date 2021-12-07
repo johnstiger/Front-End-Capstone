@@ -53,8 +53,6 @@ export class MyOrderPageComponent implements OnInit {
     this.orderService.getUserInfo().subscribe(response => {
       this.user = response.data
     })
-    console.log(this.products);
-
   }
 
   remove(product:any){
@@ -65,9 +63,6 @@ export class MyOrderPageComponent implements OnInit {
       }
     })
     localStorage.setItem('products',JSON.stringify([this.products]))
-    // this.ngOnInit();
-    console.log(this.products);
-
   }
 
   async showProducts() {
