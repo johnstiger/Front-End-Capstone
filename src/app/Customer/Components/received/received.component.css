@@ -9,6 +9,12 @@ a, p{
   color: #C7988E;
   text-decoration: none;
 }
+.responsive-image{
+  width: 100%;
+}
+.Unathorized{
+  text-align: center;
+}
 #img320{
   width: 90%;
   height: 100%;

@@ -23,7 +23,7 @@ export class MyOrderPageComponent implements OnInit {
   ) { }
   user:any = null
   token = localStorage.getItem('customer_token');
-  products!: [any];
+  products: Array<any> = [];
   totalAmount: number = 0;
   payments:Payment[] = [
     {
@@ -53,6 +53,21 @@ export class MyOrderPageComponent implements OnInit {
     this.orderService.getUserInfo().subscribe(response => {
       this.user = response.data
     })
+    console.log(this.products);
+
+  }
+
+  remove(product:any){
+    this.products.forEach((res, index)=>{
+      if(res.id == product.id){
+        console.log(index);
+        this.products.splice(index, 1);
+      }
+    })
+    localStorage.setItem('products',JSON.stringify([this.products]))
+    // this.ngOnInit();
+    console.log(this.products);
+
   }
 
   async showProducts() {

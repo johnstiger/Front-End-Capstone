@@ -5,7 +5,13 @@ body {
 .topnav{
   margin-bottom: 75px;
 }
-
+.responsive-cart{
+  position: relative;
+}
+.responsive-bag-cart{
+  top: -18px !important;
+  padding: 3px 9px !important;
+}
 .custom-badge{
   display: none;
 }

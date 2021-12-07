@@ -15,7 +15,7 @@
           <a href="javascript:void(0)" class="closebtn categories" (click)="closeNav()">&times;</a>
           <div class="responsive">
             <a class="responsive-user" *ngIf="authorized" routerLink="/show-profile"><i class="far fa-user-circle responsive-bag"></i></a>
-            <a routerLink="/cart" class="responsive-cart"><span class="custom-badge"></span><i class="fas fa-shopping-bag responsive-bag"></i></a>
+            <a routerLink="/cart" class="responsive-cart"><span class="custom-badge responsive-bag-cart"></span><i class="fas fa-shopping-bag responsive-bag"></i></a>
           </div>
           <a class="categories" *ngFor="let category of categories" (click)="LinkThisCategory(category)">{{category.name}}</a>
           <a class="categories" routerLink="/about-us">About Us</a>
@@ -24,6 +24,7 @@
           <a class="categories" routerLink="/show-profile" *ngIf="authorized">My Profile</a>
           <a class="categories" routerLink="/edit-account" *ngIf="authorized">Edit Account</a>
           <a class="categories" routerLink="/all-orders" *ngIf="authorized">My Orders</a>
+          <a class="categories" routerLink="/Addresses" *ngIf="authorized">Addresses</a>
           <a class="categories" (click)="logout()" *ngIf="authorized">Log Out</a>
       </div>
   </div>

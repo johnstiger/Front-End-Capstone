@@ -97,7 +97,13 @@
       </div>
     </div>
     <hr id="headerid" />
-    <div class="col-12 col-s-12 headers">
+    <div class="Unathorized" *ngIf="products.length < 1">
+      <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+      <div class="col">
+        <button class="btn cancelBtn" id="cancel" (click)="cancel()">Cancel</button><br />
+      </div>
+    </div>
+    <div class="col-12 col-s-12 headers" *ngIf="products.length > 0">
       <div class="row">
         <div class="col-3 col-s-3 "><p class="product">Product</p></div>
         <div class="col-3 col-s-3"></div>
@@ -106,7 +112,7 @@
         <div class="col-2 col-s-2"><p id="headertotal">Total</p></div>
       </div>
     </div>
-    <div class="col-12 col-s-12 prodside">
+    <div class="col-12 col-s-12 prodside" *ngIf="products.length > 0">
       <div *ngFor="let product of products">
         <div class="row">
           <div class="col-2 col-s-2">
@@ -114,7 +120,7 @@
           </div>
           <div class="col-3 col-s-3">
             <p class="productname">{{ product.name }}</p>
-            <button class="removebtn">Remove</button>
+            <button class="removebtn" (click)="remove(product)">Remove</button>
           </div>
           <div class="col-1 col-s-1"></div>
           <div class="col-2 col-s-2">

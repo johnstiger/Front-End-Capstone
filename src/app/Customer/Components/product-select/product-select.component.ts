@@ -61,11 +61,11 @@ export class ProductSelectComponent implements OnInit {
 
       this.image = this.product.image;
       this.id = this.product.id;
-      console.log('Selected product', this.product);
       this.sizes = this.product.sizes;
       if (this.sizes.length == 1) {
         this.avail_unit_measure = this.sizes[0].pivot.unit_measure;
         this.selectedSizeId = this.sizes[0].id;
+        this.maxPerSize = this.sizes[0].pivot.unit_measure;
         console.log(this.sizes[0].unit_measure);
       }
     });

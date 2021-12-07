@@ -6,6 +6,11 @@
     color: #C7988E;
     font-family: 'Roboto';
   }
+
+  .image{
+    width: 100%;
+  }
+
   hr{height: 0.2vw;}
   .hr{background-color: white;}
   a{
