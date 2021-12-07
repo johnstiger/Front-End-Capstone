@@ -18,6 +18,7 @@
                                     <th scope="col">Customer Name</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Contact Number</th>
+                                    <th scope="col">Payment Method</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -36,6 +37,9 @@
                                     <td *ngIf="order.address == null" class="text-danger">
                                       This order is no contact number provided
                                     </td>
+                                   <td class="text-success">
+                                      {{ order.payment_method }}
+                                   </td>
                                     <td>
                                         <button *ngIf="order.tracking_code === null && order.status === 1" type="button" (click)="trackingCode(order)" class="btn btn-primary tracking"><i class="fas fa-truck-loading"></i> Tracking Code</button>
                                         <button *ngIf="order.status == 0" type="button" (click)="openModal(order)" class="btn btn-primary tableBtn"><i id="cpIcon" class="far fa-eye"></i> Preview</button>
@@ -50,6 +54,9 @@
                                    <td class="text-danger">
                                       This order has no products
                                    </td>
+                                   <td class="text-danger">
+                                     This order has no products
+                                  </td>
                                     <td>
                                         <button type="button" (click)="openModal(order)" class="btn btn-primary tableBtn" disabled><i id="cpIcon" class="far fa-eye"></i>Preview</button>
                                         <button type="button" (click)="declined(order.id, order.customer.id)" class="btn btn-danger tableBtn" disabled><i class="fa fa-ban" aria-hidden="true"></i> Declined</button>

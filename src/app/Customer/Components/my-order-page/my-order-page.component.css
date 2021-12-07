@@ -5,6 +5,15 @@
     font-family: 'Roboto';
     font-weight: bold;
 }
+
+.Unathorized{
+  text-align: center;
+}
+
+.cancelBtn{
+  margin-left: 0px !important;
+}
+
 hr{
   height: 0.2vw;
   border: none;

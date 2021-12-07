@@ -55,6 +55,10 @@ textarea {
     padding: 12px;
 }
 
+.leftBtn{
+  margin-left: 16px !important;
+}
+
 .file-upload {
     display: inline-block;
     padding: 9px 28px;
