@@ -34,6 +34,7 @@ export class ResetPasswordComponent implements OnInit {
 
   sendAgain(){
     this.service.loading()
+    this.error = false;
     this.verificationCode.value.email = sessionStorage.getItem('user_email');
     this.service.sendEmail(this.verificationCode.value).then((res)=>{
       if(res.data.error){
@@ -61,8 +62,9 @@ export class ResetPasswordComponent implements OnInit {
         this.service.closeLoading();
       }else{
         this.service.ShowSuccessMessage(res.data.message);
+        sessionStorage.clear();
         setTimeout(()=>{
-          this.route.navigate(['/new-password=?/'+this.id]);
+          this.route.navigate(['/new-password=?/'+this.id+'/set-new-pass=?/'+this.verificationCode.value.code+""+res.data]);
         },1500)
       }
     });

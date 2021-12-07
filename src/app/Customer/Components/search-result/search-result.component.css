@@ -6,6 +6,10 @@
     margin-top: 15px;
 }
 
+.Unathorized{
+  text-align: center;
+}
+
 hr {
     background-color: white;
 }

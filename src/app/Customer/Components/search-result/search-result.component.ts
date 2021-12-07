@@ -22,6 +22,7 @@ export class SearchResultComponent implements OnInit {
   search = "";
   cp : number = 0;
   products : any;
+  display : boolean = false;
   path = 'http://santafe-dagom.herokuapp.com/img/';
 
   eventSubscription! : Subscription
@@ -57,6 +58,9 @@ export class SearchResultComponent implements OnInit {
       console.log(result.data.found);
       this.message = result.data.message;
       this.products = result.data.found ? result.data.data : [];
+      if(this.products.length == 0){
+        this.display = true;
+      }
       this.service.closeLoading();
     })
 

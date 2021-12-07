@@ -18,21 +18,27 @@ export class AllOrdersComponent implements OnInit {
   token = localStorage.getItem('customer_token');
   products:any[] = [];
   customerName : any;
+  display : boolean = false;
   img : any;
 
   async ngOnInit() {
     this.getUser();
     const response = await this._customerService.getOrders(this.token)
+    console.log(response.data.data)
     response.data.data.forEach((order:any) => {
       this.products.push(...order.products)
-      console.log(this.products)
+      if(this.products.length == 0){
+        this.display = true;
+      }
     })
   }
 
   async getUser(){
+    this._customerService.showLoading();
     let user_id = localStorage.getItem('customer');
     const response = await this._customerService.getCustomerProfile(user_id, this.token);
     this.customerName = response.data.data.firstname+" "+response.data.data.lastname
+    this._customerService.closeLoading();
     this.img = response.data.data.image
   }
 

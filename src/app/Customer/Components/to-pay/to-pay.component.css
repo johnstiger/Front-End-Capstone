@@ -6,7 +6,12 @@
   color: #C7988E;
   font-family: 'Roboto';
 }
-
+.Unathorized{
+  text-align: center;
+}
+.responsive-image{
+  width: 100%;
+}
 .test{
   overflow-y: auto;
   height: 500px;
