@@ -125,7 +125,7 @@
                 [hidden]="!passwordHidden">visibility</i>
           </div>
         </div>
-        <div class="info-responsive"><span class="infoText">Must contain at least 8 characters including the following :(!@#$%^&*()_+,[A-Z])</span></div>
+        <div class="info-responsive"><span class="infoText">Must contain at least 6 characters including the following :(!@#$%^&*()_+,[A-Z],[1-9])</span></div>
         <div class="col-12 col-s-12">
           <span
           class="text-danger form-text"
@@ -300,7 +300,9 @@
               formControlName="password_confirmation"
             /> -->
           </div>
-          <div class="info"><span class="infoText">Must contain at least 8 characters including the following :(!@#$%^&*()_+,[A-Z])</span></div>
+          <div class="info"><span class="infoText">
+            Must contain at least 6 characters including the following :(!@#$%^&*()_+,[A-Z],[1-9])
+          </span></div>
           <button class="btn">Submit</button>
           <p class="txt">
             Do you already have an account? <a routerLink="/login">Sign In</a>

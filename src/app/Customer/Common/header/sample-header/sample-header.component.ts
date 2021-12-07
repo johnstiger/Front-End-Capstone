@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { SearchService } from 'src/app/Common/search.service';
 import { CustomerService } from 'src/app/Customer/Services/customer.service';
 import { Customers } from '../../../../Admin/Common/model/admin-model';
@@ -31,12 +32,15 @@ export class SampleHeaderComponent implements OnInit {
   @Output() messageEvent  = new EventEmitter<string>();
   @Output() categoryEvent  = new EventEmitter<string>();
 
-  constructor(private router: Router, private service : CustomerService, private oberver : SearchService) { }
+  constructor(private router: Router,
+    private service : CustomerService,
+    private _test : AdminService,
+     private oberver : SearchService) { }
 
   ngOnInit(): void {
     this.getCategories();
     if (window.localStorage.getItem('customer_token')) {
-      this.countProductsInCart()
+      this.countProductsInCart();
       this.unAuthorized = false;
       this.authorized = true;
     }else {
@@ -50,12 +54,11 @@ export class SampleHeaderComponent implements OnInit {
       sessionStorage.setItem('data', this.form.value.data);
       this.router.navigate(['/search-result']);
       this.oberver.sendTriggeredEvent(this.form.value);
-
   }
 
   countProductsInCart(){
     this.service.countProductsInCart(this.token).then((res)=>{
-      if(res.data > 1){
+      if(res.data > 0){
         $('.custom-badge').css('display','block');
         $('.custom-badge').html(res.data);
       }
@@ -79,18 +82,24 @@ export class SampleHeaderComponent implements OnInit {
     })
   }
 
-
   async logout(){
-    this.service.loading();
-    const result = await this.service.logoutUser(this.token);
-    console.log(result.data);
-
-    if(result.data.error){
-
-    }else{
-      this.router.navigate(['/'])
-    }
+    this.service.loading()
+    const result = await this._test.logoutUser(this.token);
+    localStorage.clear();
+    window.location.reload();
   }
+
+  // async logout(){
+  //   this.service.loading();
+  //   const result = await this.service.logoutUser(this.token);
+  //   console.log(result.data);
+
+  //   if(result.data.error){
+
+  //   }else{
+  //     this.router.navigate(['/'])
+  //   }
+  // }
 
   async getCategories(){
     const result = await this.service.getCategories();

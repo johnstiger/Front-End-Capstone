@@ -79,7 +79,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'reset-password=?/:id', component: ResetPasswordComponent, canActivate: [ResetPasswordGuard] },
-  { path: 'new-password=?/:id', component: NewPasswordComponent },
+  { path: 'new-password=?/:id/set-new-pass=?/:data', component: NewPasswordComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'search-result', component: SearchResultComponent },
   { path: 'all-orders', component: AllOrdersComponent, canActivate: [CustomerGuard] },
@@ -95,9 +95,9 @@ const routes: Routes = [
   { path: 'pay', component: ToPayComponent, canActivate: [CustomerGuard] },
   { path: 'selected/:id', component: ProductSelectComponent },
   { path: 'view=?/:id', component: ViewAllComponent },
-  { path: 'addresses', component: AddressesComponent },
-  { path: 'addresses/add', component: AddAddressesComponent },
-  { path: 'addresses/:id/update', component: UpdateAddressComponent },
+  { path: 'addresses', component: AddressesComponent, canActivate:[CustomerGuard] },
+  { path: 'addresses/add', component: AddAddressesComponent, canActivate:[CustomerGuard] },
+  { path: 'addresses/:id/update', component: UpdateAddressComponent, canActivate:[CustomerGuard] },
 
   { path: 'spinner', component: SpinnerComponent },
 
