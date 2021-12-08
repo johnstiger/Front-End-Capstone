@@ -47,7 +47,7 @@ a{
 }
 #img320{
   width: 90%;
-  height: 100%;
+  /* height: auto; */
   margin-left: 13%;
   box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
 }
