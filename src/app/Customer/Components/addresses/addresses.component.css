@@ -101,14 +101,14 @@ a{
   .editbtn{
     background-color: #C7988E;
     color: #F6F2EF;
-    width: 20vw;
+    width: 100%;
     margin-bottom: 8vw;
     border-radius: 5px;
     border: none;
     padding: 1vw;
     font-size: 4vw;
     margin-top: 3vw;
-    float: right;
+    /* float: right; */
   }
   .media320{margin-left: 4.5vw;}
   td, th{font-size: 4vw;}

@@ -47,8 +47,8 @@
             <td class = "label">Active:</td>
             <td class = "data">{{ address.active }}</td>
           </tr>
+          <button class="editbtn" [routerLink]="['/addresses/'+address.id, 'update']">Edit</button>
         </table>
-        <button class="editbtn" [routerLink]="['/addresses/'+address.id, 'update']">Edit</button>
       </div>
     </div>
     <div class="return">
