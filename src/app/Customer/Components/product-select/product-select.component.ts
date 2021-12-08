@@ -89,14 +89,15 @@ export class ProductSelectComponent implements OnInit {
   async submit(id: any, data: any) {
     data.unit_measure = this.unit_measure;
     data.sizeId = this.selectedSizeId;
-    console.log('submit', data);
     if (this.token) {
       await this.service.addtoCart(id, data, this.token).then(result => {
         if (result.data.error) {
           this.errors = result.data.message;
         } else {
-          this.router.navigate(['home']);
-          console.log(result.data);
+          this.service.ShowSuccessMessage(result.data.message);
+          setTimeout(()=>{
+            this.router.navigate(['home']);
+          },2000)
         }
       });
     } else {

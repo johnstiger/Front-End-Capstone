@@ -15,10 +15,7 @@
           <a id="recieved" href="/received">Received</a>
         </div>
       </div>
-      <div class="Unathorized" *ngIf="display">
-        <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="image">
-      </div>
-      <div class="wrapper" style="grid-template-columns: 1fr !important;" *ngIf="!display">
+      <div class="wrapper" style="grid-template-columns: 1fr !important;">
         <div *ngFor="let product of products">
           <div class="col-12 col-s-12 submedia">
             <div class="row">

@@ -31,7 +31,8 @@
                             <tbody>
                                 <tr *ngFor="let product of sales | filter:filterTerm | paginate : {itemsPerPage:5, currentPage:cp}">
                                     <td> {{ product.products.name }} </td>
-                                    <td> {{ product.products.category.name }} </td>
+                                    <td *ngIf="product.products.category"> {{ product.products.category.name }} </td>
+                                    <td *ngIf="!product.products.category"> No Category </td>
                                     <td>{{ product.price }}</td>
                                     <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.unit_measure }} </td>
                                     <td>{{ product.unit_measure }}</td>
