@@ -9,6 +9,7 @@ import {
 } from 'src/app/Customer/Common/model/customer-model';
 import { Location } from '@angular/common';
 import { OrderService } from '../../Services/order.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-my-order-page',
@@ -72,17 +73,36 @@ export class MyOrderPageComponent implements OnInit {
     this.router.navigate(['/addresses']);
   }
 
-  remove(product:any){
-    this.products.forEach((res, index)=>{
-      if(res.id == product.id){
-        console.log(index);
-        this.products.splice(index, 1);
-      }
-    })
-    this.totalAmount -= product.pivot.total
-    this.order.data.push(this.tranformToProductDto(product))
-    localStorage.setItem('products',JSON.stringify([this.products]))
-  }
+  // remove(product:any){
+  //   Swal.fire({
+  //     title: 'Are you sure?',
+  //     text: 'You want to REMOVE ' + product.name + '?',
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#d33',
+  //     cancelButtonColor: '#3085d6',
+  //     confirmButtonText: 'Yes, remove it!'
+  //   }).then(result => {
+  //     if (result.value) {
+  //       this.products.forEach((res, index)=>{
+  //         if(res.id == product.id){
+  //           console.log(index);
+  //           this.products.splice(index, 1);
+  //         }
+  //       })
+  //       this.totalAmount -= product.pivot.total
+  //       this.order.data.push(this.tranformToProductDto(product))
+  //       localStorage.setItem('products',JSON.stringify([this.products]))
+  //     } else if (result.dismiss === Swal.DismissReason.cancel) {
+  //       Swal.fire(
+  //         'Cancelled',
+  //         product.name + ' is still in our database.',
+  //         'error'
+  //       );
+  //     }
+  //   });
+
+  // }
 
   async showProducts() {
     await this.service.showProducts(this.token).then(result => {
@@ -97,6 +117,8 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   placeOrder() {
+    console.log(this.order);
+
     this.orderService.create(this.order).subscribe(data => {
       this.router.navigateByUrl('/pay')
     })

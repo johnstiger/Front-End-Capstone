@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { CustomerService } from '../../Services/customer.service'
 
 @Component({
@@ -54,9 +55,19 @@ export class ToPayComponent implements OnInit {
   }
 
   async removeItem(orderId : any, productId:any){
-    this._customerService.showLoading();
-    let data = {data:productId};
-    const response = await this._customerService.removeProductOrder(orderId, data, this.token);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to REMOVE?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, remove it!'
+    }).then(async (result) => {
+      if (result.value) {
+        let data = {data:productId};
+        this._customerService.showLoading();
+        const response = await this._customerService.removeProductOrder(orderId, data, this.token);
     if(response.data.error){
 
     }else{
@@ -65,7 +76,22 @@ export class ToPayComponent implements OnInit {
         this.ngOnInit();
       },1500)
     }
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Removed Cancelled',
+          'error'
+        );
+      }
+    });
+
+
   }
 
+
+  remove(product:any){
+
+
+  }
 
 }

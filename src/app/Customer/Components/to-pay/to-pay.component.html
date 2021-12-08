@@ -43,7 +43,7 @@
   <div class="col-12 col-s-12 buttons">
     <p style="margin-bottom: 0px;">Subtotal: Php {{subtotal}}</p>
     <p style="margin-bottom: 0px; margin-right: 16%;">Shipping Fee: Php 70.00</p>
-    <p style="margin-left: 19%;">Total: {{subtotal+70}}</p>
+    <p style="margin-left: 19%;">Total: {{subtotal+70 || 0}}</p>
   </div>
 </div>
 
@@ -115,7 +115,7 @@
          <div class="col-12 col-s-12 buttons">
           <p id="subtotal">Subtotal: Php {{subtotal}}</p>
           <p id="shippingfee">Shipping Fee: Php 70.00</p>
-          <p id="alltotal">Total: {{subtotal+70}}</p>
+          <p id="alltotal">Total: {{subtotal+70 || 0}}</p>
         </div>
       </div>
     </div>
