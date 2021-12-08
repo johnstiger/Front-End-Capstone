@@ -55,7 +55,7 @@ export class MyOrderPageComponent implements OnInit {
             product["selected_size"] = size.size
           }
         })
-        console.log(product);
+        console.log("Loaded!");
         this.order.data.push(this.tranformToProductDto(product))
       });
     }else{

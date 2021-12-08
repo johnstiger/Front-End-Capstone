@@ -16,6 +16,11 @@ a{
   background-color: #F6F2EF;
   border-radius: 5px;
 }
+
+.is-invalid{
+  border: 1px solid red;
+}
+
 #img320{
   width: 90%;
   height: 100%;

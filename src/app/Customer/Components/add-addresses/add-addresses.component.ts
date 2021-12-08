@@ -17,7 +17,7 @@ export class AddAddressesComponent implements OnInit {
       Validators.required, Validators.pattern('^(09|\\+639)\\d{9}$')
     ]),
     postal_code: new FormControl('', [
-      Validators.required,
+      Validators.required, Validators.maxLength(4)
     ]),
     region: new FormControl('', [
       Validators.required
