@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AddressService } from './../../Services/address.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-add-addresses',
@@ -37,10 +38,19 @@ export class AddAddressesComponent implements OnInit {
       Validators.required
     ])
   })
+  customerId = localStorage.getItem('customer') || '';
+  token = localStorage.getItem('customer_token') || '';
+  firstname : any;
+  lastname : any;
 
-  constructor(private service: AddressService, private router: Router) { }
+  constructor(private service: AddressService, private http : CustomerService, private router: Router) { }
 
   ngOnInit(): void {
+    this.http.getCustomerProfile(this.customerId,this.token).then((res)=>{
+      this.firstname = res.data.data.firstname;
+      this.lastname = res.data.data.lastname;
+      this.http.closeLoading();
+    })
   }
 
   addAddress() {
