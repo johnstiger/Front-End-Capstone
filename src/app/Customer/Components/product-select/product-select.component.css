@@ -10,7 +10,7 @@ hr{height: 0.2vw;}
 .hr{background-color: #F6F2EF;}
 #img320{
   width: 75%;
-  height: 90%;
+  /* height: 90%; */
   margin-left: 10vw;
   margin-top: 10vw;
   border-radius: 5px;

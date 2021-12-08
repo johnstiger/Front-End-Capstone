@@ -83,6 +83,8 @@ export class ProductSelectComponent implements OnInit {
   checkQuantity() {
     if (this.unit_measure > this.maxPerSize) {
       this.unit_measure = this.maxPerSize;
+    } else if( this.unit_measure < 1) {
+      this.unit_measure = 1
     }
   }
 
