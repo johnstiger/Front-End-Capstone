@@ -8,7 +8,7 @@
           <p class="label">Personal Information:</p>
           <p class="data">Fullname: {{ user?.firstname }} {{ user?.lastname}}</p>
           <p class="data"> Email: {{ user?.email}}</p>
-          <p class="label">Addresss</p>
+          <p class="label">Address</p>
             <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let ndx = index">
               <input type="radio" class="custom-control-input" [id]="ndx+'320'" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
               <label class="custom-control-label" [for]="ndx+'320'">({{ address.contact_number }}) {{address.municipality }}, {{ address.province }}</label>
@@ -94,7 +94,7 @@
 
     </div>
     <div class="col-12 col-s-12 " style="margin-left: 3vw;">
-      <p class="label">Addresss</p>
+      <p class="label">Address</p>
       <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let i = index">
         <input type="radio" class="custom-control-input" [id]="i" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
         <label class="custom-control-label" [for]="i">({{ address.contact_number }}) {{ address.municipality }}, {{ address.province }}</label>

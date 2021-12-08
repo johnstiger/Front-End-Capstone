@@ -245,7 +245,7 @@ a, p{
   .right768{text-align: left;}
 }
 @media screen and (min-width: 1440px) {
-  .account{margin-bottom: 33%;}
+  .account{margin-bottom: 27%;}
   #hr768{
     width: 58vw;
   }
