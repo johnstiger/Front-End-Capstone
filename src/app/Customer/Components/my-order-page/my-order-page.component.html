@@ -17,8 +17,8 @@
         <div class="col-12 col-s-12">
           <p class="label">Payment Method</p>
           <div class="custom-control custom-radio" *ngFor="let payment of payments;let ndx = index">
-            <input type="radio" class="custom-control-input" [id]="'payment' + ndx+'320'" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
-            <label class="custom-control-label cash" [for]="'payment' + ndx+'320'">{{ payment.display }}</label>
+            <input type="radio" class="custom-control-input" [id]="'payment.value' + ndx+'320'" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
+            <label class="custom-control-label cash" [for]="'payment.value' + ndx+'320'">{{ payment.display }}</label>
           </div>
         </div>
         <br>

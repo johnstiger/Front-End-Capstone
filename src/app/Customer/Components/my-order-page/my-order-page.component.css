@@ -42,6 +42,9 @@ p{
   width: 100%;
   box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
 }
+.custom-control{
+  z-index: 0 !important;
+}
 .pageheader{color: #C7988E;}
 .removebtn, .input, .btn{
   box-sizing: border-box;
