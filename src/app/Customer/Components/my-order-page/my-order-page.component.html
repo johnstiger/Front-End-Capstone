@@ -1,68 +1,80 @@
 <app-sample-header></app-sample-header>
 <p class="headertxt">Your Orders</p>
 <div class="col-11 col-s-11 media320">
-  <div class="row" *ngFor="let product of products">
+  <div class="row">
     <div class="col-12 col-s-12 pageheader">
       <div class="row">
         <div class="col-12 col-s-12" style="margin-top: 5vw;">
           <p class="label">Personal Information:</p>
-          <p class="data">Test Data</p>
+          <p class="data">Fullname: {{ user?.firstname }} {{ user?.lastname}}</p>
+          <p class="data"> Email: {{ user?.email}}</p>
           <p class="label">Addresss</p>
-          <p class="data">Test Data</p>
+            <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let ndx = index">
+              <input type="radio" class="custom-control-input" [id]="ndx+'320'" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
+              <label class="custom-control-label" [for]="ndx+'320'">({{ address.contact_number }}) {{address.municipality }}, {{ address.province }}</label>
+            </div>
         </div>
         <div class="col-12 col-s-12">
           <p class="label">Payment Method</p>
-          <!-- <input type="radio" value="palawan">
-          <label class="cash" for="palawan">Palawan</label>
-          <input type="radio" value="gcash">
-          <label class="cash" for="gcash">Gcash</label> -->
-          <div class="custom-control custom-radio" *ngFor="let payment of payments;let i = index">
-            <input type="radio" class="custom-control-input" [id]="'payment' + i" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
-            <label class="custom-control-label cash" [for]="'payment' + i">{{ payment.display }}</label>
+          <div class="custom-control custom-radio" *ngFor="let payment of payments;let ndx = index">
+            <input type="radio" class="custom-control-input" [id]="'payment' + ndx+'320'" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
+            <label class="custom-control-label cash" [for]="'payment' + ndx+'320'">{{ payment.display }}</label>
           </div>
         </div>
-       
+        <br>
+        <button class="btn btn-primary" routerLink="/addresses">Manage Address</button>
+        <br>
         <hr>
-        <div class="col-6 col-s-6">
+        <div class="Unathorized" *ngIf="products.length < 1">
+          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsImage">
+          <div class="col">
+            <button class="btn cancelBtn" id="cancel" (click)="cancel()">Cancel</button><br />
+          </div>
+        </div>
+        <div class="col-6 col-s-6" *ngIf="products.length > 0">
           <p id="product">Product</p>
         </div>
-        <div class="col-6 col-s-6">
+        <div class="col-6 col-s-6"  *ngIf="products.length > 0">
           <p id="price">Price</p>
         </div>
       </div>
     </div>
-    <hr id="headerhr" />
-    <div class="col-12 col-s-12 content">
-      <div class="row">
-        <div class="col-4 col-s-4">
-          <img class="img320" src="{{ product.image }}" alt="" />
-        </div>
-        <div class="col-4 col-s-4">
-          <p class="productname">{{ product.name }}</p>
-          <button class="removebtn">Remove</button>
-        </div>
-        <div class="col-4 col-s-4 details">
-          <p class="amount">Php {{ product.price }}</p>
-          <label class="quantity">Quantity</label>
-          <input
-            class="input"
-            type="number"
-            min="0"
-            value="0"
-            readonly
-            value="{{ product.pivot.quantity }}"
-          />
-          <p id="total">Total: Php {{ product.pivot.total }}</p>
+    <hr id="headerhr" *ngIf="products.length > 0"/>
+    <div class="test" *ngIf="products.length > 0">
+      <div class="col-12 col-s-12 content" *ngFor="let product of products">
+        <div class="row">
+          <div class="col-4 col-s-4">
+            <img class="img320" src="{{ product.image }}" alt="" />
+          </div>
+          <div class="col-4 col-s-4">
+            <p class="productname">{{ product.name }}</p>
+            <p class="productname">Size : {{ product.selected_size }}</p>
+            <button class="removebtn" (click)="remove(product)">Remove</button>
+          </div>
+          <div class="col-4 col-s-4 details">
+            <p class="amount">Php {{ product.price }}</p>
+            <p class="quantity">Quantity : {{ product.pivot.quantity }}</p>
+            <!-- <label class="quantity">Quantity</label>
+            <input
+              class="input"
+              type="number"
+              min="0"
+              value="0"
+              readonly
+              value="{{ product.pivot.quantity }}"
+            /> -->
+            <p id="total">Total: Php {{ product.pivot.total }}</p>
+          </div>
         </div>
       </div>
     </div>
-    <hr class="hr2" />
-    <div class="col-12 col-s-12 buttons">
+    <hr class="hr2" *ngIf="products.length > 0"/>
+    <div class="col-12 col-s-12 buttons"  *ngIf="products.length > 0">
       <p id="subtotal">Subtotal: Php {{ totalAmount }}</p>
       <p id="shippingfee">Shipping Fee: Php 70.00</p>
       <p id="alltotal">Total: {{ totalAmount + 70 }}</p>
       <button class="btn" id="cancel" (click)="cancel()">Cancel</button><br />
-      <button class="btn" id="placeorder">Place Order</button>
+      <button class="btn" id="placeorder" (click)="placeOrder()" [disabled]="(order.address_id==0)">Place Order</button>
     </div>
   </div>
 </div>
@@ -77,16 +89,16 @@
         <p class="side"> Email: {{ user?.email}}</p>
       </div>
       <div class="col-6 col-s-6 mngadress">
-        <button class="btn-group-sm mngbtn">Manage Address</button>
+        <button class="btn-group-sm mngbtn" routerLink="/addresses">Manage Address</button>
       </div>
     </div>
-     
+
     </div>
     <div class="col-12 col-s-12 " style="margin-left: 3vw;">
       <p class="label">Addresss</p>
       <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let i = index">
         <input type="radio" class="custom-control-input" [id]="i" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
-        <label class="custom-control-label" [for]="i">({{ address.contact_number }}) {{ address.province }}</label>
+        <label class="custom-control-label" [for]="i">({{ address.contact_number }}) {{ address.municipality }}, {{ address.province }}</label>
       </div>
     </div>
     <div class="col-12 col-s-12" style="margin-left: 3vw;">
@@ -106,8 +118,8 @@
     <div class="col-12 col-s-12 headers" *ngIf="products.length > 0">
       <div class="row">
         <div class="col-3 col-s-3 "><p class="product">Product</p></div>
-        <div class="col-3 col-s-3"></div>
-        <div class="col-2 col-s-2"><p id="headerprice">Price</p></div>
+        <div class="col-3 col-s-3"><p class="headerprice">Size</p></div>
+        <div class="col-2 col-s-2"><p class="headerprice">Price</p></div>
         <div class="col-2 col-s-2"><p id="headerquantity">Quantity</p></div>
         <div class="col-2 col-s-2"><p id="headertotal">Total</p></div>
       </div>
@@ -122,7 +134,9 @@
             <p class="productname">{{ product.name }}</p>
             <button class="removebtn" (click)="remove(product)">Remove</button>
           </div>
-          <div class="col-1 col-s-1"></div>
+          <div class="col-1 col-s-1">
+            <p id="product">{{ product.selected_size }}</p>
+          </div>
           <div class="col-2 col-s-2">
             <p id="product">Php{{ product.price }}</p>
           </div>

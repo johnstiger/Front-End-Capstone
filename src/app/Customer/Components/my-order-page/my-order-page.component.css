@@ -6,6 +6,14 @@
     font-weight: bold;
 }
 
+.test{
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.responsImage{
+  width: 100%;
+}
 .Unathorized{
   text-align: center;
 }
@@ -44,7 +52,7 @@ p{
 }
 .input {
   font-size: 4vw;
-  width: 30%;
+  width: 41%;
   margin-left: 8%;
   height: 15%;
   border-radius: 3px;
@@ -109,7 +117,7 @@ p{
   }
   #product, #price{
     font-size: 4.4vw;
-    margin-top: -3vw;
+    /* margin-top: -3vw; */
     margin-bottom: 1vw;
   }
   .quantity{
@@ -118,12 +126,12 @@ p{
     margin-bottom: 2vw;
   }
   #total{
-    margin-left: -13vw;
+    margin-left: -9vw;
     margin-bottom: 5vw;
   }
   .amount{
     margin-top: 5%;
-    margin-left: -3vw;
+    margin-left: 3vw;
   }
   #cancel, #placeorder{
     width: 50vw;
@@ -187,7 +195,7 @@ p{
     font-size: 3vw;
   }
   .head{margin-top: 3vw;}
- 
+
   .side{margin-left: 3vw;}
   #headerid{
     width: 88.6vw;
@@ -199,7 +207,7 @@ p{
     width: 91.7vw;
     margin-left: -1.9vw;
   }
-  .product, #headerprice, #headerquantity, #headertotal, .productname, .buttons p{font-weight: bold;}
+  .product, .headerprice, #headerquantity, #headertotal, .productname, .buttons p{font-weight: bold;}
   .product{margin-left: 2vw;}
   .productname{
     margin-left: 1vw;
@@ -255,7 +263,7 @@ p{
 @media screen and (min-width:1024px){
   p,.removebtn, .quantity, #cancel, #placeorder, .productname, #price, .input, #product, .mngbtn, .cash{font-size: 1.3vw;}
   .headertxt{font-size: 2vw;}
- 
+
   .productname{margin-left: 2vw;}
   .removebtn{
     margin-left: 2vw;
@@ -274,7 +282,7 @@ p{
     margin-left: 0vw;
     text-align: center;
   }
-  #headerquantity, #headerprice, #product{float: right;}
+  #headerquantity, .headerprice, #product{float: right;}
   .side{margin-left: 5vw;}
   .img768, .product{margin-left: 3vw;}
   #cancel, #placeorder{width: 17vw;}

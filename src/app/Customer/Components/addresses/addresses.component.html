@@ -7,86 +7,52 @@
           <p class="address320">Addresses</p>
         </div>
         <div class="col-6 col-s-6">
-          <button class="addbtn">Add</button>
+          <button class="addbtn" routerLink="/addresses/add">Add</button>
         </div>
       </div>
     </div>
     <hr style = "margin-left: -1vw;">
-    <div class="col-12 col-s-12"  style="overflow-y: scroll;">
-      <div class="col-12 col-s-12" >
+    <div class="col-12 col-s-12"  style="overflow-y: auto;max-height: 532px;">
+      <div class="col-12 col-s-12" *ngFor="let address of addresses">
         <table>
           <tr>
             <td class="label">Contact Number:</td>
-            <td class = "data">Test Data</td>
+            <td class = "data">{{ address.contact_number }}</td>
           </tr>
           <tr>
             <td class = "label">Postal Code:</td>
-            <td class = "data">Test Data</td>
+            <td class = "data">{{address.postal_code}}</td>
           </tr>
           <tr>
             <td class = "label">Region:</td>
-            <td class = "data">Test Data</td>
+            <td class = "data">{{address.region}}</td>
           </tr>
           <tr>
             <td class = "label">Province:</td>
-            <td class = "data">Test Data</td>
+            <td class = "data">{{ address.province }}</td>
           </tr>
           <tr>
             <td class = "label">City:</td>
-            <td class = "data">Test Data</td>
+            <td class = "data">{{ address.city }}</td>
           </tr>
           <tr>
             <td class = "label">Municipality:</td>
-            <td class="data">Test Data</td>
+            <td class="data">{{ address.municipality }}</td>
           </tr>
           <tr>
             <td class = "label">Barangay:</td>
-            <td class="data">Test Data</td>
+            <td class="data">{{ address.barangay || '' }}</td>
           </tr>
           <tr>
             <td class = "label">Active:</td>
-            <td class = "data">Test Data</td>
+            <td class = "data">{{ address.active }}</td>
           </tr>
         </table>
-        <button class="editbtn">Edit</button>
+        <button class="editbtn" [routerLink]="['/addresses',address.id, 'update']">Edit</button>
       </div>
-      <div class="col-12 col-s-12" >
-        <table>
-          <tr>
-            <td class="label">Contact Number:</td>
-            <td class = "data">Test Data</td>
-          </tr>
-          <tr>
-            <td class = "label">Postal Code:</td>
-            <td class = "data">Test Data</td>
-          </tr>
-          <tr>
-            <td class = "label">Region:</td>
-            <td class = "data">Test Data</td>
-          </tr>
-          <tr>
-            <td class = "label">Province:</td>
-            <td class = "data">Test Data</td>
-          </tr>
-          <tr>
-            <td class = "label">City:</td>
-            <td class = "data">Test Data</td>
-          </tr>
-          <tr>
-            <td class = "label">Municipality:</td>
-            <td class="data">Test Data</td>
-          </tr>
-          <tr>
-            <td class = "label">Barangay:</td>
-            <td class="data">Test Data</td>
-          </tr>
-          <tr>
-            <td class = "label">Active:</td>
-            <td class = "data">Test Data</td>
-          </tr>
-        </table>
-        <button class="editbtn">Edit</button>
-      </div>
+    </div>
+    <div class="return">
+      <button class="btn btn-primary" (click)="return()">Return</button>
     </div>
   </div>
 </div>
@@ -133,48 +99,25 @@
                 <th>Active</th>
                 <th>Actions</th>
               </tr>
-              <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <button class="editbtn">Edit</button>
+              <tr *ngFor="let address of addresses">
+                <td>{{ address.contact_number}}</td>
+                <td>{{ address.postal_code}}</td>
+                <td>{{ address.region}}</td>
+                <td>{{ address.province}}</td>
+                <td>{{ address.city}}</td>
+                <td>{{ address.municipality}}</td>
+                <td>{{ address.barangay}}</td>
+                <td>{{ address.active }}</td>
+                <td>
+                  <button class="editbtn" [routerLink]="['/addresses',address.id, 'update']">Edit</button>
+                </td>
               </tr>
-              <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-              </tr>
-              <tbody>
-                <tr *ngFor="let address of addresses">
-                  <td>{{ address.contact_number}}</td>
-                  <td>{{ address.postal_code}}</td>
-                  <td>{{ address.region}}</td>
-                  <td>{{ address.province}}</td>
-                  <td>{{ address.city}}</td>
-                  <td>{{ address.municipality}}</td>
-                  <td>{{ address.barangay}}</td>
-                  <td>{{ address.active }}</td>
-                  <td>
-                    <button class="btn btn-sm btn-success" [routerLink]="['/addresses',address.id, 'update']">edit</button>
-                  </td>
-              </tbody>
             </table>
           </div>
-  
+          <div class="return">
+            <button class="btn btn-primary" (click)="return()">Return</button>
+          </div>
         </div>
-       
-
       </div>
     </div>
   </div>
