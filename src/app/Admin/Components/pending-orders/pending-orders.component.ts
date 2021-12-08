@@ -30,7 +30,7 @@ export class PendingOrdersComponent implements OnInit {
   customerOrders : Array<any> = [];
   orderId : any;
   customerId : any;
-  cp : number = 1;
+  currentPage : number = 1;
   total : number = 0;
   error : any;
   displayModalTracking = 'none'
@@ -198,10 +198,8 @@ export class PendingOrdersComponent implements OnInit {
 
   // Close Pop Up Modal
   onCloseHandled(){
-    this.http.loading();
     this.display='none';
     this.displayModalTracking = 'none';
-    window.location.reload();
   }
 
 }

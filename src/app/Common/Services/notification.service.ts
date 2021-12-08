@@ -21,6 +21,7 @@ export class NotificationService {
   recieveNotification() {
     this.socket.on(this.topic, (message:any) => {
       this.counter++;
+      window.location.reload()
       document.querySelector<HTMLElement>('.badge')!.style.display = 'block';
       document.querySelector<HTMLElement>('.badge')!.innerHTML = this.counter.toString();
     })

@@ -10,6 +10,7 @@ import {
 import { Location } from '@angular/common';
 import { OrderService } from '../../Services/order.service';
 import Swal from 'sweetalert2';
+import { NotificationService } from 'src/app/Common/Services/notification.service';
 
 @Component({
   selector: 'app-my-order-page',
@@ -21,6 +22,7 @@ export class MyOrderPageComponent implements OnInit {
     private service: CustomerService,
     private location: Location,
     private orderService: OrderService,
+    private notification : NotificationService
   ) { }
   user:any = null
   token = localStorage.getItem('customer_token');
@@ -117,9 +119,8 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   placeOrder() {
-    console.log(this.order);
-
     this.orderService.create(this.order).subscribe(data => {
+      this.notification.sendNotification('New Order');
       this.router.navigateByUrl('/pay')
     })
   }

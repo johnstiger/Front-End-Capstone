@@ -22,7 +22,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of orders | filter:filterTerm | paginate:{itemsPerPage:5, currentPage: cp}">
+                            <tbody *ngFor="let order of orders | filter:filterTerm | paginate:{itemsPerPage:5, currentPage: currentPage}">
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td *ngIf="order.address" class="text-success">
@@ -72,10 +72,10 @@
             </div>
         </div>
     </div>
-</div>
-<div *ngIf="orders">
-  <pagination-controls (pageChange)="cp = $event"></pagination-controls>
-</div>
+  </div>
+  <div *ngIf="orders">
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  </div>
 
 <!-- Preview Modal -->
 <div class="backdrop" [ngStyle]="{'display':display}"></div>
@@ -97,7 +97,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: firstModal}">
+              <tr *ngFor="let product of customerOrders">
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
@@ -111,9 +111,6 @@
               </tr>
             </tbody>
           </table>
-          <div *ngIf="customerOrders">
-            <pagination-controls (pageChange)="firstModal = $event"></pagination-controls>
-          </div>
           <div class="row">
             <div class="col">
               <button class="btn btn-primary" (click)="onCloseHandled()">Okay</button>
@@ -121,9 +118,7 @@
             </div>
           </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 <!-- /.modal !-->
 
@@ -148,7 +143,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: secondModal}">
+              <tr *ngFor="let product of customerOrders">
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
@@ -162,9 +157,6 @@
               </tr>
             </tbody>
           </table>
-          <div *ngIf="customerOrders">
-            <pagination-controls (pageChange)="secondModal = $event"></pagination-controls>
-          </div>
           <div class="def">
             <form name="form" [formGroup]="TrackingCodeForm" (ngSubmit)="addTrackingCode(customerId,orderId)">
               <div class="row">
@@ -191,8 +183,6 @@
             </form>
           </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 <!-- /.modal !-->
