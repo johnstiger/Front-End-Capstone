@@ -26,6 +26,7 @@ export class CartPageComponent implements OnInit {
   }
 
   async getProduct() {
+    this.service.showLoading();
     await this.service.getProducts(this.token).then(result => {
       if (!result.data.error) {
         console.log();
@@ -33,14 +34,36 @@ export class CartPageComponent implements OnInit {
           this.products = [];
         } else {
           this.products = result.data.data;
-          this.products.map(res => {
-            this.total += res.pivot.total;
-            return res;
+          var total = 0;
+          var overallTotal = this.products.map(res => {
+            // this.total += res.pivot.total;
+            return parseInt(res.pivot.total);
           });
+          this.total = overallTotal.reduce(
+            (total: any, num: any) => total + num
+          );
+          this.service.closeLoading();
+          // console.log(this.products.map(res => {
+          //   this.total += res.pivot.total;
+          //   return res;
+          // }));
         }
         this.total = Math.ceil(this.total);
+        console.log(this.products);
+        console.log(this.total);
       }
     });
+  }
+
+  validateQuantity(currentQuantity: any, product: any) {
+    const test =
+      currentQuantity > product.sizes[0].pivot.avail_unit_measure
+        ? product.sizes[0].pivot.avail_unit_measure
+        : currentQuantity > 0
+        ? currentQuantity
+        : 1;
+    console.log(test);
+    return test;
   }
 
   productSize(sizes: [any], sizeId: number) {

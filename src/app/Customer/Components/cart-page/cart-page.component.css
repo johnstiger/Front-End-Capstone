@@ -41,7 +41,7 @@ hr{height: 0.2vw;}
 
 .input {
     font-size: 4vw;
-    width: 30%;
+    width: 60%;
     margin-left: 8%;
     height: 15%;
     border-radius: 3px;
@@ -192,16 +192,18 @@ p,
     margin-bottom: 1vw;
     font-weight: bold;
   }
+  
   #headerhr{
     width: 91vw;
     margin-left: -4.5vw;
     margin-top: 0%;
     background-color: #C7988E;
   }
-  p,.removebtn, .quantity, .updatebtn{
+  p,.removebtn, .quantity, .updatebtn,.size {
     font-size: 4vw;
     font-weight: bold;
   }
+  
   .removebtn, .updatebtn{font-weight: 400;}
   .productname{
     font-size: 4vw;
@@ -276,11 +278,13 @@ p,
       font-weight: 500;
       font-family: 'Philosopher';
   }
-  p, .btn, .removebtn, .productname, .container768, .updatebtn{font-size: 2vw;}
+  p, .btn, .removebtn, .productname, .container768, .updatebtn, .size{font-size: 2vw;}
   .checkmark{
     height: 2.5vw;
     width: 3.3vw;
   }
+
+  
   .container768 .checkmark:after{
     left: 1vw;
     top: -0.2vw;

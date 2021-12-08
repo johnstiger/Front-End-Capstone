@@ -16,7 +16,7 @@
             <span class="checkmark select"></span>
           </label>
         </div>
-        <div class="col-4 col-s-4">
+        <div class="col-3 col-s-3">
           <p id="product">Product</p>
         </div>
         <div class="col-4 col-s-4">
@@ -43,10 +43,15 @@
               <button class="removebtn" (click)="confirmRemove(product)">
                 Remove
               </button>
-              <button class="updatebtn">Update</button>
+              <button class="updatebtn"  (click)="update(quantity.value, product)">Update</button>
             </div>
             <div class="col-4 col-s-4 details">
               <p class="amount">Php {{ product.price || "" }}</p>
+              <p class="size">Size: {{
+                product.sizes
+                  ? productSize(product.sizes, product.pivot.sizeId)
+                  : ""
+              }}</p>
               <label class="quantity">Quantity</label>
               <input
                 class="input"
@@ -54,9 +59,14 @@
                 name="quantityvalue"
                 onchange="changeQuantity(product)"
                 id="quantityvalue"
+                #quantity
+                min="1"
+                (change)="
+                  quantity.value = validateQuantity(quantity.value, product)
+                "
                 value="{{ product.pivot.quantity }}"
               />
-              <p id="total">Total: Php 200.00</p>
+              <p id="total">Total: Php {{ product.pivot.total }}</p>
             </div>
           </div>
         </div>
@@ -74,19 +84,18 @@
         <div class="col-12 col-s-12">
           <hr class="hr2" />
         </div>
-        <div class="col-12 col-s-12 buttons">
-          <p>Subtotal Php {{ total }}</p>
-          <button class="btn" routerLink="/home">Continue Shopping</button
-          ><br />
-          <button
-            type="button"
-            (click)="checkout(Checkout.value)"
-            class="btn checkoutbtn"
-            [disabled]="Products.length < 1"
-          >
-            Check Out
-          </button>
-        </div>
+      </div>
+      <div class="col-12 col-s-12 buttons">
+        <p>Subtotal Php {{ total }}</p>
+        <button class="btn" routerLink="/home">Continue Shopping</button><br />
+        <button
+          type="button"
+          (click)="checkout(Checkout.value)"
+          class="btn checkoutbtn"
+          [disabled]="Products.length < 1"
+        >
+          Check Out
+        </button>
       </div>
     </form>
   </div>
@@ -182,6 +191,10 @@
               name="quantityvalue"
               id="quantityvalue"
               #quantity
+              min="1"
+              (change)="
+                quantity.value = validateQuantity(quantity.value, product)
+              "
               value="{{ product.pivot.quantity }}"
             />
           </div>
