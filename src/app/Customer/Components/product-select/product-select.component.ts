@@ -65,8 +65,6 @@ export class ProductSelectComponent implements OnInit {
     await this.service.getProduct(this.id).then(result => {
       this.product = result.data.data;
       this.comments = result.data.comments
-      console.log(this.comments);
-      console.log("Product", this.product)
       this.image = this.product.image;
       this.id = this.product.id;
       this.sizes = this.product.sizes;
@@ -99,7 +97,6 @@ export class ProductSelectComponent implements OnInit {
   async submit(id: any, data: any) {
     data.unit_measure = this.unit_measure;
     data.sizeId = this.selectedSizeId;
-    this.service.showLoading();
     if (this.token) {
       await this.service.addtoCart(id, data, this.token).then(result => {
         if (result.data.error) {
@@ -116,11 +113,9 @@ export class ProductSelectComponent implements OnInit {
       localStorage.setItem('addToCart', JSON.stringify(cart));
       this.router.navigate(['login']);
     }
-    this.service.closeLoading();
   }
 
   async checkout(data: any) {
-    this.service.showLoading();
     const index = this.product.sizes.findIndex(
       (size: any) => size.id == this.selectedSizeId
     );
@@ -142,6 +137,5 @@ export class ProductSelectComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     });
-    this.service.closeLoading();
   }
 }
