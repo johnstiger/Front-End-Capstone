@@ -45,13 +45,25 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.service.showLoading();
     this.products = JSON.parse(localStorage.getItem('products') || '')
-    this.products.forEach(product => {
-      this.totalAmount += product.pivot.total
-      this.order.data.push(this.tranformToProductDto(product))
-    });
+    if(this.products[0].length == undefined){
+      this.products.forEach(product => {
+        this.totalAmount += product.pivot.total
+        product.sizes.forEach((size:any)=>{
+          if(size.id == product.pivot.sizeId){
+            product["selected_size"] = size.size
+          }
+        })
+        console.log(product);
+        this.order.data.push(this.tranformToProductDto(product))
+      });
+    }else{
+      this.products = [];
+    }
     this.orderService.getUserInfo().subscribe(response => {
       this.user = response.data
+      this.service.closeLoading();
     })
   }
 
@@ -62,6 +74,8 @@ export class MyOrderPageComponent implements OnInit {
         this.products.splice(index, 1);
       }
     })
+    this.totalAmount -= product.pivot.total
+    this.order.data.push(this.tranformToProductDto(product))
     localStorage.setItem('products',JSON.stringify([this.products]))
   }
 
@@ -88,7 +102,7 @@ export class MyOrderPageComponent implements OnInit {
       product_id: product.id,
       quantity: product.pivot.quantity,
       subtotal: product.pivot.total,
-      size_id: product.pivot.size_id
+      size_id: product.pivot.sizeId
     }
   }
 }

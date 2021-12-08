@@ -7,6 +7,17 @@
   font-family: 'Roboto';
 }
 
+.return{
+  padding: 10px;
+}
+
+.btn-primary{
+  width: 100% !important;
+  background: #C7988E;
+  border: none !important;
+  color: white;
+}
+
 .Unathorized{
   text-align: center;
 }
@@ -103,10 +114,10 @@ a{
   td, th{font-size: 4vw;}
 }
 @media screen and (min-width:375px){
-  
+
 }
 @media screen and (min-width:420px){
- 
+
 }
 @media screen and (max-width: 767px){
   .media768{display: none;}
