@@ -47,7 +47,11 @@
             </div>
             <div class="col-4 col-s-4 details">
               <p class="amount">Php {{ product.price || "" }}</p>
-              <p class="size">Size: data</p>
+              <p class="size">Size: {{
+                product.sizes
+                  ? productSize(product.sizes, product.pivot.sizeId)
+                  : ""
+              }}</p>
               <label class="quantity">Quantity</label>
               <input
                 class="input"
