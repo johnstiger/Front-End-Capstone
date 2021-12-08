@@ -14,7 +14,11 @@
       <div class="text320">
         <form name="form" #AddCart="ngForm">
           <p id="prodname">{{ product.name }}</p>
-          <p id="amount">Php {{ product.price }}</p>
+          <p id="amount">Php {{ getPrice(product) }} 
+              <span class="badge badge-pill badge-danger" *ngIf="product.sales_item.length > 0">
+                {{ product.sales_item[0].percent_off }}{{ product.sales_item[0].promo_type }} Off
+              </span>
+            </p>
           <label id="quantity">Quantity </label>
           <input
             id="inputQuantity"
@@ -95,7 +99,11 @@
       <div class="text768">
         <form name="form" #AddCart="ngForm">
           <p id="prodname">{{ product.name }}</p>
-          <p id="amount">Php {{ product.price }}</p>
+          <p id="amount">Php {{ getPrice(product) }} 
+            <span class="badge badge-pill badge-danger" *ngIf="product.sales_item.length > 0">
+              {{ product.sales_item[0].percent_off }}{{ product.sales_item[0].promo_type }} Off
+            </span>
+          </p>
           <label id="quantity">Quantity </label>
           <input
             id="inputQuantity"
