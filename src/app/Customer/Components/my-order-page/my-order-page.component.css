@@ -38,7 +38,7 @@ p{
   font-size: 5vw;
 }
 .img320 {
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
 }

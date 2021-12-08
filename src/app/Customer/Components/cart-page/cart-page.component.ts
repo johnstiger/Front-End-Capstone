@@ -29,28 +29,20 @@ export class CartPageComponent implements OnInit {
     this.service.showLoading();
     await this.service.getProducts(this.token).then(result => {
       if (!result.data.error) {
-        console.log();
         if (result.data.data == undefined) {
           this.products = [];
         } else {
           this.products = result.data.data;
           var total = 0;
           var overallTotal = this.products.map(res => {
-            // this.total += res.pivot.total;
             return parseInt(res.pivot.total);
           });
           this.total = overallTotal.reduce(
             (total: any, num: any) => total + num
           );
-          this.service.closeLoading();
-          // console.log(this.products.map(res => {
-          //   this.total += res.pivot.total;
-          //   return res;
-          // }));
         }
+        this.service.closeLoading();
         this.total = Math.ceil(this.total);
-        console.log(this.products);
-        console.log(this.total);
       }
     });
   }

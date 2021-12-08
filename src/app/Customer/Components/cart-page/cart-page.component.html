@@ -27,7 +27,7 @@
     <div class="col-12 col-s-12">
       <hr id="headerhr" />
     </div>
-    <form name="form" #Checkout="ngForm">
+    <form name="form" #Checkout="ngForm" *ngIf="products.length > 0">
       <div *ngFor="let product of products">
         <div class="col-12 col-s-12 content">
           <div class="row">
@@ -98,6 +98,16 @@
         </button>
       </div>
     </form>
+    <div class="Unathorized" *ngIf="products.length == 0">
+      <img
+        src="https://financialadvisors.com/media/no-images/nodata-found.png"
+        alt=""
+        class="responsive-image"
+      />
+      <button class="btn btn-primary" routerLink="/home">
+        Continue Shopping
+      </button>
+    </div>
   </div>
 </div>
 

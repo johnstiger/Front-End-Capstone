@@ -4,6 +4,7 @@ import { AddressService } from './../../Services/address.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
+import { CustomerService } from '../../Services/customer.service';
 @Component({
   selector: 'app-update-address',
   templateUrl: './update-address.component.html',
@@ -38,7 +39,13 @@ export class UpdateAddressComponent implements OnInit {
       Validators.required
     ])
   })
-  constructor(private service: AddressService, private router: Router, private route: ActivatedRoute) { }
+
+  customerId = localStorage.getItem('customer') || '';
+  token = localStorage.getItem('customer_token') || '';
+  firstname : any;
+  lastname : any;
+
+  constructor(private service: AddressService, private router: Router, private http :  CustomerService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id
@@ -48,6 +55,11 @@ export class UpdateAddressComponent implements OnInit {
           this.addressForm.controls[entry[0]].setValue(entry[1])
         }
       })
+    })
+    this.http.getCustomerProfile(this.customerId,this.token).then((res)=>{
+      this.firstname = res.data.data.firstname;
+      this.lastname = res.data.data.lastname;
+      this.http.closeLoading();
     })
   }
   updateAddress() {
