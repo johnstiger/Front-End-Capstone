@@ -52,13 +52,21 @@ export class ProductSelectComponent implements OnInit {
     this.location.back();
   }
 
+  getPrice(product: any) {
+    if (product.sales_item.length > 0) {
+      return product.sales_item[0].price
+    } else {
+      return product.price
+    } 
+  }
+
   async getProduct() {
     // this.service.loading();
     await this.service.getProduct(this.id).then(result => {
       this.product = result.data.data;
       this.comments = result.data.comments
       console.log(this.comments);
-
+      console.log("Product", this.product)
       this.image = this.product.image;
       this.id = this.product.id;
       this.sizes = this.product.sizes;
