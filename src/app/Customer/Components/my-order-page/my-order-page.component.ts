@@ -19,7 +19,7 @@ export class MyOrderPageComponent implements OnInit {
   constructor(private router: Router,
     private service: CustomerService,
     private location: Location,
-    private orderService: OrderService
+    private orderService: OrderService,
   ) { }
   user:any = null
   token = localStorage.getItem('customer_token');
@@ -65,6 +65,11 @@ export class MyOrderPageComponent implements OnInit {
       this.user = response.data
       this.service.closeLoading();
     })
+  }
+
+  goToManageAddress(){
+    sessionStorage.setItem('from_place_order','1');
+    this.router.navigate(['/addresses']);
   }
 
   remove(product:any){

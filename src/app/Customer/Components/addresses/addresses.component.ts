@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Address } from '../../Common/model/customer-model';
 import { Location } from '@angular/common';
 import { CustomerService } from '../../Services/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addresses',
@@ -16,7 +17,7 @@ export class AddressesComponent implements OnInit {
   lastname : any;
   firstname : any;
 
-  constructor(private service: AddressService, private http : CustomerService ,private location : Location) { }
+  constructor(private service: AddressService, private http : CustomerService ,private location : Location, private router:Router) { }
 
   ngOnInit(): void {
     this.http.showLoading();
@@ -31,7 +32,12 @@ export class AddressesComponent implements OnInit {
   }
 
   return(){
-    this.location.back();
+    if(sessionStorage.getItem('from_place_order')){
+      this.router.navigate(['/order-page'])
+      sessionStorage.removeItem('from_place_order');
+    }else{
+      this.location.back();
+    }
   }
 
 }
