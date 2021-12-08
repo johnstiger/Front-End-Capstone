@@ -57,11 +57,11 @@ export class ProductSelectComponent implements OnInit {
       return product.sales_item[0].price
     } else {
       return product.price
-    } 
+    }
   }
 
   async getProduct() {
-    // this.service.loading();
+    this.service.loading();
     await this.service.getProduct(this.id).then(result => {
       this.product = result.data.data;
       this.comments = result.data.comments
@@ -77,7 +77,7 @@ export class ProductSelectComponent implements OnInit {
         console.log(this.sizes[0].unit_measure);
       }
     });
-    // this.service.closeLoading();
+    this.service.closeLoading();
   }
 
   selectSize(size: any) {
@@ -99,6 +99,7 @@ export class ProductSelectComponent implements OnInit {
   async submit(id: any, data: any) {
     data.unit_measure = this.unit_measure;
     data.sizeId = this.selectedSizeId;
+    this.service.showLoading();
     if (this.token) {
       await this.service.addtoCart(id, data, this.token).then(result => {
         if (result.data.error) {
@@ -115,16 +116,17 @@ export class ProductSelectComponent implements OnInit {
       localStorage.setItem('addToCart', JSON.stringify(cart));
       this.router.navigate(['login']);
     }
+    this.service.closeLoading();
   }
 
   async checkout(data: any) {
+    this.service.showLoading();
     const index = this.product.sizes.findIndex(
       (size: any) => size.id == this.selectedSizeId
     );
     this.product.sizes[index].pivot.quantity = this.unit_measure;
     this.product.pivot = this.product.sizes[index].pivot;
     this.product.pivot.total = this.product.price * this.unit_measure;
-    console.log('Checkout', this.product);
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;
@@ -140,5 +142,6 @@ export class ProductSelectComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     });
+    this.service.closeLoading();
   }
 }

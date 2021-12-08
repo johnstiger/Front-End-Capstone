@@ -65,7 +65,7 @@ export class LandingComponent implements OnInit {
   }
 
   select(product:any, category: string){
-    console.log(product);
+    this.service.showLoading();
     this.router.navigate([`/selected/${category == 'onsale' ? product.products.id : product.id}`],{
       state: {
         data: product

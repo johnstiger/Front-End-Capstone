@@ -125,7 +125,7 @@ submit(data : any){
       this.allSize.forEach((element)=>{
         let select = document.getElementById(''+element.id+'') as HTMLInputElement
         console.log(element, select.value);
-        if(parseInt(select.value) > element.pivot.avail_unit_measure){
+        if(parseInt(select.value) > element.pivot.avail_unit_measure || parseInt(select.value) < 0){
           this.unitErrors.push(element.size)
         }else{
           element.pivot.sales_item = parseInt(select.value);
