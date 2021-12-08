@@ -113,8 +113,8 @@ export class ProductSelectComponent implements OnInit {
     );
     this.product.sizes[index].pivot.quantity = this.unit_measure;
     this.product.pivot = this.product.sizes[index].pivot;
+    this.product.sizes[index].pivot.sizeId = this.selectedSizeId
     this.product.pivot.total = this.product.price * this.unit_measure;
-    console.log('Checkout', this.product);
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;
