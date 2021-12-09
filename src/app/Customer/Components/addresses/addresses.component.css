@@ -236,3 +236,8 @@ a{
 @media screen and (min-width: 2560px) {
 }
 
+
+.active{
+  color: #0a0a0a;
+  text-decoration: underline;
+}

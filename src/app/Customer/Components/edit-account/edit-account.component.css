@@ -6,6 +6,11 @@
   background: #C7988E;
   color: #fff;
 }
+.active{
+  color: #0a0a0a;
+  text-decoration: underline;
+}
+
 
 input[type="file"] {
   display: none;

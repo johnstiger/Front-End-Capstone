@@ -223,3 +223,7 @@ a{
   #total{margin-top: 0vw;}
 }
 
+.active{
+  color: #0a0a0a;
+  text-decoration: underline;
+}
