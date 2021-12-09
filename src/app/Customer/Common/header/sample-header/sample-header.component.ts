@@ -50,10 +50,14 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   searchProducts(){
-    this.service.showLoading()
-      sessionStorage.setItem('data', this.form.value.data);
-      this.router.navigate(['/search-result']);
-      this.oberver.sendTriggeredEvent(this.form.value);
+    if(this.form.value.data == ''){
+      console.log(this.service.ShowErrorMessage('Please enter valid value'));
+    }else{
+        this.service.showLoading()
+        sessionStorage.setItem('data', this.form.value.data);
+        this.router.navigate(['/search-result']);
+        this.oberver.sendTriggeredEvent(this.form.value);
+      }
   }
 
   countProductsInCart(){

@@ -115,12 +115,14 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   cancel() {
+    localStorage.removeItem('products');
     this.location.back();
   }
 
   placeOrder() {
     this.orderService.create(this.order).subscribe(data => {
       this.notification.sendNotification('New Order');
+      localStorage.removeItem('products')
       this.router.navigateByUrl('/pay')
     })
   }

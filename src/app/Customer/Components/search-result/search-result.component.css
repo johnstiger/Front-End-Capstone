@@ -5,7 +5,9 @@
     font-weight: 600;
     margin-top: 15px;
 }
-
+.responsive-image{
+  width: 100%;
+}
 .Unathorized{
   text-align: center;
 }

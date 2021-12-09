@@ -76,9 +76,11 @@ export class LandingComponent implements OnInit {
   getSalesProduct(){
     this.service.getSales().then((res)=>{
       if(res.data.error){
-
+        console.log(res.data.message);
       }else{
         this.salesItem = res.data.message == "No data yet!" ? [] : res.data.data
+        console.log(this.salesItem);
+
         if(this.salesItem.length > this.maxSaleDisplay){
           this.displayViewAllSales = true;
         }
@@ -100,10 +102,10 @@ export class LandingComponent implements OnInit {
           return res.id;
         }
       })
-      var ambotLang = test.filter(res=>{
+      var categoryId = test.filter(res=>{
         return res;
       })[0];
-      this.router.navigate(['/choose?=/'+ambotLang])
+      this.router.navigate(['/choose?=/'+categoryId])
     });
 
   }

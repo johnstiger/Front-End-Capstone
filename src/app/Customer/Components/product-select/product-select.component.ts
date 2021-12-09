@@ -72,7 +72,6 @@ export class ProductSelectComponent implements OnInit {
         this.avail_unit_measure = this.sizes[0].pivot.unit_measure;
         this.selectedSizeId = this.sizes[0].id;
         this.maxPerSize = this.sizes[0].pivot.unit_measure;
-        console.log(this.sizes[0].unit_measure);
       }
     });
     this.service.closeLoading();

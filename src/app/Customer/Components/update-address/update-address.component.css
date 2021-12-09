@@ -202,7 +202,10 @@ a{
   #amount, #total{margin-left: 1vw;}
 }
 @media screen and (min-width:1440px) {
-  .account{margin-bottom: 33%;}
+  .account{
+    /* margin-bottom: 33%; */
+    height: 28vw;
+  }
   #hr768{width: 58vw;}
 }
 @media screen and (min-width: 2560px) {

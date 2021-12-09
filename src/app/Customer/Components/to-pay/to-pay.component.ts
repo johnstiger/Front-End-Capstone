@@ -84,14 +84,6 @@ export class ToPayComponent implements OnInit {
         );
       }
     });
-
-
-  }
-
-
-  remove(product:any){
-
-
   }
 
 }

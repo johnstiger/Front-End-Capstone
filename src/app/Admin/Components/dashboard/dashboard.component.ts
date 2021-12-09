@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   countCustomers: any;
   cp: number = 1;
   onsale: number = 1;
+  maxSaleDisplay : number = 5;
 
   ngOnInit(): void {
     this.getDashboard();

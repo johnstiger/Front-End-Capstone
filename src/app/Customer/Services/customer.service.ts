@@ -47,7 +47,7 @@ export class CustomerService {
 
   async getOrders(token: any) {
     const user_id = localStorage.getItem('customer');
-    const response = await axios.get(this.url + 'orders/' + user_id, {
+    const response = await axios.get(this.url + 'orders/all/' + user_id, {
       headers: { Authorization: token }
     });
     return response;

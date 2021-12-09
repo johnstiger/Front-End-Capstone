@@ -62,18 +62,6 @@ export class OrdersComponent implements OnInit {
         this.message = result.data.message
       }else{
         this.orders = result.data.data;
-        console.log(this.orders.map(res=>{
-          const products = res.products.map((result:any)=>{
-            return result.pivot.subtotal;
-          })
-          let total = 0;
-          if(products.length > 0){
-            total = products.reduce((total: any, num: any) => total + num)
-          }
-          res["overAllTotal"] = total;
-          return res
-        }));
-
       }
       this.http.closeLoading();
     });

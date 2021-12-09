@@ -166,8 +166,11 @@
                 <div *ngIf="error && error.name_of_deliver_company" class="alert alert-danger">
                   *{{ error.name_of_deliver_company[0] }}
                 </div>
-                <div class="col-6">
+                <div class="col">
                   <input type="text"  class="form-control" formControlName="tracking_code" name="tracking_code" id="trackingCode" placeholder="Tracking Code">
+                </div>
+                <div class="col">
+                  <input type="number"  class="form-control" formControlName="shipping_fee" name="shipping_fee" id="shipping_fee" placeholder="Shipping Fee">
                 </div>
                 <div class="col">
                   <select name="" id="" class="form-control" formControlName="name_of_deliver_company" name="name_of_deliver_company">

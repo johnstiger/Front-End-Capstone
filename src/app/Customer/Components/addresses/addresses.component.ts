@@ -16,6 +16,7 @@ export class AddressesComponent implements OnInit {
   private readonly token: string = localStorage.getItem('customer_token') || '';
   lastname : any;
   firstname : any;
+  image : any;
 
   constructor(private service: AddressService, private http : CustomerService ,private location : Location, private router:Router) { }
 
@@ -27,6 +28,7 @@ export class AddressesComponent implements OnInit {
     this.http.getCustomerProfile(this.customerId,this.token).then((res)=>{
       this.firstname = res.data.data.firstname;
       this.lastname = res.data.data.lastname;
+      this.image = res.data.data.image;
       this.http.closeLoading();
     })
   }

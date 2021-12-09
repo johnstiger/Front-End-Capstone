@@ -66,7 +66,6 @@ export class ReceivedComponent implements OnInit {
     this.productName = product.name;
     this.productImg = product.image;
     this.productId = product.id;
-    console.log(product);
   }
 
   async submit(){
@@ -80,7 +79,7 @@ export class ReceivedComponent implements OnInit {
       this._customerService.ShowSuccessMessage(response.data.message);
       setTimeout(()=>{
         this.onCloseHandled();
-        this.ngOnInit();
+        window.location.reload();
       },1500)
     }
 

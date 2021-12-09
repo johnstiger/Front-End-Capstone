@@ -19,7 +19,8 @@ export class PendingOrdersComponent implements OnInit {
 
   TrackingCodeForm = new FormGroup({
     tracking_code : new FormControl(''),
-    name_of_deliver_company : new FormControl('')
+    name_of_deliver_company : new FormControl(''),
+    shipping_fee : new FormControl('')
   })
 
   token = localStorage.getItem('admin_token');
@@ -167,7 +168,7 @@ export class PendingOrdersComponent implements OnInit {
 
   // Pop Up Modal
   show(order : any, first : boolean ){
-
+    this.total = 0;
     if(first){
       this.display='block';
     }else{
@@ -187,8 +188,9 @@ export class PendingOrdersComponent implements OnInit {
       var test = result.filter((removeUndefine : any) =>{
         return removeUndefine;
       });
+
       res['total'] = res.pivot.quantity*res.price;
-      this.total = res['total'];
+      this.total += res['total']
       if(result.length > 0){
         res['sizes'] = test;
       }
