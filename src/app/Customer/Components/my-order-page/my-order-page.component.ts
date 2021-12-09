@@ -28,6 +28,7 @@ export class MyOrderPageComponent implements OnInit {
   token = localStorage.getItem('customer_token');
   products: Array<any> = [];
   totalAmount: number = 0;
+  overAllTotal : number = 0;
   payments:Payment[] = [
     {
       value: 'gcash',
@@ -58,7 +59,6 @@ export class MyOrderPageComponent implements OnInit {
             product["selected_size"] = size.size
           }
         })
-        console.log("Loaded!");
         this.order.data.push(this.tranformToProductDto(product))
       });
     }else{

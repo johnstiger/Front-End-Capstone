@@ -1,7 +1,7 @@
 <div class="container con">
     <form action="" #FormUpdate="ngForm" (ngSubmit)="submit(FormUpdate.value)">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 containImg">
                 <img class="image" *ngIf="image; else default" src="{{ image }}" alt="product-image">
                 <ng-template #default>
                     <img class="image" src="../../../../../assets/imgs/product.jpg" alt="product-image">
