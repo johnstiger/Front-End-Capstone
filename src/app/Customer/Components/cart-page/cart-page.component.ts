@@ -28,6 +28,8 @@ export class CartPageComponent implements OnInit {
   async getProduct() {
     this.service.showLoading();
     await this.service.getProducts(this.token).then(result => {
+      console.log(result.data);
+
       if (!result.data.error) {
         if (result.data.data == undefined) {
           this.products = [];
@@ -54,7 +56,7 @@ export class CartPageComponent implements OnInit {
         : currentQuantity > 0
         ? currentQuantity
         : 1;
-    console.log(test);
+    console.log(currentQuantity, product.sizes[0] );
     return test;
   }
 
@@ -71,7 +73,8 @@ export class CartPageComponent implements OnInit {
         if (result.data.error) {
           this.errors = result.data.message;
         } else {
-          this.getProduct();
+          this.service.ShowSuccessMessage(result.data.message);
+          this.ngOnInit();
         }
       });
   }
@@ -94,7 +97,6 @@ export class CartPageComponent implements OnInit {
   }
 
   async confirmRemove(product: any) {
-    console.log(product.id);
     Swal.fire({
       title: 'Are you sure?',
       text: 'You want to REMOVE ' + product.name + '?',
@@ -108,7 +110,7 @@ export class CartPageComponent implements OnInit {
         this.service.deleteProduct(product.id, this.token).then(() => {
           this.service.ShowSuccessMessage('Successfully Removed Product!');
         });
-        this.getProduct();
+        this.ngOnInit();
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',

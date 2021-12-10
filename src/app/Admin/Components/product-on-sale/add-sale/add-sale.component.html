@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="toggle" *ngIf="selectName && currentPage">
-                  <p class="message">You can change the quantity of the each product size</p>
+                  <!-- <p class="message">You can change the quantity of the each product size</p> -->
                   <div class="row">
                     <div class="col">
                       Size
@@ -41,20 +41,20 @@
                     <div class="col">
                       Quantity
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
 
-                    </div>
+                    </div> -->
                   </div>
                   <div class="row" *ngFor="let size of allSize">
                       <div class="col">
                         <input type="text" class="form-control" value="{{ size.size }}" name="unit_measure" placeholder="Size" disabled>
                       </div>
                       <div class="col">
-                        <input type="number" class="form-control" id="{{ size.id }}" value="{{ size.pivot.avail_unit_measure }}" name="unit_measure" min="1" max="{{ size.pivot.avail_unit_measure  }}" id="" placeholder="Unit">
+                        <input type="number" class="form-control" readonly id="{{ size.id }}" value="{{ size.pivot.avail_unit_measure }}" name="unit_measure" min="1" max="{{ size.pivot.avail_unit_measure  }}" id="" placeholder="Unit">
                       </div>
-                      <div class="col" *ngIf="allSize.length > 1">
+                      <!-- <div class="col" *ngIf="allSize.length > 1">
                         <button type="button" class="btn btn-danger" (click)="delete(size)"><i class="far fa-trash-alt"></i> Remove Size</button>
-                      </div>
+                      </div> -->
                   </div>
                 </div>
 

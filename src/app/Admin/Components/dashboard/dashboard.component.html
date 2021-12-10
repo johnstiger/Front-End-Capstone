@@ -139,19 +139,18 @@
                     <th>Name</th>
                     <th>Promo</th>
                     <th>Quantity</th>
-                    <th>Size</th>
                     <th>Price</th>
                     <th>Total</th>
                 </tr>
             </thead>
             <tbody *ngIf="onSales">
                 <tr *ngFor="let sales of onSales | slice: 0:maxSaleDisplay">
-                    <td>{{ sales.products.name }}</td>
-                    <td>{{ sales.percent_off }}{{ sales.promo_type }} off</td>
+                    <td>{{ sales.name }}</td>
+                    <td>{{ sales.promo_price }}{{ sales.promo_type }} off</td>
                     <td>{{ sales.unit_measure }}</td>
-                    <td>{{ sales.size }}</td>
+                    <!-- <td>{{ sales.size }}</td> -->
                     <td>{{ sales.price }}</td>
-                    <td>{{ sales.total }}</td>
+                    <td>{{ sales.sale_price }}</td>
                 </tr>
               </tbody>
             </table>

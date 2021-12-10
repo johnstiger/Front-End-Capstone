@@ -196,8 +196,8 @@ export class ProductsComponent implements OnInit {
     this.sizeId = sizes;
     this.sizeId.forEach(element=>{
       let select = document.getElementById(''+element.id+'') as HTMLInputElement
-      element.pivot.sales_item = parseInt(select.value) > element.pivot.avail_unit_measure ? element.pivot.avail_unit_measure : parseInt(select.value)
-      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+      element.pivot.sales_item = element.pivot.avail_unit_measure
+      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure
     })
     if(this.sizeId.length > 0){
       this.router.navigate(['/admin/add-sales/'+product.id],{

@@ -57,7 +57,19 @@ export class ProductOnSaleComponent implements OnInit {
         this.http.ShowErrorMessage(result.data.message)
       }else{
         this.sales = result.data.data
-        console.log(this.sales);
+        console.log(result.data.data.map((res:any)=>{
+          const sizes = res.sizes.map((result:any)=>{
+            return result.pivot.avail_unit_measure
+          })
+          let total_avail_unit_measure = 0
+          if (sizes.length) {
+            total_avail_unit_measure = sizes.reduce((total: any, num: any) => total + num)
+          }
+          res["avail_unit"] = total_avail_unit_measure;
+          return res
+        }));
+
+
 
         this.http.closeLoading();
       }
@@ -71,7 +83,7 @@ export class ProductOnSaleComponent implements OnInit {
       }else{
         this.http.ShowSuccessMessage(result.data.message);
         setTimeout(()=>{
-          window.location.reload();
+          this.ngOnInit();
         },1500)
       }
     });
@@ -80,7 +92,7 @@ export class ProductOnSaleComponent implements OnInit {
   delete(salesItem : any){
     Swal.fire({
       title: 'Are you sure?',
-      text: "You want to DELETE "+salesItem.products.name+"?",
+      text: "You want to DELETE "+salesItem.name+"?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',
@@ -89,11 +101,11 @@ export class ProductOnSaleComponent implements OnInit {
     }).then((result)=>{
       if(result.value){
         this.deleteSales(salesItem.id);
-        this.http.ShowSuccessMessage("SuccessFully Deleted Product!");
+        // this.http.ShowSuccessMessage("SuccessFully Deleted Product!");
       }else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
-          salesItem.products.name+' is still in our database.',
+          salesItem.name+' is still in our database.',
           'error'
         )
       }

@@ -53,5 +53,7 @@ export interface SalesProduct {
   price : any,
   products : any,
   category : any,
-  description : any
+  description : any,
+  sale_price : any,
+  promo_price : any
 }

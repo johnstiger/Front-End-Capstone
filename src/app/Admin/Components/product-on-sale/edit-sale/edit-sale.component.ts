@@ -37,6 +37,7 @@ export class EditSaleComponent implements OnInit {
   errors : any;
   sizes: Array<any> = [];
   newId : any;
+  allSize : Array<any> = [];
 
   ngOnInit(): void {
     $("input[type=number]").on("keydown",function(e){
@@ -57,27 +58,32 @@ export class EditSaleComponent implements OnInit {
   getSalesProduct(){
     this.http.loading();
     this.http.getSalesItem(this.newId,this.token).then((result)=>{
-      console.log(result.data);
-
       if(result.data.error){
         this.http.ShowErrorMessage(result.data.message);
       }else{
         this.salesItem = result.data.data;
-        this.name = this.salesItem.products.name;
-        this.percent_off = this.salesItem.percent_off
-        this.unit_measure = this.salesItem.unit_measure
+        this.name = this.salesItem.name;
+        this.percent_off = this.salesItem.promo_price
+        const avail =  result.data.data.sizes.map((res:any)=>{
+          return res.pivot.avail_unit_measure
+        })
+        let total_avail_unit_measure = 0;
+        if(avail>0){
+          total_avail_unit_measure = avail.reduce((total: any, num: any) => total + num)
+        }
+        this.unit_measure = total_avail_unit_measure
+        this.allSize = result.data.data.sizes
+        // this.unit_measure = this.salesItem.unit_measure
         this.promo_type = this.salesItem.promo_type
-        this.size = this.salesItem.size
+        // this.size = this.salesItem.size
         this.total = this.salesItem.total
-        this.price = this.salesItem.products.price
+        this.price = this.salesItem.price
         this.products = this.salesItem.products
         this.category = this.salesItem.category
         this.description = this.salesItem.description
-        this.image = this.salesItem.products.image
-        this.sizes = this.salesItem.products.sizes
+        this.image = result.data.data.image
+        // this.sizes = this.salesItem.products.sizes
         this.http.closeLoading();
-        console.log(this.sizes);
-
       }
     });
   }

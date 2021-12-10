@@ -18,11 +18,11 @@
                 </div>
                 <label for="">Description</label>
                 <textarea name="description" class="form-control field" cols="30" [ngModel]="description" rows="10" placeholder="Descriptions"></textarea>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col">
-                        <!-- <div *ngIf="error && error.price" class="alert alert-danger">
+                        <div *ngIf="error && error.price" class="alert alert-danger">
                             *{{ error.price[0] }}
-                        </div> -->
+                        </div>
                         <label for="">Price</label>
                         <input type="number" class="form-control" name="price" [ngModel]="price" id="" min="0" placeholder="Price" disabled>
                     </div>
@@ -31,7 +31,8 @@
                             *{{ errors.unit_measure[0] }}
                         </div>
                         <label for="">Available Unit</label>
-                        <input type="number" class="form-control" [ngModel]="unit_measure" name="unit_measure" min="1" max="{{ unit_measure }}" id="" placeholder="Unit">
+                        <input type="number" class="form-control" readonly
+                         [ngModel]="unit_measure" name="unit_measure" min="1" max="{{ unit_measure }}" id="" placeholder="Unit">
                     </div>
                     <div class="col">
                         <div *ngIf="errors && errors.size" class="alert alert-danger">
@@ -40,7 +41,35 @@
                         <label for="">Size</label>
                         <input type="text" name="size" [ngModel]="size" class="form-control" id="">
                     </div>
+                </div> -->
+                <div class="col">
+                  <div *ngIf="errors && errors.price" class="alert alert-danger">
+                      *{{ errors.price[0] }}
+                  </div>
+                  <label for="">Price</label>
+                  <input type="number" class="form-control" name="price" [ngModel]="price" id="" min="0" placeholder="Price" disabled>
+              </div>
+
+              <div class="toggle">
+                <p class="message text-success text-center">AVAILABLE SIZES</p>
+                <div class="row">
+                  <div class="col">
+                    Size
+                  </div>
+                  <div class="col">
+                    Quantity
+                  </div>
                 </div>
+                <div class="row" *ngFor="let size of allSize">
+                    <div class="col">
+                      <input type="text" class="form-control" value="{{ size.size }}" name="unit_measure" placeholder="Size" disabled>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control" readonly id="{{ size.id }}" value="{{ size.pivot.avail_unit_measure }}" name="unit_measure" min="1" max="{{ size.pivot.avail_unit_measure  }}" id="" placeholder="Unit">
+                    </div>
+                </div>
+              </div>
+
                 <div class="row">
                     <div class="col">
                         <div *ngIf="errors && errors.percent_off" class="alert alert-danger">

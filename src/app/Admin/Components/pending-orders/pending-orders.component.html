@@ -99,7 +99,8 @@
             <tbody>
               <tr *ngFor="let product of customerOrders">
                 <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+                <td *ngIf="!product.is_sale">{{ product.price }}</td>
+                <td *ngIf="product.is_sale">{{ product.sale_price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
                 <td *ngFor="let size of product.sizes">
                     {{ size }}
@@ -107,7 +108,11 @@
                 <td *ngIf="product.sizes.length == 0">
                   N/A
                 </td>
-                <td>{{ product.total }}</td>
+                <td>{{ product.pivot.subtotal }}</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th colspan="4" class="text-right">Php {{ total }}</th>
               </tr>
             </tbody>
           </table>

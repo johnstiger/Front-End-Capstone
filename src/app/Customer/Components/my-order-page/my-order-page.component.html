@@ -51,7 +51,12 @@
             <p class="productname">Size : {{ product.selected_size }}</p>
           </div>
           <div class="col-4 col-s-4 details">
-            <p class="amount">Php {{ product.price }}</p>
+            <p class="amount" *ngIf="!product.is_sale">Php {{ product.price }}</p>
+            <p id="product" *ngIf="product.is_sale">Php{{ product.sale_price }}
+              <span class="badge badge-pill badge-danger">
+                {{ product.promo_price }}{{ product.promo_type }} Off
+              </span>
+            </p>
             <p class="quantity">Quantity : {{ product.pivot.quantity }}</p>
             <!-- <label class="quantity">Quantity</label>
             <input
@@ -136,7 +141,12 @@
             <p id="product">{{ product.selected_size }}</p>
           </div>
           <div class="col-2 col-s-2">
-            <p id="product">Php{{ product.price }}</p>
+            <p id="product" *ngIf="!product.is_sale">Php{{ product.price }}</p>
+            <p id="product" *ngIf="product.is_sale">Php{{ product.sale_price }}
+              <span class="badge badge-pill badge-danger">
+                {{ product.promo_price }}{{ product.promo_type }} Off
+              </span>
+            </p>
           </div>
           <div class="col-2 col-s-2">
             <input

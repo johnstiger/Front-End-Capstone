@@ -178,6 +178,7 @@ export class PendingOrdersComponent implements OnInit {
     this.customerId = order.customer.id;
     this.customerName = order.customer.firstname+" "+order.customer.lastname;
     this.customerOrders = order.products
+    this.total = order.total;
     // Filter product sizes
     this.customerOrders = this.customerOrders.map(res => {
       const result = res.sizes.map((value : any) => {
@@ -190,12 +191,12 @@ export class PendingOrdersComponent implements OnInit {
       });
 
       res['total'] = res.pivot.quantity*res.price;
-      this.total += res['total']
       if(result.length > 0){
         res['sizes'] = test;
       }
       return res;
     })
+
  }
 
   // Close Pop Up Modal

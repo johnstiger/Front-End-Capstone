@@ -53,8 +53,8 @@ export class ProductSelectComponent implements OnInit {
   }
 
   getPrice(product: any) {
-    if (product.sales_item.length > 0) {
-      return product.sales_item[0].price
+    if (product.is_sale) {
+      return product.sale_price
     } else {
       return product.price
     }
@@ -68,6 +68,7 @@ export class ProductSelectComponent implements OnInit {
       this.image = this.product.image;
       this.id = this.product.id;
       this.sizes = this.product.sizes;
+
       if (this.sizes.length == 1) {
         this.avail_unit_measure = this.sizes[0].pivot.unit_measure;
         this.selectedSizeId = this.sizes[0].id;

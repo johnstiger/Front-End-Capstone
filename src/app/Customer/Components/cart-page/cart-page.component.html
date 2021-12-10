@@ -46,7 +46,13 @@
               <button class="updatebtn"  (click)="update(quantity.value, product)">Update</button>
             </div>
             <div class="col-4 col-s-4 details">
-              <p class="amount">Php {{ product.price || "" }}</p>
+              <p class="amount" *ngIf="!product.is_sale">Php {{ product.price || "" }}</p>
+              <p class="amount" *ngIf="product.is_sale">Php {{ product.sale_price}}
+                <span class="badge badge-pill badge-danger">
+                  {{ product.promo_price }}{{ product.promo_type }} Off
+                </span>
+              </p>
+
               <p class="size">Size: {{
                 product.sizes
                   ? productSize(product.sizes, product.pivot.sizeId)
@@ -175,6 +181,7 @@
             <button class="removebtn" (click)="confirmRemove(product)">
               Remove
             </button>
+
             <button
               class="btn updatebtn"
               (click)="update(quantity.value, product)"
@@ -192,7 +199,12 @@
             </p>
           </div>
           <div class="col-2 col-s-2">
-            <p class="amount768">Php {{ product.price || "" }}</p>
+            <p class="amount768" *ngIf="!product.is_sale">Php {{ product.price || "" }}</p>
+            <p class="amount768" *ngIf="product.is_sale">Php {{ product.sale_price }}
+              <span class="badge badge-pill badge-danger">
+                {{ product.promo_price }}{{ product.promo_type }} Off
+              </span>
+            </p>
           </div>
           <div class="col-1">
             <input

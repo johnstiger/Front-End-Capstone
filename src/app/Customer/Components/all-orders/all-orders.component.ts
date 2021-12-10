@@ -23,7 +23,7 @@ export class AllOrdersComponent implements OnInit {
 
   async ngOnInit() {
     this.getUser();
-    const response = await this._customerService.getOrders(this.token)
+    const response = await this._customerService.getOrderByUser(this.token)
     console.log(response.data.data)
     response.data.data.forEach((order:any) => {
       this.products.push(...order.products)
