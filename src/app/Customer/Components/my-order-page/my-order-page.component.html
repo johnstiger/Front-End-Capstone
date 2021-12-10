@@ -6,40 +6,79 @@
       <div class="row">
         <div class="col-12 col-s-12" style="margin-top: 5vw;">
           <p class="label">Personal Information:</p>
-          <p class="data">Fullname: {{ user?.firstname }} {{ user?.lastname}}</p>
-          <p class="data"> Email: {{ user?.email}}</p>
-          <p class="label">Address</p>
-            <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let ndx = index">
-              <input type="radio" class="custom-control-input" [id]="ndx+'320'" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
-              <label class="custom-control-label" [for]="ndx+'320'">({{ address.contact_number }}) {{address.municipality }}, {{ address.province }}</label>
-            </div>
+          <p class="data">
+            Fullname: {{ user?.firstname }} {{ user?.lastname }}
+          </p>
+          <p class="data">Email: {{ user?.email }}</p>
+          <p class="label">Addresss</p>
+          <div
+            class="custom-control custom-radio"
+            *ngFor="let address of user?.addresses; let ndx = index"
+          >
+            <input
+              type="radio"
+              class="custom-control-input"
+              [id]="ndx + '320'"
+              (change)="order.address_id = address.id"
+              name="radio-stacked"
+              [value]="address.id"
+              required
+            />
+            <label class="custom-control-label" [for]="ndx + '320'"
+              >({{ address.contact_number }}) {{ address.municipality }},
+              {{ address.province }}</label
+            >
+          </div>
         </div>
         <div class="col-12 col-s-12">
           <p class="label">Payment Method</p>
-          <div class="custom-control custom-radio" *ngFor="let payment of payments;let ndx = index">
-            <input type="radio" class="custom-control-input" [id]="'payment.value' + ndx+'320'" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
-            <label class="custom-control-label cash" [for]="'payment.value' + ndx+'320'">{{ payment.display }}</label>
+          <div
+            class="custom-control custom-radio"
+            *ngFor="let payment of payments; let ndx = index"
+          >
+            <input
+              type="radio"
+              class="custom-control-input"
+              (change)="order.payment_method = payment.value"
+              [id]="'payment.value' + ndx + '320'"
+              [value]="payment.value"
+              name="payment"
+              required
+            />
+            <label
+              class="custom-control-label cash"
+              [for]="'payment.value' + ndx + '320'"
+              >{{ payment.display }}</label
+            >
           </div>
         </div>
-        <br>
-        <button class="btn btn-primary" (click)="goToManageAddress()">Manage Address</button>
-        <br>
-        <hr>
+        <br />
+        <button class="btn btn-primary" (click)="goToManageAddress()">
+          Manage Address
+        </button>
+        <br />
+        <hr />
         <div class="Unathorized" *ngIf="products.length < 1">
-          <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsImage">
+          <img
+            src="https://financialadvisors.com/media/no-images/nodata-found.png"
+            alt=""
+            class="responsImage"
+          />
           <div class="col">
-            <button class="btn cancelBtn" id="cancel" (click)="cancel()">Cancel</button><br />
+            <button class="btn cancelBtn" id="cancel" (click)="cancel()">
+              Cancel</button
+            ><br />
           </div>
         </div>
         <div class="col-6 col-s-6" *ngIf="products.length > 0">
           <p id="product">Product</p>
         </div>
-        <div class="col-6 col-s-6"  *ngIf="products.length > 0">
+        <div class="col-6 col-s-6" *ngIf="products.length > 0">
           <p id="price">Price</p>
         </div>
       </div>
     </div>
-    <hr id="headerhr" *ngIf="products.length > 0"/>
+    <hr id="headerhr" *ngIf="products.length > 0" />
     <div class="test" *ngIf="products.length > 0">
       <div class="col-12 col-s-12 content" *ngFor="let product of products">
         <div class="row">
@@ -72,13 +111,20 @@
         </div>
       </div>
     </div>
-    <hr class="hr2" *ngIf="products.length > 0"/>
-    <div class="col-12 col-s-12 buttons"  *ngIf="products.length > 0">
+    <hr class="hr2" *ngIf="products.length > 0" />
+    <div class="col-12 col-s-12 buttons" *ngIf="products.length > 0">
       <p id="subtotal">Subtotal: Php {{ totalAmount }}</p>
       <p id="shippingfee">Shipping Fee: Php 70.00</p>
       <p id="alltotal">Total: {{ total }}</p>
       <button class="btn" id="cancel" (click)="cancel()">Cancel</button><br />
-      <button class="btn" id="placeorder" (click)="placeOrder()" [disabled]="(order.address_id==0)">Place Order</button>
+      <button
+        class="btn"
+        id="placeorder"
+        (click)="placeOrder()"
+        [disabled]="order.address_id == 0 || !order.payment_method"
+      >
+        Place Order
+      </button>
     </div>
   </div>
 </div>
@@ -86,37 +132,73 @@
 <div class="col-11 col-s-11 media768">
   <div class="row">
     <div class="col-11 col-s-11 info">
-    <div class="row">
-      <div class="col-6 col-s-6">
-        <p class="label">Personal Information</p>
-        <p class="side">Fullname: {{ user?.firstname }} {{ user?.lastname}}</p>
-        <p class="side"> Email: {{ user?.email}}</p>
+      <div class="row">
+        <div class="col-6 col-s-6">
+          <p class="label">Personal Information</p>
+          <p class="side">
+            Fullname: {{ user?.firstname }} {{ user?.lastname }}
+          </p>
+          <p class="side">Email: {{ user?.email }}</p>
+        </div>
+        <div class="col-6 col-s-6 mngadress">
+          <button class="btn-group-sm mngbtn" (click)="goToManageAddress()">
+            Manage Address
+          </button>
+        </div>
       </div>
-      <div class="col-6 col-s-6 mngadress">
-        <button class="btn-group-sm mngbtn" (click)="goToManageAddress()">Manage Address</button>
-      </div>
-    </div>
-
     </div>
     <div class="col-12 col-s-12 " style="margin-left: 3vw;">
-      <p class="label">Address</p>
-      <div class="custom-control custom-radio" *ngFor="let address of user?.addresses;let i = index">
-        <input type="radio" class="custom-control-input" [id]="i" name="radio-stacked" [value]="address.id" [(ngModel)]="order.address_id" required>
-        <label class="custom-control-label" [for]="i">({{ address.contact_number }}) {{ address.municipality }}, {{ address.province }}</label>
+      <p class="label">Addresss</p>
+      <div
+        class="custom-control custom-radio"
+        *ngFor="let address of user?.addresses; let i = index"
+      >
+        <input
+          type="radio"
+          class="custom-control-input"
+          [id]="i"
+          (change)="order.address_id = address.id"
+          name="radio-stacked"
+          [value]="address.id"
+          required
+        />
+        <label class="custom-control-label" [for]="i"
+          >({{ address.contact_number }}) {{ address.municipality }},
+          {{ address.province }}</label
+        >
       </div>
     </div>
     <div class="col-12 col-s-12" style="margin-left: 3vw;">
       <p class="label">Payment</p>
-      <div class="custom-control custom-radio" *ngFor="let payment of payments;let i = index">
-        <input type="radio" class="custom-control-input" [id]="'payment' + i" [value]="payment.value" [(ngModel)]="order.payment_method" name="payment" required>
-        <label class="custom-control-label cash" [for]="'payment' + i">{{ payment.display }}</label>
+      <div
+        class="custom-control custom-radio"
+        *ngFor="let payment of payments; let i = index"
+      >
+        <input
+          type="radio"
+          class="custom-control-input"
+          (change)="order.payment_method = payment.value"
+          [id]="'payment' + i"
+          [value]="payment.value"
+          name="payment"
+          required
+        />
+        <label class="custom-control-label cash" [for]="'payment' + i">{{
+          payment.display
+        }}</label>
       </div>
     </div>
     <hr id="headerid" />
     <div class="Unathorized" *ngIf="products.length < 1">
-      <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
+      <img
+        src="https://financialadvisors.com/media/no-images/nodata-found.png"
+        alt=""
+        class="responsive-image"
+      />
       <div class="col">
-        <button class="btn cancelBtn" id="cancel" (click)="cancel()">Cancel</button><br />
+        <button class="btn cancelBtn" id="cancel" (click)="cancel()">
+          Cancel</button
+        ><br />
       </div>
     </div>
     <div class="col-12 col-s-12 headers" *ngIf="products.length > 0">
@@ -178,7 +260,14 @@
             ><br />
           </div>
           <div class="col-3 col-s-3">
-            <button class="btn" id="placeorder" (click)="placeOrder()" [disabled]="(order.address_id==0)">Place Order</button>
+            <button
+              class="btn"
+              id="placeorder"
+              (click)="placeOrder()"
+              [disabled]="order.address_id == 0 || !order.payment_method"
+            >
+              Place Order
+            </button>
           </div>
         </div>
       </div>

@@ -135,7 +135,8 @@
     }
     .account{
       text-align: center;
-      margin-bottom: 35%;
+      /* margin-bottom: 35%; */
+      height: 28vw;
       margin-left: 2.6vw;
       width: 20%;
     }

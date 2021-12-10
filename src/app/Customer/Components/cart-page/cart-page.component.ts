@@ -107,6 +107,7 @@ export class CartPageComponent implements OnInit {
     }).then(result => {
       if (result.value) {
         this.service.deleteProduct(product.id, this.token).then(() => {
+          console.log("id", this.product.id)
           this.service.ShowSuccessMessage('Successfully Removed Product!');
           setTimeout(()=>{
             this.ngOnInit();

@@ -46,7 +46,7 @@ export class MyOrderPageComponent implements OnInit {
   paymentMethod = 'gcash'
   order: OrderRequest = {
     data: [],
-    payment_method: 'gcash',
+    payment_method: '',
     address_id: 0
   }
 
