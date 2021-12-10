@@ -43,6 +43,11 @@
   margin-top: 2em;
 }
 
+.card .card-img-top {
+  height: 20em;
+  object-fit: cover;
+}
+
 .bottomLine{
   margin-top: 80px;
 }

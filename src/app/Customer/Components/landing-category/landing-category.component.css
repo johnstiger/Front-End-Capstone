@@ -2,6 +2,12 @@ body .mat-typography{
   background-color: #C7988E;
 }
 
+
+.card .card-img-top {
+  height: 20em;
+  object-fit: cover;
+}
+
 .container{
   max-width: 1000px;
   display: block;
