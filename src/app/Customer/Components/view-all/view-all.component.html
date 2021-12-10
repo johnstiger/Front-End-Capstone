@@ -12,14 +12,14 @@
       <div class="col" *ngFor="let sale of salesItem | paginate : {
         itemsPerPage: 6, currentPage: salesPage }">
         <div class="card" style="width: 18rem;" (click)="select(sale.products)">
-          <img class="card-img-top" src="{{ sale.products.image }}" alt="Card image cap">
+          <img class="card-img-top" src="{{ sale.image }}" alt="Card image cap">
           <div class="card-body text-center">
-            <h5 class="card-title">{{ sale.products.name }} <span class="badge badge-pill badge-danger">{{ sale.percent_off }}{{ sale.promo_type }} Off</span></h5>
-              <p><span class="badge badge-pill badge-success">Size: {{sale.size }}</span></p>
-                <p class="card-text">₱ {{ sale.price }}.00
+            <h5 class="card-title">{{ sale.name }} <span class="badge badge-pill badge-danger">{{ sale.promo_price }}{{ sale.promo_type }} Off</span></h5>
+              <p><span class="badge badge-pill badge-success">Size: {{sale.availableSize }}</span></p>
+                <p class="card-text">₱ {{ sale.sale_price }}.00
                 <i class="fas fa-cart-plus"></i>
               </p>
-              <span class="oldPrice"><del> ₱ {{ sale.products.price }}.00 </del></span>
+              <span class="oldPrice"><del> ₱ {{ sale.price }}.00 </del></span>
           </div>
         </div>
       </div>
@@ -40,12 +40,12 @@
       <div class="row">
         <div class="col" *ngFor="let product of products | paginate : {
           itemsPerPage: 12, currentPage: cp }">
-          <div class="card" style="width: 18rem;" (click)="select(product)">
+          <div class="card" *ngIf="!product.is_sale" style="width: 18rem;" (click)="select(product)">
             <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">{{ product.name }} </h5>
                 <p><span class="badge badge-pill badge-success">Size: {{product.availableSize }}</span></p>
-                  <p class="card-text">₱ {{ product.price }}.00
+                  <p class="card-text">₱ {{ product.price }}
                   <i class="fas fa-cart-plus"></i>
                   </p>
             </div>
@@ -67,11 +67,15 @@
         <div class="card" style="width: 18rem;" (click)="select(product)">
           <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
           <div class="card-body text-center">
-            <h5 class="card-title">{{ product.name }} </h5>
+            <h5 class="card-title">{{ product.name }} <span class="badge badge-pill badge-danger" *ngIf="product.is_sale">{{ product.promo_price }}{{ product.promo_type }} Off</span></h5>
               <p><span class="badge badge-pill badge-success">Size: {{product.availableSize }}</span></p>
-                <p class="card-text">₱ {{ product.price }}.00
+                <p class="card-text" *ngIf="!product.is_sale">₱ {{ product.price }}
                 <i class="fas fa-cart-plus"></i>
                 </p>
+                <p class="card-text" *ngIf="product.is_sale">₱ {{ product.sale_price }}
+                  <i class="fas fa-cart-plus"></i>
+                </p>
+                <span class="oldPrice" *ngIf="product.is_sale"><del> ₱ {{ product.price }} </del></span>
           </div>
         </div>
       </div>

@@ -12,6 +12,12 @@
   text-align: center;
 }
 
+.oldPrice{
+  float: left;
+    color: #696969c4;
+}
+
+
 hr {
     background-color: white;
 }

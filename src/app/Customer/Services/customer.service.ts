@@ -64,6 +64,11 @@ export class CustomerService {
     return response;
   }
 
+  async viewAllProducts(token:any){
+    const response = await axios.get(this.url+"allItem");
+    return response;
+  }
+
   async countProductsInCart(token: any) {
     const response = await axios.get(this.url + 'cart/count', {
       headers: { Authorization: token }
