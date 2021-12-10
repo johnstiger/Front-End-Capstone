@@ -17,7 +17,7 @@ export class AddAddressesComponent implements OnInit {
       Validators.required, Validators.pattern('^(09|\\+639)\\d{9}$')
     ]),
     postal_code: new FormControl('', [
-      Validators.required,
+      Validators.required, Validators.maxLength(4)
     ]),
     region: new FormControl('', [
       Validators.required
@@ -42,6 +42,7 @@ export class AddAddressesComponent implements OnInit {
   token = localStorage.getItem('customer_token') || '';
   firstname : any;
   lastname : any;
+  image : any;
 
   constructor(private service: AddressService, private http : CustomerService, private router: Router) { }
 
@@ -49,6 +50,7 @@ export class AddAddressesComponent implements OnInit {
     this.http.getCustomerProfile(this.customerId,this.token).then((res)=>{
       this.firstname = res.data.data.firstname;
       this.lastname = res.data.data.lastname;
+      this.image = res.data.data.image;
       this.http.closeLoading();
     })
   }

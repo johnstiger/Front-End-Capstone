@@ -69,7 +69,7 @@
                 </tr>
             </thead>
             <tbody *ngIf="pendingOrders.length > 0">
-                <tr *ngFor="let pending of pendingOrders | paginate:{ itemsPerPage : 2, currentPage: cp}">
+                <tr *ngFor="let pending of pendingOrders | slice: 0:maxSaleDisplay">
                     <td>{{ pending.customer.firstname }} {{ pending.customer.lastname }}</td>
                     <td>
                         <ol>
@@ -103,9 +103,6 @@
                 </tr>
               </tbody>
             </table>
-            <div *ngIf="pendingOrders.length > 0">
-              <pagination-controls (pageChange)="cp = $event"></pagination-controls>
-            </div>
         <div *ngIf="!pendingOrders || pendingOrders?.length == 0" class="noData">
             <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
         </div>
@@ -142,25 +139,21 @@
                     <th>Name</th>
                     <th>Promo</th>
                     <th>Quantity</th>
-                    <th>Size</th>
                     <th>Price</th>
                     <th>Total</th>
                 </tr>
             </thead>
             <tbody *ngIf="onSales">
-                <tr *ngFor="let sales of onSales | paginate: {itemsPerPage:5, currentPage:onsale}">
-                    <td>{{ sales.products.name }}</td>
-                    <td>{{ sales.percent_off }}{{ sales.promo_type }} off</td>
+                <tr *ngFor="let sales of onSales | slice: 0:maxSaleDisplay">
+                    <td>{{ sales.name }}</td>
+                    <td>{{ sales.promo_price }}{{ sales.promo_type }} off</td>
                     <td>{{ sales.unit_measure }}</td>
-                    <td>{{ sales.size }}</td>
+                    <!-- <td>{{ sales.size }}</td> -->
                     <td>{{ sales.price }}</td>
-                    <td>{{ sales.total }}</td>
+                    <td>{{ sales.sale_price }}</td>
                 </tr>
               </tbody>
             </table>
-            <div *ngIf="onSales.length > 0">
-              <pagination-controls (pageChange)="onsale = $event"></pagination-controls>
-            </div>
         <div *ngIf="!onSales || onSales?.length == 0" class="noData">
             <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
         </div>

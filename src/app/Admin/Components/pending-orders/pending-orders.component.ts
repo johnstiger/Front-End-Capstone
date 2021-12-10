@@ -19,7 +19,8 @@ export class PendingOrdersComponent implements OnInit {
 
   TrackingCodeForm = new FormGroup({
     tracking_code : new FormControl(''),
-    name_of_deliver_company : new FormControl('')
+    name_of_deliver_company : new FormControl(''),
+    shipping_fee : new FormControl('')
   })
 
   token = localStorage.getItem('admin_token');
@@ -30,7 +31,7 @@ export class PendingOrdersComponent implements OnInit {
   customerOrders : Array<any> = [];
   orderId : any;
   customerId : any;
-  cp : number = 1;
+  currentPage : number = 1;
   total : number = 0;
   error : any;
   displayModalTracking = 'none'
@@ -167,7 +168,7 @@ export class PendingOrdersComponent implements OnInit {
 
   // Pop Up Modal
   show(order : any, first : boolean ){
-
+    this.total = 0;
     if(first){
       this.display='block';
     }else{
@@ -177,6 +178,9 @@ export class PendingOrdersComponent implements OnInit {
     this.customerId = order.customer.id;
     this.customerName = order.customer.firstname+" "+order.customer.lastname;
     this.customerOrders = order.products
+    this.total = order.total;
+    console.log(order);
+
     // Filter product sizes
     this.customerOrders = this.customerOrders.map(res => {
       const result = res.sizes.map((value : any) => {
@@ -187,21 +191,20 @@ export class PendingOrdersComponent implements OnInit {
       var test = result.filter((removeUndefine : any) =>{
         return removeUndefine;
       });
+
       res['total'] = res.pivot.quantity*res.price;
-      this.total = res['total'];
       if(result.length > 0){
         res['sizes'] = test;
       }
       return res;
     })
+
  }
 
   // Close Pop Up Modal
   onCloseHandled(){
-    this.http.loading();
     this.display='none';
     this.displayModalTracking = 'none';
-    window.location.reload();
   }
 
 }

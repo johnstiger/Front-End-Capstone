@@ -16,10 +16,13 @@ import { Location } from '@angular/common';
   styleUrls: ['./product-select.component.css']
 })
 export class ProductSelectComponent implements OnInit {
-  product!: any;
+  product: any = [{
+    name: '',
+    sizes: []
+  }];
   unit_measure!: number;
   avail_unit_measure: number = 0;
-  sizes!: any;
+  sizes: any = [];
   selectedSize: string = 'Select';
   maxPerSize: number = 1;
   selectedSizeId!: number;
@@ -53,31 +56,29 @@ export class ProductSelectComponent implements OnInit {
   }
 
   getPrice(product: any) {
-    if (product.sales_item.length > 0) {
-      return product.sales_item[0].price
+    if (product.is_sale) {
+      return product.sale_price
     } else {
       return product.price
-    } 
+    }
   }
 
   async getProduct() {
-    // this.service.loading();
+    this.service.loading();
     await this.service.getProduct(this.id).then(result => {
       this.product = result.data.data;
       this.comments = result.data.comments
-      console.log(this.comments);
-      console.log("Product", this.product)
       this.image = this.product.image;
       this.id = this.product.id;
       this.sizes = this.product.sizes;
+
       if (this.sizes.length == 1) {
         this.avail_unit_measure = this.sizes[0].pivot.unit_measure;
         this.selectedSizeId = this.sizes[0].id;
         this.maxPerSize = this.sizes[0].pivot.unit_measure;
-        console.log(this.sizes[0].unit_measure);
       }
     });
-    // this.service.closeLoading();
+    this.service.closeLoading();
   }
 
   selectSize(size: any) {
@@ -121,10 +122,12 @@ export class ProductSelectComponent implements OnInit {
     const index = this.product.sizes.findIndex(
       (size: any) => size.id == this.selectedSizeId
     );
+
     this.product.sizes[index].pivot.quantity = this.unit_measure;
     this.product.pivot = this.product.sizes[index].pivot;
-    this.product.pivot.total = this.product.price * this.unit_measure;
-    console.log('Checkout', this.product);
+    this.product.pivot.sizeId = this.selectedSizeId
+    this.product.pivot.total = this.product.is_sale ? this.product.sale_price * this.unit_measure : this.product.price * this.unit_measure;
+    console.log(this.product)
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;

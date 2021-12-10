@@ -9,6 +9,8 @@ import {
 } from 'src/app/Customer/Common/model/customer-model';
 import { Location } from '@angular/common';
 import { OrderService } from '../../Services/order.service';
+import Swal from 'sweetalert2';
+import { NotificationService } from 'src/app/Common/Services/notification.service';
 
 @Component({
   selector: 'app-my-order-page',
@@ -20,11 +22,15 @@ export class MyOrderPageComponent implements OnInit {
     private service: CustomerService,
     private location: Location,
     private orderService: OrderService,
+    private notification : NotificationService
   ) { }
   user:any = null
   token = localStorage.getItem('customer_token');
   products: Array<any> = [];
   totalAmount: number = 0;
+  add : number = 70;
+  overAllTotal : number = 0;
+  total : number = 0;
   payments:Payment[] = [
     {
       value: 'gcash',
@@ -55,9 +61,10 @@ export class MyOrderPageComponent implements OnInit {
             product["selected_size"] = size.size
           }
         })
-        console.log(product);
         this.order.data.push(this.tranformToProductDto(product))
+        console.log('order', product)
       });
+      this.total = this.totalAmount + this.add;
     }else{
       this.products = [];
     }
@@ -72,17 +79,36 @@ export class MyOrderPageComponent implements OnInit {
     this.router.navigate(['/addresses']);
   }
 
-  remove(product:any){
-    this.products.forEach((res, index)=>{
-      if(res.id == product.id){
-        console.log(index);
-        this.products.splice(index, 1);
-      }
-    })
-    this.totalAmount -= product.pivot.total
-    this.order.data.push(this.tranformToProductDto(product))
-    localStorage.setItem('products',JSON.stringify([this.products]))
-  }
+  // remove(product:any){
+  //   Swal.fire({
+  //     title: 'Are you sure?',
+  //     text: 'You want to REMOVE ' + product.name + '?',
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#d33',
+  //     cancelButtonColor: '#3085d6',
+  //     confirmButtonText: 'Yes, remove it!'
+  //   }).then(result => {
+  //     if (result.value) {
+  //       this.products.forEach((res, index)=>{
+  //         if(res.id == product.id){
+  //           console.log(index);
+  //           this.products.splice(index, 1);
+  //         }
+  //       })
+  //       this.totalAmount -= product.pivot.total
+  //       this.order.data.push(this.tranformToProductDto(product))
+  //       localStorage.setItem('products',JSON.stringify([this.products]))
+  //     } else if (result.dismiss === Swal.DismissReason.cancel) {
+  //       Swal.fire(
+  //         'Cancelled',
+  //         product.name + ' is still in our database.',
+  //         'error'
+  //       );
+  //     }
+  //   });
+
+  // }
 
   async showProducts() {
     await this.service.showProducts(this.token).then(result => {
@@ -93,12 +119,18 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   cancel() {
+    localStorage.removeItem('products');
     this.location.back();
   }
 
   placeOrder() {
     this.orderService.create(this.order).subscribe(data => {
-      this.router.navigateByUrl('/pay')
+      this.notification.sendNotification('New Order');
+      this.service.ShowSuccessMessageForPurchase('Thank you for purchasing our products, we sent an invoice transaction in your email. Thank You');
+      localStorage.removeItem('products')
+      setTimeout(()=>{
+        this.router.navigateByUrl('/pay')
+      },2500)
     })
   }
 

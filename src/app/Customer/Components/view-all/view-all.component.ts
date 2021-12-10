@@ -52,7 +52,19 @@ export class ViewAllComponent implements OnInit {
 
       }else{
         this.salesItem = res.data.data;
-        console.log();
+        console.log(this.salesItem.map(res=>{
+          const sizes = res.sizes.map((element:any)=>{
+            return element.size
+          })
+          if(sizes.length > 1){
+            res.availableSize = sizes[0]+'-'+sizes[sizes.length - 1];
+          }else if(sizes.length == 1){
+            res.availableSize = sizes[0];
+          }else{
+            res.availableSize = [];
+          }
+          return res;
+        }));
 
       }
     })
@@ -60,17 +72,17 @@ export class ViewAllComponent implements OnInit {
 
   async getProducts() {
     this.service.showLoading();
-    const result = await this.service.products('token');
+    const result = await this.service.viewAllProducts('token');
     if(result.data.error){
 
     }else{
-      this.products = result.data.data;
+      this.products = result.data.message == "No data yet!" ? [] : result.data.data
+      console.log(result.data);
+
       this.products = this.products.map(res=>{
         const sizes = res.sizes.map((element:any)=>{
             return element.size
         })
-        console.log(sizes);
-
         if(sizes.length > 1){
           res.availableSize = sizes[0]+'-'+sizes[sizes.length - 1];
         }else if(sizes.length == 1){

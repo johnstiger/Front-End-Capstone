@@ -21,7 +21,7 @@ export class SearchResultComponent implements OnInit {
   message : any;
   search = "";
   cp : number = 0;
-  products : any;
+  products : Array<any> = [];
   display : boolean = false;
   path = 'http://santafe-dagom.herokuapp.com/img/';
 

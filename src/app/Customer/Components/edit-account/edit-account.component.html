@@ -77,8 +77,9 @@
     <div class="col-3 col-s-3 account">
         <img class="profileimg" [src]="image" alt="">
       <a><p>{{ firstname }} {{lastname}}</p></a>
-      <a routerLink="/edit-account"><p>Edit Account</p></a>
+      <a routerLink="/edit-account"><p class="active">Edit Account</p></a>
       <a routerLink="/all-orders"><p>My Orders</p></a>
+      <a routerLink="/addresses"><p>Addresses</p></a>
     </div>
     <form [formGroup]="editAccount" (ngSubmit)="submit()">
     <div class="col-8 col-s-8 editpanel">

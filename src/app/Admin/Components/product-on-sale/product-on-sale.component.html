@@ -20,27 +20,35 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Category</th>
+                                    <th scope="col">Original Price</th>
+                                    <th scope="col">Promo</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Total Quantity</th>
+                                    <!-- <th scope="col">Total Quantity</th> -->
                                     <th scope="col">Number of Units</th>
-                                    <th scope="col">Size</th>
+                                    <!-- <th scope="col">Size</th> -->
                                     <th scope="col">Available No. of Stock</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let product of sales | filter:filterTerm | paginate : {itemsPerPage:5, currentPage:cp}">
-                                    <td> {{ product.products.name }} </td>
-                                    <td *ngIf="product.products.category"> {{ product.products.category.name }} </td>
-                                    <td *ngIf="!product.products.category"> No Category </td>
+                                    <td> {{ product.name }} </td>
+                                    <td *ngIf="product.category"> {{ product.category.name }} </td>
+                                    <td *ngIf="!product.category"> No Category </td>
                                     <td>{{ product.price }}</td>
-                                    <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.unit_measure }} </td>
-                                    <td>{{ product.unit_measure }}</td>
-                                    <td>{{ product.size }}</td>
-                                    <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.avail_unit_measure }} </td>
-                                    <td *ngIf="product.products.sizes.length == 0"> 0 </td>
-                                    <td *ngIf="product.products.sizes.length == 0"> 0 </td>
-                                    <td>
+                                    <td>{{ product.promo_price }}{{ product.promo_type }} Off</td>
+                                    <td>{{ product.sale_price }}</td>
+                                    <!-- <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.unit_measure }} </td> -->
+                                    <td>{{ product.avail_unit }}</td>
+                                    <!-- <td>{{ product.size }}</td> -->
+                                    <!-- <td *ngIf="product.products.sizes.length > 0"> {{ product.products.sizes[0].pivot.avail_unit_measure }} </td> -->
+                                    <!-- <td *ngIf="product.products.sizes.length == 0"> 0 </td> -->
+                                    <!-- <td *ngIf="product.products.sizes.length == 0"> 0 </td> -->
+                                    <td>{{ product.avail_unit }}</td>
+                                    <td *ngIf="product.avail_unit == 0">
+                                      <p class="text-danger">SOLD OUT</p>
+                                    </td>
+                                    <td *ngIf="product.avail_unit > 0">
                                         <button type="button" (click)="delete(product)" class="btn btn-danger actionBtn"><i class="far fa-trash-alt"></i></button>
                                         <button type="button" (click)="edit(product)" class="btn btn-success actionBtn"><i class="fas fa-edit"></i></button>
                                     </td>

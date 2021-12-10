@@ -6,6 +6,12 @@
   color: #C7988E;
   font-family: 'Roboto';
 }
+
+.active{
+  color: #0a0a0a;
+  text-decoration: underline;
+}
+
 .Unathorized{
   text-align: center;
 }

@@ -186,27 +186,18 @@ export class ProductsComponent implements OnInit {
       return res;
     })
 
-    let check = this.stockSizes.map(res => {
-      if(res.size === 'N/A'){
-        return true;
-      }
-      return false;
-    })
     this.product = product;
-    if(check[0]){
-      this.sizeId = product.sizes
-      this.addToSale(product);
-    }else{
-      this.display = 'block';
-    }
+
+    this.display = 'block';
   }
 
   // Submit Modal To Sales Page
-  addToSale(product : any){
+  addToSale(product : any, sizes: Array<any> = []){
+    this.sizeId = sizes;
     this.sizeId.forEach(element=>{
       let select = document.getElementById(''+element.id+'') as HTMLInputElement
-      element.pivot.sales_item = parseInt(select.value) > element.pivot.avail_unit_measure ? element.pivot.avail_unit_measure : parseInt(select.value)
-      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure - parseInt(select.value);
+      element.pivot.sales_item = element.pivot.avail_unit_measure
+      element.pivot.avail_unit_measure = element.pivot.avail_unit_measure
     })
     if(this.sizeId.length > 0){
       this.router.navigate(['/admin/add-sales/'+product.id],{
@@ -223,6 +214,6 @@ export class ProductsComponent implements OnInit {
   // Close Pop Up Modal
   onCloseHandled(){
     this.display = 'none'
-    window.location.reload()
+    // window.location.reload()
   }
 }

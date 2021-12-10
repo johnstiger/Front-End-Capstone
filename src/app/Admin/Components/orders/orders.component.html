@@ -35,7 +35,10 @@
                                     </td>
                                     <td>
                                         <ul>
-                                            <li *ngFor="let product of order.products">{{ product.price }} </li>
+                                            <li *ngFor="let product of order.products">
+                                              <span *ngIf="product.is_sale">{{ product.sale_price }}</span>
+                                              <span *ngIf="!product.is_sale">{{ product.price }}</span>
+                                            </li>
                                         </ul>
                                     </td>
                                     <td>
@@ -44,7 +47,7 @@
                                         </ul>
                                     </td>
                                     <td>
-                                      {{order.overAllTotal}}
+                                      {{order.total}}
                                     </td>
                                     <td *ngIf="order.status == 3" class="done">
                                       Order already received

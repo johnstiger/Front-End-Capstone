@@ -4,6 +4,12 @@
   background-color: #F6F2EF;
   font-family: 'Roboto';
 }
+
+.active{
+  color: #0a0a0a;
+  text-decoration: underline;
+}
+
 .hr{background-color: #F6F2EF;}
 a, p{
   color: #C7988E;

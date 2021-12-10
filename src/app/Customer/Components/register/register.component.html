@@ -189,6 +189,12 @@
             Sorry there is something wrong please try again.
           </div>
           <div class="col-6 col-s-6">
+            <span
+            class="text-danger form-text"
+            *ngIf="error && error.firstname"
+          >
+            {{ error.firstname }}
+          </span>
             <div class="form-group">
               <input
                 class="form-control"
@@ -198,13 +204,14 @@
                 [ngClass]="{ 'border-danger': error && error.firstname }"
               />
             </div>
+
+
             <span
               class="text-danger form-text"
-              *ngIf="error && error.firstname"
+              *ngIf="error && error.contact_number"
             >
-              {{ error.firstname }}
+              {{ error.contact_number }}
             </span>
-
             <div class="form-group">
               <input
                 class="form-control"
@@ -214,12 +221,14 @@
                 [ngClass]="{ 'border-danger': error && error.firstname }"
               />
             </div>
+
+
             <span
-              class="text-danger form-text"
-              *ngIf="error && error.contact_number"
-            >
-              {{ error.contact_number }}
-            </span>
+            class="text-danger form-text"
+            *ngIf="error && error.password"
+          >
+            {{ error.password }}
+          </span>
             <div class="form-group">
               <input
                 class="form-control"
@@ -235,15 +244,14 @@
                 (click)="showPassword()"
                 [hidden]="!passwordHidden">visibility</i>
               </div>
-              <span
-                class="text-danger form-text"
-                *ngIf="error && error.password"
-              >
-                {{ error.password }}
-              </span>
 
           </div>
+
+
           <div class="col-6 col-s-6 right">
+            <span class="text-danger form-text" *ngIf="error && error.lastname">
+              {{ error.lastname }}
+            </span>
             <div class="form-group">
               <input
                 class="form-control"
@@ -253,10 +261,11 @@
                 [ngClass]="{ 'border-danger': error && error.lastname }"
               />
             </div>
-            <span class="text-danger form-text" *ngIf="error && error.lastname">
-              {{ error.lastname }}
-            </span>
 
+
+            <span class="text-danger form-text" *ngIf="error && error.email">
+              {{ error.email }}
+            </span>
             <div class="form-group">
               <input
                 class="form-control"
@@ -266,10 +275,14 @@
                 [ngClass]="{ 'border-danger': error && error.email }"
               />
             </div>
-            <span class="text-danger form-text" *ngIf="error && error.email">
-              {{ error.email }}
-            </span>
 
+
+            <span
+                  class="text-danger form-text"
+                  *ngIf="error && error.password_confirmation"
+                >
+                  {{ error.password_confirmation }}
+                </span>
             <div class="form-group">
               <input
                 class="form-control "
@@ -287,18 +300,6 @@
                  (click)="showConfirmationPassword()"
                  [hidden]="!confirmationPasswordHidden">visibility</i>
                 </div>
-                <span
-                  class="text-danger form-text"
-                  *ngIf="error && error.password_confirmation"
-                >
-                  {{ error.password_confirmation }}
-                </span>
-            <!-- <input
-              class="input"
-              type="password"
-              placeholder="Confirm Password"
-              formControlName="password_confirmation"
-            /> -->
           </div>
           <div class="info"><span class="infoText">
             Must contain at least 6 characters including the following :(!@#$%^&*()_+,[A-Z],[1-9])

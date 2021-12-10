@@ -18,8 +18,6 @@ export class DeliveryPageComponent implements OnInit {
   async ngOnInit() {
     this.getUser()
     const response = await this._customerService.getOrders(this.token)
-    console.log(response.data);
-
     this.orders = response.data.data.map((order:any) => {
       if(order.delivery){
         var date_test = new Date(order.delivery.delivery_date.replace(/-/g,"/"));
@@ -30,6 +28,8 @@ export class DeliveryPageComponent implements OnInit {
       if(!order.tracking_code){
         order.tracking_code = false;
       }
+      console.log(order);
+
       order.isShow = true
       order.btnText = 'More'
       return order

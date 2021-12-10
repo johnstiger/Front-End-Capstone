@@ -109,3 +109,8 @@ th {
 .modalInput{
   width: 100px;
 }
+
+.confirm{
+  width: 100%;
+  padding: 10px;
+}

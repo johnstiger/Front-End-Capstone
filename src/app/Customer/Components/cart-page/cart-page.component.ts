@@ -28,6 +28,8 @@ export class CartPageComponent implements OnInit {
   async getProduct() {
     this.service.showLoading();
     await this.service.getProducts(this.token).then(result => {
+      console.log(result.data);
+
       if (!result.data.error) {
         if (result.data.data == undefined) {
           this.products = [];
@@ -54,7 +56,7 @@ export class CartPageComponent implements OnInit {
         : currentQuantity > 0
         ? currentQuantity
         : 1;
-    console.log(test);
+    console.log(currentQuantity, product.sizes[0] );
     return test;
   }
 
@@ -71,13 +73,13 @@ export class CartPageComponent implements OnInit {
         if (result.data.error) {
           this.errors = result.data.message;
         } else {
-          this.getProduct();
+          this.service.ShowSuccessMessage(result.data.message);
+          this.ngOnInit();
         }
       });
   }
 
   async checkout(data: any) {
-    console.log('Checkout');
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;
@@ -85,7 +87,7 @@ export class CartPageComponent implements OnInit {
         localStorage.removeItem('products');
         localStorage.setItem('products', JSON.stringify(this.Products));
         this.service.orderProducts = this.Products;
-        console.log(this.service.orderProducts);
+        console.log(this.Products);
 
         this.router.navigate(['/order-page']);
       }
@@ -94,7 +96,6 @@ export class CartPageComponent implements OnInit {
   }
 
   async confirmRemove(product: any) {
-    console.log(product.id);
     Swal.fire({
       title: 'Are you sure?',
       text: 'You want to REMOVE ' + product.name + '?',
@@ -108,8 +109,10 @@ export class CartPageComponent implements OnInit {
         this.service.deleteProduct(product.id, this.token).then(() => {
           console.log("id", this.product.id)
           this.service.ShowSuccessMessage('Successfully Removed Product!');
+          setTimeout(()=>{
+            this.ngOnInit();
+          },1500)
         });
-        this.getProduct();
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',

@@ -5,13 +5,24 @@
     font-weight: 600;
     margin-top: 15px;
 }
-
+.responsive-image{
+  width: 100%;
+}
 .Unathorized{
   text-align: center;
 }
 
-hr {
-    background-color: white;
+.oldPrice{
+  float: left;
+    color: #696969c4;
+}
+
+
+
+.line{
+  background-color: white;
+  max-width: 1000px;
+  margin: revert !important;
 }
 
 .container{
@@ -32,7 +43,14 @@ hr {
   margin-top: 2em;
 }
 
+.card .card-img-top {
+  height: 20em;
+  object-fit: cover;
+}
 
+.bottomLine{
+  margin-top: 80px;
+}
 .card{
   box-shadow: 6px 6px 7px dimgrey;
 }

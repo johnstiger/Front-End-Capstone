@@ -44,6 +44,7 @@ export class UpdateAddressComponent implements OnInit {
   token = localStorage.getItem('customer_token') || '';
   firstname : any;
   lastname : any;
+  image : any;
 
   constructor(private service: AddressService, private router: Router, private http :  CustomerService,private route: ActivatedRoute) { }
 
@@ -59,6 +60,7 @@ export class UpdateAddressComponent implements OnInit {
     this.http.getCustomerProfile(this.customerId,this.token).then((res)=>{
       this.firstname = res.data.data.firstname;
       this.lastname = res.data.data.lastname;
+      this.image = res.data.data.image;
       this.http.closeLoading();
     })
   }

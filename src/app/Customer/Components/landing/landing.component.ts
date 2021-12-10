@@ -27,6 +27,8 @@ export class LandingComponent implements OnInit {
   maxProductDisplay : number = 8;
   displayViewAllSales : boolean = false;
   displayViewAllProduct : boolean = false;
+  storage : Array<any> = [];
+  testing : Array<any> = [];
 
   constructor(
     private router: Router,
@@ -65,8 +67,13 @@ export class LandingComponent implements OnInit {
   }
 
   select(product:any, category: string){
-    console.log(product);
-    this.router.navigate([`/selected/${category == 'onsale' ? product.products.id : product.id}`],{
+    this.service.showLoading();
+    // this.router.navigate([`/selected/${category == 'onsale' ? product.products.id : product.id}`],{
+    //   state: {
+    //     data: product
+    //   }
+    // })
+    this.router.navigate(['/selected/'+product.id],{
       state: {
         data: product
       }
@@ -76,9 +83,23 @@ export class LandingComponent implements OnInit {
   getSalesProduct(){
     this.service.getSales().then((res)=>{
       if(res.data.error){
-
+        console.log(res.data.message);
       }else{
         this.salesItem = res.data.message == "No data yet!" ? [] : res.data.data
+        console.log(this.salesItem.map(res=>{
+          const sizes = res.sizes.map((element:any)=>{
+            return element.size
+          })
+          if(sizes.length > 1){
+            res.availableSize = sizes[0]+'-'+sizes[sizes.length - 1];
+          }else if(sizes.length == 1){
+            res.availableSize = sizes[0];
+          }else{
+            res.availableSize = [];
+          }
+          return res;
+        }));
+
         if(this.salesItem.length > this.maxSaleDisplay){
           this.displayViewAllSales = true;
         }
@@ -100,10 +121,10 @@ export class LandingComponent implements OnInit {
           return res.id;
         }
       })
-      var ambotLang = test.filter(res=>{
+      var categoryId = test.filter(res=>{
         return res;
       })[0];
-      this.router.navigate(['/choose?=/'+ambotLang])
+      this.router.navigate(['/choose?=/'+categoryId])
     });
 
   }

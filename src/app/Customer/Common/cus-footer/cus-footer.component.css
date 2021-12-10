@@ -94,31 +94,30 @@ a{
     margin-left: auto;
     margin-right: auto;
   }
-  .dagom p, .contactdiv p, .categories p, a, #reserved{font-size: 1.8vw;}
+  .dagom p, .contactdiv p, a, #reserved{font-size: 1.8vw;}
   .subtxt {font-size: 1.6vw;}
   #dagomtxt, #followus{
     font-size: 2.5vw;
   }
+  .dagom{margin-left: 2vw;}
   #meaning{
     text-align: left;
     margin-left: 7%;
   }
-  .ownersdiv, .contactdiv{width: 18%;}
   .hdtxt{font-size: 2.1vw;}
-  .dagom{width: 35.33%;}
   .categories{margin-top: 0vw;}
   .fb,.messenger, .instagram{
     width: 70%;
   }
-  #footerhr{width: 106.6vw;max-width: 1000px}
+  #footerhr{width: 95.6vw;max-width: 1000px}
   #reserved{margin-left: 8vw;}
 }
 @media screen and (min-width: 1024px) {
-  .dagom p, .ownersdiv p, .contactdiv p, .categories p, a, #reserved {font-size: 1.3vw;}
+  .dagom p, .ownersdiv p, .contactdiv p, a, #reserved {font-size: 1.3vw;}
   #dagomtxt, #followus{
     font-size: 1.8vw;
   }
-  #owners, #aboutus, #address,#contact, #categories{font-size: 1.5vw;}
+  #owners, #aboutus, #address,#contact{font-size: 1.5vw;}
   .fb,.messenger, .instagram{
     width: 50%;
     margin-left: -9vw;
@@ -133,13 +132,25 @@ a{
   #footerhr{width: 107.7vw;}
   .fb,.messenger, .instagram{
     width: 45%;
+    margin-left: -5vw;
+    margin-top: 0.3vw;
   }
+  .messenger{margin-left: -10vw;}
+  .instagram{margin-left: -15vw;}
 }
 @media screen and (min-width: 2560px){
   .fb,.messenger, .instagram{
     width: 35%;
-    margin-top: -0.1vw;
   }
+  #reserved{margin-left: 5vw;}
+  .dagom p, .ownersdiv p, .contactdiv p, a, #reserved {font-size: 0.8vw;}
+  #dagomtxt, #followus{
+    font-size: 1vw;
+  }
+  #owners, #aboutus, #address,#contact{font-size: 0.9vw;}
+  .instagram{margin-left: -9vw;}
+  .fb{margin-left: -3vw;}
+  .messenger{margin-left: -6vw;}
 }
 
 

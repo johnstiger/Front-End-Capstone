@@ -6,6 +6,11 @@
   background: #C7988E;
   color: #fff;
 }
+.active{
+  color: #0a0a0a;
+  text-decoration: underline;
+}
+
 
 input[type="file"] {
   display: none;
@@ -156,11 +161,11 @@ p, a{
     padding: 1.5vw;
     padding-left: 3vw;
   }
-  .media320{margin-left: 4.5vw;margin-top: -65px;height: 102vh;}
+  .media320{margin-left: 4.5vw;margin-top: -65px;height: 67vh;}
 }
 @media screen and (min-width: 375px){
   .media320{
-    height: 115vh;
+    height: 81vh;
   }
 }
 
@@ -177,7 +182,8 @@ p, a{
   }
   .account{
     text-align: center;
-    margin-bottom: 35%;
+    /* margin-bottom: 35%; */
+    height: 35vh;
     margin-left: 2.6vw;
     width: 20%;
   }
@@ -260,7 +266,7 @@ p, a{
   }
 }
 @media screen and (min-width:1440px) {
-  .account{margin-bottom: 33%;}
+  .account{margin-bottom: 27%;    height: 30vw;}
   #cancelbtn, #savebtn{margin-left: -1vw;}
   .account p, .deliverypanel p, .btn, input{font-size: 1.5vw;}
   .account{width: 16.66%;}

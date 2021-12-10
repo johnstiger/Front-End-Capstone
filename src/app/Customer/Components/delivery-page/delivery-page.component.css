@@ -6,6 +6,10 @@
     margin-bottom: 10%;
     font-family: 'Roboto';
   }
+  .active{
+    color: #0a0a0a;
+    text-decoration: underline;
+  }
   hr{height: 0.2vw;}
   a, p{
     color: #C7988E;
@@ -216,7 +220,7 @@
     .amountheader{margin-right: 1.5vw;}
   }
   @media screen and (min-width:1440px){
-    .account{margin-bottom: 33%;}
+    .account{margin-bottom: 27%;}
   }
   @media screen and (min-width:2560px){
     .account{margin-bottom: 33%;}

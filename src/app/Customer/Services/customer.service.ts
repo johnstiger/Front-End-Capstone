@@ -47,14 +47,25 @@ export class CustomerService {
 
   async getOrders(token: any) {
     const user_id = localStorage.getItem('customer');
-    const response = await axios.get(this.url + 'orders/' + user_id, {
+    const response = await axios.get(this.url + 'orders/delivery/' + user_id, {
       headers: { Authorization: token }
     });
     return response;
   }
 
+  async getOrderByUser(token:any){
+    const user_id = localStorage.getItem('customer');
+    const response = await axios.get(this.url+'orders/all/'+user_id,{headers:{Authorization:token}})
+    return response
+  }
+
   async products(token: any) {
     const response = await axios.get(this.url + 'home');
+    return response;
+  }
+
+  async viewAllProducts(token:any){
+    const response = await axios.get(this.url+"allItem");
     return response;
   }
 
@@ -222,6 +233,16 @@ export class CustomerService {
       title: message,
       showConfirmButton: false,
       timer: 1500
+    });
+  }
+
+  ShowSuccessMessageForPurchase(message: any) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2500
     });
   }
 

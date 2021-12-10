@@ -22,7 +22,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of orders | filter:filterTerm | paginate:{itemsPerPage:5, currentPage: cp}">
+                            <tbody *ngFor="let order of orders | filter:filterTerm | paginate:{itemsPerPage:5, currentPage: currentPage}">
                                 <tr *ngIf="order.products.length > 0 ">
                                     <td>{{ order.customer.firstname }} {{ order.customer.lastname }}</td>
                                     <td *ngIf="order.address" class="text-success">
@@ -72,10 +72,10 @@
             </div>
         </div>
     </div>
-</div>
-<div *ngIf="orders">
-  <pagination-controls (pageChange)="cp = $event"></pagination-controls>
-</div>
+  </div>
+  <div *ngIf="orders">
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  </div>
 
 <!-- Preview Modal -->
 <div class="backdrop" [ngStyle]="{'display':display}"></div>
@@ -97,9 +97,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: firstModal}">
+              <tr *ngFor="let product of customerOrders">
                 <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+                <td *ngIf="!product.is_sale">{{ product.price }}</td>
+                <td *ngIf="product.is_sale">{{ product.sale_price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
                 <td *ngFor="let size of product.sizes">
                     {{ size }}
@@ -107,23 +108,22 @@
                 <td *ngIf="product.sizes.length == 0">
                   N/A
                 </td>
-                <td>{{ product.total }}</td>
+                <td>{{ product.pivot.subtotal }}</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th colspan="4" class="text-right">Php {{ total }}</th>
               </tr>
             </tbody>
           </table>
-          <div *ngIf="customerOrders">
-            <pagination-controls (pageChange)="firstModal = $event"></pagination-controls>
-          </div>
           <div class="row">
             <div class="col">
               <button class="btn btn-primary" (click)="onCloseHandled()">Okay</button>
-              <button class="btn btn-success confirm" (click)="confirm(orderId, customerId)">Confirmed</button>
+              <button class="btn btn-success confirm" (click)="confirm(orderId, customerId)">Confirm</button>
             </div>
           </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 <!-- /.modal !-->
 
@@ -148,9 +148,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of customerOrders | paginate:{itemsPerPage:5, currentPage: secondModal}">
+              <tr *ngFor="let product of customerOrders">
                 <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+                <td *ngIf="!product.is_sale">{{ product.price }}</td>
+                <td *ngIf="product.is_sale">{{ product.sale_price }}</td>
                 <td>{{ product.pivot.quantity }}</td>
                 <td *ngFor="let size of product.sizes">
                     {{ size }}
@@ -158,13 +159,10 @@
                 <td *ngIf="product.sizes.length == 0">
                   N/A
                 </td>
-                <td>{{ product.total }}</td>
+                <td>{{ product.pivot.subtotal }}</td>
               </tr>
             </tbody>
           </table>
-          <div *ngIf="customerOrders">
-            <pagination-controls (pageChange)="secondModal = $event"></pagination-controls>
-          </div>
           <div class="def">
             <form name="form" [formGroup]="TrackingCodeForm" (ngSubmit)="addTrackingCode(customerId,orderId)">
               <div class="row">
@@ -174,8 +172,11 @@
                 <div *ngIf="error && error.name_of_deliver_company" class="alert alert-danger">
                   *{{ error.name_of_deliver_company[0] }}
                 </div>
-                <div class="col-6">
+                <div class="col">
                   <input type="text"  class="form-control" formControlName="tracking_code" name="tracking_code" id="trackingCode" placeholder="Tracking Code">
+                </div>
+                <div class="col">
+                  <input type="number"  class="form-control" formControlName="shipping_fee" name="shipping_fee" id="shipping_fee" placeholder="Shipping Fee">
                 </div>
                 <div class="col">
                   <select name="" id="" class="form-control" formControlName="name_of_deliver_company" name="name_of_deliver_company">
@@ -191,8 +192,6 @@
             </form>
           </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
 <!-- /.modal !-->

@@ -1,11 +1,11 @@
 <app-sample-header></app-sample-header>
-<hr>
+<hr class="line">
 <div class="container">
     <div class="title">
         <p>{{ message }} </p>
     </div>
 </div>
-<hr>
+<hr class="line">
 
 <div class="container">
     <div class="row">
@@ -14,22 +14,26 @@
         <div class="card card-feature" (click)="select(product)">
               <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
               <div class="card-body text-center">
-                <h5 class="card-title">{{ product.name }}</h5>
+                <h5 class="card-title">{{ product.name }} <span class="badge badge-pill badge-danger" *ngIf="product.is_sale">{{ product.promo_price }}{{ product.promo_type }} Off</span> </h5>
                 <p><span class="badge badge-pill badge-success">Size: {{ product.availableSize}}</span></p>
-                    <p class="card-text">₱ {{ product.price }}
+                    <p class="card-text" *ngIf="!product.is_sale">₱ {{ product.price }}
                     <i class="fas fa-cart-plus"></i>
                     </p>
+                    <p class="card-text" *ngIf="product.is_sale">₱ {{ product.sale_price }}
+                      <i class="fas fa-cart-plus"></i>
+                    </p>
+                <span class="oldPrice" *ngIf="product.is_sale"><del> ₱ {{ product.price }} </del></span>
               </div>
             </div>
       </div>
     </div>
-    <div *ngIf="products" class="paginator">
+    <div *ngIf="products.length > 6" class="paginator">
       <pagination-controls (pageChange)="cp = $event"></pagination-controls>
     </div>
     <div class="Unathorized" *ngIf="display">
       <img src="https://financialadvisors.com/media/no-images/nodata-found.png" alt="" class="responsive-image">
   </div>
 </div>
-<hr>
+<hr class="line bottomLine">
 <app-cus-footer></app-cus-footer>
 

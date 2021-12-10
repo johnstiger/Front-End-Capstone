@@ -64,7 +64,7 @@
 <div class="col-12 col-s-12 media768">
   <div class="row">
     <div class="col-3 col-s-3 account">
-      <img class="profileimg" src="../../../../assets/imgs/profile.jpg" alt="">
+      <img class="profileimg" [src]="image" alt="">
       <a routerLink="/show-profile">
         <p class="customername">{{ firstname }} {{ lastname }}</p>
       </a>
@@ -75,7 +75,7 @@
         <p class="myorders">My Orders</p>
       </a>
       <a routerLink="/addresses">
-        <p class="myorders">Addresses</p>
+        <p class="myorders active">Addresses</p>
       </a>
     </div>
     <div class="col-8 col-s-8 deliverypanel">
@@ -89,7 +89,10 @@
             <div class="form-group col-md-6">
               <label for="contact_number">Contact Number</label>
               <input type="text" class="form-control" id="contact_number" formControlName="contact_number"
+              [ngClass]="{ 'is-invalid': addressForm.controls.contact_number?.errors?.pattern }"
                 placeholder="Contact Number....">
+                <span class="text-danger form-text"
+                *ngIf="addressForm.controls.contact_number?.errors?.pattern"> *Invalid Format </span>
             </div>
             <div class="form-group col-md-6">
               <label for="active">Active</label>
@@ -102,9 +105,12 @@
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="postal_code">Postal Code</label>
-              <input type="number" class="form-control" formControlName="postal_code" id="postal_code"
+              <input type="number" maxlength="5" class="form-control" formControlName="postal_code" id="postal_code"
                 [ngClass]="{ 'is-invalid': submitted && addressForm.controls.postal_code.errors?.required }"
                 placeholder="Post code...">
+                <span class="text-danger form-text"
+                >
+                {{ addressForm.controls.postal_code.errors |json }} </span>
             </div>
             <div class="form-group col-md-4">
               <label for="region">Region</label>

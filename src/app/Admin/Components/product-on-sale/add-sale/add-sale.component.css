@@ -3,7 +3,9 @@
     border-radius: 10px;
     background: #F6F2EF;
 }
-
+.containImg{
+  max-height: 425px;
+}
 textarea {
     height: 100px;
 }
