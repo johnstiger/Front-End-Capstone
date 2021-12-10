@@ -108,8 +108,10 @@ export class CartPageComponent implements OnInit {
       if (result.value) {
         this.service.deleteProduct(product.id, this.token).then(() => {
           this.service.ShowSuccessMessage('Successfully Removed Product!');
+          setTimeout(()=>{
+            this.ngOnInit();
+          },1500)
         });
-        this.ngOnInit();
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
