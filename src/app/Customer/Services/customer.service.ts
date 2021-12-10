@@ -236,7 +236,7 @@ export class CustomerService {
     });
   }
 
-  ShowSuccessMessageInPurchase(message: any) {
+  ShowSuccessMessageForPurchase(message: any) {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
