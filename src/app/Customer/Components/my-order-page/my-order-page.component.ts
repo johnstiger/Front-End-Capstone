@@ -123,13 +123,12 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   placeOrder() {
-    console.log(this.order);
-
-    // this.orderService.create(this.order).subscribe(data => {
-    //   this.notification.sendNotification('New Order');
-    //   localStorage.removeItem('products')
-    //   this.router.navigateByUrl('/pay')
-    // })
+    this.service.loading();
+    this.orderService.create(this.order).subscribe(data => {
+      this.notification.sendNotification('New Order');
+      localStorage.removeItem('products')
+      this.router.navigateByUrl('/pay')
+    })
   }
 
   tranformToProductDto(product: any): ProductRequestDto {
