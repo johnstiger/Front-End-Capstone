@@ -70,7 +70,11 @@ export class SampleHeaderComponent implements OnInit {
   }
 
   openNav() {
-    $('#mySidenav').css('width','100%');
+    $('#mySidenav').css({
+      'width':'100%',
+      'overflow' : 'hidden',
+      'height': '100%'
+    });
   }
   closeNav() {
     $('#mySidenav').css('width','0');

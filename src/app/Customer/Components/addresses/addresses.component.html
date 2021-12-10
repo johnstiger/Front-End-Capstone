@@ -24,10 +24,6 @@
             <td class = "data">{{address.postal_code}}</td>
           </tr>
           <tr>
-            <td class = "label">Region:</td>
-            <td class = "data">{{address.region}}</td>
-          </tr>
-          <tr>
             <td class = "label">Province:</td>
             <td class = "data">{{ address.province }}</td>
           </tr>
@@ -91,7 +87,6 @@
               <tr>
                 <th>Contact Number</th>
                 <th>Postal Code</th>
-                <th>Region</th>
                 <th>Province</th>
                 <th>City</th>
                 <th>Municipality</th>
@@ -102,7 +97,6 @@
               <tr *ngFor="let address of addresses">
                 <td>{{ address.contact_number}}</td>
                 <td>{{ address.postal_code}}</td>
-                <td>{{ address.region}}</td>
                 <td>{{ address.province}}</td>
                 <td>{{ address.city}}</td>
                 <td>{{ address.municipality}}</td>

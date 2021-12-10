@@ -29,6 +29,7 @@ export class MyOrderPageComponent implements OnInit {
   products: Array<any> = [];
   totalAmount: number = 0;
   overAllTotal : number = 0;
+  total : any;
   payments:Payment[] = [
     {
       value: 'gcash',
@@ -60,7 +61,9 @@ export class MyOrderPageComponent implements OnInit {
           }
         })
         this.order.data.push(this.tranformToProductDto(product))
+        console.log('order', product)
       });
+      this.total = this.totalAmount+70
     }else{
       this.products = [];
     }
@@ -120,11 +123,13 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   placeOrder() {
-    this.orderService.create(this.order).subscribe(data => {
-      this.notification.sendNotification('New Order');
-      localStorage.removeItem('products')
-      this.router.navigateByUrl('/pay')
-    })
+    console.log(this.order);
+
+    // this.orderService.create(this.order).subscribe(data => {
+    //   this.notification.sendNotification('New Order');
+    //   localStorage.removeItem('products')
+    //   this.router.navigateByUrl('/pay')
+    // })
   }
 
   tranformToProductDto(product: any): ProductRequestDto {

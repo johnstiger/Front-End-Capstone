@@ -80,7 +80,6 @@ export class CartPageComponent implements OnInit {
   }
 
   async checkout(data: any) {
-    console.log('Checkout');
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;
@@ -88,7 +87,7 @@ export class CartPageComponent implements OnInit {
         localStorage.removeItem('products');
         localStorage.setItem('products', JSON.stringify(this.Products));
         this.service.orderProducts = this.Products;
-        console.log(this.service.orderProducts);
+        console.log(this.Products);
 
         this.router.navigate(['/order-page']);
       }

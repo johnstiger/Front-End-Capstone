@@ -76,7 +76,7 @@
     <div class="col-12 col-s-12 buttons"  *ngIf="products.length > 0">
       <p id="subtotal">Subtotal: Php {{ totalAmount }}</p>
       <p id="shippingfee">Shipping Fee: Php 70.00</p>
-      <p id="alltotal">Total: {{ totalAmount + 70 }}</p>
+      <p id="alltotal">Total: {{ total }}</p>
       <button class="btn" id="cancel" (click)="cancel()">Cancel</button><br />
       <button class="btn" id="placeorder" (click)="placeOrder()" [disabled]="(order.address_id==0)">Place Order</button>
     </div>
@@ -168,7 +168,7 @@
         <p style="margin-bottom: 0px; margin-right: 1%;">
           Shipping Fee: Php 70.00
         </p>
-        <p style="margin-left: 14%;">Total: {{ totalAmount + 70 }}</p>
+        <p style="margin-left: 14%;">Total: {{ total }}</p>
       </div>
       <div class="col-12 col-s-12 bottomdiv">
         <div class="row">

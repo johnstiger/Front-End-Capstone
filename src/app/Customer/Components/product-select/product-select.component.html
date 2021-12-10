@@ -4,8 +4,9 @@
     <div class="col-12 col-s-12 img320">
       <img id="img320" src="{{ image }}" alt="this is an image" *ngIf="image" />
       <img
+      id="img320"
         class="card-img-top"
-        src="../../../../assets/imgs/unnamed.png"
+        src="../../../../assets/imgs/product.jpg"
         alt="Card image cap"
         *ngIf="!image"
       />
@@ -13,7 +14,7 @@
     <div class="col-12 col-s-12">
       <div class="text320">
         <form name="form" #AddCart="ngForm">
-          <p id="prodname">{{ product.name }}</p>
+          <p id="prodname" *ngIf="product.name">{{ product.name }}</p>
           <p id="amount">Php {{ getPrice(product) }}
             <span class="badge badge-pill badge-danger" *ngIf="product.is_sale">
               {{ product.promo_price }}{{ product.promo_type }} Off
@@ -91,17 +92,18 @@
     <div class="col-5 col-s-5 img768">
       <img id="img768" src="{{ image }}" alt="this is an image" *ngIf="image" />
       <img
+        id="img768"
         class="card-img-top"
-        src="../../../../assets/imgs/unnamed.png"
+        src="../../../../assets/imgs/product.jpg"
         alt="Card image cap"
         *ngIf="!image"
-      />
+        />
     </div>
     <div class="col-1 col-s-1"></div>
     <div class="col-4 col-s-4">
       <div class="text768">
         <form name="form" #AddCart="ngForm">
-          <p id="prodname">{{ product.name }}</p>
+          <p id="prodname" *ngIf="product.name">{{ product.name }}</p>
           <p id="amount">Php {{ getPrice(product) }}
             <span class="badge badge-pill badge-danger" *ngIf="product.is_sale">
               {{ product.promo_price }}{{ product.promo_type }} Off

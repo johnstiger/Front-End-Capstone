@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col" *ngFor="let sale of salesItem | paginate : {
         itemsPerPage: 6, currentPage: salesPage }">
-        <div class="card" style="width: 18rem;" (click)="select(sale.products)">
+        <div class="card" style="width: 18rem;" (click)="select(sale)">
           <img class="card-img-top" src="{{ sale.image }}" alt="Card image cap">
           <div class="card-body text-center">
             <h5 class="card-title">{{ sale.name }} <span class="badge badge-pill badge-danger">{{ sale.promo_price }}{{ sale.promo_type }} Off</span></h5>

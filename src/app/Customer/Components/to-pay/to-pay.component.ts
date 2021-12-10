@@ -12,13 +12,14 @@ export class ToPayComponent implements OnInit {
   constructor(public _customerService: CustomerService) { }
   orders:any
   selectedOrderId:any
-  products:any
+  products:Array<any> = [];
   protected token = localStorage.getItem('customer_token')
   customerName : any;
   status : any;
   img : any;
   subtotal : any;
   display : boolean = false;
+  total : any;
 
   async ngOnInit() {
     this.getUser();
@@ -32,6 +33,8 @@ export class ToPayComponent implements OnInit {
       this.products = this.orders[0].products
       this.status = this.orders[0].status
       this.subtotal = this.orders[0].total
+      this.total = this.subtotal+70
+
       if(this.products.length == 0){
         this.display = true
       }
@@ -43,6 +46,7 @@ export class ToPayComponent implements OnInit {
     this.products = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].products
     this.status = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].status
     this.subtotal = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].total
+    this.total = this.subtotal+70
   }
 
   async getUser(){

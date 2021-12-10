@@ -16,10 +16,13 @@ import { Location } from '@angular/common';
   styleUrls: ['./product-select.component.css']
 })
 export class ProductSelectComponent implements OnInit {
-  product!: any;
+  product: any = [{
+    name: '',
+    sizes: []
+  }];
   unit_measure!: number;
   avail_unit_measure: number = 0;
-  sizes!: any;
+  sizes: any = [];
   selectedSize: string = 'Select';
   maxPerSize: number = 1;
   selectedSizeId!: number;
@@ -119,9 +122,12 @@ export class ProductSelectComponent implements OnInit {
     const index = this.product.sizes.findIndex(
       (size: any) => size.id == this.selectedSizeId
     );
+
     this.product.sizes[index].pivot.quantity = this.unit_measure;
     this.product.pivot = this.product.sizes[index].pivot;
+    this.product.pivot.sizeId = this.selectedSizeId
     this.product.pivot.total = this.product.price * this.unit_measure;
+    console.log(this.product)
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;
