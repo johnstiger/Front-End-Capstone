@@ -34,7 +34,7 @@ export class ToPayComponent implements OnInit {
       this.products = this.orders[0].products
       this.status = this.orders[0].status
       this.subtotal = this.orders[0].total
-      this.total = this.subtotal + this.add;
+      this.total = parseInt(this.subtotal) + this.add;
 
       if(this.products.length == 0){
         this.display = true
@@ -47,7 +47,7 @@ export class ToPayComponent implements OnInit {
     this.products = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].products
     this.status = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].status
     this.subtotal = this.orders.filter((order:any) => order.id == this.selectedOrderId)[0].total
-    this.total = this.subtotal + this.add;
+    this.total = parseInt(this.subtotal) + this.add;
   }
 
   async getUser(){
