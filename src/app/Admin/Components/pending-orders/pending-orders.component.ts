@@ -179,6 +179,8 @@ export class PendingOrdersComponent implements OnInit {
     this.customerName = order.customer.firstname+" "+order.customer.lastname;
     this.customerOrders = order.products
     this.total = order.total;
+    console.log(order);
+
     // Filter product sizes
     this.customerOrders = this.customerOrders.map(res => {
       const result = res.sizes.map((value : any) => {

@@ -28,8 +28,9 @@ export class MyOrderPageComponent implements OnInit {
   token = localStorage.getItem('customer_token');
   products: Array<any> = [];
   totalAmount: number = 0;
+  add : number = 70;
   overAllTotal : number = 0;
-  total : any;
+  total : number = 0;
   payments:Payment[] = [
     {
       value: 'gcash',
@@ -63,7 +64,7 @@ export class MyOrderPageComponent implements OnInit {
         this.order.data.push(this.tranformToProductDto(product))
         console.log('order', product)
       });
-      this.total = this.totalAmount+70
+      this.total = this.totalAmount + this.add;
     }else{
       this.products = [];
     }
