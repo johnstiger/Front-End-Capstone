@@ -20,7 +20,7 @@
           <div class="col-12 col-s-12 submedia">
             <div class="row">
               <div class="col-6 col-s-6">
-                <img id="img320" src="../../../../assets/imgs/dag.jpg" alt="">
+                <img id="img320" src="{{ product.image }}" alt="">
               </div>
               <div class="col-6 col-s-6 right">
                 <p id="prodname">{{ product.name }}</p>
@@ -75,7 +75,7 @@
           <div *ngFor="let product of products">
             <div class="row">
               <div class="col-6">
-                <img id="img768" src="../../../../assets/imgs/dag.jpg" alt="">
+                <img id="img768" src="{{ product.image }}" alt="">
               </div>
               <div class="col-6 col-s-6 right768">
                 <p id="prodname">{{ product.name }}</p>
