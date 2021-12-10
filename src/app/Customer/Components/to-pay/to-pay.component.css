@@ -184,7 +184,8 @@ a{
     margin-left: -1.5vw;
   }
   .account{
-    margin-bottom: 35%;
+    /* margin-bottom: 35%; */
+    height: 35vw;
     margin-left: 2.6vw;
     width: 20%;
   }
@@ -252,7 +253,8 @@ a{
   .account{
     width: 16.66%;
     margin-left: 8vw;
-    margin-bottom: 35%;
+    /* margin-bottom: 35%; */
+    height: 28vw;
   }
   .deliverypanel{
     margin-bottom: 22%;

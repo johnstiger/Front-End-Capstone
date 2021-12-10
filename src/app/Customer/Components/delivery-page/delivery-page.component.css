@@ -196,7 +196,8 @@
     .account{
       width: 16.66%;
       margin-left: 8vw;
-      margin-bottom: 35%;
+      /* margin-bottom: 35%; */
+      height: 28vw;
     }
     .deliverypanel{
       margin-left: 8%;
