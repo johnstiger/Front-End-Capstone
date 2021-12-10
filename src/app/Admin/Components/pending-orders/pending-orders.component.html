@@ -166,6 +166,9 @@
           <div class="def">
             <form name="form" [formGroup]="TrackingCodeForm" (ngSubmit)="addTrackingCode(customerId,orderId)">
               <div class="row">
+                <div *ngIf="error && !error.tracking_code && !error.name_of_deliver_company" class="alert alert-danger">
+                  *There is are something wrong in your inputed value
+                </div>
                 <div *ngIf="error && error.tracking_code" class="alert alert-danger">
                   *{{ error.tracking_code[0] }}
                 </div>
