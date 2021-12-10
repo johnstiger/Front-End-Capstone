@@ -236,6 +236,16 @@ export class CustomerService {
     });
   }
 
+  ShowSuccessMessageInPurchase(message: any) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2500
+    });
+  }
+
   showMessage(message: string) {
     Swal.fire({
       icon: 'success',

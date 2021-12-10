@@ -123,11 +123,13 @@ export class MyOrderPageComponent implements OnInit {
   }
 
   placeOrder() {
-    this.service.loading();
     this.orderService.create(this.order).subscribe(data => {
       this.notification.sendNotification('New Order');
+      this.service.ShowSuccessMessageInPurchase('Thank you for purchasing our products, we sent an invoice transaction in your email. Thank You');
       localStorage.removeItem('products')
-      this.router.navigateByUrl('/pay')
+      setTimeout(()=>{
+        this.router.navigateByUrl('/pay')
+      },2500)
     })
   }
 
