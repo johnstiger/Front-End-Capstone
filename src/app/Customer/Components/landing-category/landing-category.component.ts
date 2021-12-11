@@ -39,6 +39,9 @@ export class LandingCategoryComponent implements OnInit {
         console.log(res.data);
         this.categoryName = res.data.category;
         this.products = res.data.products;
+        this.products.forEach((product: any) => {
+          product.sizes = product.sizes.filter((size: any) => size.pivot.avail_unit_measure > 0)
+        })
         this.products = this.products.map((element)=>{
           const el = element.sizes.map((test:any)=>{
             return test.size

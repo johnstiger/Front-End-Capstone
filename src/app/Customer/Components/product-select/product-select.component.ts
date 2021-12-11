@@ -67,15 +67,15 @@ export class ProductSelectComponent implements OnInit {
     this.service.loading();
     await this.service.getProduct(this.id).then(result => {
       this.product = result.data.data;
+      this.product.sizes = this.product.sizes.filter((size: any) => size.pivot.avail_unit_measure > 0)
       this.comments = result.data.comments
       this.image = this.product.image;
       this.id = this.product.id;
       this.sizes = this.product.sizes;
-
       if (this.sizes.length == 1) {
-        this.avail_unit_measure = this.sizes[0].pivot.unit_measure;
+        this.avail_unit_measure = this.sizes[0].pivot.avail_unit_measure;
         this.selectedSizeId = this.sizes[0].id;
-        this.maxPerSize = this.sizes[0].pivot.unit_measure;
+        this.maxPerSize = this.sizes[0].pivot.avail_unit_measure;
       }
     });
     this.service.closeLoading();
@@ -84,8 +84,8 @@ export class ProductSelectComponent implements OnInit {
   selectSize(size: any) {
     this.selectedSize = size.size;
     this.selectedSizeId = size.id;
-    this.maxPerSize = size.pivot.unit_measure;
-    this.avail_unit_measure = size.pivot.unit_measure;
+    this.maxPerSize = size.pivot.avail_unit_measure;
+    this.avail_unit_measure = size.pivot.avail_unit_measure;
     this.unit_measure = 0
   }
 
@@ -127,7 +127,7 @@ export class ProductSelectComponent implements OnInit {
     this.product.pivot = this.product.sizes[index].pivot;
     this.product.pivot.sizeId = this.selectedSizeId
     this.product.pivot.total = this.product.is_sale ? this.product.sale_price * this.unit_measure : this.product.price * this.unit_measure;
-    console.log(this.product)
+    this.product.pivot.is_checkout = true;
     await this.service.checkOut(data, this.token).then(result => {
       if (result.data.error) {
         this.errors = result.data.message;

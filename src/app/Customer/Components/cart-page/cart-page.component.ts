@@ -28,20 +28,22 @@ export class CartPageComponent implements OnInit {
   async getProduct() {
     this.service.showLoading();
     await this.service.getProducts(this.token).then(result => {
-      console.log(result.data);
-
       if (!result.data.error) {
         if (result.data.data == undefined) {
           this.products = [];
         } else {
           this.products = result.data.data;
-          var total = 0;
+          // var total = 0;
           var overallTotal = this.products.map(res => {
             return parseInt(res.pivot.total);
           });
           this.total = overallTotal.reduce(
             (total: any, num: any) => total + num
           );
+          this.products.forEach((product: any) => {
+            product.sizes = product.sizes.filter((size: any) => size.id === product.pivot.sizeId)
+          })
+          // this.products = this.products.filter((product: any) => product.sizes[0].pivot.avail_unit_measure > 0)
         }
         this.service.closeLoading();
         this.total = Math.ceil(this.total);
@@ -50,13 +52,14 @@ export class CartPageComponent implements OnInit {
   }
 
   validateQuantity(currentQuantity: any, product: any) {
+    console.log('Change Quantity', product);
+    const index = product.sizes.findIndex((size: any) => size.id == product.pivot.sizeId)
     const test =
-      currentQuantity > product.sizes[0].pivot.avail_unit_measure
-        ? product.sizes[0].pivot.avail_unit_measure
+      currentQuantity > product.sizes[0].pivot.avail_unit_measure + product.pivot.quantity
+        ? product.sizes[0].pivot.avail_unit_measure + product.pivot.quantity
         : currentQuantity > 0
         ? currentQuantity
         : 1;
-    console.log(currentQuantity, product.sizes[0] );
     return test;
   }
 
@@ -66,7 +69,8 @@ export class CartPageComponent implements OnInit {
   }
 
   async update(quantity: any, product: any) {
-    product.pivot.quantity = parseInt(quantity);
+    product.pivot.newQuantity = parseInt(quantity);
+    console.log(product);
     this.service
       .updateCartProduct(product.id, product, this.token)
       .then(result => {
@@ -74,7 +78,7 @@ export class CartPageComponent implements OnInit {
           this.errors = result.data.message;
         } else {
           this.service.ShowSuccessMessage(result.data.message);
-          this.ngOnInit();
+          this.getProduct();
         }
       });
   }
@@ -106,8 +110,7 @@ export class CartPageComponent implements OnInit {
       confirmButtonText: 'Yes, remove it!'
     }).then(result => {
       if (result.value) {
-        this.service.deleteProduct(product.id, this.token).then(() => {
-          console.log("id", this.product.id)
+        this.service.deleteProduct(product.id, product, this.token).then(() => {
           this.service.ShowSuccessMessage('Successfully Removed Product!');
           setTimeout(()=>{
             this.ngOnInit();

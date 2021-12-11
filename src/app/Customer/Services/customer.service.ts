@@ -162,8 +162,8 @@ export class CustomerService {
     return response;
   }
 
-  async deleteProduct(id: any, token: any) {
-    const response = await axios.delete(this.url + `cart/delete/${id}`, {
+  async deleteProduct(id: any, data:any, token: any) {
+    const response = await axios.post(this.url + `cart/delete/${id}`, data, {
       headers: { Authorization: token }
     });
     return response;

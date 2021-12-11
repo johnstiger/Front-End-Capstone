@@ -55,7 +55,7 @@ export class MyOrderPageComponent implements OnInit {
     this.products = JSON.parse(localStorage.getItem('products') || '')
     if(this.products[0].length == undefined){
       this.products.forEach(product => {
-        this.totalAmount += product.pivot.total
+        this.totalAmount += parseInt(product.pivot.total)
         product.sizes.forEach((size:any)=>{
           if(size.id == product.pivot.sizeId){
             product["selected_size"] = size.size
@@ -139,7 +139,8 @@ export class MyOrderPageComponent implements OnInit {
       product_id: product.id,
       quantity: product.pivot.quantity,
       subtotal: product.pivot.total,
-      size_id: product.pivot.sizeId
+      size_id: product.pivot.sizeId,
+      checkout: product.pivot.is_checkout
     }
   }
 }

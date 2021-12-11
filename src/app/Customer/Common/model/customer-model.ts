@@ -102,7 +102,8 @@ export interface ProductRequestDto {
   product_id: number,
   quantity: number,
   subtotal: number,
-  size_id: number
+  size_id: number,
+  checkout : boolean
 }
 export interface OrderRequest {
   data: ProductRequestDto[],

@@ -29,7 +29,7 @@
         <p id="total" >Php {{ product.pivot.subtotal }}</p>
       </div>
       <div class="col-6 col-s-6 status" *ngIf="status == 0">
-        <button class="btn" id="rmvbtn" (click)="removeItem(product.pivot.order_id, product.id)">Remove</button>
+        <button class="btn" id="rmvbtn" (click)="removeItem(product.pivot, product.id)">Remove</button>
       </div>
       <div class="col-6 col-s-6 status" *ngIf="status == 0">
         <p id="pending">Pending</p>
@@ -101,7 +101,7 @@
                 <div class="col-12 col-s-12" *ngIf="status == 0">
                   <div class="row">
                     <div class="col-6 col-s-6 removebutton">
-                      <button class="btn" id="rmvbtn" (click)="removeItem(product.pivot.order_id, product.id)">Remove</button>
+                      <button class="btn" id="rmvbtn" (click)="removeItem(product.pivot, product.id)">Remove</button>
                     </div>
                     <div class="col-6 col-s-6">
                       <p id="pending">Pending</p>

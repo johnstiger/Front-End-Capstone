@@ -70,9 +70,9 @@ export class ToPayComponent implements OnInit {
       confirmButtonText: 'Yes, remove it!'
     }).then(async (result) => {
       if (result.value) {
-        let data = {data:productId};
+        let data = {data:orderId};
         this._customerService.showLoading();
-        const response = await this._customerService.removeProductOrder(orderId, data, this.token);
+        const response = await this._customerService.removeProductOrder(orderId.order_id, data, this.token);
     if(response.data.error){
 
     }else{

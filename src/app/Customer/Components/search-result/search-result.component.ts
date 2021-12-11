@@ -58,6 +58,9 @@ export class SearchResultComponent implements OnInit {
       console.log(result.data.found);
       this.message = result.data.message;
       this.products = result.data.found ? result.data.data : [];
+      this.products.forEach((product: any) => {
+        product.sizes = product.sizes.filter((size: any) => size.pivot.avail_unit_measure > 0)
+      })
       if(this.products.length == 0){
         this.display = true;
       }

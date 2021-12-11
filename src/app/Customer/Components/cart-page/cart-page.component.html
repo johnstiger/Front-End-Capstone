@@ -27,7 +27,7 @@
     <div class="col-12 col-s-12">
       <hr id="headerhr" />
     </div>
-    <form name="form" #Checkout="ngForm" *ngIf="products.length > 0">
+    <form name="form" #Checkout="ngForm" id="mobileForm" *ngIf="products.length > 0">
       <div *ngFor="let product of products">
         <div class="col-12 col-s-12 content">
           <div class="row">
@@ -155,7 +155,7 @@
     <div class="col-12 col-s-12">
       <hr class="hr768" />
     </div>
-    <form name="form" #Checkout="ngForm">
+    <form name="form" id="form" #Checkout="ngForm">
       <div class="col-12 col-s-12">
         <div class="row" *ngFor="let product of products">
           <div class="col-2 col-s-2">

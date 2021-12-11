@@ -46,6 +46,9 @@ export class LandingComponent implements OnInit {
     if(result.data.error){
     }else{
       this.products = result.data.message == "No data yet!" ? [] : result.data.data
+      this.products.forEach((product: any) => {
+        product.sizes = product.sizes.filter((size: any) => size.pivot.avail_unit_measure > 0)
+      })
       if(this.products.length > this.maxProductDisplay){
         this.displayViewAllProduct = true;
       }
@@ -63,6 +66,7 @@ export class LandingComponent implements OnInit {
         return res;
       })
     }
+
     this.service.closeLoading();
   }
 
@@ -86,6 +90,9 @@ export class LandingComponent implements OnInit {
         console.log(res.data.message);
       }else{
         this.salesItem = res.data.message == "No data yet!" ? [] : res.data.data
+        this.salesItem.forEach((product: any) => {
+          product.sizes = product.sizes.filter((size: any) => size.pivot.avail_unit_measure > 0)
+        })
         console.log(this.salesItem.map(res=>{
           const sizes = res.sizes.map((element:any)=>{
             return element.size
@@ -103,7 +110,6 @@ export class LandingComponent implements OnInit {
         if(this.salesItem.length > this.maxSaleDisplay){
           this.displayViewAllSales = true;
         }
-
       }
     })
   }
