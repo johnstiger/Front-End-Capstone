@@ -227,3 +227,11 @@ a{
   color: #0a0a0a;
   text-decoration: underline;
 }
+
+input:valid {
+  color: green;
+}
+
+input:invalid {
+  color: red;
+}
