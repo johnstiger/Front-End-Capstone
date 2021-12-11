@@ -64,6 +64,7 @@ import { NewPasswordComponent } from './Customer/Components/new-password/new-pas
 import { AddressesComponent } from './Customer/Components/addresses/addresses.component';
 import { AddAddressesComponent } from './Customer/Components/add-addresses/add-addresses.component';
 import { UpdateAddressComponent } from './Customer/Components/update-address/update-address.component';
+import { FieldErrorDisplayComponent } from './Customer/Components/field-error-display/field-error-display.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { UpdateAddressComponent } from './Customer/Components/update-address/upd
     NewPasswordComponent,
     AddressesComponent,
     AddAddressesComponent,
-    UpdateAddressComponent
+    UpdateAddressComponent,
+    FieldErrorDisplayComponent
 
   ],
   imports: [

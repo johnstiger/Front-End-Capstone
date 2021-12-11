@@ -4,55 +4,81 @@ import { AddressService } from './../../Services/address.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../Services/customer.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-addresses',
   templateUrl: './add-addresses.component.html',
-  styleUrls: ['./add-addresses.component.css']
+  styleUrls: ['./add-addresses.component.css'],
 })
 export class AddAddressesComponent implements OnInit {
-  submitted: boolean = false
-  addressForm: FormGroup = new FormGroup({
-    contact_number: new FormControl('', [
-      Validators.required, Validators.pattern('^(09|\\+639)\\d{9}$')
-    ]),
-    postal_code: new FormControl('', [
-      Validators.required, Validators.maxLength(4)
-    ]),
-    region: new FormControl('', [
-      Validators.required
-    ]),
-    province: new FormControl('', [
-      Validators.required
-    ]),
-    city: new FormControl('', [
-      Validators.required
-    ]),
-    municipality: new FormControl('', [
-      Validators.required
-    ]),
-    barangay: new FormControl('', [
-      Validators.required
-    ]),
-    active: new FormControl('1', [
-      Validators.required
-    ])
-  })
+  form!: FormGroup;
+  submitted: boolean = false;
   customerId = localStorage.getItem('customer') || '';
   token = localStorage.getItem('customer_token') || '';
-  firstname : any;
-  lastname : any;
-  image : any;
+  firstname: any;
+  lastname: any;
+  image: any;
 
-  constructor(private service: AddressService, private http : CustomerService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: AddressService,
+    private http: CustomerService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-    this.http.getCustomerProfile(this.customerId,this.token).then((res)=>{
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      contact_number: [
+        null,[
+        Validators.required,
+        Validators.pattern('^(09|\\+639)\\d{9}$')],
+      ],
+      postal_code: [null, [
+        Validators.required,
+        Validators.maxLength(4),
+        Validators.pattern('[0-9]{4}')]
+      ],
+      province: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required]),
+      municipality: new FormControl('', [Validators.required]),
+      barangay: new FormControl('', [Validators.required]),
+      active: new FormControl('1', [Validators.required]),
+    });
+
+    this.http.getCustomerProfile(this.customerId, this.token).then((res) => {
       this.firstname = res.data.data.firstname;
       this.lastname = res.data.data.lastname;
       this.image = res.data.data.image;
       this.http.closeLoading();
-    })
+    });
+  }
+
+
+  isFieldValid(field: string) {
+    return !this.form.get(field)?.valid && this.form.get(field)?.touched;
+  }
+
+  displayFieldCss(field: string) {
+    return {
+      'has-error': this.isFieldValid(field),
+      'has-feedback': this.isFieldValid(field),
+    };
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach((field) => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
+
+  reset() {
+    this.form.reset();
   }
 
   addAddress() {
@@ -60,13 +86,13 @@ export class AddAddressesComponent implements OnInit {
       title: "Loading....",
       didOpen : () => {
         Swal.showLoading();
-      }
+    }
     })
-    this.service.addAddress(this.addressForm.value).subscribe((data) => {
-      this.router.navigateByUrl('/addresses')
-      Swal.close()
-    })
+    if(this.form.valid) {
+      this.service.addAddress(this.form.value).subscribe((data) => {
+        this.router.navigateByUrl('/addresses')
+        Swal.close()
+      })
+    }
   }
 }
-
-

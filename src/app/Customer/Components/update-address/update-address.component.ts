@@ -19,9 +19,8 @@ export class UpdateAddressComponent implements OnInit {
     ]),
     postal_code: new FormControl('', [
       Validators.required,
-    ]),
-    region: new FormControl('', [
-      Validators.required
+      Validators.maxLength(4),
+      Validators.pattern('[0-9]{4}')
     ]),
     province: new FormControl('', [
       Validators.required
@@ -64,6 +63,33 @@ export class UpdateAddressComponent implements OnInit {
       this.http.closeLoading();
     })
   }
+
+  isFieldValid(field: string) {
+    return !this.addressForm.get(field)?.valid && this.addressForm.get(field)?.touched;
+  }
+
+  displayFieldCss(field: string) {
+    return {
+      'has-error': this.isFieldValid(field),
+      'has-feedback': this.isFieldValid(field),
+    };
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach((field) => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
+
+  reset() {
+    this.addressForm.reset();
+  }
+
   updateAddress() {
     Swal.fire({
       title: "Loading....",
@@ -71,9 +97,11 @@ export class UpdateAddressComponent implements OnInit {
         Swal.showLoading();
       }
     })
-    this.service.updateAddress(this.id, this.addressForm.value).subscribe(response => {
-      this.router.navigateByUrl('/addresses')
-      Swal.close()
-    })
+    if(this.addressForm.valid) {
+      this.service.updateAddress(this.id, this.addressForm.value).subscribe(response => {
+        this.router.navigateByUrl('/addresses')
+        Swal.close()
+      })
+    }
   }
 }
