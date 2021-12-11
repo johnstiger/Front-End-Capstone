@@ -10,7 +10,7 @@
             Fullname: {{ user?.firstname }} {{ user?.lastname }}
           </p>
           <p class="data">Email: {{ user?.email }}</p>
-          <p class="label">Addresss</p>
+          <p class="label">Address</p>
           <div
             class="custom-control custom-radio"
             *ngFor="let address of user?.addresses; let ndx = index"
@@ -148,7 +148,7 @@
       </div>
     </div>
     <div class="col-12 col-s-12 " style="margin-left: 3vw;">
-      <p class="label">Addresss</p>
+      <p class="label">Address</p>
       <div
         class="custom-control custom-radio"
         *ngFor="let address of user?.addresses; let i = index"
