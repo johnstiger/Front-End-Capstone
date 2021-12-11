@@ -26,7 +26,8 @@ export class ToPayComponent implements OnInit {
     this.getUser();
     const  response = await this._customerService.getOrders(this.token)
     this.orders = response.data.data
-    console.log(response.data.data);
+    this.orders = this.orders.filter((product: any) => product.products.length > 0)
+    console.log(this.orders);
     if(this.orders == undefined){
       this.display = true
     }else{
