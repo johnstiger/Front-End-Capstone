@@ -1,7 +1,9 @@
 body {
   background-color: #c7988e;
 }
-
+.leftSide{
+  margin-left: -51px !important;
+}
 .topnav{
   margin-bottom: 75px;
 }
