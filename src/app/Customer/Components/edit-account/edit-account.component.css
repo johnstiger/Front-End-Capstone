@@ -231,7 +231,8 @@ p, a{
   .account{
     width: 16.66%;
     margin-left: 8vw;
-    margin-bottom: 35%;
+    /* margin-bottom: 35%; */
+    height: 28vw;
   }
   .editpanel{
     margin-bottom: 24%;
@@ -266,7 +267,7 @@ p, a{
   }
 }
 @media screen and (min-width:1440px) {
-  .account{margin-bottom: 27%;    height: 30vw;}
+  .account{margin-bottom: 33%;}
   #cancelbtn, #savebtn{margin-left: -1vw;}
   .account p, .deliverypanel p, .btn, input{font-size: 1.5vw;}
   .account{width: 16.66%;}

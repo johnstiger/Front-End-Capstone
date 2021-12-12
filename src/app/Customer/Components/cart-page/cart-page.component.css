@@ -62,9 +62,9 @@ hr{height: 0.2vw;}
 
 .input {
     font-size: 4vw;
-    width: 60%;
-    margin-left: 8%;
-    height: 15%;
+    width: 40%;
+    margin-left: 12%;
+    height: 11%;
     border-radius: 3px;
     padding: 1vw;
 }
@@ -196,8 +196,8 @@ p,
     left: -1vw;
   }
   .subselect{
-    margin-left: 2vw;
-    margin-top: -4vw;
+    margin-left: -2vw;
+    margin-top: -22vw;
   }
   .headertitle{
     margin-top: -18vw;
@@ -233,7 +233,7 @@ p,
   }
   .quantity{
     color: #C7988E;
-    margin-left: -2vw;
+    margin-left: -7vw;
     margin-bottom: 5vw;
   }
   #total{

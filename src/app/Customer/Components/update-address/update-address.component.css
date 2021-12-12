@@ -127,7 +127,8 @@ a{
   }
   .account{
     text-align: center;
-    margin-bottom: 35%;
+    /* margin-bottom: 35%; */
+    height: 35vw;
     margin-left: 2.6vw;
     width: 20%;
   }
@@ -175,7 +176,9 @@ a{
   .account{
     width: 16.66%;
     margin-left: 8vw;
-    margin-bottom: 35%;
+    /* margin-bottom: 35%; */
+    height: 28vw;
+
   }
   .deliverypanel{
     margin-bottom: 22%;
@@ -203,8 +206,8 @@ a{
 }
 @media screen and (min-width:1440px) {
   .account{
-    /* margin-bottom: 33%; */
-    height: 28vw;
+    margin-bottom: 33%;
+    /* height: 28vw; */
   }
   #hr768{width: 58vw;}
 }

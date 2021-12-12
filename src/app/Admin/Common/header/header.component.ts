@@ -65,7 +65,6 @@ export class HeaderComponent implements OnInit {
       if(res.data.error){
         this.service.ShowErrorMessage(res.data.message);
       }else{
-        window.location.reload();
         this.router.navigate(['/admin/pending-orders']);
       }
     })

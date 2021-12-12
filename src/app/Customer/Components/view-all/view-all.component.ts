@@ -40,6 +40,8 @@ export class ViewAllComponent implements OnInit {
       this.getSalesProduct();
     }else if(this.suggestId == '2'){
       this.title = 'All Products';
+      console.log(this.showSuggestProducts);
+
       this.getProducts();
     }
 

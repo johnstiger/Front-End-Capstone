@@ -136,7 +136,7 @@
     .account{
       text-align: center;
       /* margin-bottom: 35%; */
-      height: 28vw;
+      height: 35vw;
       margin-left: 2.6vw;
       width: 20%;
     }
@@ -150,7 +150,7 @@
       height: 90%;
       box-shadow: 4px 4px rgba(202, 195, 195, 0.541);
     }
-    #quant{margin-left: 9vw;}
+    #quant{margin-left: 6vw;}
     #prodname, #amount{margin-bottom: 0vw;}
     #total{margin-top: -1vw;}
     #hr1{
@@ -207,7 +207,7 @@
       margin-bottom: 5%;}
     #quant{
       margin-bottom: 5%;
-      margin-left: 7vw;
+      margin-left: 5vw;
     }
     .right768{text-align: left;}
     #amount, #total{margin-left: 1vw;}

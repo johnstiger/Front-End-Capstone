@@ -10,8 +10,6 @@ import { AdminService } from '../../Services/admin.service';
   styleUrls: ['./pending-orders.component.css']
 })
 
-// Kani wa pa gyapon na trabaho
-// Paabuton nalang mahuman ang back end ani
 
 export class PendingOrdersComponent implements OnInit {
 
@@ -72,9 +70,6 @@ export class PendingOrdersComponent implements OnInit {
         this.http.ShowErrorMessage(result.data.message)
       }else{
         this.orders = result.data.data;
-        console.log(this.orders);
-
-
       }
       this.http.closeLoading();
     })
@@ -155,7 +150,7 @@ export class PendingOrdersComponent implements OnInit {
       }else{
         this.http.ShowSuccessMessage(result.data.message);
         setTimeout(()=>{
-          window.location.reload();
+          this.getPendingOrders();
         }, 1500);
       }
     });
