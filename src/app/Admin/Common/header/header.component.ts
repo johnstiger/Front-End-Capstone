@@ -1,8 +1,6 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/Common/Services/notification.service';
-import { UrlService } from 'src/app/Url/url.service';
 import { AdminService } from '../../Services/admin.service';
 
 @Component({
@@ -15,7 +13,6 @@ export class HeaderComponent implements OnInit {
   message : any;
   constructor(
     private service: AdminService,
-    private link :  UrlService,
     private router : Router,
     private notificationService:NotificationService
     )
@@ -24,7 +21,6 @@ export class HeaderComponent implements OnInit {
     }
 
 
-  // token = this.link.getToken();
   token = localStorage.getItem('admin_token')
 
   name! : any;
@@ -36,13 +32,12 @@ export class HeaderComponent implements OnInit {
   async getUser(){
     const result = await this.service.getUser(this.token);
     this.name = result.data.firstname;
-    console.log('Logggg', this.name)
   }
 
 
   async logout(){
     this.service.loading();
-    const result = await this.service.logoutUser(this.token);
+    await this.service.logoutUser(this.token);
     localStorage.clear();
     window.location.reload();
   }

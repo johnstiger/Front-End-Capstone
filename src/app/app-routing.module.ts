@@ -65,7 +65,6 @@ const routes: Routes = [
       { path: 'add-sales', component: AddSaleComponent },
       { path: 'add-sales/:id', component: AddSaleComponent },
       { path: 'edit-sales/:id', component: EditSaleComponent },
-
       { path: 'categories', component: CategoryComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'edit-category/:id', component: EditCategoryComponent }

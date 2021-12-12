@@ -1,17 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
-import { UrlService } from 'src/app/Url/url.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
   constructor(
-    private http: HttpClient,
-    private link: UrlService,
     private router: Router
   ) {}
 

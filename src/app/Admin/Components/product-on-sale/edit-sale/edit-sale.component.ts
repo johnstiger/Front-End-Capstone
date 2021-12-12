@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SalesProduct } from 'src/app/Admin/Common/model/admin-model';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
-import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-edit-sale',
@@ -14,13 +13,11 @@ export class EditSaleComponent implements OnInit {
 
   constructor(
     private router : ActivatedRoute,
-    private url : UrlService,
     private http : AdminService,
     private location : Location
     ) { }
 
   token = localStorage.getItem('admin_token');
-  path = this.url.setImageUrl();
   image : any;
   salesItem! : SalesProduct;
   name! : any;

@@ -5,7 +5,6 @@ import {
   Categories,
   Orders
 } from 'src/app/Customer/Common/model/customer-model';
-import { UrlService } from 'src/app/Url/url.service';
 import { SalesProduct } from '../../Common/model/admin-model';
 import { AdminService } from '../../Services/admin.service';
 
@@ -18,7 +17,7 @@ import { AdminService } from '../../Services/admin.service';
 // Kulang kay pag retrieve sang value para sa chart
 // back end ani kay wala pa nahuman
 export class DashboardComponent implements OnInit {
-  constructor(private http: AdminService, private link: UrlService) {}
+  constructor(private http: AdminService) {}
 
   // token = this.link.getToken();
   token = localStorage.getItem('admin_token');

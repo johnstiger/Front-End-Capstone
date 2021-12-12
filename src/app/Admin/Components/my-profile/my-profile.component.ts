@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Admins } from 'src/app/Customer/Common/model/customer-model';
-import { UrlService } from 'src/app/Url/url.service';
-import Swal from 'sweetalert2';
 import { AdminService } from '../../Services/admin.service';
 
 @Component({
@@ -11,8 +9,6 @@ import { AdminService } from '../../Services/admin.service';
   styleUrls: ['./my-profile.component.css']
 })
 
-// Kulang kay nig update sa image bisan wala siya ge input
-// kay mag error siya.....
 
 export class MyProfileComponent implements OnInit {
 
@@ -40,14 +36,9 @@ export class MyProfileComponent implements OnInit {
 
   constructor(
     private service : AdminService,
-    private link : UrlService
     ) {}
 
-  //  token = this.link.getToken();
   token = localStorage.getItem('admin_token')
-
-   path = this.link.setImageUrl();
-
 
   ngOnInit(): void {
     this.getUser();

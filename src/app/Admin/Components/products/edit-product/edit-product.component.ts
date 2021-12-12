@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories, Products, Sizes } from 'src/app/Customer/Common/model/customer-model';
-import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -38,7 +37,6 @@ export class EditProductComponent implements OnInit {
     private service : AdminService,
     private location: Location,
     private router : ActivatedRoute,
-    private link : UrlService
     ) { }
 
     token = localStorage.getItem('admin_token');

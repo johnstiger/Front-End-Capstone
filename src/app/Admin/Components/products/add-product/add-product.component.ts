@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories, Sizes } from 'src/app/Customer/Common/model/customer-model';
-import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-add-product',
@@ -33,7 +32,6 @@ export class AddProductComponent implements OnInit {
   constructor(
     private http : AdminService,
     private location: Location,
-    private link : UrlService
     ) { }
 
     // token = this.link.getToken();

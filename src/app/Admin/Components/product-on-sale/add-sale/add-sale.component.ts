@@ -1,12 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Product } from 'src/app/Admin/Common/model/admin-model';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Products, Sizes } from 'src/app/Customer/Common/model/customer-model';
-import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-add-sale',
@@ -17,7 +14,6 @@ export class AddSaleComponent implements OnInit {
 
 
   constructor(
-    private url : UrlService,
     private service : AdminService,
     private route : Router,
     private router : ActivatedRoute,

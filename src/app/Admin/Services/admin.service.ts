@@ -1,23 +1,16 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
-import { UrlService } from 'src/app/Url/url.service';
 import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
-import { timeInterval } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
 
-  constructor(private link : UrlService) { }
+  constructor() { }
 
-  // token = localStorage.getItem('admin_token');
-
-  // url = this.link.setUrl();
   url = environment.url;
-
-  // auth = {headers:{Authorization: this.token}};
 
   //dashboard
   async dashboard(token:any){

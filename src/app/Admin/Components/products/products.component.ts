@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { Products } from 'src/app/Customer/Common/model/customer-model';
 import { AdminService } from '../../Services/admin.service';
 import Swal from 'sweetalert2';
-import { UrlService } from 'src/app/Url/url.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -35,7 +33,6 @@ export class ProductsComponent implements OnInit {
   constructor(
     private service: AdminService,
     private router: Router,
-    private link: UrlService,
   ) { }
 
   token = localStorage.getItem('admin_token');

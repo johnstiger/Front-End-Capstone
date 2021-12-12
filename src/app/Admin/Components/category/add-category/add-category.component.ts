@@ -2,7 +2,6 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
-import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-add-category',
@@ -23,7 +22,6 @@ export class AddCategoryComponent implements OnInit {
   constructor(
     private http : AdminService,
     private location : Location,
-    private link : UrlService
     ) { }
 
     // token = this.link.getToken();

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/Admin/Services/admin.service';
 import { Categories } from 'src/app/Customer/Common/model/customer-model';
-import { UrlService } from 'src/app/Url/url.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -19,7 +18,6 @@ export class EditCategoryComponent implements OnInit {
     private http : AdminService,
     private location : Location,
     private router: ActivatedRoute,
-    private link : UrlService
     ) { }
 
   // token = this.link.getToken();

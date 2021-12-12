@@ -88,6 +88,7 @@ export class AddAddressesComponent implements OnInit {
         Swal.showLoading();
     }
     })
+
     if(this.form.valid) {
       this.service.addAddress(this.form.value).subscribe((data) => {
         this.router.navigateByUrl('/addresses')

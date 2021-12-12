@@ -46,7 +46,6 @@ import { AddCategoryComponent } from './Admin/Components/category/add-category/a
 import { ShowProfileComponent } from './Customer/Components/show-profile/show-profile.component';
 import { DeliveryPageComponent } from './Customer/Components/delivery-page/delivery-page.component';
 import { SearchResultComponent } from './Customer/Components/search-result/search-result.component';
-import { CongratsComponent } from './Customer/Components/congrats/congrats.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 

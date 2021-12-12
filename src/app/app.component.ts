@@ -17,7 +17,7 @@ export class AppComponent {
   {
   }
 
-  publishNotification() {
-    this.notificationService.sendNotification('this is a message')
-  }
+  // publishNotification() {
+  //   this.notificationService.sendNotification('this is a message')
+  // }
 }
