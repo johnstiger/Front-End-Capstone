@@ -75,10 +75,7 @@ export class MyProfileComponent implements OnInit {
 
    submit(data:any){
     this.service.loading();
-    // var imageData = new FormData();
-    // imageData.append('image', this.filedata);
     data.fileSource = this.filedata != undefined ? this.filedata : data.image;
-
     this.service.updateAdmin(data.id, data, this.token).then(async (result)=>{
     if(result.data.error){
       this.error = result.data.message
@@ -87,14 +84,8 @@ export class MyProfileComponent implements OnInit {
     }else{
       this.service.ShowSuccessMessage(result.data.message);
       setTimeout(() => {
-        this.ngOnInit();
+        window.location.reload();
       }, 2000);
-      // const response = await this.service.adminImage(result.data.data.id, imageData, this.token);
-      // if(response.data.error){
-      //   this.error = response.data.message;
-      //   this.service.closeLoading();
-      // }else{
-      // }
     }
     }).catch((e)=>{
       console.log(e);
