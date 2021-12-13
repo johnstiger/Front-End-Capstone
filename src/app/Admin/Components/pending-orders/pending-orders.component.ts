@@ -107,7 +107,7 @@ export class PendingOrdersComponent implements OnInit {
         this.onCloseHandled();
         this.http.ShowSuccessMessage(result.data.message);
         setTimeout(()=>{
-          this.ngOnInit();
+          this.getPendingOrders();
         },1500)
       }
     });
