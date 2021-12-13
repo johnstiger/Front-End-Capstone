@@ -36,7 +36,7 @@ export class ViewAllComponent implements OnInit {
     if(this.suggestId == '1'){
       this.title = 'Hot Sales';
       this.showSuggestProducts = true;
-      this.getProducts();
+      this.getProductsWithoutSale();
       this.getSalesProduct();
     }else if(this.suggestId == '2'){
       this.title = 'All Products';
@@ -72,6 +72,35 @@ export class ViewAllComponent implements OnInit {
     })
   }
 
+  async getProductsWithoutSale() {
+    this.service.showLoading();
+    const result = await this.service.products('');
+    if(result.data.error){
+    }else{
+      this.products = result.data.message == "No data yet!" ? [] : result.data.data
+
+      this.products.forEach((product: any) => {
+        product.sizes = product.sizes.filter((size: any) => size.pivot.avail_unit_measure > 0)
+      })
+      this.products = this.products.map(res=>{
+        const sizes = res.sizes.map((element:any)=>{
+            return element.size
+        })
+        if(sizes.length > 1){
+          res.availableSize = sizes[0]+'-'+sizes[sizes.length - 1];
+        }else if(sizes.length == 1){
+          res.availableSize = sizes[0];
+        }else{
+          res.availableSize = [];
+        }
+        return res;
+      })
+
+    }
+
+    this.service.closeLoading();
+  }
+
   async getProducts() {
     this.service.showLoading();
     const result = await this.service.viewAllProducts('token');
@@ -79,8 +108,9 @@ export class ViewAllComponent implements OnInit {
 
     }else{
       this.products = result.data.message == "No data yet!" ? [] : result.data.data
-      console.log(result.data);
-
+      this.products.forEach((product: any) => {
+        product.sizes = product.sizes.filter((size: any) => size.pivot.avail_unit_measure > 0)
+      })
       this.products = this.products.map(res=>{
         const sizes = res.sizes.map((element:any)=>{
             return element.size
