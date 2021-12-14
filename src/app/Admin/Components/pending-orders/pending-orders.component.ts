@@ -38,6 +38,9 @@ export class PendingOrdersComponent implements OnInit {
   secondModal : number = 1;
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('new_order')){
+      window.location.reload();
+    }
     this.getPendingOrders();
   }
 
@@ -71,6 +74,7 @@ export class PendingOrdersComponent implements OnInit {
       }else{
         this.orders = result.data.data;
       }
+      sessionStorage.removeItem('new_order');
       this.http.closeLoading();
     })
   }

@@ -23,6 +23,7 @@ export class NotificationService {
       this.counter++;
       document.querySelector<HTMLElement>('.badge')!.style.display = 'block';
       document.querySelector<HTMLElement>('.badge')!.innerHTML = this.counter.toString();
+      sessionStorage.setItem('new_order','1');
     })
   }
 }
