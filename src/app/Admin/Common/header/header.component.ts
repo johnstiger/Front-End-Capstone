@@ -61,6 +61,7 @@ export class HeaderComponent implements OnInit {
   }
 
   notification(){
+    this.service.loading();
     this.service.updateViewOrders(this.token).then((res)=>{
       if(res.data.error){
         this.service.ShowErrorMessage(res.data.message);
