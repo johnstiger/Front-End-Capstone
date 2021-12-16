@@ -24,6 +24,7 @@ export class PendingOrdersComponent implements OnInit {
   token = localStorage.getItem('admin_token');
   orders! : Orders [];
   data : Data[] = [];
+  newData : Array<any> = [];
   display ='none';
   customerName : any;
   customerOrders : Array<any> = [];
@@ -38,7 +39,12 @@ export class PendingOrdersComponent implements OnInit {
   secondModal : number = 1;
 
   ngOnInit(): void {
-    this.getPendingOrders();
+    if(sessionStorage.getItem('new_order')){
+      sessionStorage.removeItem('new_order');
+      window.location.reload();
+    }else{
+      this.getPendingOrders();
+    }
   }
 
   filterTable(){
@@ -70,6 +76,13 @@ export class PendingOrdersComponent implements OnInit {
         this.http.ShowErrorMessage(result.data.message)
       }else{
         this.orders = result.data.data;
+        this.orders.map(res=>{
+          if(res.products.length > 0){
+            this.newData.push(res);
+          }
+        })
+        this.orders = this.newData
+
       }
       this.http.closeLoading();
     })

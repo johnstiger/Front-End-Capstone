@@ -28,6 +28,3 @@ export class NotificationService {
   }
 }
 
-export enum NOFICATION_MSG {
-  NEW_ORDER = 'New order purchase.',
-}
