@@ -67,6 +67,7 @@ export class HeaderComponent implements OnInit {
         this.service.ShowErrorMessage(res.data.message);
       }else{
         this.service.closeLoading();
+        document.querySelector<HTMLElement>('.badge')!.style.display = 'none';
         this.router.navigate(['/admin/pending-orders']);
       }
     })
