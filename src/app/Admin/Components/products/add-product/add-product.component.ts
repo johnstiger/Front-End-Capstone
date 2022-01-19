@@ -103,6 +103,10 @@ export class AddProductComponent implements OnInit {
 
   }
 
+  checkNumber(price:any){
+    return price < 0 ? 1 : price;
+  }
+
   async productCategories(){
     const result = await this.http.getCategories(this.token);
     console.log(result.data);

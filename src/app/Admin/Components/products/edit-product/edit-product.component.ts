@@ -182,6 +182,10 @@ export class EditProductComponent implements OnInit {
 
   }
 
+  checkNumber(price:any){
+    return price < 0 ? 1 : price;
+  }
+
   noSizesChoose($event : any){
     let test = document.getElementById(''+$event.value+'') as HTMLLIElement
     const buttonSize = document.querySelector<HTMLElement>('.add-size')!;
