@@ -42,6 +42,7 @@ export class ProductsComponent implements OnInit {
   product: Array<any> = [];
 
   ngOnInit(): void {
+    sessionStorage.removeItem('no_negative')
     $("input[type=number]").on("keydown",function(e){
       var invalidChars = ["-", "+", "e"];
       if (invalidChars.includes(e.key)) {
@@ -111,11 +112,24 @@ export class ProductsComponent implements OnInit {
   }
 
   update(product: any) {
-    this.router.navigate(['/admin/edit-product/' + product.id], {
-      state: {
-        data: product
+    var negativeNumbers = 0;
+    product.sizes.forEach((element : any) => {
+      if(element.pivot.avail_unit_measure < 0){
+       negativeNumbers += 1
       }
-    })
+    });
+    console.log(negativeNumbers);
+    if(negativeNumbers == 0){
+      sessionStorage.setItem('no_negative', '1')
+      this.router.navigate(['/admin/edit-product/' + product.id], {
+        state: {
+          data: product
+        }
+      })
+    }else{
+      this.service.ShowErrorMessage('This product is no longer available')
+    }
+
   }
 
   async confirmDelete(product: any) {
