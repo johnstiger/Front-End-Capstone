@@ -47,7 +47,16 @@
                         <div *ngIf="errors && errors.price" class="alert alert-danger">
                             *{{ errors.price[0] }}
                         </div>
-                        <input type="number" min="1" class="form-control" name="" formControlName="price" id="price" placeholder="Price">
+                        <input
+                        type="number"
+                        min="1"
+                         class="form-control"
+                         name=""
+                         formControlName="price"
+                         id="price"
+                         #price
+                         (change)="price.value = checkNumber(price.value)"
+                         placeholder="Price">
                     </div>
                     <div class="col form-group">
                         <div *ngIf="errors && errors.sizes" class="alert alert-danger">
@@ -63,7 +72,17 @@
                         <div *ngIf="errors && errors.unit_measure" class="alert alert-danger">
                             *{{ errors.unit_measure[0] }}
                         </div>
-                        <input type="number" min="1" class="form-control" name="" id="unit_measure" formControlName="unit_measure" placeholder="Quantity" value="">
+                        <input
+                        type="number"
+                        min="1"
+                        class="form-control"
+                        name=""
+                        id="unit_measure"
+                        formControlName="unit_measure"
+                        placeholder="Quantity"
+                        #quantity
+                        (change)="quantity.value = checkNumber(quantity.value)"
+                        value="">
                     </div>
                     <div class="col">
                         <button type="button" class="btn add-size" (click)="addSize(this)"><i class="fas fa-plus-circle"></i> Add Size</button>
