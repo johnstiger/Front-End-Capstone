@@ -33,16 +33,20 @@ export class CartPageComponent implements OnInit {
           this.products = [];
         } else {
           this.products = result.data.data;
-          // var total = 0;
+
+          this.products.forEach((product: any) => {
+            product.sizes = product.sizes.filter((size: any) => size.id === product.pivot.sizeId)
+            console.log(product);
+            product.pivot.total = product.is_sale ? product.sale_price*product.pivot.quantity : product.price*product.pivot.quantity
+          })
+
           var overallTotal = this.products.map(res => {
             return parseInt(res.pivot.total);
           });
+
           this.total = overallTotal.reduce(
             (total: any, num: any) => total + num
-          );
-          this.products.forEach((product: any) => {
-            product.sizes = product.sizes.filter((size: any) => size.id === product.pivot.sizeId)
-          })
+            );
           // this.products = this.products.filter((product: any) => product.sizes[0].pivot.avail_unit_measure > 0)
         }
         this.service.closeLoading();
