@@ -44,6 +44,7 @@ import { ResetPasswordComponent } from './Customer/Components/reset-password/res
 import { NewPasswordComponent } from './Customer/Components/new-password/new-password.component';
 import { ResetPasswordGuard } from './Authorization/reset-password.guard';
 import { AddressesComponent } from './Customer/Components/addresses/addresses.component';
+import { RoutesGuard } from './Authorization/routes.guard';
 
 const routes: Routes = [
   { path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full' },
@@ -55,7 +56,7 @@ const routes: Routes = [
       { path: 'orders', component: OrdersComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'add-product', component: AddProductComponent },
-      { path: 'edit-product/:id', component: EditProductComponent },
+      { path: 'edit-product/:id', component: EditProductComponent, canActivate:[RoutesGuard] },
       { path: 'customers', component: CustomersComponent },
       { path: 'admins', component: AdminsComponent },
       { path: 'add-admin', component: AddAdminComponent },
