@@ -45,6 +45,7 @@ export class EditProductComponent implements OnInit {
     fileSource : any;
 
   ngOnInit(): void {
+    sessionStorage.removeItem('no_negative');
     $("input[type=number]").on("keydown",function(e){
       var invalidChars = ["-", "+", "e"];
       if (invalidChars.includes(e.key)) {
